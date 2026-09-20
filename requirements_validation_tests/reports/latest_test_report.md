@@ -1,12 +1,12 @@
 # CredPilot Requirements Validation Report
 
-Generated: 2026-09-20T05:48:47Z  
+Generated: 2026-09-20T06:09:48Z  
 Implementation under validation: `E:\Virtusa Projects\CredPilot`  
 Requirements baseline: `source_requirements/requirements_verbatim.md`  
 Baseline SHA-256: `ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917`  
 Baseline integrity: **REQUIREMENTS_BASELINE_VERIFIED**  
 Suites executed: api, functional, governance, integration, static, workflow  
-Wall time: 0.02s
+Wall time: 0.18s
 
 ---
 
@@ -20,7 +20,7 @@ Tests Executed: 320
 Requirements Passed: 5
 Requirements Failed: 107
 Requirement Coverage: 100.0%
-Overall Requirement Fit: 3%
+Overall Requirement Fit: 4%
 
 Final Status:
 FAIL
@@ -42,11 +42,11 @@ Automated tests executed: 311  |  Manual / non-automatable tests executed: 9
 | --- | --- | --- | --- |
 | REQ-003 | 0 | governance | 8 of 8 bound test(s) produced no satisfying evidence: REQ-003-T01, REQ-003-T02, REQ-003-T03, REQ-003-T04, REQ-003-T05, REQ-003-T06 (+2 more). |
 | REQ-014 | 0 | governance | 10 of 10 bound test(s) produced no satisfying evidence: REQ-014-T01, REQ-014-T02, REQ-014-T03, REQ-014-T04, REQ-014-T05, REQ-014-T06 (+4 more). |
-| REQ-015 | 0 | auditability | 2 of 2 bound test(s) produced no satisfying evidence: REQ-015-T01, REQ-015-T02. |
+| REQ-015 | 50 | auditability | 1 of 2 bound test(s) produced no satisfying evidence: REQ-015-T02. |
 | REQ-017 | 0 | non_functional | 1 of 1 bound test(s) produced no satisfying evidence: REQ-017-T01. |
 | REQ-020 | 0 | underwriting | 6 of 6 bound test(s) produced no satisfying evidence: REQ-020-T01, REQ-020-T02, REQ-020-T03, REQ-020-T04, REQ-020-T05, REQ-020-T06. |
 | REQ-022 | 0 | orchestration | 7 of 7 bound test(s) produced no satisfying evidence: REQ-022-T01, REQ-022-T02, REQ-022-T03, REQ-022-T04, REQ-022-T05, REQ-022-T06 (+1 more). |
-| REQ-023 | 0 | non_functional | 2 of 2 bound test(s) produced no satisfying evidence: REQ-023-T01, REQ-023-T02. |
+| REQ-023 | 50 | non_functional | 1 of 2 bound test(s) produced no satisfying evidence: REQ-023-T02. |
 | REQ-024 | 0 | orchestration | 6 of 6 bound test(s) produced no satisfying evidence: REQ-024-T01, REQ-024-T02, REQ-024-T03, REQ-024-T04, REQ-024-T05, REQ-024-T06. |
 | REQ-025 | 0 | integration | 7 of 7 bound test(s) produced no satisfying evidence: REQ-025-T01, REQ-025-T02, REQ-025-T03, REQ-025-T04, REQ-025-T05, REQ-025-T06 (+1 more). |
 | REQ-026 | 0 | observability | 3 of 3 bound test(s) produced no satisfying evidence: REQ-026-T01, REQ-026-T02, REQ-026-T03. |
@@ -142,8 +142,8 @@ Automated tests executed: 311  |  Manual / non-automatable tests executed: 9
 | REQ-007 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-007-T01. |
 | REQ-008 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-008-T01. |
 | REQ-009 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-009-T01. |
-| REQ-010 | ENGAGEMENT | 0 | 2 of 2 bound test(s) produced no satisfying evidence: REQ-010-T01, REQ-010-T02. |
-| REQ-011 | ENGAGEMENT | 0 | 3 of 3 bound test(s) produced no satisfying evidence: REQ-011-T01, REQ-011-T02, REQ-011-T03. |
+| REQ-010 | ENGAGEMENT | 50 | 1 of 2 bound test(s) produced no satisfying evidence: REQ-010-T02. |
+| REQ-011 | ENGAGEMENT | 33 | 2 of 3 bound test(s) produced no satisfying evidence: REQ-011-T02, REQ-011-T03. |
 | REQ-012 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-012-T01. |
 | REQ-013 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-013-T01. |
 | REQ-018 | ENGAGEMENT | 0 | 1 of 1 bound test(s) produced no satisfying evidence: REQ-018-T01. |
@@ -158,13 +158,13 @@ Automated tests executed: 311  |  Manual / non-automatable tests executed: 9
 | Category | Requirements | Passed | Mean fit |
 | --- | --- | --- | --- |
 | affordability | 1 | 0 | 0 |
-| auditability | 11 | 0 | 2 |
+| auditability | 11 | 0 | 6 |
 | eligibility | 1 | 0 | 0 |
 | evaluation | 6 | 0 | 0 |
 | functional | 7 | 1 | 21 |
-| governance | 23 | 2 | 9 |
+| governance | 23 | 2 | 12 |
 | integration | 10 | 0 | 18 |
-| non_functional | 8 | 2 | 25 |
+| non_functional | 8 | 2 | 31 |
 | observability | 19 | 0 | 0 |
 | orchestration | 6 | 0 | 0 |
 | policy | 3 | 0 | 0 |
@@ -390,7 +390,7 @@ Format | Team of 2–4
 [FAIL] REQ-009-T01: Attestation for REQ-009-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
 ```
 
-### REQ-010 - FAIL (0/100)
+### REQ-010 - FAIL (50/100)
 
 **Class:** ENGAGEMENT  |  **Category:** governance  |  **Source:** Section 2. Engagement Overview — table row 3
 
@@ -401,18 +401,18 @@ Evaluation Mode | Automated review of the submitted Git repository against the H
 ~~~
 
 **Status:** FAIL  
-**Fit Score:** 0  
+**Fit Score:** 50  
 **Tests:** REQ-010-T01, REQ-010-T02  
-**Reason:** 2 of 2 bound test(s) produced no satisfying evidence: REQ-010-T01, REQ-010-T02.
+**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-010-T02.
 
 **Evidence:**
 
 ```
-[FAIL] REQ-010-T01: E:\Virtusa Projects\CredPilot contains no .git - it is not a Git repository
+[PASS] REQ-010-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 71 tracked files
 [FAIL] REQ-010-T02: Attestation for REQ-010-T02 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
 ```
 
-### REQ-011 - FAIL (0/100)
+### REQ-011 - FAIL (33/100)
 
 **Class:** ENGAGEMENT  |  **Category:** governance  |  **Source:** Section 2. Engagement Overview — table row 4
 
@@ -423,15 +423,19 @@ Submission | Push the final repository to your assigned Virtusa GitLab project b
 ~~~
 
 **Status:** FAIL  
-**Fit Score:** 0  
+**Fit Score:** 33  
 **Tests:** REQ-011-T01, REQ-011-T02, REQ-011-T03  
-**Reason:** 3 of 3 bound test(s) produced no satisfying evidence: REQ-011-T01, REQ-011-T02, REQ-011-T03.
+**Reason:** 2 of 3 bound test(s) produced no satisfying evidence: REQ-011-T02, REQ-011-T03.
 
 **Evidence:**
 
 ```
-[FAIL] REQ-011-T01: E:\Virtusa Projects\CredPilot is not a Git repository, so it has no remote
-[FAIL] REQ-011-T02: E:\Virtusa Projects\CredPilot is not a Git repository, so it has no remote to inspect.
+[PASS] REQ-011-T01: git remote -v:
+origin	git@github.com:KrishnaAnnavaram/CredPilot.git (fetch)
+origin	git@github.com:KrishnaAnnavaram/CredPilot.git (push)
+[FAIL] REQ-011-T02: No configured remote names GitLab, but the submission instruction names a Virtusa GitLab project. Remotes found:
+origin	git@github.com:KrishnaAnnavaram/CredPilot.git (fetch)
+origin	git@github.com:KrishnaAnnavaram/CredPilot.git (push)
 [FAIL] REQ-011-T03: UNSPECIFIED_BY_REQUIREMENT: the source document states no value or artifact from which 'the submission cut-off date and time, and the identity of the assigned Virtusa GitLab project' could be verified against an implementation.
 ```
 
@@ -525,7 +529,7 @@ What is evaluated: a working LangGraph multi-agent system (foundation: context e
 [NOT FOUND] No file at or near 'tests/test_tool_contracts.py' under E:\Virtusa Projects\CredPilot
 ```
 
-### REQ-015 - FAIL (0/100)
+### REQ-015 - FAIL (50/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** auditability  |  **Source:** Section 2. Engagement Overview — paragraph "What is evaluated", sentence 2
 
@@ -536,15 +540,15 @@ Every claim is scored from committed evidence.
 ~~~
 
 **Status:** FAIL  
-**Fit Score:** 0  
+**Fit Score:** 50  
 **Tests:** REQ-015-T01, REQ-015-T02  
-**Reason:** 2 of 2 bound test(s) produced no satisfying evidence: REQ-015-T01, REQ-015-T02.
+**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-015-T02.
 
 **Evidence:**
 
 ```
-[FAIL] REQ-015-T01: E:\Virtusa Projects\CredPilot contains no .git - it is not a Git repository
-[FAIL] REQ-015-T02: E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[PASS] REQ-015-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 71 tracked files
+[FAIL] REQ-015-T02: None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 ```
 
 ### REQ-016 - PASS (100/100)
@@ -722,10 +726,10 @@ You build a LangGraph multi-agent copilot, then instrument it with Arize Phoenix
 [NOT FOUND] No file at or near 'tests/test_routing.py' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] No file at or near 'tests/test_loops.py' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] No file at or near 'tests/test_tool_contracts.py' under E:\Virtusa Projects\CredPilot
-[FAIL] REQ-022-T07: E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[FAIL] REQ-022-T07: None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 ```
 
-### REQ-023 - FAIL (0/100)
+### REQ-023 - FAIL (50/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** non_functional  |  **Source:** Section 3.3 Expected Solution — lead-in sentence
 
@@ -736,14 +740,14 @@ A working, instrumented multi-agent application delivered as a Git repository th
 ~~~
 
 **Status:** FAIL  
-**Fit Score:** 0  
+**Fit Score:** 50  
 **Tests:** REQ-023-T01, REQ-023-T02  
-**Reason:** 2 of 2 bound test(s) produced no satisfying evidence: REQ-023-T01, REQ-023-T02.
+**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-023-T02.
 
 **Evidence:**
 
 ```
-[FAIL] REQ-023-T01: E:\Virtusa Projects\CredPilot contains no .git - it is not a Git repository
+[PASS] REQ-023-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 71 tracked files
 [FAIL] REQ-023-T02: working instrumented multi-agent application (ALL: 0/3 satisfied)
 [NOT FOUND] No file at or near 'src/graph.py' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] No file at or near 'src/observability/tracing.py' under E:\Virtusa Projects\CredPilot
@@ -837,8 +841,8 @@ Arize Phoenix instrumentation with a committed trace export, a machine-generated
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] No file at or near 'traces/phoenix_spans.jsonl' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] the export is committed (ANY: 0/2 satisfied)
-[NOT FOUND] Cannot verify 'traces/phoenix_spans.parquet' is committed: E:\Virtusa Projects\CredPilot is not a git repository, so no artifact in it can be shown to be committed evidence
-[NOT FOUND] Cannot verify 'traces/phoenix_spans.jsonl' is committed: E:\Virtusa Projects\CredPilot is not a git repository, so no artifact in it can be shown to be committed evidence
+[NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' to check for commitment
+[NOT FOUND] No file at or near 'traces/phoenix_spans.jsonl' to check for commitment
 [FAIL] REQ-026-T02: machine-generated tool-invocation log (ALL: 0/2 satisfied)
 [NOT FOUND] artifact absent: no file at or near 'logs/tool_calls.jsonl'
 [NOT FOUND] no committed Python source matches any producer pattern ['tool_calls\\.jsonl', 'tool[_\\- ]?call.*(?:append|write|dump)'] - the artifact cannot be shown to be machine-generated
@@ -928,7 +932,7 @@ Evidence-in-Repo Rule. Only committed artifacts are scored. A claim with no comm
 **Evidence:**
 
 ```
-[FAIL] REQ-029-T01: E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[FAIL] REQ-029-T01: None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 [FAIL] REQ-029-T02: No Python sources under E:\Virtusa Projects\CredPilot, so no artifact can have producing code.
 ```
 
@@ -1756,7 +1760,7 @@ NFR-06 | Evidence artifacts (traces, logs, reports) are machine-generated by com
 [FAIL] REQ-061-T01: No Python sources under E:\Virtusa Projects\CredPilot, so no artifact can have producing code.
 [FAIL] REQ-061-T02: artifact and its producer both committed (ALL: 0/2 satisfied)
 [NOT FOUND] No Python sources under E:\Virtusa Projects\CredPilot, so no artifact can have producing code.
-[NOT FOUND] E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[NOT FOUND] None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 ```
 
 ### REQ-062 - FAIL (0/100)
@@ -2135,7 +2139,7 @@ Tiered memory | src/memory/ + tests/test_memory_persistence.py + logs/memory_tes
 [FAIL] REQ-075-T02: No file at or near 'tests/test_memory_persistence.py' under E:\Virtusa Projects\CredPilot
 [FAIL] REQ-075-T03: committed memory test output log (ALL: 0/2 satisfied)
 [NOT FOUND] No file at or near 'logs/memory_test.log' under E:\Virtusa Projects\CredPilot
-[NOT FOUND] Cannot verify 'logs/memory_test.log' is committed: E:\Virtusa Projects\CredPilot is not a git repository, so no artifact in it can be shown to be committed evidence
+[NOT FOUND] No file at or near 'logs/memory_test.log' to check for commitment
 [FAIL] REQ-075-T04: short + long/semantic memory (ALL: 0/2 satisfied)
 [NOT FOUND] Cannot check 'short-term memory tier': no ['.py'] files under implementation tree
 [NOT FOUND] Cannot check 'long/semantic memory tier': no ['.py'] files under implementation tree
@@ -2648,7 +2652,7 @@ Every evidence artifact must be produced by committed code and committed in the 
 
 ```
 [FAIL] REQ-096-T01: No Python sources under E:\Virtusa Projects\CredPilot, so no artifact can have producing code.
-[FAIL] REQ-096-T02: E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[FAIL] REQ-096-T02: None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 [FAIL] REQ-096-T03: artifacts in their stated formats (ALL: 0/8 satisfied)
 [NOT FOUND] Phoenix trace export as Parquet or JSONL of OTel spans (ANY: 0/2 satisfied)
 [NOT FOUND] No artifact at or near 'traces/phoenix_spans.parquet'
@@ -2803,7 +2807,7 @@ Failure-mode analysis | Markdown | Open your Phoenix traces, pick ≥ 3 real fai
 ```
 [FAIL] REQ-101-T01: Markdown failure-mode analysis (ALL: 0/2 satisfied)
 [NOT FOUND] No file at or near 'docs/failure-analysis.md' under E:\Virtusa Projects\CredPilot
-[NOT FOUND] Cannot verify 'docs/failure-analysis.md' is committed: E:\Virtusa Projects\CredPilot is not a git repository, so no artifact in it can be shown to be committed evidence
+[NOT FOUND] No file at or near 'docs/failure-analysis.md' to check for commitment
 [FAIL] REQ-101-T02: No failure-mode analysis at or near 'docs/failure-analysis.md'.
 ```
 
@@ -3123,7 +3127,7 @@ On completion you will have demonstrated the skill the industry actually screens
 [NOT FOUND] No file at or near 'tests/test_loops.py' under E:\Virtusa Projects\CredPilot
 [NOT FOUND] No file at or near 'tests/test_tool_contracts.py' under E:\Virtusa Projects\CredPilot
 [FAIL] REQ-112-T06: committed, regenerable evidence (ALL: 0/3 satisfied)
-[NOT FOUND] E:\Virtusa Projects\CredPilot is not a Git repository, so no artifact in it can be shown to be committed evidence. Under the Evidence-in-Repo Rule nothing here is scorable.
+[NOT FOUND] None of the artifacts the source document names by path exist in the implementation, so there is no committed evidence to score. Looked for 25 named paths under E:\Virtusa Projects\CredPilot.
 [NOT FOUND] No Python sources under E:\Virtusa Projects\CredPilot, so no artifact can have producing code.
 [NOT FOUND] single documented command plus a regeneration command (ALL: 0/3 satisfied)
 [NOT FOUND] no single documented run command: no README.md found in the implementation
