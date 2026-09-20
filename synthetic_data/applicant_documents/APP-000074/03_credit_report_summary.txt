@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Omar Underhill (BORR-000089) ------------------------------
+  Credit file reference : ****0089  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 724, 734, 744
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance     13,022.10
+      limit         0.00   monthly     311.77   opened 2025-07-02   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     17,493.18
+      limit         0.00   monthly     238.41   opened 2024-07-23   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      7,335.67
+      limit    26,198.82   monthly     220.07   opened 2018-03-30   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      4,752.45
+      limit         0.00   monthly     146.72   opened 2018-04-29   late 30/60/90 in 24m: 0/0/0

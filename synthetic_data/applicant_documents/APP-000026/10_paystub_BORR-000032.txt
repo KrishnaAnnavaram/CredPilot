@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Kestrel Freight Services
+Employee              : Delia Nakamura (BORR-000032)
+Taxpayer ID           : ***-**-0032  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,303.85
+  Net pay             : 3,191.30
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 64,557.75
+  Federal tax YTD     : 9,812.78
+  Social contributions: 4,938.67
+
+Annual salary rate    : 111,900.00

@@ -1,0 +1,235 @@
+{
+  "application_id": "APP-000039",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000047",
+      "role": "primary",
+      "name": "Delia Saldivar",
+      "date_of_birth": "1990-11-26",
+      "taxpayer_id_masked": "***-**-0047",
+      "email": "delia.saldivar047@example.com",
+      "phone": "(303) 555-0147",
+      "current_address": {
+        "street": "3981 Pemberly Road",
+        "city": "Broomfield",
+        "state": "CO",
+        "postal_code": "80020"
+      },
+      "previous_address": null,
+      "years_at_current_address": 12,
+      "dependents": 2,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000047",
+      "employer_name": "Northgate Public Schools",
+      "occupation": "School Counsellor",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000047",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "8725.00"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Northwind Community Bank",
+      "account_masked": "******0151",
+      "declared_balance": "33807.22"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Northwind Community Bank",
+      "account_masked": "******0152",
+      "declared_balance": "62784.83"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0153",
+      "declared_balance": "3954.48"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0154",
+      "declared_balance": "4218.10"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "9903.68",
+      "monthly_payment": "237.11"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Summit Education Lending",
+      "balance": "13304.24",
+      "monthly_payment": "181.32"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "5579.00",
+      "monthly_payment": "167.37"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Cascade Personal Loans",
+      "balance": "3614.54",
+      "monthly_payment": "111.59"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "344000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2419 Sablecrest Drive",
+    "city": "Broomfield",
+    "state": "CO",
+    "postal_code": "80020",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "430000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000039-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/10_paystub_BORR-000047.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/11_w2_BORR-000047.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/12_employment_verification_BORR-000047.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/42_homeowner_insurance_evidence.txt"
+    },
+    {
+      "document_id": "APP-000039-DOC-15",
+      "document_type": "lease_agreement",
+      "document_date": "2026-05-09",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000039/50_lease_agreement.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

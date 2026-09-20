@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000046
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000055)
+    Name              : Emeka Ferreira
+    Date of birth     : 1975-02-02
+    Taxpayer ID       : ***-**-0055  [masked]
+    Contact           : emeka.ferreira055@example.com / (972) 555-0155
+    Current address   : 7720 Havenbrook Lane, Plano, TX 75024
+    Previous address  : 8853 Meadowvane Drive, Cranston, RI 02910
+    Years at address  : 2
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 11,716.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 392,000.00
+  Note amount          : 392,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2582 Marlowe Crossing, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 490,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       8,310.22  monthly     198.96
+  student_loan             balance      11,163.17  monthly     152.14
+  revolving_credit_card    balance       4,681.33  monthly     140.44
+  installment_personal     balance       3,032.79  monthly      93.63

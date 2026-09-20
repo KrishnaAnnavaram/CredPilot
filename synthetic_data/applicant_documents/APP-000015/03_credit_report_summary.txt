@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Rosa Marchetti (BORR-000017) ------------------------------
+  Credit file reference : ****0017  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 734, 742, 749
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Ruth Baptiste (BORR-000018) ------------------------------
+  Credit file reference : ****0018  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 746, 752, 762
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Cascade Personal Loans           balance      9,295.95
+      limit         0.00   monthly     222.56   opened 2019-10-26   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     12,488.31
+      limit         0.00   monthly     170.20   opened 2024-04-26   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      5,236.67
+      limit    18,702.39   monthly     157.10   opened 2018-10-18   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      3,392.66
+      limit         0.00   monthly     104.74   opened 2022-08-13   late 30/60/90 in 24m: 0/0/0

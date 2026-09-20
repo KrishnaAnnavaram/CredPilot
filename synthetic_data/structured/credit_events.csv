@@ -1,0 +1,4 @@
+credit_event_id,application_id,borrower_id,event_type,anchor_date,anchor_basis,seasoning_months,status
+APP-000027-EVT-1,APP-000027,BORR-000033,chapter_7_bankruptcy,2021-06-12,discharge or dismissal date,62,resolved
+APP-000028-EVT-1,APP-000028,BORR-000035,chapter_7_bankruptcy,2024-02-12,discharge or dismissal date,30,resolved
+APP-000029-EVT-1,APP-000029,BORR-000036,foreclosure,2022-02-12,completion or title transfer date,54,resolved

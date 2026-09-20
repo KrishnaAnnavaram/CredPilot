@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000033
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000040)
+    Name              : Winona Lindstrom
+    Date of birth     : 1993-10-17
+    Taxpayer ID       : ***-**-0040  [masked]
+    Contact           : winona.lindstrom040@example.com / (954) 555-0140
+    Current address   : 5763 Kestrel Ridge, Coral Springs, FL 33071
+    Years at address  : 4
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,850.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 408,000.00
+  Note amount          : 408,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2786 Kingsmere Lane, Coral Springs, FL 33071
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 510,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      10,790.00  monthly     258.33
+  student_loan             balance      14,494.37  monthly     197.54
+  revolving_credit_card    balance       6,078.33  monthly     182.35
+  installment_personal     balance       3,937.48  monthly     121.56

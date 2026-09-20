@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Northgate Public Schools
+Employee              : Delia Delacroix (BORR-000043)
+Taxpayer ID           : ***-**-0043  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 2,636.77
+  Net pay             : 1,955.16
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 39,551.55
+  Federal tax YTD     : 6,011.84
+  Social contributions: 3,025.69
+
+Annual salary rate    : 68,556.00

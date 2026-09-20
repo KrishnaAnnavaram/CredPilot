@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Delia Saldivar (BORR-000047)
+Date of birth         : 1990-11-26
+Taxpayer ID           : ***-**-0047  [masked]
+Address on file       : 3981 Pemberly Road, Broomfield, CO 80020
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0047  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

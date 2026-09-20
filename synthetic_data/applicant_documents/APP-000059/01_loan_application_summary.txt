@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000059
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000071)
+    Name              : Talia Thornbury
+    Date of birth     : 1976-07-05
+    Taxpayer ID       : ***-**-0071  [masked]
+    Contact           : talia.thornbury071@example.com / (913) 555-0171
+    Current address   : 9659 Juniper Bend, Overland Park, KS 66210
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 12,416.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 418,000.00
+  Note amount          : 418,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2723 Hazeldene Court, Overland Park, KS 66210
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 440,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      15,875.29  monthly     380.08
+  student_loan             balance      21,326.25  monthly     290.65
+  revolving_credit_card    balance       8,943.00  monthly     268.29
+  installment_personal     balance       5,793.82  monthly     178.87

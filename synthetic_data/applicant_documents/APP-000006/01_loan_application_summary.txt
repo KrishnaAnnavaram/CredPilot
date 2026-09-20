@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000006
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000007)
+    Name              : Emeka Underhill
+    Date of birth     : 1999-10-20
+    Taxpayer ID       : ***-**-0007  [masked]
+    Contact           : emeka.underhill007@example.com / (248) 555-0107
+    Current address   : 1559 Thistledown Drive, Rochester Hills, MI 48307
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,025.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 312,000.00
+  Note amount          : 312,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2775 Sablecrest Drive, Rochester Hills, MI 48307
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 390,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,690.80  monthly     184.13
+  student_loan             balance      10,331.84  monthly     140.81
+  revolving_credit_card    balance       4,332.67  monthly     129.98
+  installment_personal     balance       2,806.70  monthly      86.65

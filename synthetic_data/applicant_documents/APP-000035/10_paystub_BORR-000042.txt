@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Orchard Point Hospitality
+Employee              : Caleb Thornbury (BORR-000042)
+Taxpayer ID           : ***-**-0042  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,373.08
+  Net pay             : 3,984.14
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 80,596.20
+  Federal tax YTD     : 12,250.62
+  Social contributions: 6,165.61
+
+Annual salary rate    : 139,700.04

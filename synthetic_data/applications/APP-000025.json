@@ -1,0 +1,241 @@
+{
+  "application_id": "APP-000025",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "second_home",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000031",
+      "role": "primary",
+      "name": "Ruth Lindstrom",
+      "date_of_birth": "1979-08-15",
+      "taxpayer_id_masked": "***-**-0031",
+      "email": "ruth.lindstrom031@example.com",
+      "phone": "(770) 555-0131",
+      "current_address": {
+        "street": "6546 Pemberly Road",
+        "city": "Sandy Springs",
+        "state": "GA",
+        "postal_code": "30328"
+      },
+      "previous_address": null,
+      "years_at_current_address": 4,
+      "dependents": 0,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000031",
+      "employer_name": "Pinewater Utilities District",
+      "occupation": "Compliance Officer",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000031",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "9533.33"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0093",
+      "declared_balance": "17451.81"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0094",
+      "declared_balance": "32410.49"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0095",
+      "declared_balance": "5182.68"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0096",
+      "declared_balance": "5528.18"
+    },
+    {
+      "asset_type": "gift_funds",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0097",
+      "declared_balance": "25000.00"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Harborline Retail Credit",
+      "balance": "6777.32",
+      "monthly_payment": "162.26"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Cascade Personal Loans",
+      "balance": "9104.29",
+      "monthly_payment": "124.08"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Cascade Personal Loans",
+      "balance": "3818.00",
+      "monthly_payment": "114.54"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Cascade Personal Loans",
+      "balance": "2473.40",
+      "monthly_payment": "76.36"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "348500.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2697 Foxglove Terrace",
+    "city": "Sandy Springs",
+    "state": "GA",
+    "postal_code": "30328",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "second_home",
+    "purchase_price": "410000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000025-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/10_paystub_BORR-000031.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/11_w2_BORR-000031.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/12_employment_verification_BORR-000031.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-11",
+      "document_type": "gift_letter",
+      "document_date": "2026-07-28",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/22_gift_letter.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-12",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-13",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-14",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000025-DOC-15",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000025/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

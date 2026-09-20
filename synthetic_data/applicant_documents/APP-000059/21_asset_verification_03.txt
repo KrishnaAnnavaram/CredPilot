@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Ravenscourt Securities
+Account holder        : Talia Thornbury (BORR-000071)
+Account type          : brokerage
+Account number        : ******0231  [masked]
+Valuation date        : 2026-08-28
+
+  Current balance                : 5,625.69
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

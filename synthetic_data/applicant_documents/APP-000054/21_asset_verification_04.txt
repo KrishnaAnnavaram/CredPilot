@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Meridian Retirement Trust
+Account holder        : Mira Quintero (BORR-000065)
+Account type          : retirement
+Account number        : ******0212  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 6,797.00
+
+The plan does not permit withdrawal or a participant loan for the purpose stated in the request.

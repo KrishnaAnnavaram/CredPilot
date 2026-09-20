@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "credpilot/application.schema.json",
+  "title": "CredPilot synthetic application input packet",
+  "description": "What the copilot is given. Contains no expected outcome of any kind; ground truth lives in synthetic_data/golden_set/.",
+  "type": "object",
+  "required": [
+    "application_id",
+    "application_date",
+    "underwriting_as_of_date",
+    "loan_purpose",
+    "product_family",
+    "occupancy_type",
+    "borrowers",
+    "requested_loan",
+    "subject_property"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "application_id": {
+      "type": "string",
+      "pattern": "^APP-\\d{6}$"
+    },
+    "application_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "underwriting_as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "loan_purpose": {
+      "enum": [
+        "purchase",
+        "rate_term_refinance",
+        "cash_out_refinance"
+      ]
+    },
+    "product_family": {
+      "enum": [
+        "conventional_conforming",
+        "jumbo",
+        "fha",
+        "va",
+        "usda"
+      ]
+    },
+    "occupancy_type": {
+      "enum": [
+        "primary_residence",
+        "second_home",
+        "investment"
+      ]
+    },
+    "household_size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "borrowers": {
+      "type": "array",
+      "minItems": 1
+    },
+    "employment": {
+      "type": "array"
+    },
+    "declared_income": {
+      "type": "array"
+    },
+    "declared_assets": {
+      "type": "array"
+    },
+    "declared_liabilities": {
+      "type": "array"
+    },
+    "requested_loan": {
+      "type": "object"
+    },
+    "subject_property": {
+      "type": "object"
+    },
+    "supplied_documents": {
+      "type": "array"
+    },
+    "untrusted_applicant_text": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

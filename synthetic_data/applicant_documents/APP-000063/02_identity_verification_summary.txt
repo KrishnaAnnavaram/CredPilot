@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Emeka Pemberton (BORR-000001)
+Date of birth         : 1977-02-06
+Taxpayer ID           : ***-**-0001  [masked]
+Address on file       : 545 Meadowvane Drive, Yorba Linda, CA 92886
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0001  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-27
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Pinewater Utilities District
+Employee              : Omar Sorensen (BORR-000069)
+Taxpayer ID           : ***-**-0069  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-06-27
+Periods elapsed (YTD) : 12
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 1,717.15
+  Net pay             : 1,273.27
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 20,605.80
+  Federal tax YTD     : 3,132.08
+  Social contributions: 1,576.34
+
+Annual salary rate    : 44,646.00

@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Priya Vasquez (BORR-000062) ------------------------------
+  Credit file reference : ****0062  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 732, 742, 754
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Pinnacle Auto Finance            balance      9,267.97
+      limit         0.00   monthly     221.89   opened 2024-01-06   late 30/60/90 in 24m: 0/0/0
+  student_loan             Northwind Card Services          balance     12,450.16
+      limit         0.00   monthly     169.68   opened 2023-12-15   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      5,221.00
+      limit    18,646.43   monthly     156.63   opened 2024-07-06   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      3,381.97
+      limit         0.00   monthly     104.41   opened 2023-04-15   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000021
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : usda
+Occupancy             : primary_residence
+Household size        : 3
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000025)
+    Name              : Rashid Ivanova
+    Date of birth     : 1998-01-05
+    Taxpayer ID       : ***-**-0025  [masked]
+    Contact           : rashid.ivanova025@example.com / (919) 555-0125
+    Current address   : 496 Pemberly Road, Cary, NC 27513
+    Years at address  : 4
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 5,791.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 210,000.00
+  Note amount          : 212,100.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2525 Foxglove Terrace, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 210,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       1,651.52  monthly      39.54
+  student_loan             balance       2,218.11  monthly      30.23
+  revolving_credit_card    balance         930.33  monthly      27.91
+  installment_personal     balance         602.48  monthly      18.60

@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000062
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 4
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000075)
+    Name              : Malik Okafor
+    Date of birth     : 1980-01-11
+    Taxpayer ID       : ***-**-0075  [masked]
+    Contact           : malik.okafor075@example.com / (480) 555-0175
+    Current address   : 3046 Orchardstone Way, Chandler, AZ 85224
+    Years at address  : 8
+
+  CO_BORROWER (BORR-000076)
+    Name              : Ruth Whitfield
+    Date of birth     : 1967-08-01
+    Taxpayer ID       : ***-**-0076  [masked]
+    Contact           : ruth.whitfield076@example.com / (954) 555-0176
+    Current address   : 6471 Verdigris Lane, Coral Springs, FL 33071
+    Years at address  : 4
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 6,428.33
+  salaried             declared monthly 4,655.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 432,000.00
+  Note amount          : 432,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2842 Marlowe Crossing, Chandler, AZ 85224
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 540,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,867.89  monthly     188.37
+  student_loan             balance      10,569.57  monthly     144.05
+  revolving_credit_card    balance       4,432.33  monthly     132.97
+  installment_personal     balance       2,871.49  monthly      88.65

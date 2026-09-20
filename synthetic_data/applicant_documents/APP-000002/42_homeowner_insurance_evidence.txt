@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Priya Lindqvist
+Property              : 2731 Sablecrest Drive, Naperville, IL
+Coverage amount       : 328,000.00
+Annual premium        : 1,434.96
+Monthly escrow        : 119.58
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

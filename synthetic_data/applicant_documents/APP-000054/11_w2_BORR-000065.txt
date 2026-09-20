@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Meridian Civic Health
+Employee              : Mira Quintero (BORR-000065)
+Taxpayer ID           : ***-**-0065  [masked]
+
+Wages, tips and other compensation : 116,282.54
+Federal income tax withheld        : 17,209.82
+Social contribution wages          : 116,282.54
+
+This statement reports the prior tax year only.

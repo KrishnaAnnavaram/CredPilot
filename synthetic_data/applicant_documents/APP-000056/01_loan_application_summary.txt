@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000056
+Application date      : 2026-07-08
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000067)
+    Name              : Felix Ravenscroft
+    Date of birth     : 1972-02-17
+    Taxpayer ID       : ***-**-0067  [masked]
+    Contact           : felix.ravenscroft067@example.com / (281) 555-0167
+    Current address   : 5866 Quarrystone Lane, Sugar Land, TX 77479
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 12,591.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 432,400.00
+  Note amount          : 432,400.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2670 Kingsmere Lane, Sugar Land, TX 77479
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 470,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      23,253.24  monthly     556.72
+  student_loan             balance      31,237.66  monthly     425.73
+  revolving_credit_card    balance      13,099.33  monthly     392.98
+  installment_personal     balance       8,485.86  monthly     261.98

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "credpilot/policy.schema.json",
+  "title": "CredPilot synthetic policy document front matter",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "title",
+    "version",
+    "effective_date",
+    "source_category",
+    "rule_ids",
+    "synthetic"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "pattern": "^POL-[A-Z]+-\\d{3}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiration_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "source_category": {
+      "enum": [
+        "REGULATORY",
+        "AGENCY_INVESTOR",
+        "PUBLIC_LENDER_GUIDANCE",
+        "COMMON_INDUSTRY_PRACTICE",
+        "SYNTHETIC_INTERNAL_POLICY"
+      ]
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requires_human_review": {
+      "type": "boolean"
+    },
+    "rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "synthetic": {
+      "const": true
+    }
+  }
+}

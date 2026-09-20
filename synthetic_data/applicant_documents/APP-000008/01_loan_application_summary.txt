@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000008
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000009)
+    Name              : Camille Ivanova
+    Date of birth     : 1962-01-11
+    Taxpayer ID       : ***-**-0009  [masked]
+    Contact           : camille.ivanova009@example.com / (770) 555-0109
+    Current address   : 8339 Alderwood Lane, Sandy Springs, GA 30328
+    Years at address  : 12
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,400.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 352,000.00
+  Note amount          : 352,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2375 Sablecrest Drive, Sandy Springs, GA 30328
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 440,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       5,348.43  monthly     128.05
+  student_loan             balance       7,184.82  monthly      97.92
+  revolving_credit_card    balance       3,013.00  monthly      90.39
+  installment_personal     balance       1,951.90  monthly      60.26

@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Northgate Public Schools
+Employee              : Greta Achterberg (BORR-000081)
+Taxpayer ID           : ***-**-0081  [masked]
+
+Wages, tips and other compensation : 106,921.96
+Federal income tax withheld        : 15,824.45
+Social contribution wages          : 106,921.96
+
+This statement reports the prior tax year only.

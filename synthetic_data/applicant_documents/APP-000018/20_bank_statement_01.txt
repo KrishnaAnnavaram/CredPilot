@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Isaac Quintero (BORR-000021)
+Account type          : checking
+Account number        : ******0065  [masked]
+Statement period end  : 2026-08-26
+
+  Opening balance                : 308,977.14
+  2026-08-14  -    23,500.00  Earnest money deposit to settlement agent
+  Closing balance                : 285,477.14

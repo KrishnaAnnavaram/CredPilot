@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Latchford Construction
+Employee              : Freya Chandrasekar (BORR-000015)
+Taxpayer ID           : ***-**-0015  [masked]
+
+Wages, tips and other compensation : 46,472.05
+Federal income tax withheld        : 6,877.86
+Social contribution wages          : 46,472.05
+
+This statement reports the prior tax year only.

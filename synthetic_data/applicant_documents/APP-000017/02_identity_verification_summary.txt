@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Ruth Lindstrom (BORR-000020)
+Date of birth         : 1989-02-10
+Taxpayer ID           : ***-**-0020  [masked]
+Address on file       : 9075 Havenbrook Lane, Rochester Hills, MI 48307
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0020  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

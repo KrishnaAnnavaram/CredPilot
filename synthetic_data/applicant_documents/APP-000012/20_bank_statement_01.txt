@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Harbor Point Savings
+Account holder        : Malik Kirilenko (BORR-000013)
+Account type          : checking
+Account number        : ******0041  [masked]
+Statement period end  : 2026-08-26
+
+  Opening balance                : 44,529.65
+  2026-08-14  -     4,800.00  Earnest money deposit to settlement agent
+  Closing balance                : 39,729.65

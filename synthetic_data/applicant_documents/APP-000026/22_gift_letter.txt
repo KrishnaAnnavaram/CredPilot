@@ -1,0 +1,19 @@
+==========================================================================
+  GIFT LETTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Recipient             : Delia Nakamura (BORR-000032)
+Donor                 : R. Nakamura (parent)
+Relationship          : Parent of the recipient
+Gift amount           : 30,000.00
+Date of transfer      : 2026-07-29
+Receiving account     : ******0102  [masked]
+
+The donor certifies that the sum above is a gift, that no repayment is
+expected or implied, and that the donor has no interest in the property or
+the transaction.
+
+Donor signature       : [signed] 2026-07-28
+Recipient signature   : [signed] 2026-07-28

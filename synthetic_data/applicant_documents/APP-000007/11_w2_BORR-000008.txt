@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Cartwright & Vale Advisory
+Employee              : Marcus Delacroix (BORR-000008)
+Taxpayer ID           : ***-**-0008  [masked]
+
+Wages, tips and other compensation : 128,827.50
+Federal income tax withheld        : 19,066.47
+Social contribution wages          : 128,827.50
+
+This statement reports the prior tax year only.

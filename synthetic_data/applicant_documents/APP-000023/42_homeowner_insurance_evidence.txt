@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Caleb Fairbanks
+Property              : 2306 Kingsmere Lane, Coral Springs, FL
+Coverage amount       : 332,112.00
+Annual premium        : 1,570.80
+Monthly escrow        : 130.90
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

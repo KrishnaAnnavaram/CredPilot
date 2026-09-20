@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000064
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000011)
+    Name              : Talia Moreau
+    Date of birth     : 1989-05-19
+    Taxpayer ID       : ***-**-0011  [masked]
+    Contact           : talia.moreau011@example.com / (913) 555-0111
+    Current address   : 4878 Kestrel Ridge, Overland Park, KS 66210
+    Years at address  : 7
+
+-- Declared income ------------------------------------------------------
+  hourly_variable      declared monthly 10,341.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 376,000.00
+  Note amount          : 376,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2416 Wrenfield Way, Overland Park, KS 66210
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 470,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      24,958.23  monthly     597.54
+  student_loan             balance      33,527.67  monthly     456.94
+  revolving_credit_card    balance      14,059.67  monthly     421.79
+  installment_personal     balance       9,108.10  monthly     281.19

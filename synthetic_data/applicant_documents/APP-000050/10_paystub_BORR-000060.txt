@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Blue Larkspur Manufacturing
+Employee              : Emeka Hargrave (BORR-000060)
+Taxpayer ID           : ***-**-0060  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 3,426.46
+  Net pay             : 2,540.72
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 51,396.90
+  Federal tax YTD     : 7,812.33
+  Social contributions: 3,931.86
+
+Annual salary rate    : 89,088.00

@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Ruth Lindstrom (BORR-000020) ------------------------------
+  Credit file reference : ****0020  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 763, 768, 778
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance     20,782.23
+      limit         0.00   monthly     497.56   opened 2022-07-06   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     27,918.21
+      limit         0.00   monthly     380.49   opened 2022-02-24   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance     11,707.33
+      limit    41,811.89   monthly     351.22   opened 2018-09-18   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      7,584.09
+      limit         0.00   monthly     234.14   opened 2020-03-07   late 30/60/90 in 24m: 0/0/0

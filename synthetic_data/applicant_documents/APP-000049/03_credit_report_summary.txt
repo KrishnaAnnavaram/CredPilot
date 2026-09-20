@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Marcus Brennerman (BORR-000059) ------------------------------
+  Credit file reference : ****0059  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 766, 772, 783
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance      2,734.57
+      limit         0.00   monthly      65.47   opened 2018-10-08   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      3,673.85
+      limit         0.00   monthly      50.07   opened 2020-02-09   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      1,540.67
+      limit     5,502.39   monthly      46.22   opened 2022-04-08   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance        997.97
+      limit         0.00   monthly      30.81   opened 2021-01-05   late 30/60/90 in 24m: 0/0/0

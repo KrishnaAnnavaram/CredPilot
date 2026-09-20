@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Freya Achterberg (BORR-000063)
+Account type          : savings
+Account number        : ******0202  [masked]
+Statement period end  : 2026-08-26
+
+  Opening balance                : 79,264.09
+  Closing balance                : 79,264.09

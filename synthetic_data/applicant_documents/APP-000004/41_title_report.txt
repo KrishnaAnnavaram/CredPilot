@@ -1,0 +1,13 @@
+==========================================================================
+  TITLE COMMITMENT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Property              : 2761 Copperbeech Drive, Beaverton, OR
+Commitment date       : 2026-08-06
+Required lien position: 1
+Vesting matches note  : yes
+Exceptions recorded   : 1
+
+  Exception detail               : Standard utility easement

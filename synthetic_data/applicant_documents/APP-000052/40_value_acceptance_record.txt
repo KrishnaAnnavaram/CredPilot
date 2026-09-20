@@ -1,0 +1,13 @@
+==========================================================================
+  VALUE ACCEPTANCE OFFER RECORD
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject property      : 2721 Copperbeech Drive, Plano, TX
+Offer date            : 2026-08-11
+Accepted value        : 418,200.00
+Valuation method      : value_acceptance
+
+The automated underwriting system returned a value acceptance offer for
+this transaction. The offer expires with the casefile that issued it.

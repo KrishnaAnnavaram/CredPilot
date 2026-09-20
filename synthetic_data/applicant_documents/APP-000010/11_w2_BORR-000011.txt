@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Orchard Point Hospitality
+Employee              : Talia Moreau (BORR-000011)
+Taxpayer ID           : ***-**-0011  [masked]
+
+Wages, tips and other compensation : 102,772.50
+Federal income tax withheld        : 15,210.33
+Social contribution wages          : 102,772.50
+
+This statement reports the prior tax year only.

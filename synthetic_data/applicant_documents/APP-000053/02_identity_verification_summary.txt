@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Salma Brennerman (BORR-000064)
+Date of birth         : 1960-12-11
+Taxpayer ID           : ***-**-0064  [masked]
+Address on file       : 8989 Larkspur Avenue, Bellevue, WA 98004
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0064  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-06-17
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

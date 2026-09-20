@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Caleb Lindstrom (BORR-000073) ------------------------------
+  Credit file reference : ****0073  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 752, 766, 774
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Ruth Ashworth (BORR-000074) ------------------------------
+  Credit file reference : ****0074  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 722, 728, 740
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance      6,202.59
+      limit         0.00   monthly     148.50   opened 2017-11-07   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance      8,332.39
+      limit         0.00   monthly     113.56   opened 2019-10-26   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      3,494.00
+      limit    12,478.57   monthly     104.82   opened 2025-07-03   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      2,263.50
+      limit         0.00   monthly      69.88   opened 2025-06-08   late 30/60/90 in 24m: 0/0/0

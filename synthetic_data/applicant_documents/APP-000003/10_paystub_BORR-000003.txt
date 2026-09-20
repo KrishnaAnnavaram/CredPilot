@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Pinewater Utilities District
+Employee              : Ingrid Vasquez (BORR-000003)
+Taxpayer ID           : ***-**-0003  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,188.46
+  Net pay             : 3,847.24
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 77,826.90
+  Federal tax YTD     : 11,829.69
+  Social contributions: 5,953.76
+
+Annual salary rate    : 134,900.04

@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Emeka Hargrave (BORR-000060)
+Account type          : savings
+Account number        : ******0196  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 52,787.43
+  Closing balance                : 52,787.43

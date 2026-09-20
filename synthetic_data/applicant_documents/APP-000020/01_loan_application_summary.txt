@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000020
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : va
+Occupancy             : primary_residence
+Household size        : 4
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000024)
+    Name              : Winona Nakagawa
+    Date of birth     : 1980-10-18
+    Taxpayer ID       : ***-**-0024  [masked]
+    Contact           : winona.nakagawa024@example.com / (603) 555-0124
+    Current address   : 928 Nightingale Close, Nashua, NH 03062
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 3,100.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 180,000.00
+  Note amount          : 184,140.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2532 Ambersley Road, Nashua, NH 03062
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 180,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       3,548.63  monthly      84.96
+  student_loan             balance       4,767.13  monthly      64.97
+  revolving_credit_card    balance       1,999.00  monthly      59.97
+  installment_personal     balance       1,295.33  monthly      39.99

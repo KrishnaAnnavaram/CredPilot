@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000007
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000008)
+    Name              : Marcus Delacroix
+    Date of birth     : 1967-01-10
+    Taxpayer ID       : ***-**-0008  [masked]
+    Contact           : marcus.delacroix008@example.com / (630) 555-0108
+    Current address   : 4701 Innisfree Court, Naperville, IL 60540
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 11,125.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 399,000.00
+  Note amount          : 399,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2807 Sablecrest Drive, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 420,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      17,378.12  monthly     416.06
+  student_loan             balance      23,344.78  monthly     318.16
+  revolving_credit_card    balance       9,789.67  monthly     293.69
+  installment_personal     balance       6,342.21  monthly     195.80

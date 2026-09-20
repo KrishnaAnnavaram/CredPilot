@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Harborline Logistics
+Employee              : Elena Achterberg (BORR-000006)
+Taxpayer ID           : ***-**-0006  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 2,586.23
+  Net pay             : 1,917.69
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 38,793.45
+  Federal tax YTD     : 5,896.60
+  Social contributions: 2,967.70
+
+Annual salary rate    : 67,242.00

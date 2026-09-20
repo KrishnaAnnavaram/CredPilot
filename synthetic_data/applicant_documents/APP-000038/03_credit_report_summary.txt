@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Freya Guerrero (BORR-000046) ------------------------------
+  Credit file reference : ****0046  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 732, 742, 746
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      7,146.14
+      limit         0.00   monthly     171.09   opened 2021-08-20   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      9,599.57
+      limit         0.00   monthly     130.83   opened 2018-06-01   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance      4,025.67
+      limit    14,377.39   monthly     120.77   opened 2018-03-17   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      2,608.14
+      limit         0.00   monthly      80.52   opened 2025-05-20   late 30/60/90 in 24m: 0/0/0

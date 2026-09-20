@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Harborline Logistics
+Employee              : Priya Mbeki (BORR-000085)
+Taxpayer ID           : ***-**-0085  [masked]
+
+Wages, tips and other compensation : 64,929.06
+Federal income tax withheld        : 9,609.50
+Social contribution wages          : 64,929.06
+
+This statement reports the prior tax year only.

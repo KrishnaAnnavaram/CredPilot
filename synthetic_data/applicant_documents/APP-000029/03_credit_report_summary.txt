@@ -1,0 +1,27 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Tobias Delacroix (BORR-000036) ------------------------------
+  Credit file reference : ****0036  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 660, 672, 682
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance     11,188.47
+      limit         0.00   monthly     267.87   opened 2024-12-02   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     15,030.00
+      limit         0.00   monthly     204.84   opened 2021-10-24   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      6,302.67
+      limit    22,509.54   monthly     189.08   opened 2021-10-14   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      4,083.24
+      limit         0.00   monthly     126.06   opened 2023-02-20   late 30/60/90 in 24m: 0/0/0
+
+-- Significant derogatory events ----------------------------------------
+  foreclosure              anchor 2022-02-12 (completion or title transfer date), seasoned 54 months

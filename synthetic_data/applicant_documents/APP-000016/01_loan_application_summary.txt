@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000016
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000019)
+    Name              : Emeka Vasquez
+    Date of birth     : 1988-10-27
+    Taxpayer ID       : ***-**-0019  [masked]
+    Contact           : emeka.vasquez019@example.com / (615) 555-0119
+    Current address   : 243 Draycott Way, Franklin, TN 37067
+    Years at address  : 7
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,925.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 424,000.00
+  Note amount          : 424,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2533 Foxglove Terrace, Franklin, TN 37067
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 530,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,760.97  monthly     185.81
+  student_loan             balance      10,425.76  monthly     142.09
+  revolving_credit_card    balance       4,372.00  monthly     131.16
+  installment_personal     balance       2,831.97  monthly      87.43

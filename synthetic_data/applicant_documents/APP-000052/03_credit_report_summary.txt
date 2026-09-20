@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Freya Achterberg (BORR-000063) ------------------------------
+  Credit file reference : ****0063  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 760, 764, 767
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      2,648.11
+      limit         0.00   monthly      63.40   opened 2024-10-31   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      3,557.19
+      limit         0.00   monthly      48.48   opened 2024-11-02   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance      1,491.67
+      limit     5,327.39   monthly      44.75   opened 2020-03-01   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Northwind Card Services          balance        966.23
+      limit         0.00   monthly      29.83   opened 2025-02-03   late 30/60/90 in 24m: 0/0/0

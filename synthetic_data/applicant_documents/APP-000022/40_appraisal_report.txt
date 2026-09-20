@@ -1,0 +1,21 @@
+==========================================================================
+  UNIFORM RESIDENTIAL APPRAISAL SUMMARY (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject property      : 2527 Hazeldene Court, Plano, TX 75024
+Property type         : single_family_detached (1 unit(s))
+Effective date        : 2026-07-19
+Valuation method      : full_appraisal
+Appraiser licence     : SYN-APPR-00418  [synthetic]
+Dataset version       : SYNTH-UAD-3.6
+
+  Opinion of value               : 489,600.00
+  Contract price                 : n/a
+  Condition rating               : C3
+
+-- Comparable sales (synthetic) -----------------------------------------
+  Comparable 1                   : 474,912.00
+  Comparable 2                   : 499,392.00
+  Comparable 3                   : 487,152.00

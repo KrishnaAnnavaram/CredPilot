@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Latchford Construction
+Employee              : Salma Brennerman (BORR-000064)
+Taxpayer ID           : ***-**-0064  [masked]
+
+Wages, tips and other compensation : 131,336.54
+Federal income tax withheld        : 19,437.81
+Social contribution wages          : 131,336.54
+
+This statement reports the prior tax year only.

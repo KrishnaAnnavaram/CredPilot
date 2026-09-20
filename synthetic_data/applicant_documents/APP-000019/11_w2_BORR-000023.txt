@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Grayson Municipal Authority
+Employee              : Delia Nakagawa (BORR-000023)
+Taxpayer ID           : ***-**-0023  [masked]
+
+Wages, tips and other compensation : 25,655.49
+Federal income tax withheld        : 3,797.01
+Social contribution wages          : 25,655.49
+
+This statement reports the prior tax year only.

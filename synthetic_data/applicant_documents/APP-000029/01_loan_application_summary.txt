@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000029
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000036)
+    Name              : Tobias Delacroix
+    Date of birth     : 1988-12-05
+    Taxpayer ID       : ***-**-0036  [masked]
+    Contact           : tobias.delacroix036@example.com / (972) 555-0136
+    Current address   : 4406 Bramblewood Court, Plano, TX 75024
+    Years at address  : 8
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 13,150.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 440,000.00
+  Note amount          : 440,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2325 Copperbeech Drive, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 550,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      11,188.47  monthly     267.87
+  student_loan             balance      15,030.00  monthly     204.84
+  revolving_credit_card    balance       6,302.67  monthly     189.08
+  installment_personal     balance       4,083.24  monthly     126.06

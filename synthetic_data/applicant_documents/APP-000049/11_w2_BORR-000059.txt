@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Harborline Logistics
+Employee              : Marcus Brennerman (BORR-000059)
+Taxpayer ID           : ***-**-0059  [masked]
+
+Wages, tips and other compensation : 111,843.46
+Federal income tax withheld        : 16,552.83
+Social contribution wages          : 111,843.46
+
+This statement reports the prior tax year only.

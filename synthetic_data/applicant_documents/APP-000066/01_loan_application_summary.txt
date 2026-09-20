@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000066
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000079)
+    Name              : Elena Underhill
+    Date of birth     : 1994-05-01
+    Taxpayer ID       : ***-**-0079  [masked]
+    Contact           : elena.underhill079@example.com / (303) 555-0179
+    Current address   : 344 Umberwood Place, Broomfield, CO 80020
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,333.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 368,000.00
+  Note amount          : 368,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2773 Copperbeech Drive, Broomfield, CO 80020
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 460,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,267.13  monthly     221.87
+  student_loan             balance      12,449.43  monthly     169.67
+  revolving_credit_card    balance       5,220.67  monthly     156.62
+  installment_personal     balance       3,381.97  monthly     104.41

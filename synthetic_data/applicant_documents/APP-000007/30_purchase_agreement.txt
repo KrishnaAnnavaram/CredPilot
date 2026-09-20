@@ -1,0 +1,17 @@
+==========================================================================
+  RESIDENTIAL PURCHASE AGREEMENT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Property              : 2807 Sablecrest Drive, Naperville, IL 60540
+Purchaser             : Marcus Delacroix
+Seller                : M. Ashgrove (synthetic counterparty)
+Contract date         : 2026-07-17
+Expected closing      : 2026-09-02
+
+  Purchase price                 : 420,000.00
+  Earnest money deposit          : 4,200.00
+  Seller credit to costs         : 0.00
+  Financing contingency          : yes
+  Appraisal contingency          : yes

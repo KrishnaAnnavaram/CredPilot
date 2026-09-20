@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Nadia Nakagawa (BORR-000086) ------------------------------
+  Credit file reference : ****0086  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 706, 710, 718
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance      6,302.00
+      limit         0.00   monthly     150.88   opened 2020-06-07   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance      8,465.93
+      limit         0.00   monthly     115.38   opened 2024-06-30   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      3,550.00
+      limit    12,678.57   monthly     106.50   opened 2022-11-11   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      2,299.46
+      limit         0.00   monthly      70.99   opened 2019-05-31   late 30/60/90 in 24m: 0/0/0

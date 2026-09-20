@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Salma Guerrero (BORR-000053) ------------------------------
+  Credit file reference : ****0053  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 738, 742, 752
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Amara Saldivar (BORR-000054) ------------------------------
+  Credit file reference : ****0054  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 717, 726, 734
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Cascade Personal Loans           balance      6,751.43
+      limit         0.00   monthly     161.64   opened 2023-11-17   late 30/60/90 in 24m: 0/0/0
+  student_loan             Pinnacle Auto Finance            balance      9,069.07
+      limit         0.00   monthly     123.60   opened 2021-08-25   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      3,803.33
+      limit    13,583.32   monthly     114.10   opened 2020-08-13   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Northwind Card Services          balance      2,463.68
+      limit         0.00   monthly      76.06   opened 2023-03-23   late 30/60/90 in 24m: 0/0/0

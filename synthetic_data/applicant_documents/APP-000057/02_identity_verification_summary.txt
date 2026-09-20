@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Camille Petrosyan (BORR-000068)
+Date of birth         : 1970-07-05
+Taxpayer ID           : ***-**-0068  [masked]
+Address on file       : 5755 Larkspur Avenue, Beaverton, OR 97006
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0068  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-06-30
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

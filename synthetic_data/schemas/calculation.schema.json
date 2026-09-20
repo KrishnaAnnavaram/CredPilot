@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "credpilot/calculation.schema.json",
+  "title": "CredPilot underwriting calculation record",
+  "type": "object",
+  "required": [
+    "calculation_id",
+    "application_id",
+    "calculation_name",
+    "input_fields",
+    "formula_version",
+    "units",
+    "calculated_at"
+  ],
+  "properties": {
+    "calculation_id": {
+      "type": "string"
+    },
+    "calculation_name": {
+      "type": "string"
+    },
+    "input_fields": {
+      "type": "string"
+    },
+    "formula_version": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$"
+    },
+    "result": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^-?\\d+\\.\\d{2}$"
+    },
+    "units": {
+      "enum": [
+        "USD",
+        "USD_PER_MONTH",
+        "RATIO",
+        "MONTHS",
+        "SCORE",
+        "MULTIPLE"
+      ]
+    },
+    "calculated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "policy_context": {
+      "type": "string"
+    }
+  }
+}

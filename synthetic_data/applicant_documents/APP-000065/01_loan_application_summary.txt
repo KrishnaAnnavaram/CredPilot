@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000065
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000077)
+    Name              : Talia Baptiste
+    Date of birth     : 1974-05-28
+    Taxpayer ID       : ***-**-0077  [masked]
+    Contact           : talia.baptiste077@example.com / (281) 555-0177
+    Current address   : 1253 Verdigris Lane, Sugar Land, TX 77479
+    Years at address  : 11
+
+  CO_BORROWER (BORR-000078)
+    Name              : Devon Achterberg
+    Date of birth     : 1969-04-18
+    Taxpayer ID       : ***-**-0078  [masked]
+    Contact           : devon.achterberg078@example.com / (248) 555-0178
+    Current address   : 9122 Kestrel Ridge, Rochester Hills, MI 48307
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 5,094.33
+  salaried             declared monthly 3,689.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 304,000.00
+  Note amount          : 304,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2526 Marlowe Crossing, Sugar Land, TX 77479
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 380,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      22,444.19  monthly     537.35
+  student_loan             balance      30,150.25  monthly     410.91
+  revolving_credit_card    balance      12,643.33  monthly     379.30
+  installment_personal     balance       8,190.78  monthly     252.87

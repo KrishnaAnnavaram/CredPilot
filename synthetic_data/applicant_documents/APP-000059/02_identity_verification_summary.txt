@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Talia Thornbury (BORR-000071)
+Date of birth         : 1976-07-05
+Taxpayer ID           : ***-**-0071  [masked]
+Address on file       : 9659 Juniper Bend, Overland Park, KS 66210
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0071  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-27
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

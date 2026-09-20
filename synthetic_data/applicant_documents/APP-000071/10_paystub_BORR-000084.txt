@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Northgate Public Schools
+Employee              : Noor Ferreira (BORR-000084)
+Taxpayer ID           : ***-**-0084  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 3,573.69
+  Net pay             : 2,649.89
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 53,605.35
+  Federal tax YTD     : 8,148.01
+  Social contributions: 4,100.81
+
+Annual salary rate    : 92,916.00

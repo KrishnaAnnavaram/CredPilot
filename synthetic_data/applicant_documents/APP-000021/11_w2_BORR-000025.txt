@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Thornhill Insurance Brokers
+Employee              : Rashid Ivanova (BORR-000025)
+Taxpayer ID           : ***-**-0025  [masked]
+
+Wages, tips and other compensation : 67,067.54
+Federal income tax withheld        : 9,926.00
+Social contribution wages          : 67,067.54
+
+This statement reports the prior tax year only.

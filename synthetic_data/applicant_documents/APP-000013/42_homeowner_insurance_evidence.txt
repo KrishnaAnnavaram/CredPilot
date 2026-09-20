@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Victor Lindqvist
+Property              : 2335 Hazeldene Court, Coral Springs, FL
+Coverage amount       : 424,000.00
+Annual premium        : 1,854.96
+Monthly escrow        : 154.58
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

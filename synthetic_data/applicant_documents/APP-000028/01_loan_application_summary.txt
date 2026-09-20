@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000028
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000035)
+    Name              : Mateo Ivanova
+    Date of birth     : 1977-02-24
+    Taxpayer ID       : ***-**-0035  [masked]
+    Contact           : mateo.ivanova035@example.com / (503) 555-0135
+    Current address   : 6132 Elmridge Terrace, Beaverton, OR 97006
+    Years at address  : 12
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,383.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 312,000.00
+  Note amount          : 312,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2325 Foxglove Terrace, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 390,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       8,322.75  monthly     199.26
+  student_loan             balance      11,180.78  monthly     152.38
+  revolving_credit_card    balance       4,688.67  monthly     140.66
+  installment_personal     balance       3,037.33  monthly      93.77

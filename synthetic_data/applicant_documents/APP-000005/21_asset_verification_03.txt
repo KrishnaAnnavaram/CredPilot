@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Ravenscourt Securities
+Account holder        : Talia Okafor (BORR-000005)
+Account type          : brokerage
+Account number        : ******0019  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 4,835.56
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000032
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000039)
+    Name              : Theo Osei
+    Date of birth     : 1998-04-03
+    Taxpayer ID       : ***-**-0039  [masked]
+    Contact           : theo.osei039@example.com / (913) 555-0139
+    Current address   : 3954 Orchardstone Way, Overland Park, KS 66210
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,700.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 376,000.00
+  Note amount          : 376,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2611 Hazeldene Court, Overland Park, KS 66210
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 470,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      12,154.57  monthly     291.00
+  student_loan             balance      16,327.99  monthly     222.53
+  revolving_credit_card    balance       6,847.00  monthly     205.41
+  installment_personal     balance       4,435.66  monthly     136.94

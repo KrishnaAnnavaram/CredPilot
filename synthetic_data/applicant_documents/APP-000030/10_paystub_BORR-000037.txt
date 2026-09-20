@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Sable Ridge Software
+Employee              : Andre Hargrave (BORR-000037)
+Taxpayer ID           : ***-**-0037  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,911.54
+  Net pay             : 3,641.91
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 73,673.10
+  Federal tax YTD     : 11,198.31
+  Social contributions: 5,635.99
+
+Annual salary rate    : 127,700.04

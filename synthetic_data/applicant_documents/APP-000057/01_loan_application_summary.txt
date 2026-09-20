@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000057
+Application date      : 2026-07-08
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000068)
+    Name              : Camille Petrosyan
+    Date of birth     : 1970-07-05
+    Taxpayer ID       : ***-**-0068  [masked]
+    Contact           : camille.petrosyan068@example.com / (503) 555-0168
+    Current address   : 5755 Larkspur Avenue, Beaverton, OR 97006
+    Years at address  : 5
+
+  CO_BORROWER (BORR-000069)
+    Name              : Omar Sorensen
+    Date of birth     : 1971-04-10
+    Taxpayer ID       : ***-**-0069  [masked]
+    Contact           : omar.sorensen069@example.com / (248) 555-0169
+    Current address   : 7119 Orchardstone Way, Rochester Hills, MI 48307
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 5,137.83
+  salaried             declared monthly 3,720.50
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 345,600.00
+  Note amount          : 345,600.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2546 Kingsmere Lane, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 480,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      16,346.02  monthly     391.35
+  student_loan             balance      21,958.74  monthly     299.27
+  revolving_credit_card    balance       9,208.33  monthly     276.25
+  installment_personal     balance       5,965.50  monthly     184.17
