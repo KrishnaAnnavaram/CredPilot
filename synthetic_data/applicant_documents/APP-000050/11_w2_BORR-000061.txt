@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Fenwick Structural Engineering
+Employee              : Ingrid Petrosyan (BORR-000061)
+Taxpayer ID           : ***-**-0061  [masked]
+
+Wages, tips and other compensation : 62,254.08
+Federal income tax withheld        : 9,213.60
+Social contribution wages          : 62,254.08
+
+This statement reports the prior tax year only.

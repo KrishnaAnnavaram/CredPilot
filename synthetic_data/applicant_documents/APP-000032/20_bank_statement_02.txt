@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Theo Osei (BORR-000039)
+Account type          : savings
+Account number        : ******0124  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 62,552.96
+  Closing balance                : 62,552.96

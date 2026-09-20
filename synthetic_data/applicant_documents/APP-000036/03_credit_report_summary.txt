@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Delia Delacroix (BORR-000043) ------------------------------
+  Credit file reference : ****0043  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 736, 742, 749
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Andre Abernathy (BORR-000044) ------------------------------
+  Credit file reference : ****0044  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 705, 719, 722
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     12,591.05
+      limit         0.00   monthly     301.45   opened 2018-11-01   late 30/60/90 in 24m: 0/0/0
+  student_loan             Northwind Card Services          balance     16,914.25
+      limit         0.00   monthly     230.52   opened 2024-03-02   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance      7,093.00
+      limit    25,332.14   monthly     212.79   opened 2023-06-07   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      4,595.35
+      limit         0.00   monthly     141.87   opened 2017-12-25   late 30/60/90 in 24m: 0/0/0

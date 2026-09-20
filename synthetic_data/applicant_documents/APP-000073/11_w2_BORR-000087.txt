@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Sable Ridge Software
+Employee              : Andre Okafor (BORR-000087)
+Taxpayer ID           : ***-**-0087  [masked]
+
+Wages, tips and other compensation : 61,756.72
+Federal income tax withheld        : 9,139.99
+Social contribution wages          : 61,756.72
+
+This statement reports the prior tax year only.

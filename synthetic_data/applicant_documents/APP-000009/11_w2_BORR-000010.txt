@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Cartwright & Vale Advisory
+Employee              : Everett Mbeki (BORR-000010)
+Taxpayer ID           : ***-**-0010  [masked]
+
+Wages, tips and other compensation : 105,281.54
+Federal income tax withheld        : 15,581.67
+Social contribution wages          : 105,281.54
+
+This statement reports the prior tax year only.

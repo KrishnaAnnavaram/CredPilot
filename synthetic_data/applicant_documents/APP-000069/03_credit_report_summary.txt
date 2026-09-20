@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Tobias Osei (BORR-000082) ------------------------------
+  Credit file reference : ****0082  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 732, 742, 747
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      9,112.17
+      limit         0.00   monthly     218.16   opened 2024-10-02   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance     12,241.04
+      limit         0.00   monthly     166.83   opened 2018-09-04   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      5,133.33
+      limit    18,333.32   monthly     154.00   opened 2019-03-11   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      3,325.29
+      limit         0.00   monthly     102.66   opened 2022-01-07   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Marcus Delacroix (BORR-000008) ------------------------------
+  Credit file reference : ****0008  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 702, 706, 711
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Pinnacle Auto Finance            balance     17,378.12
+      limit         0.00   monthly     416.06   opened 2019-10-03   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance     23,344.78
+      limit         0.00   monthly     318.16   opened 2020-05-04   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance      9,789.67
+      limit    34,963.11   monthly     293.69   opened 2024-05-27   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      6,342.21
+      limit         0.00   monthly     195.80   opened 2022-04-11   late 30/60/90 in 24m: 0/0/0

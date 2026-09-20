@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000075
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000090)
+    Name              : Malik Guerrero
+    Date of birth     : 1974-06-05
+    Taxpayer ID       : ***-**-0090  [masked]
+    Contact           : malik.guerrero090@example.com / (972) 555-0190
+    Current address   : 7930 Larkspur Avenue, Plano, TX 75024
+    Years at address  : 12
+
+-- Declared income ------------------------------------------------------
+  retirement           declared monthly 2,925.00
+  social_security      declared monthly 1,950.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 150,000.00
+  Note amount          : 150,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2480 Ambersley Road, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 250,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       3,473.03  monthly      83.15
+  student_loan             balance       4,665.14  monthly      63.58
+  revolving_credit_card    balance       1,956.33  monthly      58.69
+  installment_personal     balance       1,267.47  monthly      39.13

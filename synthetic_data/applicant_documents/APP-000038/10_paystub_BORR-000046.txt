@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Thornhill Insurance Brokers
+Employee              : Freya Guerrero (BORR-000046)
+Taxpayer ID           : ***-**-0046  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 3,869.23
+  Net pay             : 2,869.03
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 63,331.56
+  Federal tax YTD     : 9,626.40
+  Social contributions: 4,844.86
+
+Annual salary rate    : 100,599.96

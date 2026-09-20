@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Grayson Municipal Authority
+Employee              : Talia Ravenscroft (BORR-000072)
+Taxpayer ID           : ***-**-0072  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 6,884.62
+  Net pay             : 5,104.95
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 103,269.30
+  Federal tax YTD     : 15,696.93
+  Social contributions: 7,900.10
+
+Annual salary rate    : 179,000.04

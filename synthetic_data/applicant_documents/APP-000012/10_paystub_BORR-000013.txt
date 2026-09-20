@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Pinewater Utilities District
+Employee              : Malik Kirilenko (BORR-000013)
+Taxpayer ID           : ***-**-0013  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 3,665.68
+  Net pay             : 2,718.10
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 58,650.88
+  Federal tax YTD     : 8,914.93
+  Social contributions: 4,486.79
+
+Annual salary rate    : 95,307.72

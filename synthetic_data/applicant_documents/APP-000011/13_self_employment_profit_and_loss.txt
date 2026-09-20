@@ -1,0 +1,18 @@
+==========================================================================
+  BUSINESS PROFIT AND LOSS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Business              : Silverbrook Diagnostics
+Owner                 : Malik Sorensen (BORR-000012)
+Ownership             : 100%
+Period                : 01 January 2026 to 2026-08-12
+
+  Gross receipts                 : 347,820.00
+  Operating expenses             : (227,106.00)
+  Depreciation (non-cash)        : (18,414.00)
+  Net profit                     : 102,300.00
+
+  Owner distributions taken      : 102,300.00
+  Ownership                      : 100%

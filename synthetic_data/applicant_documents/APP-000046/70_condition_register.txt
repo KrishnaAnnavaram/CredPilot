@@ -1,0 +1,27 @@
+==========================================================================
+  CONDITION REGISTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application           : APP-000046
+Prepared              : 2026-08-12
+Open conditions       : 2
+
+-- Outstanding items ----------------------------------------------------
+  1. [DOCUMENTATION] Provide a refreshed paystub.
+     Required evidence : paystub
+     Raised by rule    : DOC-REQ-002
+     Timing            : PRIOR_TO_CLOSE
+     Status            : OPEN
+
+  2. [DOCUMENTATION] Provide a refreshed bank statement.
+     Required evidence : bank_statement
+     Raised by rule    : DOC-REQ-002
+     Timing            : PRIOR_TO_CLOSE
+     Status            : OPEN
+
+UWR-CND-001: a condition moves to CLEARED only when the evidence is
+received and accepted, or to WAIVED only under an approved exception.
+Clearing a condition can introduce new information, which requires the
+affected calculations and rules to be re-run.

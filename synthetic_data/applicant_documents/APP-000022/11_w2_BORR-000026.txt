@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Latchford Construction
+Employee              : Silas Kirilenko (BORR-000026)
+Taxpayer ID           : ***-**-0026  [masked]
+
+Wages, tips and other compensation : 77,182.67
+Federal income tax withheld        : 11,423.04
+Social contribution wages          : 77,182.67
+
+This statement reports the prior tax year only.

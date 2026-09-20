@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Emeka Pemberton (BORR-000001) ------------------------------
+  Credit file reference : ****0001  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 733, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      3,546.13
+      limit         0.00   monthly      84.90   opened 2022-07-14   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance      4,763.46
+      limit         0.00   monthly      64.92   opened 2025-06-24   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      1,997.67
+      limit     7,134.54   monthly      59.93   opened 2021-02-02   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      1,294.35
+      limit         0.00   monthly      39.96   opened 2018-09-15   late 30/60/90 in 24m: 0/0/0

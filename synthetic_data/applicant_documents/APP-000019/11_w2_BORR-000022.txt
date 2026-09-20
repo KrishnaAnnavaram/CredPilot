@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Harborline Logistics
+Employee              : Winona Underhill (BORR-000022)
+Taxpayer ID           : ***-**-0022  [masked]
+
+Wages, tips and other compensation : 35,429.01
+Federal income tax withheld        : 5,243.49
+Social contribution wages          : 35,429.01
+
+This statement reports the prior tax year only.

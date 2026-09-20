@@ -1,0 +1,12 @@
+==========================================================================
+  RESIDENTIAL LEASE SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Premises              : 4120 Halloway Street, Overland Park, KS
+Landlord              : Andre Okafor (BORR-000087)
+Tenant                : J. Rennard (synthetic counterparty)
+Term                  : 12 months from 2026-05-09
+Monthly rent          : 3,475.67
+Tenancy status        : occupied by the tenant named above

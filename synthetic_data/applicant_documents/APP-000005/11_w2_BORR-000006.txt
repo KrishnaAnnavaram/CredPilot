@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Harborline Logistics
+Employee              : Elena Achterberg (BORR-000006)
+Taxpayer ID           : ***-**-0006  [masked]
+
+Wages, tips and other compensation : 64,888.53
+Federal income tax withheld        : 9,603.50
+Social contribution wages          : 64,888.53
+
+This statement reports the prior tax year only.

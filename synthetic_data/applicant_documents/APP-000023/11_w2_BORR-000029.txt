@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Orchard Point Hospitality
+Employee              : Sofia Blackwood (BORR-000029)
+Taxpayer ID           : ***-**-0029  [masked]
+
+Wages, tips and other compensation : 43,529.22
+Federal income tax withheld        : 6,442.32
+Social contribution wages          : 43,529.22
+
+This statement reports the prior tax year only.

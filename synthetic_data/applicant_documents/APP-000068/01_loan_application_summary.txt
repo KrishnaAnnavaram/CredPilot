@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000068
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000081)
+    Name              : Greta Achterberg
+    Date of birth     : 1966-02-07
+    Taxpayer ID       : ***-**-0081  [masked]
+    Contact           : greta.achterberg081@example.com / (480) 555-0181
+    Current address   : 7121 Rosslyn Terrace, Chandler, AZ 85224
+    Years at address  : 8
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,233.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 360,000.00
+  Note amount          : 360,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2253 Foxglove Terrace, Chandler, AZ 85224
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 450,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,854.53  monthly     188.05
+  student_loan             balance      10,551.96  monthly     143.81
+  revolving_credit_card    balance       4,424.67  monthly     132.74
+  installment_personal     balance       2,866.63  monthly      88.50

@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Grayson Municipal Authority
+Employee              : Talia Thornbury (BORR-000016)
+Taxpayer ID           : ***-**-0016  [masked]
+
+Wages, tips and other compensation : 101,325.00
+Federal income tax withheld        : 14,996.10
+Social contribution wages          : 101,325.00
+
+This statement reports the prior tax year only.

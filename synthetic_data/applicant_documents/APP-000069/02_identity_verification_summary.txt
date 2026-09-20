@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Tobias Osei (BORR-000082)
+Date of birth         : 2002-01-02
+Taxpayer ID           : ***-**-0082  [masked]
+Address on file       : 1740 Orchardstone Way, Chandler, AZ 85224
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0082  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

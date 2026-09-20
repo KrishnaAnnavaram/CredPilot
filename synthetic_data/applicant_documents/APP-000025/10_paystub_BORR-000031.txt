@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Pinewater Utilities District
+Employee              : Ruth Lindstrom (BORR-000031)
+Taxpayer ID           : ***-**-0031  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,400.00
+  Net pay             : 3,262.60
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 66,000.00
+  Federal tax YTD     : 10,032.00
+  Social contributions: 5,049.00
+
+Annual salary rate    : 114,399.96

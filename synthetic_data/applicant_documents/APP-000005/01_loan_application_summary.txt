@@ -1,0 +1,52 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000005
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000005)
+    Name              : Talia Okafor
+    Date of birth     : 1960-02-11
+    Taxpayer ID       : ***-**-0005  [masked]
+    Contact           : talia.okafor005@example.com / (303) 555-0105
+    Current address   : 2202 Gullwing Road, Broomfield, CO 80020
+    Years at address  : 11
+
+  CO_BORROWER (BORR-000006)
+    Name              : Elena Achterberg
+    Date of birth     : 1987-03-13
+    Taxpayer ID       : ***-**-0006  [masked]
+    Contact           : elena.achterberg006@example.com / (503) 555-0106
+    Current address   : 4201 Cedarhollow Drive, Beaverton, OR 97006
+    Previous address  : 1430 Pemberly Road, Franklin, TN 37067
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 7,738.17
+  salaried             declared monthly 5,603.50
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 485,000.00
+  Note amount          : 485,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2300 Ambersley Road, Broomfield, CO 80020
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 500,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      18,955.70  monthly     453.83
+  student_loan             balance      25,464.57  monthly     347.05
+  revolving_credit_card    balance      10,678.33  monthly     320.35
+  installment_personal     balance       6,917.80  monthly     213.57

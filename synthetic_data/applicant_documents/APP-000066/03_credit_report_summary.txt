@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Elena Underhill (BORR-000079) ------------------------------
+  Credit file reference : ****0079  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 597, 602, 608
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      9,267.13
+      limit         0.00   monthly     221.87   opened 2021-05-08   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     12,449.43
+      limit         0.00   monthly     169.67   opened 2024-02-23   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      5,220.67
+      limit    18,645.25   monthly     156.62   opened 2024-12-20   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      3,381.97
+      limit         0.00   monthly     104.41   opened 2022-12-02   late 30/60/90 in 24m: 0/0/0

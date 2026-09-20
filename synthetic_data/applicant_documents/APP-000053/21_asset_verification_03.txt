@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Ravenscourt Securities
+Account holder        : Salma Brennerman (BORR-000064)
+Account type          : brokerage
+Account number        : ******0207  [masked]
+Valuation date        : 2026-06-18
+
+  Current balance                : 10,277.85
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

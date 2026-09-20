@@ -1,0 +1,17 @@
+==========================================================================
+  RESIDENTIAL PURCHASE AGREEMENT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Property              : 2611 Hazeldene Court, Overland Park, KS 66210
+Purchaser             : Theo Osei
+Seller                : M. Ashgrove (synthetic counterparty)
+Contract date         : 2026-07-17
+Expected closing      : 2026-09-02
+
+  Purchase price                 : 470,000.00
+  Earnest money deposit          : 4,700.00
+  Seller credit to costs         : 9,400.00
+  Financing contingency          : yes
+  Appraisal contingency          : yes

@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Northgate Public Schools
+Employee              : Greta Achterberg (BORR-000081)
+Taxpayer ID           : ***-**-0081  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,261.54
+  Net pay             : 3,159.93
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 63,923.10
+  Federal tax YTD     : 9,716.31
+  Social contributions: 4,890.12
+
+Annual salary rate    : 110,799.96

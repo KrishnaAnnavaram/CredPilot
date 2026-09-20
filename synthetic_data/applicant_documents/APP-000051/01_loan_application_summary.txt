@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000051
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000062)
+    Name              : Priya Vasquez
+    Date of birth     : 1990-10-19
+    Taxpayer ID       : ***-**-0062  [masked]
+    Contact           : priya.vasquez062@example.com / (630) 555-0162
+    Current address   : 2246 Elmridge Terrace, Naperville, IL 60540
+    Years at address  : 9
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,866.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 352,000.00
+  Note amount          : 352,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2337 Copperbeech Drive, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 440,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,267.97  monthly     221.89
+  student_loan             balance      12,450.16  monthly     169.68
+  revolving_credit_card    balance       5,221.00  monthly     156.63
+  installment_personal     balance       3,381.97  monthly     104.41

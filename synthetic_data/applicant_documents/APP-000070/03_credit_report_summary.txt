@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Anton Adeyemi (BORR-000083) ------------------------------
+  Credit file reference : ****0083  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 728, 742, 752
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      4,651.73
+      limit         0.00   monthly     111.37   opened 2024-06-22   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance      6,249.29
+      limit         0.00   monthly      85.17   opened 2019-01-28   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance      2,620.67
+      limit     9,359.54   monthly      78.62   opened 2019-05-09   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      1,697.63
+      limit         0.00   monthly      52.41   opened 2022-04-18   late 30/60/90 in 24m: 0/0/0

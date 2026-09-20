@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000017
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : jumbo
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000020)
+    Name              : Ruth Lindstrom
+    Date of birth     : 1989-02-10
+    Taxpayer ID       : ***-**-0020  [masked]
+    Contact           : ruth.lindstrom020@example.com / (248) 555-0120
+    Current address   : 9075 Havenbrook Lane, Rochester Hills, MI 48307
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 29,275.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 986,400.00
+  Note amount          : 986,400.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2452 Ambersley Road, Rochester Hills, MI 48307
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 1,370,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      20,782.23  monthly     497.56
+  student_loan             balance      27,918.21  monthly     380.49
+  revolving_credit_card    balance      11,707.33  monthly     351.22
+  installment_personal     balance       7,584.09  monthly     234.14

@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Rashid Ivanova (BORR-000025)
+Account type          : savings
+Account number        : ******0078  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 4,601.72
+  Closing balance                : 4,601.72

@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Northgate Public Schools
+Employee              : Malik Guerrero (BORR-000090)
+Taxpayer ID           : ***-**-0090  [masked]
+
+Wages, tips and other compensation : 33,871.50
+Federal income tax withheld        : 5,012.98
+Social contribution wages          : 33,871.50
+
+This statement reports the prior tax year only.

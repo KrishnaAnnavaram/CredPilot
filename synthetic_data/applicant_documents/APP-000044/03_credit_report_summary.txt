@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Mateo Blackwood (BORR-000052) ------------------------------
+  Credit file reference : ****0052  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 764, 768, 774
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      3,452.15
+      limit         0.00   monthly      82.65   opened 2021-04-13   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance      4,637.26
+      limit         0.00   monthly      63.20   opened 2022-09-01   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      1,944.67
+      limit     6,945.25   monthly      58.34   opened 2025-05-21   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      1,259.70
+      limit         0.00   monthly      38.89   opened 2024-05-28   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,16 @@
+==========================================================================
+  MORTGAGE PAYOFF STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Servicer              : Sablefield Mortgage Servicing
+Borrower              : Caleb Fairbanks
+Property              : 2306 Kingsmere Lane, Coral Springs, FL
+Statement date        : 2026-08-08
+Good through          : 2026-09-07
+
+  Unpaid principal balance       : 272,331.84
+  Total payoff                   : 272,331.84
+
+Ownership since       : 2023-06-12  (38 months)

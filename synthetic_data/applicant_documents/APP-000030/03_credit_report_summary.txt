@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Andre Hargrave (BORR-000037) ------------------------------
+  Credit file reference : ****0037  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 681, 694, 703
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance     13,589.31
+      limit         0.00   monthly     325.35   opened 2021-09-21   late 30/60/90 in 24m: 0/0/0
+  student_loan             Pinnacle Auto Finance            balance     18,254.80
+      limit         0.00   monthly     248.79   opened 2024-02-28   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance      7,655.33
+      limit    27,340.46   monthly     229.66   opened 2018-08-10   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      4,959.10
+      limit         0.00   monthly     153.10   opened 2018-12-08   late 30/60/90 in 24m: 0/0/0

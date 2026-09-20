@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Northgate Public Schools
+Employee              : Isaac Quintero (BORR-000021)
+Taxpayer ID           : ***-**-0021  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 20,765.39
+  Net pay             : 15,397.54
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 332,246.24
+  Federal tax YTD     : 50,501.43
+  Social contributions: 25,416.84
+
+Annual salary rate    : 539,900.04

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000048
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000058)
+    Name              : Noor Pemberton
+    Date of birth     : 1972-10-09
+    Taxpayer ID       : ***-**-0058  [masked]
+    Contact           : noor.pemberton058@example.com / (630) 555-0158
+    Current address   : 3488 Havenbrook Lane, Naperville, IL 60540
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 13,516.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 432,000.00
+  Note amount          : 432,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2758 Kingsmere Lane, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 540,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      13,423.08  monthly     321.37
+  student_loan             balance      18,031.75  monthly     245.75
+  revolving_credit_card    balance       7,561.67  monthly     226.85
+  installment_personal     balance       4,898.85  monthly     151.24

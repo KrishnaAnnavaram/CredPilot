@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Cartwright & Vale Advisory
+Employee              : Gregor Ferreira (BORR-000041)
+Taxpayer ID           : ***-**-0041  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,196.16
+  Net pay             : 3,111.45
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 62,942.40
+  Federal tax YTD     : 9,567.24
+  Social contributions: 4,815.09
+
+Annual salary rate    : 109,100.04

@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Thornhill Insurance Brokers
+Employee              : Felix Ravenscroft (BORR-000067)
+Taxpayer ID           : ***-**-0067  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-06-27
+Periods elapsed (YTD) : 12
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,811.54
+  Net pay             : 4,309.26
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 69,738.48
+  Federal tax YTD     : 10,600.25
+  Social contributions: 5,334.99
+
+Annual salary rate    : 151,100.04

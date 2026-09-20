@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Ravenscourt Securities
+Account holder        : Ingrid Petrosyan (BORR-000066)
+Account type          : brokerage
+Account number        : ******0215  [masked]
+Valuation date        : 2026-06-18
+
+  Current balance                : 3,347.58
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

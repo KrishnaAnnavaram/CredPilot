@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Blue Larkspur Manufacturing
+Employee              : Rosa Petrosyan (BORR-000080)
+Taxpayer ID           : ***-**-0080  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,961.54
+  Net pay             : 4,420.48
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 89,423.10
+  Federal tax YTD     : 13,592.31
+  Social contributions: 6,840.87
+
+Annual salary rate    : 155,000.04

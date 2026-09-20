@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Salma Brennerman (BORR-000064)
+Account type          : savings
+Account number        : ******0206  [masked]
+Statement period end  : 2026-06-16
+
+  Opening balance                : 98,248.45
+  Closing balance                : 98,248.45

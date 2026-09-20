@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Rosa Petrosyan (BORR-000080)
+Date of birth         : 1968-07-15
+Taxpayer ID           : ***-**-0080  [masked]
+Address on file       : 2781 Windermere Court, Plano, TX 75024
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0080  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

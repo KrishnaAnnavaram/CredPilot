@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Latchford Construction
+Employee              : Isaac Lindstrom (BORR-000034)
+Taxpayer ID           : ***-**-0034  [masked]
+
+Wages, tips and other compensation : 49,649.25
+Federal income tax withheld        : 7,348.09
+Social contribution wages          : 49,649.25
+
+This statement reports the prior tax year only.

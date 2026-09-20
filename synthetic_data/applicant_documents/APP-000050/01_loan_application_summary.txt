@@ -1,0 +1,52 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000050
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000060)
+    Name              : Emeka Hargrave
+    Date of birth     : 1968-03-13
+    Taxpayer ID       : ***-**-0060  [masked]
+    Contact           : emeka.hargrave060@example.com / (248) 555-0160
+    Current address   : 1721 Rosslyn Terrace, Rochester Hills, MI 48307
+    Previous address  : 4810 Cedarhollow Drive, Plano, TX 75024
+    Years at address  : 2
+
+  CO_BORROWER (BORR-000061)
+    Name              : Ingrid Petrosyan
+    Date of birth     : 1974-11-26
+    Taxpayer ID       : ***-**-0061  [masked]
+    Contact           : ingrid.petrosyan061@example.com / (480) 555-0161
+    Current address   : 558 Rosslyn Terrace, Chandler, AZ 85224
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 7,424.00
+  salaried             declared monthly 5,376.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 431,460.00
+  Note amount          : 431,460.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2363 Sablecrest Drive, Rochester Hills, MI 48307
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 510,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      14,544.14  monthly     348.21
+  student_loan             balance      19,538.12  monthly     266.28
+  revolving_credit_card    balance       8,193.33  monthly     245.80
+  installment_personal     balance       5,307.63  monthly     163.86

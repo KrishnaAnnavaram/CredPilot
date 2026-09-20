@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Tidewater Investment Services
+Account holder        : Camille Ivanova (BORR-000009)
+Account type          : brokerage
+Account number        : ******0027  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 6,813.45
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

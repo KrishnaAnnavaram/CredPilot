@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000019
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : fha
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000022)
+    Name              : Winona Underhill
+    Date of birth     : 1976-08-28
+    Taxpayer ID       : ***-**-0022  [masked]
+    Contact           : winona.underhill022@example.com / (714) 555-0122
+    Current address   : 4618 Bramblewood Court, Yorba Linda, CA 92886
+    Years at address  : 11
+
+  CO_BORROWER (BORR-000023)
+    Name              : Delia Nakagawa
+    Date of birth     : 1999-07-26
+    Taxpayer ID       : ***-**-0023  [masked]
+    Contact           : delia.nakagawa023@example.com / (615) 555-0123
+    Current address   : 308 Draycott Way, Franklin, TN 37067
+    Years at address  : 7
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 3,059.50
+  salaried             declared monthly 2,215.50
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 193,000.00
+  Note amount          : 196,377.50
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2246 Kingsmere Lane, Yorba Linda, CA 92886
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 200,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       6,728.87  monthly     161.10
+  student_loan             balance       9,038.99  monthly     123.19
+  revolving_credit_card    balance       3,790.67  monthly     113.72
+  installment_personal     balance       2,455.58  monthly      75.81

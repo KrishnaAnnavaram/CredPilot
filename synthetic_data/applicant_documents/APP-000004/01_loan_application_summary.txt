@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000004
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000004)
+    Name              : Bianca Kirilenko
+    Date of birth     : 1976-12-12
+    Taxpayer ID       : ***-**-0004  [masked]
+    Contact           : bianca.kirilenko004@example.com / (503) 555-0104
+    Current address   : 8770 Stonebriar Court, Beaverton, OR 97006
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 7,900.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 304,000.00
+  Note amount          : 304,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2761 Copperbeech Drive, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 380,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      21,322.30  monthly     510.49
+  student_loan             balance      28,643.14  monthly     390.37
+  revolving_credit_card    balance      12,011.33  monthly     360.34
+  installment_personal     balance       7,781.35  monthly     240.23

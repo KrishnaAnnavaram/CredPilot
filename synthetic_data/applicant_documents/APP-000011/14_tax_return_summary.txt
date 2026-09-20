@@ -1,0 +1,14 @@
+==========================================================================
+  PERSONAL TAX RETURN SUMMARY (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Filer                 : Malik Sorensen (BORR-000012)
+Taxpayer ID           : ***-**-0012  [masked]
+Filing status         : Unmarried
+
+  Business net profit            : 96,162.00
+  Depreciation claimed           : 18,270.78
+  Adjusted gross income          : 100,008.48

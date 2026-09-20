@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Emeka Pemberton (BORR-000001)
+Account type          : checking
+Account number        : ******0245  [masked]
+Statement period end  : 2026-08-26
+
+  Opening balance                : 48,153.30
+  2026-08-14  -     6,600.00  Earnest money deposit to settlement agent
+  Closing balance                : 41,553.30

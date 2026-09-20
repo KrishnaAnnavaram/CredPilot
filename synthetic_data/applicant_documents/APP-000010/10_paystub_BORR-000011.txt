@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Orchard Point Hospitality
+Employee              : Talia Moreau (BORR-000011)
+Taxpayer ID           : ***-**-0011  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,096.15
+  Net pay             : 3,037.30
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 61,442.25
+  Federal tax YTD     : 9,339.22
+  Social contributions: 4,700.33
+
+Annual salary rate    : 106,500.00

@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Cascade Mutual Credit Union
+Account holder        : Caleb Thornbury (BORR-000042)
+Account type          : checking
+Account number        : ******0135  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 45,234.49
+  2026-07-22  -     5,600.00  Earnest money deposit to settlement agent
+  Closing balance                : 39,634.49

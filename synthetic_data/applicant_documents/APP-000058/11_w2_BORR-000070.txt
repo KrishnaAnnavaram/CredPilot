@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Verity Loom Textiles
+Employee              : Omar Underhill (BORR-000070)
+Taxpayer ID           : ***-**-0070  [masked]
+
+Wages, tips and other compensation : 164,532.46
+Federal income tax withheld        : 24,350.80
+Social contribution wages          : 164,532.46
+
+This statement reports the prior tax year only.

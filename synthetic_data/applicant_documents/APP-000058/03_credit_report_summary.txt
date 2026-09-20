@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Omar Underhill (BORR-000070) ------------------------------
+  Credit file reference : ****0070  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 634, 640, 645
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Pinnacle Auto Finance            balance     18,158.77
+      limit         0.00   monthly     434.75   opened 2023-12-20   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     24,394.04
+      limit         0.00   monthly     332.46   opened 2018-11-27   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance     10,229.67
+      limit    36,534.54   monthly     306.89   opened 2024-02-05   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      6,626.93
+      limit         0.00   monthly     204.59   opened 2019-10-14   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,53 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000061
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 3
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000073)
+    Name              : Caleb Lindstrom
+    Date of birth     : 1967-09-07
+    Taxpayer ID       : ***-**-0073  [masked]
+    Contact           : caleb.lindstrom073@example.com / (919) 555-0173
+    Current address   : 9082 Bramblewood Court, Cary, NC 27513
+    Previous address  : 1912 Windermere Court, Rochester Hills, MI 48307
+    Years at address  : 1
+
+  CO_BORROWER (BORR-000074)
+    Name              : Ruth Ashworth
+    Date of birth     : 1971-07-09
+    Taxpayer ID       : ***-**-0074  [masked]
+    Contact           : ruth.ashworth074@example.com / (480) 555-0174
+    Current address   : 9624 Nightingale Close, Chandler, AZ 85224
+    Previous address  : 642 Kestrel Ridge, Coral Springs, FL 33071
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 6,322.00
+  salaried             declared monthly 4,578.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 416,000.00
+  Note amount          : 416,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2431 Hazeldene Court, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 520,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       6,202.59  monthly     148.50
+  student_loan             balance       8,332.39  monthly     113.56
+  revolving_credit_card    balance       3,494.00  monthly     104.82
+  installment_personal     balance       2,263.50  monthly      69.88

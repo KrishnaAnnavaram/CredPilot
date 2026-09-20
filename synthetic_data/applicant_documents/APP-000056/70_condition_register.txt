@@ -1,0 +1,21 @@
+==========================================================================
+  CONDITION REGISTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application           : APP-000056
+Prepared              : 2026-07-08
+Open conditions       : 1
+
+-- Outstanding items ----------------------------------------------------
+  1. [ASSETS] Evidence reserve-eligible assets sufficient for 4 months of the qualifying housing expense.
+     Required evidence : Asset statements or a validated asset-verification report
+     Raised by rule    : AST-RSV-002
+     Timing            : PRIOR_TO_CLOSE
+     Status            : OPEN
+
+UWR-CND-001: a condition moves to CLEARED only when the evidence is
+received and accepted, or to WAIVED only under an approved exception.
+Clearing a condition can introduce new information, which requires the
+affected calculations and rules to be re-run.

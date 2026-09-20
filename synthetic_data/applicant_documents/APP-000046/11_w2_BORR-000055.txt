@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Silverbrook Diagnostics
+Employee              : Emeka Ferreira (BORR-000055)
+Taxpayer ID           : ***-**-0055  [masked]
+
+Wages, tips and other compensation : 135,679.04
+Federal income tax withheld        : 20,080.50
+Social contribution wages          : 135,679.04
+
+This statement reports the prior tax year only.

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000042
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000050)
+    Name              : Malik Guerrero
+    Date of birth     : 1992-11-18
+    Taxpayer ID       : ***-**-0050  [masked]
+    Contact           : malik.guerrero050@example.com / (503) 555-0150
+    Current address   : 7500 Juniper Bend, Beaverton, OR 97006
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 12,533.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 450,000.00
+  Note amount          : 450,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2674 Marlowe Crossing, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 500,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      12,470.76  monthly     298.57
+  student_loan             balance      16,752.83  monthly     228.32
+  revolving_credit_card    balance       7,025.33  monthly     210.76
+  installment_personal     balance       4,551.30  monthly     140.51
