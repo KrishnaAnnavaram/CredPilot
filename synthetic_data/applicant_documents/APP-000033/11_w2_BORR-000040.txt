@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Blue Larkspur Manufacturing
+Employee              : Winona Lindstrom (BORR-000040)
+Taxpayer ID           : ***-**-0040  [masked]
+
+Wages, tips and other compensation : 125,643.00
+Federal income tax withheld        : 18,595.16
+Social contribution wages          : 125,643.00
+
+This statement reports the prior tax year only.

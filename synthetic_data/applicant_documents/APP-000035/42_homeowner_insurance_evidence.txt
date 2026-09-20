@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Caleb Thornbury
+Property              : 2678 Marlowe Crossing, Beaverton, OR
+Coverage amount       : 448,000.00
+Annual premium        : 1,959.96
+Monthly escrow        : 163.33
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Freya Guerrero (BORR-000046)
+Account type          : savings
+Account number        : ******0148  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 58,774.95
+  Closing balance                : 58,774.95

@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Kestrel Freight Services
+Employee              : Anton Guerrero (BORR-000027)
+Taxpayer ID           : ***-**-0027  [masked]
+
+Wages, tips and other compensation : 55,890.87
+Federal income tax withheld        : 8,271.85
+Social contribution wages          : 55,890.87
+
+This statement reports the prior tax year only.

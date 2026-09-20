@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000049
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000059)
+    Name              : Marcus Brennerman
+    Date of birth     : 2000-05-16
+    Taxpayer ID       : ***-**-0059  [masked]
+    Contact           : marcus.brennerman059@example.com / (281) 555-0159
+    Current address   : 3059 Umberwood Place, Sugar Land, TX 77479
+    Previous address  : 7861 Meadowvane Drive, Yorba Linda, CA 92886
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,658.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 312,000.00
+  Note amount          : 312,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2402 Marlowe Crossing, Sugar Land, TX 77479
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 390,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       2,734.57  monthly      65.47
+  student_loan             balance       3,673.85  monthly      50.07
+  revolving_credit_card    balance       1,540.67  monthly      46.22
+  installment_personal     balance         997.97  monthly      30.81

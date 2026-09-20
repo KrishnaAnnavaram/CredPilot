@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Niall Nakamura
+Property              : 2793 Foxglove Terrace, Plano, TX
+Coverage amount       : 336,000.00
+Annual premium        : 1,470.00
+Monthly escrow        : 122.50
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

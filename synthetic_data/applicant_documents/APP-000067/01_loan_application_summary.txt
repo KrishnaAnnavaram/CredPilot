@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000067
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000080)
+    Name              : Rosa Petrosyan
+    Date of birth     : 1968-07-15
+    Taxpayer ID       : ***-**-0080  [masked]
+    Contact           : rosa.petrosyan080@example.com / (972) 555-0180
+    Current address   : 2781 Windermere Court, Plano, TX 75024
+    Previous address  : 6474 Cedarhollow Drive, Sandy Springs, GA 30328
+    Years at address  : 2
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 12,916.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 432,000.00
+  Note amount          : 432,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2264 Wrenfield Way, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 540,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,179.42  monthly     219.77
+  student_loan             balance      12,331.29  monthly     168.06
+  revolving_credit_card    balance       5,171.00  monthly     155.13
+  installment_personal     balance       3,349.90  monthly     103.42

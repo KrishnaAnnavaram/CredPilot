@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Meridian Civic Health
+Employee              : Camille Ivanova (BORR-000009)
+Taxpayer ID           : ***-**-0009  [masked]
+
+Wages, tips and other compensation : 108,852.00
+Federal income tax withheld        : 16,110.10
+Social contribution wages          : 108,852.00
+
+This statement reports the prior tax year only.

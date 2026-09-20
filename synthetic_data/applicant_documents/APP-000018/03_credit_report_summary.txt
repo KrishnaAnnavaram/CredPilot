@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Isaac Quintero (BORR-000021) ------------------------------
+  Credit file reference : ****0021  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 780, 784, 791
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance     12,781.10
+      limit         0.00   monthly     306.00   opened 2021-03-22   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance     17,169.60
+      limit         0.00   monthly     234.00   opened 2022-04-12   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      7,200.00
+      limit    25,714.29   monthly     216.00   opened 2021-12-20   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      4,664.67
+      limit         0.00   monthly     144.01   opened 2024-06-24   late 30/60/90 in 24m: 0/0/0

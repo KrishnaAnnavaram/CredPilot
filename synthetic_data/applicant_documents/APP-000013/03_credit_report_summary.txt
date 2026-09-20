@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Victor Lindqvist (BORR-000014) ------------------------------
+  Credit file reference : ****0014  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 728, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Freya Chandrasekar (BORR-000015) ------------------------------
+  Credit file reference : ****0015  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 735, 744, 751
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance     11,210.61
+      limit         0.00   monthly     268.40   opened 2020-06-29   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance     15,060.08
+      limit         0.00   monthly     205.25   opened 2018-11-30   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance      6,315.33
+      limit    22,554.75   monthly     189.46   opened 2019-03-15   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      4,091.02
+      limit         0.00   monthly     126.30   opened 2022-04-07   late 30/60/90 in 24m: 0/0/0

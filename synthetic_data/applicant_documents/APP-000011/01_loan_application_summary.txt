@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000011
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000012)
+    Name              : Malik Sorensen
+    Date of birth     : 1980-07-24
+    Taxpayer ID       : ***-**-0012  [masked]
+    Contact           : malik.sorensen012@example.com / (303) 555-0112
+    Current address   : 7564 Nightingale Close, Broomfield, CO 80020
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  self_employed        declared monthly 8,525.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 336,000.00
+  Note amount          : 336,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2878 Marlowe Crossing, Broomfield, CO 80020
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 420,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       8,478.13  monthly     202.98
+  student_loan             balance      11,389.17  monthly     155.22
+  revolving_credit_card    balance       4,776.00  monthly     143.28
+  installment_personal     balance       3,094.01  monthly      95.52

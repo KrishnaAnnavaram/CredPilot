@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Tidewater Investment Services
+Account holder        : Camille Petrosyan (BORR-000068)
+Account type          : brokerage
+Account number        : ******0223  [masked]
+Valuation date        : 2026-07-01
+
+  Current balance                : 7,724.90
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

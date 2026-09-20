@@ -1,0 +1,21 @@
+==========================================================================
+  UNIFORM RESIDENTIAL APPRAISAL SUMMARY (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject property      : 2300 Ambersley Road, Broomfield, CO 80020
+Property type         : single_family_detached (1 unit(s))
+Effective date        : 2026-07-19
+Valuation method      : full_appraisal
+Appraiser licence     : SYN-APPR-00418  [synthetic]
+Dataset version       : SYNTH-UAD-3.6
+
+  Opinion of value               : 510,000.00
+  Contract price                 : 500,000.00
+  Condition rating               : C3
+
+-- Comparable sales (synthetic) -----------------------------------------
+  Comparable 1                   : 494,700.00
+  Comparable 2                   : 520,200.00
+  Comparable 3                   : 507,450.00

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000038
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000046)
+    Name              : Freya Guerrero
+    Date of birth     : 1985-06-06
+    Taxpayer ID       : ***-**-0046  [masked]
+    Contact           : freya.guerrero046@example.com / (919) 555-0146
+    Current address   : 1448 Alderwood Lane, Cary, NC 27513
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,383.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 320,000.00
+  Note amount          : 320,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2259 Sablecrest Drive, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 400,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,146.14  monthly     171.09
+  student_loan             balance       9,599.57  monthly     130.83
+  revolving_credit_card    balance       4,025.67  monthly     120.77
+  installment_personal     balance       2,608.14  monthly      80.52

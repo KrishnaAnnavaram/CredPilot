@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Northgate Public Schools
+Employee              : Delia Delacroix (BORR-000043)
+Taxpayer ID           : ***-**-0043  [masked]
+
+Wages, tips and other compensation : 66,156.54
+Federal income tax withheld        : 9,791.17
+Social contribution wages          : 66,156.54
+
+This statement reports the prior tax year only.

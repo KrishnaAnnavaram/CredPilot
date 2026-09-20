@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Emeka Hargrave (BORR-000060) ------------------------------
+  Credit file reference : ****0060  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 736, 742, 753
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Ingrid Petrosyan (BORR-000061) ------------------------------
+  Credit file reference : ****0061  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 696, 707, 714
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance     14,544.14
+      limit         0.00   monthly     348.21   opened 2021-11-10   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     19,538.12
+      limit         0.00   monthly     266.28   opened 2023-01-23   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      8,193.33
+      limit    29,261.89   monthly     245.80   opened 2024-07-25   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      5,307.63
+      limit         0.00   monthly     163.86   opened 2018-11-22   late 30/60/90 in 24m: 0/0/0

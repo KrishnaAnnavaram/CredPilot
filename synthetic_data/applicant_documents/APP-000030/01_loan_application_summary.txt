@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000030
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000037)
+    Name              : Andre Hargrave
+    Date of birth     : 1975-12-20
+    Taxpayer ID       : ***-**-0037  [masked]
+    Contact           : andre.hargrave037@example.com / (248) 555-0137
+    Current address   : 9622 Kestrel Ridge, Rochester Hills, MI 48307
+    Years at address  : 6
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,641.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 368,000.00
+  Note amount          : 368,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2892 Ambersley Road, Rochester Hills, MI 48307
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 460,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      13,589.31  monthly     325.35
+  student_loan             balance      18,254.80  monthly     248.79
+  revolving_credit_card    balance       7,655.33  monthly     229.66
+  installment_personal     balance       4,959.10  monthly     153.10

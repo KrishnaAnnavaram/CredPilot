@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Grayson Municipal Authority
+Employee              : Talia Thornbury (BORR-000016)
+Taxpayer ID           : ***-**-0016  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,038.46
+  Net pay             : 2,994.52
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 60,576.90
+  Federal tax YTD     : 9,207.69
+  Social contributions: 4,634.13
+
+Annual salary rate    : 105,000.00

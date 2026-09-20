@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Pinewater Utilities District
+Employee              : Ruth Lindstrom (BORR-000031)
+Taxpayer ID           : ***-**-0031  [masked]
+
+Wages, tips and other compensation : 110,395.96
+Federal income tax withheld        : 16,338.60
+Social contribution wages          : 110,395.96
+
+This statement reports the prior tax year only.

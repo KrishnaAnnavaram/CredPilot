@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Elena Underhill (BORR-000079)
+Account type          : checking
+Account number        : ******0257  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 40,199.51
+  2026-07-22  -     4,600.00  Earnest money deposit to settlement agent
+  Closing balance                : 35,599.51

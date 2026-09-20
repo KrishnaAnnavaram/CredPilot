@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Fenwick Structural Engineering
+Employee              : Ruth Blackwood (BORR-000033)
+Taxpayer ID           : ***-**-0033  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 2,732.69
+  Net pay             : 2,026.29
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 40,990.35
+  Federal tax YTD     : 6,230.53
+  Social contributions: 3,135.76
+
+Annual salary rate    : 71,049.96

@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF EMPLOYMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Pinewater Utilities District
+Employee              : Nadia Delacroix (BORR-000048)
+Position              : Field Supervisor
+Employment status     : Current
+Start date            : 2022-02-12
+Pay frequency         : bi_weekly
+
+Verification method   : written verification obtained directly from the employer
+Verification date     : 2026-08-04

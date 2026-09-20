@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000054
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000065)
+    Name              : Mira Quintero
+    Date of birth     : 1986-07-17
+    Taxpayer ID       : ***-**-0065  [masked]
+    Contact           : mira.quintero065@example.com / (281) 555-0165
+    Current address   : 5266 Gullwing Road, Sugar Land, TX 77479
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,041.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 336,000.00
+  Note amount          : 336,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2228 Wrenfield Way, Sugar Land, TX 77479
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 420,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,117.32  monthly     170.40
+  student_loan             balance       9,560.68  monthly     130.30
+  revolving_credit_card    balance       4,009.33  monthly     120.28
+  installment_personal     balance       2,597.46  monthly      80.19

@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000022
+Application date      : 2026-08-12
+Loan purpose          : rate_term_refinance
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000026)
+    Name              : Silas Kirilenko
+    Date of birth     : 2002-11-28
+    Taxpayer ID       : ***-**-0026  [masked]
+    Contact           : silas.kirilenko026@example.com / (972) 555-0126
+    Current address   : 1697 Juniper Bend, Plano, TX 75024
+    Years at address  : 11
+
+  CO_BORROWER (BORR-000027)
+    Name              : Anton Guerrero
+    Date of birth     : 1967-12-16
+    Taxpayer ID       : ***-**-0027  [masked]
+    Contact           : anton.guerrero027@example.com / (630) 555-0127
+    Current address   : 2072 Orchardstone Way, Naperville, IL 60540
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 6,665.17
+  salaried             declared monthly 4,826.50
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 381,888.00
+  Note amount          : 381,888.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2527 Hazeldene Court, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : n/a
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,787.56  monthly     234.33
+  student_loan             balance      13,147.95  monthly     179.19
+  revolving_credit_card    balance       5,513.67  monthly     165.41
+  installment_personal     balance       3,572.11  monthly     110.28

@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Gregor Ferreira (BORR-000041)
+Date of birth         : 1963-02-06
+Taxpayer ID           : ***-**-0041  [masked]
+Address on file       : 5836 Larkspur Avenue, Plano, TX 75024
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0041  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

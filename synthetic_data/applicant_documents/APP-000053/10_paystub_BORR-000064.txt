@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Latchford Construction
+Employee              : Salma Brennerman (BORR-000064)
+Taxpayer ID           : ***-**-0064  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-06-14
+Periods elapsed (YTD) : 11
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,234.62
+  Net pay             : 3,881.47
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 57,580.82
+  Federal tax YTD     : 8,752.28
+  Social contributions: 4,404.93
+
+Annual salary rate    : 136,100.04

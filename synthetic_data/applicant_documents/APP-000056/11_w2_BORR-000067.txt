@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Thornhill Insurance Brokers
+Employee              : Felix Ravenscroft (BORR-000067)
+Taxpayer ID           : ***-**-0067  [masked]
+
+Wages, tips and other compensation : 145,811.54
+Federal income tax withheld        : 21,580.11
+Social contribution wages          : 145,811.54
+
+This statement reports the prior tax year only.

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000041
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000049)
+    Name              : Iris Moreau
+    Date of birth     : 1967-07-16
+    Taxpayer ID       : ***-**-0049  [masked]
+    Contact           : iris.moreau049@example.com / (714) 555-0149
+    Current address   : 4246 Alderwood Lane, Yorba Linda, CA 92886
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 12,675.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 468,000.00
+  Note amount          : 468,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2343 Hazeldene Court, Yorba Linda, CA 92886
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 520,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      14,407.97  monthly     344.95
+  student_loan             balance      19,354.69  monthly     263.78
+  revolving_credit_card    balance       8,116.33  monthly     243.49
+  installment_personal     balance       5,258.07  monthly     162.33

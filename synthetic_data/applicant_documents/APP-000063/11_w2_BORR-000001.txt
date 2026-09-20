@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Sable Ridge Software
+Employee              : Emeka Pemberton (BORR-000001)
+Taxpayer ID           : ***-**-0001  [masked]
+
+Wages, tips and other compensation : 173,506.96
+Federal income tax withheld        : 25,679.03
+Social contribution wages          : 173,506.96
+
+This statement reports the prior tax year only.

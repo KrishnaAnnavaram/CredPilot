@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Noor Pemberton (BORR-000058) ------------------------------
+  Credit file reference : ****0058  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 736, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     13,423.08
+      limit         0.00   monthly     321.37   opened 2019-05-04   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance     18,031.75
+      limit         0.00   monthly     245.75   opened 2020-09-10   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance      7,561.67
+      limit    27,005.96   monthly     226.85   opened 2022-03-19   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      4,898.85
+      limit         0.00   monthly     151.24   opened 2018-10-14   late 30/60/90 in 24m: 0/0/0

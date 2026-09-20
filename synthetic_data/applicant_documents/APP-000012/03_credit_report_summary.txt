@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Malik Kirilenko (BORR-000013) ------------------------------
+  Credit file reference : ****0013  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 728, 742, 752
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     11,745.66
+      limit         0.00   monthly     281.21   opened 2022-10-26   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     15,779.15
+      limit         0.00   monthly     215.05   opened 2020-12-13   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      6,616.67
+      limit    23,630.96   monthly     198.50   opened 2025-03-03   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      4,286.66
+      limit         0.00   monthly     132.34   opened 2017-12-28   late 30/60/90 in 24m: 0/0/0

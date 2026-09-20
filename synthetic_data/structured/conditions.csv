@@ -1,0 +1,26 @@
+condition_id,application_id,category,text,required_evidence,timing,status,rule_id,created_date
+APP-000007-CND-01,APP-000007,ASSETS,Evidence reserve-eligible assets sufficient for 4 months of the qualifying housing expense.,Asset statements or a validated asset-verification report,PRIOR_TO_CLOSE,OPEN,AST-RSV-002,2026-08-12
+APP-000016-CND-01,APP-000016,EMPLOYMENT,Provide the non-contingent offer letter and reserve evidence covering the period to the employment start date.,Offer letter and asset statements,PRIOR_TO_CLOSE,OPEN,EMP-CNT-004,2026-08-12
+APP-000026-CND-01,APP-000026,ASSETS,Evidence reserve-eligible assets sufficient for 8 months of the qualifying housing expense.,Asset statements or a validated asset-verification report,PRIOR_TO_CLOSE,OPEN,AST-RSV-002,2026-08-12
+APP-000031-CND-01,APP-000031,CREDIT,Provide a written explanation of the delinquencies reported in the last 24 months.,Borrower letter of explanation,PRIOR_TO_CLOSE,OPEN,CRD-DLQ-002,2026-08-12
+APP-000032-CND-01,APP-000032,CREDIT,"Pay off or document a payment plan for collection balances totalling 7,400.00.",Payoff evidence or executed payment plan,PRIOR_TO_CLOSE,OPEN,CRD-EVT-003,2026-08-12
+APP-000033-CND-01,APP-000033,CREDIT,Provide a written explanation for the 5 credit inquiries in the 90 days before the report date.,Borrower letter of explanation,PRIOR_TO_CLOSE,OPEN,CRD-SCR-007,2026-09-04
+APP-000035-CND-01,APP-000035,CREDIT,Confirm or dispute the undeclared obligation identified on the credit report.,Borrower confirmation or dispute documentation,PRIOR_TO_CLOSE,OPEN,LIA-INC-006,2026-08-12
+APP-000036-CND-01,APP-000036,INCOME,Reconcile the conflicting income evidence and confirm the qualifying amount.,Employer confirmation or corrected income documentation,PRIOR_TO_CLOSE,OPEN,INC-GEN-006,2026-08-12
+APP-000037-CND-01,APP-000037,EMPLOYMENT,Resolve the discrepancy between the application and the employment verification.,Employer confirmation of the authoritative detail,PRIOR_TO_CLOSE,OPEN,EMP-VER-003,2026-08-12
+APP-000040-CND-01,APP-000040,ASSETS,"Document the source of the deposit of 16,733.33 and confirm the funds are not borrowed.",Transfer evidence identifying the origin of the funds,PRIOR_TO_CLOSE,OPEN,AST-SRC-002,2026-08-12
+APP-000042-CND-01,APP-000042,ASSETS,"Provide a signed gift letter and transfer evidence for the gift of 48,000.00.",Gift letter and transfer evidence,PRIOR_TO_CLOSE,OPEN,AST-SRC-001,2026-08-12
+APP-000042-CND-02,APP-000042,DOCUMENTATION,Provide the outstanding gift letter.,gift_letter,PRIOR_TO_CLOSE,OPEN,DOC-REQ-001,2026-08-12
+APP-000045-CND-01,APP-000045,DOCUMENTATION,Provide the outstanding w2.,w2,PRIOR_TO_CLOSE,OPEN,DOC-REQ-001,2026-08-12
+APP-000045-CND-02,APP-000045,DOCUMENTATION,Provide the outstanding bank statement.,bank_statement,PRIOR_TO_CLOSE,OPEN,DOC-REQ-001,2026-08-12
+APP-000045-CND-03,APP-000045,DOCUMENTATION,Provide the outstanding employment verification.,employment_verification,PRIOR_TO_CLOSE,OPEN,DOC-REQ-001,2026-08-12
+APP-000046-CND-01,APP-000046,DOCUMENTATION,Provide a refreshed paystub.,paystub,PRIOR_TO_CLOSE,OPEN,DOC-REQ-002,2026-08-12
+APP-000046-CND-02,APP-000046,DOCUMENTATION,Provide a refreshed bank statement.,bank_statement,PRIOR_TO_CLOSE,OPEN,DOC-REQ-002,2026-08-12
+APP-000047-CND-01,APP-000047,CREDIT,Provide a written explanation for the 4 credit inquiries in the 90 days before the report date.,Borrower letter of explanation,PRIOR_TO_CLOSE,OPEN,CRD-SCR-007,2026-09-04
+APP-000048-CND-01,APP-000048,INSURANCE,Provide flood insurance evidence for the subject property.,Flood policy or binder effective by closing,PRIOR_TO_CLOSE,OPEN,PRP-ELG-004,2026-08-12
+APP-000048-CND-02,APP-000048,DOCUMENTATION,Provide the outstanding flood insurance evidence.,flood_insurance_evidence,PRIOR_TO_CLOSE,OPEN,DOC-REQ-001,2026-08-12
+APP-000049-CND-01,APP-000049,TITLE,Clear the title exception affecting the insured lien position.,Updated title commitment,PRIOR_TO_CLOSE,OPEN,TTL-LIE-002,2026-08-12
+APP-000051-CND-01,APP-000051,COLLATERAL,Complete the repairs identified in the valuation and provide a satisfactory re-inspection.,Repair invoices and re-inspection report,PRIOR_TO_CLOSE,OPEN,PRP-ELG-002,2026-08-12
+APP-000053-CND-01,APP-000053,COLLATERAL,Obtain a full interior and exterior appraisal.,Appraisal report from a licensed appraiser,PRIOR_TO_CLOSE,OPEN,VAL-APR-001,2026-06-25
+APP-000054-CND-01,APP-000054,COLLATERAL,Provide an appraisal update; the valuation is 168 days old.,Appraisal update from the original appraiser,PRIOR_TO_CLOSE,OPEN,VAL-APR-003,2026-08-12
+APP-000056-CND-01,APP-000056,ASSETS,Evidence reserve-eligible assets sufficient for 4 months of the qualifying housing expense.,Asset statements or a validated asset-verification report,PRIOR_TO_CLOSE,OPEN,AST-RSV-002,2026-07-08

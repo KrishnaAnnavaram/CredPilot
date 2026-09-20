@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Andre Hargrave (BORR-000037)
+Date of birth         : 1975-12-20
+Taxpayer ID           : ***-**-0037  [masked]
+Address on file       : 9622 Kestrel Ridge, Rochester Hills, MI 48307
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0037  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

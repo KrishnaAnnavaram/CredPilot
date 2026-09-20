@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Felix Ravenscroft
+Property              : 2670 Kingsmere Lane, Sugar Land, TX
+Coverage amount       : 432,400.00
+Annual premium        : 1,644.96
+Monthly escrow        : 137.08
+Effective date        : 2026-07-29
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

@@ -1,0 +1,20 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Mateo Blackwood (BORR-000052)
+Date of birth         : 1962-06-06
+Taxpayer ID           : ***-**-0052  [masked]
+Address on file       : 2429 Elmridge Terrace, Bellevue, WA 98004
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0052  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : REFERRED
+
+Elements checked      : name, date of birth, address, identification number
+
+One or more identity elements did not match across the sources consulted.

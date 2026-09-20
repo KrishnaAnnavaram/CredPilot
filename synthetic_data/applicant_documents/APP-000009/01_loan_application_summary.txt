@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000009
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000010)
+    Name              : Everett Mbeki
+    Date of birth     : 1990-10-20
+    Taxpayer ID       : ***-**-0010  [masked]
+    Contact           : everett.mbeki010@example.com / (401) 555-0110
+    Current address   : 3837 Larkspur Avenue, Cranston, RI 02910
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,091.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 320,000.00
+  Note amount          : 320,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2478 Marlowe Crossing, Cranston, RI 02910
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 400,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      10,314.26  monthly     246.94
+  student_loan             balance      13,856.01  monthly     188.84
+  revolving_credit_card    balance       5,810.33  monthly     174.31
+  installment_personal     balance       3,763.86  monthly     116.20

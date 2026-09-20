@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Iris Moreau (BORR-000049) ------------------------------
+  Credit file reference : ****0049  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 702, 716, 727
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Cascade Personal Loans           balance     14,407.97
+      limit         0.00   monthly     344.95   opened 2022-08-18   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance     19,354.69
+      limit         0.00   monthly     263.78   opened 2021-12-02   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      8,116.33
+      limit    28,986.89   monthly     243.49   opened 2019-05-27   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      5,258.07
+      limit         0.00   monthly     162.33   opened 2020-12-21   late 30/60/90 in 24m: 0/0/0

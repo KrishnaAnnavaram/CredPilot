@@ -1,0 +1,12 @@
+==========================================================================
+  RESIDENTIAL LEASE SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Premises              : 2419 Sablecrest Drive, Broomfield, CO  [THE SUBJECT PROPERTY]
+Landlord              : Delia Saldivar (BORR-000047)
+Tenant                : J. Rennard (synthetic counterparty)
+Term                  : 12 months from 2026-05-09
+Monthly rent          : 2,150.00
+Tenancy status        : occupied by the tenant named above

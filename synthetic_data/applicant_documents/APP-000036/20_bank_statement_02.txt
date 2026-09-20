@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Cascade Mutual Credit Union
+Account holder        : Delia Delacroix (BORR-000043)
+Account type          : savings
+Account number        : ******0140  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 68,850.11
+  Closing balance                : 68,850.11

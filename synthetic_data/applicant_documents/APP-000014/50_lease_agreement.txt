@@ -1,0 +1,12 @@
+==========================================================================
+  RESIDENTIAL LEASE SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Premises              : 4120 Halloway Street, Cary, NC
+Landlord              : Talia Thornbury (BORR-000016)
+Tenant                : J. Rennard (synthetic counterparty)
+Term                  : 12 months from 2026-05-09
+Monthly rent          : 2,205.00
+Tenancy status        : occupied by the tenant named above

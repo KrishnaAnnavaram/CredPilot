@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Ingrid Vasquez (BORR-000003) ------------------------------
+  Credit file reference : ****0003  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 587, 598, 608
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance      7,993.62
+      limit         0.00   monthly     191.38   opened 2021-07-14   late 30/60/90 in 24m: 0/0/0
+  student_loan             Pinnacle Auto Finance            balance     10,738.34
+      limit         0.00   monthly     146.35   opened 2022-07-07   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      4,503.00
+      limit    16,082.14   monthly     135.09   opened 2023-07-16   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      2,917.16
+      limit         0.00   monthly      90.06   opened 2020-07-01   late 30/60/90 in 24m: 0/0/0

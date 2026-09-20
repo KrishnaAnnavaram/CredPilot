@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Mira Quintero (BORR-000065) ------------------------------
+  Credit file reference : ****0065  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 729, 742, 748
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance      7,117.32
+      limit         0.00   monthly     170.40   opened 2025-05-02   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      9,560.68
+      limit         0.00   monthly     130.30   opened 2020-05-18   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      4,009.33
+      limit    14,319.04   monthly     120.28   opened 2019-05-09   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      2,597.46
+      limit         0.00   monthly      80.19   opened 2021-09-02   late 30/60/90 in 24m: 0/0/0

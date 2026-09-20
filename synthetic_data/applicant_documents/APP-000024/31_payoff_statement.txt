@@ -1,0 +1,16 @@
+==========================================================================
+  MORTGAGE PAYOFF STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Servicer              : Sablefield Mortgage Servicing
+Borrower              : Rosa Guerrero
+Property              : 2767 Hazeldene Court, Cranston, RI
+Statement date        : 2026-08-08
+Good through          : 2026-09-07
+
+  Unpaid principal balance       : 286,885.20
+  Total payoff                   : 286,885.20
+
+Ownership since       : 2026-04-12  (4 months)

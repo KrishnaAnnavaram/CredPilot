@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Sable Ridge Software
+Employee              : Ingrid Petrosyan (BORR-000066)
+Taxpayer ID           : ***-**-0066  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-06-14
+Periods elapsed (YTD) : 11
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,315.39
+  Net pay             : 3,941.36
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 58,469.29
+  Federal tax YTD     : 8,887.33
+  Social contributions: 4,472.90
+
+Annual salary rate    : 138,200.04

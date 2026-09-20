@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000040
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000048)
+    Name              : Nadia Delacroix
+    Date of birth     : 1968-02-16
+    Taxpayer ID       : ***-**-0048  [masked]
+    Contact           : nadia.delacroix048@example.com / (401) 555-0148
+    Current address   : 6410 Thistledown Drive, Cranston, RI 02910
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,458.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 368,000.00
+  Note amount          : 368,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2278 Kingsmere Lane, Cranston, RI 02910
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 460,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      10,391.53  monthly     248.79
+  student_loan             balance      13,959.47  monthly     190.25
+  revolving_credit_card    balance       5,854.00  monthly     175.62
+  installment_personal     balance       3,792.04  monthly     117.07

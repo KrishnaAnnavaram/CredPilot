@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Delia Saldivar (BORR-000047) ------------------------------
+  Credit file reference : ****0047  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 729, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      9,903.68
+      limit         0.00   monthly     237.11   opened 2023-01-12   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     13,304.24
+      limit         0.00   monthly     181.32   opened 2018-10-19   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      5,579.00
+      limit    19,925.00   monthly     167.37   opened 2019-02-18   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      3,614.54
+      limit         0.00   monthly     111.59   opened 2020-10-15   late 30/60/90 in 24m: 0/0/0

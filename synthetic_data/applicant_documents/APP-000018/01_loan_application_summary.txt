@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000018
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : jumbo
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000021)
+    Name              : Isaac Quintero
+    Date of birth     : 1974-08-26
+    Taxpayer ID       : ***-**-0021  [masked]
+    Contact           : isaac.quintero021@example.com / (770) 555-0121
+    Current address   : 4227 Larkspur Avenue, Sandy Springs, GA 30328
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 44,991.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 1,645,000.00
+  Note amount          : 1,645,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2233 Foxglove Terrace, Sandy Springs, GA 30328
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 2,350,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      12,781.10  monthly     306.00
+  student_loan             balance      17,169.60  monthly     234.00
+  revolving_credit_card    balance       7,200.00  monthly     216.00
+  installment_personal     balance       4,664.67  monthly     144.01

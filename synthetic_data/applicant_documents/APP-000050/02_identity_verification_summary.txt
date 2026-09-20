@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Emeka Hargrave (BORR-000060)
+Date of birth         : 1968-03-13
+Taxpayer ID           : ***-**-0060  [masked]
+Address on file       : 1721 Rosslyn Terrace, Rochester Hills, MI 48307
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0060  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

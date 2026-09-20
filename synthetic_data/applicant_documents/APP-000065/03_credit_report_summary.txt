@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Talia Baptiste (BORR-000077) ------------------------------
+  Credit file reference : ****0077  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 738, 742, 751
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Devon Achterberg (BORR-000078) ------------------------------
+  Credit file reference : ****0078  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 675, 688, 697
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance     22,444.19
+      limit         0.00   monthly     537.35   opened 2021-09-30   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     30,150.25
+      limit         0.00   monthly     410.91   opened 2019-02-17   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance     12,643.33
+      limit    45,154.75   monthly     379.30   opened 2017-12-10   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      8,190.78
+      limit         0.00   monthly     252.87   opened 2021-01-20   late 30/60/90 in 24m: 0/0/0

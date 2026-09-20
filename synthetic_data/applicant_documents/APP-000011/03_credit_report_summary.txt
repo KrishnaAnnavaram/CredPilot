@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Malik Sorensen (BORR-000012) ------------------------------
+  Credit file reference : ****0012  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 730, 742, 747
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance      8,478.13
+      limit         0.00   monthly     202.98   opened 2019-02-10   late 30/60/90 in 24m: 0/0/0
+  student_loan             Northwind Card Services          balance     11,389.17
+      limit         0.00   monthly     155.22   opened 2024-03-25   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      4,776.00
+      limit    17,057.14   monthly     143.28   opened 2019-03-04   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      3,094.01
+      limit         0.00   monthly      95.52   opened 2021-02-08   late 30/60/90 in 24m: 0/0/0

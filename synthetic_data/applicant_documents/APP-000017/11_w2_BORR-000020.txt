@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Sable Ridge Software
+Employee              : Ruth Lindstrom (BORR-000020)
+Taxpayer ID           : ***-**-0020  [masked]
+
+Wages, tips and other compensation : 339,004.50
+Federal income tax withheld        : 50,172.67
+Social contribution wages          : 339,004.50
+
+This statement reports the prior tax year only.

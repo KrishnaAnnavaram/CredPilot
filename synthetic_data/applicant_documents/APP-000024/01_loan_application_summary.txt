@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000024
+Application date      : 2026-08-12
+Loan purpose          : cash_out_refinance
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000030)
+    Name              : Rosa Guerrero
+    Date of birth     : 1969-01-24
+    Taxpayer ID       : ***-**-0030  [masked]
+    Contact           : rosa.guerrero030@example.com / (401) 555-0130
+    Current address   : 9162 Verdigris Lane, Cranston, RI 02910
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 10,258.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 349,860.00
+  Note amount          : 349,860.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2767 Hazeldene Court, Cranston, RI 02910
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : n/a
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       5,827.93  monthly     139.53
+  student_loan             balance       7,829.04  monthly     106.70
+  revolving_credit_card    balance       3,283.00  monthly      98.49
+  installment_personal     balance       2,127.13  monthly      65.67

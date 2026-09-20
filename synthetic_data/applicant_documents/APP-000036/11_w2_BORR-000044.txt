@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Silverbrook Diagnostics
+Employee              : Andre Abernathy (BORR-000044)
+Taxpayer ID           : ***-**-0044  [masked]
+
+Wages, tips and other compensation : 47,906.46
+Federal income tax withheld        : 7,090.16
+Social contribution wages          : 47,906.46
+
+This statement reports the prior tax year only.

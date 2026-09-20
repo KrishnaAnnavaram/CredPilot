@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Kestrel Freight Services
+Employee              : Noor Hargrave (BORR-000057)
+Taxpayer ID           : ***-**-0057  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 2,132.31
+  Net pay             : 1,581.11
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 34,116.96
+  Federal tax YTD     : 5,185.78
+  Social contributions: 2,609.95
+
+Annual salary rate    : 55,440.00

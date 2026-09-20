@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Orchard Point Hospitality
+Employee              : Priya Vasquez (BORR-000062)
+Taxpayer ID           : ***-**-0062  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,015.39
+  Net pay             : 3,718.91
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 75,230.85
+  Federal tax YTD     : 11,435.09
+  Social contributions: 5,755.16
+
+Annual salary rate    : 130,400.04

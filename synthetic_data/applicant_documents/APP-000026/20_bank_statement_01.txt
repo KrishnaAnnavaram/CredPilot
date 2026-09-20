@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Delia Nakamura (BORR-000032)
+Account type          : checking
+Account number        : ******0098  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 26,508.81
+  2026-07-22  -     3,900.00  Earnest money deposit to settlement agent
+  Closing balance                : 22,608.81

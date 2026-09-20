@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000002
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000002)
+    Name              : Priya Lindqvist
+    Date of birth     : 1963-12-14
+    Taxpayer ID       : ***-**-0002  [masked]
+    Contact           : priya.lindqvist002@example.com / (630) 555-0102
+    Current address   : 2276 Innisfree Court, Naperville, IL 60540
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,466.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 328,000.00
+  Note amount          : 328,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2731 Sablecrest Drive, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 410,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      14,770.94  monthly     353.64
+  student_loan             balance      19,842.62  monthly     270.43
+  revolving_credit_card    balance       8,321.00  monthly     249.63
+  installment_personal     balance       5,390.23  monthly     166.41

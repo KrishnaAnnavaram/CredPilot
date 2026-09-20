@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Cartwright & Vale Advisory
+Employee              : Isaac Hollingsworth (BORR-000088)
+Taxpayer ID           : ***-**-0088  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 1,782.40
+  Net pay             : 1,321.65
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 26,736.00
+  Federal tax YTD     : 4,063.87
+  Social contributions: 2,045.30
+
+Annual salary rate    : 46,342.44

@@ -1,0 +1,44 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000014
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000016)
+    Name              : Talia Thornbury
+    Date of birth     : 1990-11-18
+    Taxpayer ID       : ***-**-0016  [masked]
+    Contact           : talia.thornbury016@example.com / (919) 555-0116
+    Current address   : 4024 Bramblewood Court, Cary, NC 27513
+    Previous address  : 5688 Yarrowfield Road, Sugar Land, TX 77479
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,750.00
+  rental_negative      declared monthly -1,050.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 304,000.00
+  Note amount          : 304,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2365 Copperbeech Drive, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 380,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      17,504.26  monthly     419.08
+  student_loan             balance      23,515.01  monthly     320.48
+  revolving_credit_card    balance       9,860.67  monthly     295.82
+  installment_personal     balance       6,388.20  monthly     197.22

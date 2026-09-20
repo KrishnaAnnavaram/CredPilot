@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000001
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000001)
+    Name              : Emeka Pemberton
+    Date of birth     : 1977-02-06
+    Taxpayer ID       : ***-**-0001  [masked]
+    Contact           : emeka.pemberton001@example.com / (714) 555-0101
+    Current address   : 545 Meadowvane Drive, Yorba Linda, CA 92886
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,325.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 320,000.00
+  Note amount          : 320,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2230 Kingsmere Lane, Yorba Linda, CA 92886
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 400,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       3,546.13  monthly      84.90
+  student_loan             balance       4,763.46  monthly      64.92
+  revolving_credit_card    balance       1,997.67  monthly      59.93
+  installment_personal     balance       1,294.35  monthly      39.96

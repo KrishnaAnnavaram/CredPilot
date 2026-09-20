@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Talia Okafor (BORR-000005) ------------------------------
+  Credit file reference : ****0005  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 683, 688, 695
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Elena Achterberg (BORR-000006) ------------------------------
+  Credit file reference : ****0006  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 722, 731, 734
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     18,955.70
+      limit         0.00   monthly     453.83   opened 2024-07-13   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance     25,464.57
+      limit         0.00   monthly     347.05   opened 2021-01-18   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance     10,678.33
+      limit    38,136.89   monthly     320.35   opened 2025-01-02   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      6,917.80
+      limit         0.00   monthly     213.57   opened 2018-04-02   late 30/60/90 in 24m: 0/0/0

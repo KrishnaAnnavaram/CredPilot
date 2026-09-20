@@ -1,0 +1,3 @@
+fraud_check_id,application_id,check_type,result,indicator,evidence_source_a,evidence_source_b,rule_id,requires_human_review
+APP-000043-FRD-01,APP-000043,cross_source_consistency,INDICATOR_RAISED,paystub year-to-date total does not sum from its line items,document_extractions,income / employment tables,FRD-IND-001,true
+APP-000043-FRD-TMP,APP-000043,document_integrity,TAMPERING_INDICATOR,Stated year-to-date gross does not sum from line items,documents.tampering_indicator,document_extractions.ytd_gross,FRD-IND-002,true

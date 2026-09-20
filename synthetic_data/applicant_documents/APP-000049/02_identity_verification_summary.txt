@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Marcus Brennerman (BORR-000059)
+Date of birth         : 2000-05-16
+Taxpayer ID           : ***-**-0059  [masked]
+Address on file       : 3059 Umberwood Place, Sugar Land, TX 77479
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0059  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

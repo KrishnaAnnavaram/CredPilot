@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Ruth Lindstrom (BORR-000031) ------------------------------
+  Credit file reference : ****0031  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 750, 756, 765
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance      6,777.32
+      limit         0.00   monthly     162.26   opened 2019-09-01   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance      9,104.29
+      limit         0.00   monthly     124.08   opened 2023-12-18   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      3,818.00
+      limit    13,635.71   monthly     114.54   opened 2024-11-08   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Cascade Personal Loans           balance      2,473.40
+      limit         0.00   monthly      76.36   opened 2020-08-18   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Rosa Petrosyan (BORR-000080) ------------------------------
+  Credit file reference : ****0080  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 733, 742, 753
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      9,179.42
+      limit         0.00   monthly     219.77   opened 2022-03-06   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     12,331.29
+      limit         0.00   monthly     168.06   opened 2025-02-19   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      5,171.00
+      limit    18,467.86   monthly     155.13   opened 2019-09-21   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      3,349.90
+      limit         0.00   monthly     103.42   opened 2023-05-05   late 30/60/90 in 24m: 0/0/0

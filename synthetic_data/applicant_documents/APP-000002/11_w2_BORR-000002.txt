@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Aldermill Retail Group
+Employee              : Priya Lindqvist (BORR-000002)
+Taxpayer ID           : ***-**-0002  [masked]
+
+Wages, tips and other compensation : 109,624.04
+Federal income tax withheld        : 16,224.36
+Social contribution wages          : 109,624.04
+
+This statement reports the prior tax year only.

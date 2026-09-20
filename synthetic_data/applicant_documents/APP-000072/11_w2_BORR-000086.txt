@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Blue Larkspur Manufacturing
+Employee              : Nadia Nakagawa (BORR-000086)
+Taxpayer ID           : ***-**-0086  [masked]
+
+Wages, tips and other compensation : 102,579.46
+Federal income tax withheld        : 15,181.76
+Social contribution wages          : 102,579.46
+
+This statement reports the prior tax year only.

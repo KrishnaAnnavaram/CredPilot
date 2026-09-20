@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Sable Ridge Software
+Employee              : Andre Hargrave (BORR-000037)
+Taxpayer ID           : ***-**-0037  [masked]
+
+Wages, tips and other compensation : 123,230.54
+Federal income tax withheld        : 18,238.12
+Social contribution wages          : 123,230.54
+
+This statement reports the prior tax year only.

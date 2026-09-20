@@ -1,0 +1,235 @@
+{
+  "application_id": "APP-000033",
+  "application_date": "2026-09-04",
+  "underwriting_as_of_date": "2026-09-04",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000040",
+      "role": "primary",
+      "name": "Winona Lindstrom",
+      "date_of_birth": "1993-10-17",
+      "taxpayer_id_masked": "***-**-0040",
+      "email": "winona.lindstrom040@example.com",
+      "phone": "(954) 555-0140",
+      "current_address": {
+        "street": "5763 Kestrel Ridge",
+        "city": "Coral Springs",
+        "state": "FL",
+        "postal_code": "33071"
+      },
+      "previous_address": null,
+      "years_at_current_address": 4,
+      "dependents": 1,
+      "citizenship_status": "Permanent Resident"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000040",
+      "employer_name": "Blue Larkspur Manufacturing",
+      "occupation": "Maintenance Technician",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-03-04",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000040",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-08-04",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "10850.00"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0127",
+      "declared_balance": "40872.93"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0128",
+      "declared_balance": "75906.86"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0129",
+      "declared_balance": "5899.16"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0130",
+      "declared_balance": "6292.43"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "10790.00",
+      "monthly_payment": "258.33"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "14494.37",
+      "monthly_payment": "197.54"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Harborline Retail Credit",
+      "balance": "6078.33",
+      "monthly_payment": "182.35"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "3937.48",
+      "monthly_payment": "121.56"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "408000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2786 Kingsmere Lane",
+    "city": "Coral Springs",
+    "state": "FL",
+    "postal_code": "33071",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "510000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000033-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-09-04",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-27",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-08-14",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-24",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/10_paystub_BORR-000040.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/11_w2_BORR-000040.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-27",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/12_employment_verification_BORR-000040.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-26",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-26",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-28",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-28",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-08-09",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-08-11",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-29",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-09-01",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/42_homeowner_insurance_evidence.txt"
+    },
+    {
+      "document_id": "APP-000033-DOC-15",
+      "document_type": "letter_of_explanation",
+      "document_date": "2026-09-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000033/60_letter_of_explanation.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

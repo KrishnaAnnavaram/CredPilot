@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Cascade Mutual Credit Union
+Account holder        : Marcus Brennerman (BORR-000059)
+Account type          : savings
+Account number        : ******0192  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 64,388.82
+  Closing balance                : 64,388.82

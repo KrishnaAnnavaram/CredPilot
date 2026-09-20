@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Silverbrook Diagnostics
+Employee              : Emeka Ferreira (BORR-000055)
+Taxpayer ID           : ***-**-0055  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-06-09
+Periods elapsed (YTD) : 11
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,407.69
+  Net pay             : 4,009.80
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 59,484.59
+  Federal tax YTD     : 9,041.66
+  Social contributions: 4,550.57
+
+Annual salary rate    : 140,600.04

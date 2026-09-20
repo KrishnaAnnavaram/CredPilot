@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Thornhill Insurance Brokers
+Employee              : Caleb Fairbanks (BORR-000028)
+Taxpayer ID           : ***-**-0028  [masked]
+
+Wages, tips and other compensation : 60,111.78
+Federal income tax withheld        : 8,896.54
+Social contribution wages          : 60,111.78
+
+This statement reports the prior tax year only.

@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000037
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000045)
+    Name              : Winona Underhill
+    Date of birth     : 1979-06-16
+    Taxpayer ID       : ***-**-0045  [masked]
+    Contact           : winona.underhill045@example.com / (480) 555-0145
+    Current address   : 5061 Stonebriar Court, Chandler, AZ 85224
+    Previous address  : 3311 Cedarhollow Drive, Yorba Linda, CA 92886
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,208.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 320,000.00
+  Note amount          : 320,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2495 Sablecrest Drive, Chandler, AZ 85224
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 400,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       8,151.92  monthly     195.17
+  student_loan             balance      10,951.12  monthly     149.25
+  revolving_credit_card    balance       4,592.33  monthly     137.77
+  installment_personal     balance       2,975.14  monthly      91.85

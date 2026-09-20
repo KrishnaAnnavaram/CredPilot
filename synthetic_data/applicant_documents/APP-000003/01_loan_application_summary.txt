@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000003
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000003)
+    Name              : Ingrid Vasquez
+    Date of birth     : 1973-07-19
+    Taxpayer ID       : ***-**-0003  [masked]
+    Contact           : ingrid.vasquez003@example.com / (714) 555-0103
+    Current address   : 7025 Draycott Way, Yorba Linda, CA 92886
+    Previous address  : 9249 Larkspur Avenue, Sugar Land, TX 77479
+    Years at address  : 2
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 11,241.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 432,000.00
+  Note amount          : 432,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2383 Sablecrest Drive, Yorba Linda, CA 92886
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 540,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,993.62  monthly     191.38
+  student_loan             balance      10,738.34  monthly     146.35
+  revolving_credit_card    balance       4,503.00  monthly     135.09
+  installment_personal     balance       2,917.16  monthly      90.06

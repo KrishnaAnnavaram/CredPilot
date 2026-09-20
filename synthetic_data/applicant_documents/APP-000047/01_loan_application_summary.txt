@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000047
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000056)
+    Name              : Rosa Hollingsworth
+    Date of birth     : 1977-08-21
+    Taxpayer ID       : ***-**-0056  [masked]
+    Contact           : rosa.hollingsworth056@example.com / (714) 555-0156
+    Current address   : 2251 Verdigris Lane, Yorba Linda, CA 92886
+    Years at address  : 7
+
+  CO_BORROWER (BORR-000057)
+    Name              : Noor Hargrave
+    Date of birth     : 1960-11-16
+    Taxpayer ID       : ***-**-0057  [masked]
+    Contact           : noor.hargrave057@example.com / (425) 555-0157
+    Current address   : 6555 Gullwing Road, Bellevue, WA 98004
+    Years at address  : 8
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 6,380.00
+  salaried             declared monthly 4,620.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 416,000.00
+  Note amount          : 416,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2885 Copperbeech Drive, Yorba Linda, CA 92886
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 520,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       6,240.60  monthly     149.41
+  student_loan             balance       8,383.02  monthly     114.25
+  revolving_credit_card    balance       3,515.33  monthly     105.46
+  installment_personal     balance       2,277.43  monthly      70.31

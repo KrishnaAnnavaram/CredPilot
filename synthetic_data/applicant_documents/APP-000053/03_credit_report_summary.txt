@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Salma Brennerman (BORR-000064) ------------------------------
+  Credit file reference : ****0064  [masked]
+  Report date           : 2026-06-04   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 754, 764, 769
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      3,223.68
+      limit         0.00   monthly      77.18   opened 2024-07-28   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance      4,330.55
+      limit         0.00   monthly      59.02   opened 2022-04-09   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      1,816.00
+      limit     6,485.71   monthly      54.48   opened 2024-04-12   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      1,176.77
+      limit         0.00   monthly      36.33   opened 2022-05-02   late 30/60/90 in 24m: 0/0/0

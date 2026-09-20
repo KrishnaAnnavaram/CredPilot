@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Kestrel Freight Services
+Employee              : Amara Saldivar (BORR-000054)
+Taxpayer ID           : ***-**-0054  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 1,534.62
+  Net pay             : 1,137.92
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 23,019.30
+  Federal tax YTD     : 3,498.93
+  Social contributions: 1,760.98
+
+Annual salary rate    : 39,900.00

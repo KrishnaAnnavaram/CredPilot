@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Kestrel Freight Services
+Employee              : Noor Hargrave (BORR-000057)
+Taxpayer ID           : ***-**-0057  [masked]
+
+Wages, tips and other compensation : 53,499.60
+Federal income tax withheld        : 7,917.94
+Social contribution wages          : 53,499.60
+
+This statement reports the prior tax year only.

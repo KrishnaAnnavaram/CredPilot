@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Gregor Ferreira (BORR-000041) ------------------------------
+  Credit file reference : ****0041  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 697, 702, 711
+  Scoreable tradelines  : 2
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Summit Education Lending         balance      3,887.79
+      limit         0.00   monthly      93.08   opened 2019-08-30   late 30/60/90 in 24m: 0/0/0
+  student_loan             Northwind Card Services          balance      5,222.79
+      limit         0.00   monthly      71.18   opened 2022-12-28   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Summit Education Lending         balance      2,190.00
+      limit     7,821.43   monthly      65.70   opened 2025-03-21   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Northwind Card Services          balance      1,418.74
+      limit         0.00   monthly      43.80   opened 2024-06-18   late 30/60/90 in 24m: 0/0/0

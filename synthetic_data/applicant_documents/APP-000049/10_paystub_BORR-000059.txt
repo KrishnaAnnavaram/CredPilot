@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Harborline Logistics
+Employee              : Marcus Brennerman (BORR-000059)
+Taxpayer ID           : ***-**-0059  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,457.69
+  Net pay             : 3,305.38
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 66,865.35
+  Federal tax YTD     : 10,163.53
+  Social contributions: 5,115.20
+
+Annual salary rate    : 115,899.96

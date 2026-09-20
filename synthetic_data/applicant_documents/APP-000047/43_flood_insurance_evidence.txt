@@ -1,0 +1,14 @@
+==========================================================================
+  FLOOD DETERMINATION AND COVERAGE EVIDENCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Flood zone determination : AE (special flood hazard area: yes)
+Determination date       : 2026-08-24
+
+Carrier                  : Thornhill Insurance Brokers
+Coverage amount          : 416,000.00
+Annual premium           : 624.00
+Effective date           : 2026-09-25
+Evidence on file         : yes

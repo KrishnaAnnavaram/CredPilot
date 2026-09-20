@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Orchard Point Hospitality
+Employee              : Freya Achterberg (BORR-000063)
+Taxpayer ID           : ***-**-0063  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,315.38
+  Net pay             : 3,199.85
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 69,046.08
+  Federal tax YTD     : 10,495.00
+  Social contributions: 5,282.03
+
+Annual salary rate    : 112,200.00

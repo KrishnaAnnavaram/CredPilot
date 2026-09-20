@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000026
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : investment
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000032)
+    Name              : Delia Nakamura
+    Date of birth     : 1980-09-20
+    Taxpayer ID       : ***-**-0032  [masked]
+    Contact           : delia.nakamura032@example.com / (972) 555-0132
+    Current address   : 1814 Draycott Way, Plano, TX 75024
+    Years at address  : 6
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,325.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 312,000.00
+  Note amount          : 312,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2884 Ambersley Road, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 390,000.00
+  Occupancy intent     : investment
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       7,935.98  monthly     190.00
+  student_loan             balance      10,660.56  monthly     145.29
+  revolving_credit_card    balance       4,470.67  monthly     134.12
+  installment_personal     balance       2,896.10  monthly      89.41

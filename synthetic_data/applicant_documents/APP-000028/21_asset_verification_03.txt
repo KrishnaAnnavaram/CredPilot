@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Ravenscourt Securities
+Account holder        : Mateo Ivanova (BORR-000035)
+Account type          : brokerage
+Account number        : ******0109  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 3,039.91
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

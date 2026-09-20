@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Thornhill Insurance Brokers
+Employee              : Rosa Marchetti (BORR-000017)
+Taxpayer ID           : ***-**-0017  [masked]
+
+Wages, tips and other compensation : 60,144.78
+Federal income tax withheld        : 8,901.43
+Social contribution wages          : 60,144.78
+
+This statement reports the prior tax year only.

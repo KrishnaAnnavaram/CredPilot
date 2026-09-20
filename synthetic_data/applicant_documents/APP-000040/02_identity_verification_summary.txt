@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Nadia Delacroix (BORR-000048)
+Date of birth         : 1968-02-16
+Taxpayer ID           : ***-**-0048  [masked]
+Address on file       : 6410 Thistledown Drive, Cranston, RI 02910
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0048  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

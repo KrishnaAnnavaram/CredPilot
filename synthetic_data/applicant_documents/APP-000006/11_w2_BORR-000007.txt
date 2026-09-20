@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Pinewater Utilities District
+Employee              : Emeka Underhill (BORR-000007)
+Taxpayer ID           : ***-**-0007  [masked]
+
+Wages, tips and other compensation : 104,509.50
+Federal income tax withheld        : 15,467.41
+Social contribution wages          : 104,509.50
+
+This statement reports the prior tax year only.

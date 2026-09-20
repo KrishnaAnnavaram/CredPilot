@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Talia Moreau (BORR-000011) ------------------------------
+  Credit file reference : ****0011  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 663, 668, 679
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     24,958.23
+      limit         0.00   monthly     597.54   opened 2021-10-17   late 30/60/90 in 24m: 0/0/0
+  student_loan             Pinnacle Auto Finance            balance     33,527.67
+      limit         0.00   monthly     456.94   opened 2018-07-13   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance     14,059.67
+      limit    50,213.11   monthly     421.79   opened 2023-04-14   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      9,108.10
+      limit         0.00   monthly     281.19   opened 2019-09-09   late 30/60/90 in 24m: 0/0/0

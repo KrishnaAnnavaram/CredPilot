@@ -1,0 +1,228 @@
+{
+  "application_id": "APP-000024",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "cash_out_refinance",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000030",
+      "role": "primary",
+      "name": "Rosa Guerrero",
+      "date_of_birth": "1969-01-24",
+      "taxpayer_id_masked": "***-**-0030",
+      "email": "rosa.guerrero030@example.com",
+      "phone": "(401) 555-0130",
+      "current_address": {
+        "street": "9162 Verdigris Lane",
+        "city": "Cranston",
+        "state": "RI",
+        "postal_code": "02910"
+      },
+      "previous_address": null,
+      "years_at_current_address": 5,
+      "dependents": 0,
+      "citizenship_status": "Permanent Resident"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000030",
+      "employer_name": "Fenwick Structural Engineering",
+      "occupation": "Structural Engineer",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000030",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "10258.33"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0089",
+      "declared_balance": "5153.94"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0090",
+      "declared_balance": "9571.61"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0091",
+      "declared_balance": "8366.80"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0092",
+      "declared_balance": "8924.58"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "5827.93",
+      "monthly_payment": "139.53"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Summit Education Lending",
+      "balance": "7829.04",
+      "monthly_payment": "106.70"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "3283.00",
+      "monthly_payment": "98.49"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "2127.13",
+      "monthly_payment": "65.67"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "349860.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2767 Hazeldene Court",
+    "city": "Cranston",
+    "state": "RI",
+    "postal_code": "02910",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": null
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000024-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/10_paystub_BORR-000030.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/11_w2_BORR-000030.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/12_employment_verification_BORR-000030.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-11",
+      "document_type": "payoff_statement",
+      "document_date": "2026-08-08",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/31_payoff_statement.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000024-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000024/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

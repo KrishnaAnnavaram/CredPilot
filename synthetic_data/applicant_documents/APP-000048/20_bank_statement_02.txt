@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Noor Pemberton (BORR-000058)
+Account type          : savings
+Account number        : ******0188  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 81,208.25
+  Closing balance                : 81,208.25

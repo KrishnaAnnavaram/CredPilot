@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Emeka Pemberton (BORR-000001) ------------------------------
+  Credit file reference : ****0001  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 737, 742, 752
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     19,152.43
+      limit         0.00   monthly     458.54   opened 2024-08-16   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance     25,728.72
+      limit         0.00   monthly     350.65   opened 2021-01-30   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance     10,789.33
+      limit    38,533.32   monthly     323.68   opened 2019-06-27   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Harborline Retail Credit         balance      6,989.39
+      limit         0.00   monthly     215.78   opened 2024-03-23   late 30/60/90 in 24m: 0/0/0

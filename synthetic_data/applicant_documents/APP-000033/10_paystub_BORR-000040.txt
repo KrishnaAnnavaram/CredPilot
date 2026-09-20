@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Blue Larkspur Manufacturing
+Employee              : Winona Lindstrom (BORR-000040)
+Taxpayer ID           : ***-**-0040  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,007.69
+  Net pay             : 3,713.20
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 80,123.04
+  Federal tax YTD     : 12,178.70
+  Social contributions: 6,129.41
+
+Annual salary rate    : 130,200.00

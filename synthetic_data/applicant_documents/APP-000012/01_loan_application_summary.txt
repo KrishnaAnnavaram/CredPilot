@@ -1,0 +1,43 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000012
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000013)
+    Name              : Malik Kirilenko
+    Date of birth     : 1989-02-19
+    Taxpayer ID       : ***-**-0013  [masked]
+    Contact           : malik.kirilenko013@example.com / (503) 555-0113
+    Current address   : 4823 Bramblewood Court, Beaverton, OR 97006
+    Years at address  : 6
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 7,942.31
+  commission           declared monthly 2,382.69
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 384,000.00
+  Note amount          : 384,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2648 Wrenfield Way, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 480,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      11,745.66  monthly     281.21
+  student_loan             balance      15,779.15  monthly     215.05
+  revolving_credit_card    balance       6,616.67  monthly     198.50
+  installment_personal     balance       4,286.66  monthly     132.34

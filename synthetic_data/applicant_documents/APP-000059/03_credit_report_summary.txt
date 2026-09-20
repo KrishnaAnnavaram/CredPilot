@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Talia Thornbury (BORR-000071) ------------------------------
+  Credit file reference : ****0071  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 632, 639, 651
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     15,875.29
+      limit         0.00   monthly     380.08   opened 2022-12-30   late 30/60/90 in 24m: 0/0/0
+  student_loan             Northwind Card Services          balance     21,326.25
+      limit         0.00   monthly     290.65   opened 2021-09-16   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance      8,943.00
+      limit    31,939.29   monthly     268.29   opened 2025-05-10   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      5,793.82
+      limit         0.00   monthly     178.87   opened 2022-02-06   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Priya Lindqvist (BORR-000002) ------------------------------
+  Credit file reference : ****0002  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 728, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     14,770.94
+      limit         0.00   monthly     353.64   opened 2018-07-10   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     19,842.62
+      limit         0.00   monthly     270.43   opened 2023-12-04   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      8,321.00
+      limit    29,717.86   monthly     249.63   opened 2019-06-12   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Northwind Card Services          balance      5,390.23
+      limit         0.00   monthly     166.41   opened 2020-11-07   late 30/60/90 in 24m: 0/0/0

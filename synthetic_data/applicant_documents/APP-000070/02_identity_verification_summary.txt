@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Anton Adeyemi (BORR-000083)
+Date of birth         : 1993-02-12
+Taxpayer ID           : ***-**-0083  [masked]
+Address on file       : 3762 Cedarhollow Drive, Cary, NC 27513
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0083  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

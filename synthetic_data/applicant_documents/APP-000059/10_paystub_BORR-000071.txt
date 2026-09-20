@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Meridian Civic Health
+Employee              : Talia Thornbury (BORR-000071)
+Taxpayer ID           : ***-**-0071  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,730.77
+  Net pay             : 4,249.37
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 91,692.32
+  Federal tax YTD     : 13,937.23
+  Social contributions: 7,014.46
+
+Annual salary rate    : 149,000.04

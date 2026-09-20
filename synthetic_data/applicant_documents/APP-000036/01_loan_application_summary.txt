@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000036
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000043)
+    Name              : Delia Delacroix
+    Date of birth     : 1997-03-10
+    Taxpayer ID       : ***-**-0043  [masked]
+    Contact           : delia.delacroix043@example.com / (919) 555-0143
+    Current address   : 5061 Cedarhollow Drive, Cary, NC 27513
+    Years at address  : 9
+
+  CO_BORROWER (BORR-000044)
+    Name              : Andre Abernathy
+    Date of birth     : 1971-02-16
+    Taxpayer ID       : ***-**-0044  [masked]
+    Contact           : andre.abernathy044@example.com / (913) 555-0144
+    Current address   : 9494 Nightingale Close, Overland Park, KS 66210
+    Years at address  : 7
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 6,116.34
+  salaried             declared monthly 4,137.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 376,000.00
+  Note amount          : 376,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2579 Sablecrest Drive, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 470,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      12,591.05  monthly     301.45
+  student_loan             balance      16,914.25  monthly     230.52
+  revolving_credit_card    balance       7,093.00  monthly     212.79
+  installment_personal     balance       4,595.35  monthly     141.87

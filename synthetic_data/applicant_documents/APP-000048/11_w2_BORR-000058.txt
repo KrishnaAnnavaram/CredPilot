@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Grayson Municipal Authority
+Employee              : Noor Pemberton (BORR-000058)
+Taxpayer ID           : ***-**-0058  [masked]
+
+Wages, tips and other compensation : 156,523.04
+Federal income tax withheld        : 23,165.41
+Social contribution wages          : 156,523.04
+
+This statement reports the prior tax year only.

@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Verity Loom Textiles
+Employee              : Omar Underhill (BORR-000070)
+Taxpayer ID           : ***-**-0070  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-24
+Periods elapsed (YTD) : 16
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 6,557.69
+  Net pay             : 4,862.53
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 104,923.04
+  Federal tax YTD     : 15,948.30
+  Social contributions: 8,026.61
+
+Annual salary rate    : 170,499.96

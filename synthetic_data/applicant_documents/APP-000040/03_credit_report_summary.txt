@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Nadia Delacroix (BORR-000048) ------------------------------
+  Credit file reference : ****0048  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 728, 742, 745
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance     10,391.53
+      limit         0.00   monthly     248.79   opened 2020-08-04   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance     13,959.47
+      limit         0.00   monthly     190.25   opened 2024-03-08   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Northwind Card Services          balance      5,854.00
+      limit    20,907.14   monthly     175.62   opened 2020-07-14   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Northwind Card Services          balance      3,792.04
+      limit         0.00   monthly     117.07   opened 2020-12-20   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000035
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000042)
+    Name              : Caleb Thornbury
+    Date of birth     : 1961-07-06
+    Taxpayer ID       : ***-**-0042  [masked]
+    Contact           : caleb.thornbury042@example.com / (503) 555-0142
+    Current address   : 3448 Windermere Court, Beaverton, OR 97006
+    Previous address  : 9589 Nightingale Close, Broomfield, CO 80020
+    Years at address  : 1
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 11,641.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 448,000.00
+  Note amount          : 448,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2678 Marlowe Crossing, Beaverton, OR 97006
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 560,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      18,193.02  monthly     435.57
+  student_loan             balance      24,439.53  monthly     333.08
+  revolving_credit_card    balance      10,248.67  monthly     307.46

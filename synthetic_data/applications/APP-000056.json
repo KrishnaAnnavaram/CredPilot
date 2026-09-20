@@ -1,0 +1,235 @@
+{
+  "application_id": "APP-000056",
+  "application_date": "2026-07-08",
+  "underwriting_as_of_date": "2026-07-08",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000067",
+      "role": "primary",
+      "name": "Felix Ravenscroft",
+      "date_of_birth": "1972-02-17",
+      "taxpayer_id_masked": "***-**-0067",
+      "email": "felix.ravenscroft067@example.com",
+      "phone": "(281) 555-0167",
+      "current_address": {
+        "street": "5866 Quarrystone Lane",
+        "city": "Sugar Land",
+        "state": "TX",
+        "postal_code": "77479"
+      },
+      "previous_address": null,
+      "years_at_current_address": 11,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000067",
+      "employer_name": "Thornhill Insurance Brokers",
+      "occupation": "Broker",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-01-08",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000067",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-06-08",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "12591.67"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0217",
+      "declared_balance": "17562.10"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0218",
+      "declared_balance": "32615.34"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0219",
+      "declared_balance": "3658.99"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0220",
+      "declared_balance": "3902.92"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Summit Education Lending",
+      "balance": "23253.24",
+      "monthly_payment": "556.72"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "31237.66",
+      "monthly_payment": "425.73"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Summit Education Lending",
+      "balance": "13099.33",
+      "monthly_payment": "392.98"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "8485.86",
+      "monthly_payment": "261.98"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "432400.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2670 Kingsmere Lane",
+    "city": "Sugar Land",
+    "state": "TX",
+    "postal_code": "77479",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "470000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000056-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-07-08",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-06-30",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-06-17",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-06-27",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/10_paystub_BORR-000067.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/11_w2_BORR-000067.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-06-30",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/12_employment_verification_BORR-000067.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-06-29",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-06-29",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-07-01",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-07-01",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-06-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-06-14",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-07-02",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-07-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/42_homeowner_insurance_evidence.txt"
+    },
+    {
+      "document_id": "APP-000056-DOC-15",
+      "document_type": "letter_of_explanation",
+      "document_date": "2026-07-05",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000056/60_letter_of_explanation.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

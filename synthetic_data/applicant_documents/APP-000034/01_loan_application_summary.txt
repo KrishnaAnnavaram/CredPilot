@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000034
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000041)
+    Name              : Gregor Ferreira
+    Date of birth     : 1963-02-06
+    Taxpayer ID       : ***-**-0041  [masked]
+    Contact           : gregor.ferreira041@example.com / (972) 555-0141
+    Current address   : 5836 Larkspur Avenue, Plano, TX 75024
+    Years at address  : 8
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,091.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 304,000.00
+  Note amount          : 304,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2681 Copperbeech Drive, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 380,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       3,887.79  monthly      93.08
+  student_loan             balance       5,222.79  monthly      71.18
+  revolving_credit_card    balance       2,190.00  monthly      65.70
+  installment_personal     balance       1,418.74  monthly      43.80

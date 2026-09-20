@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Blue Larkspur Manufacturing
+Employee              : Rosa Petrosyan (BORR-000080)
+Taxpayer ID           : ***-**-0080  [masked]
+
+Wages, tips and other compensation : 149,575.04
+Federal income tax withheld        : 22,137.11
+Social contribution wages          : 149,575.04
+
+This statement reports the prior tax year only.

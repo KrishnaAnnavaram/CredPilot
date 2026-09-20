@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Northwind Community Bank
+Account holder        : Rosa Petrosyan (BORR-000080)
+Account type          : savings
+Account number        : ******0262  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 83,335.50
+  Closing balance                : 83,335.50

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000058
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000070)
+    Name              : Omar Underhill
+    Date of birth     : 1983-01-16
+    Taxpayer ID       : ***-**-0070  [masked]
+    Contact           : omar.underhill070@example.com / (770) 555-0170
+    Current address   : 5636 Cedarhollow Drive, Sandy Springs, GA 30328
+    Years at address  : 5
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 14,208.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 503,500.00
+  Note amount          : 503,500.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2412 Wrenfield Way, Sandy Springs, GA 30328
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 530,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      18,158.77  monthly     434.75
+  student_loan             balance      24,394.04  monthly     332.46
+  revolving_credit_card    balance      10,229.67  monthly     306.89
+  installment_personal     balance       6,626.93  monthly     204.59

@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Thornhill Insurance Brokers
+Employee              : Emeka Vasquez (BORR-000019)
+Taxpayer ID           : ***-**-0019  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 5,042.31
+  Net pay             : 3,738.87
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 75,634.65
+  Federal tax YTD     : 11,496.47
+  Social contributions: 5,786.05
+
+Annual salary rate    : 131,100.00

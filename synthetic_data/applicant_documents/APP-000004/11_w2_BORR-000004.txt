@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Meridian Civic Health
+Employee              : Bianca Kirilenko (BORR-000004)
+Taxpayer ID           : ***-**-0004  [masked]
+
+Wages, tips and other compensation : 91,482.00
+Federal income tax withheld        : 13,539.34
+Social contribution wages          : 91,482.00
+
+This statement reports the prior tax year only.

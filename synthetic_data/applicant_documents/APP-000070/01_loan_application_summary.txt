@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000070
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000083)
+    Name              : Anton Adeyemi
+    Date of birth     : 1993-02-12
+    Taxpayer ID       : ***-**-0083  [masked]
+    Contact           : anton.adeyemi083@example.com / (919) 555-0183
+    Current address   : 3762 Cedarhollow Drive, Cary, NC 27513
+    Years at address  : 10
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,175.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 312,000.00
+  Note amount          : 312,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2493 Copperbeech Drive, Cary, NC 27513
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 390,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       4,651.73  monthly     111.37
+  student_loan             balance       6,249.29  monthly      85.17
+  revolving_credit_card    balance       2,620.67  monthly      78.62
+  installment_personal     balance       1,697.63  monthly      52.41

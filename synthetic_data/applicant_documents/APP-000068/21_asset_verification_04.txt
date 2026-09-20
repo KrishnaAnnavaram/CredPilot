@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Meridian Retirement Trust
+Account holder        : Greta Achterberg (BORR-000081)
+Account type          : retirement
+Account number        : ******0268  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 5,357.13
+
+The plan does not permit withdrawal or a participant loan for the purpose stated in the request.

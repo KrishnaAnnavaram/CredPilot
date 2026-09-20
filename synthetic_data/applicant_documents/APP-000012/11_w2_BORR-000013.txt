@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Pinewater Utilities District
+Employee              : Malik Kirilenko (BORR-000013)
+Taxpayer ID           : ***-**-0013  [masked]
+
+Wages, tips and other compensation : 91,971.95
+Federal income tax withheld        : 13,611.85
+Social contribution wages          : 91,971.95
+
+This statement reports the prior tax year only.

@@ -1,0 +1,228 @@
+{
+  "application_id": "APP-000058",
+  "application_date": "2026-09-04",
+  "underwriting_as_of_date": "2026-09-04",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000070",
+      "role": "primary",
+      "name": "Omar Underhill",
+      "date_of_birth": "1983-01-16",
+      "taxpayer_id_masked": "***-**-0070",
+      "email": "omar.underhill070@example.com",
+      "phone": "(770) 555-0170",
+      "current_address": {
+        "street": "5636 Cedarhollow Drive",
+        "city": "Sandy Springs",
+        "state": "GA",
+        "postal_code": "30328"
+      },
+      "previous_address": null,
+      "years_at_current_address": 5,
+      "dependents": 2,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000070",
+      "employer_name": "Verity Loom Textiles",
+      "occupation": "Quality Engineer",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-03-04",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000070",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-08-04",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "14208.33"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0225",
+      "declared_balance": "15252.73"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Harbor Point Savings",
+      "account_masked": "******0226",
+      "declared_balance": "28326.49"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Ravenscourt Securities",
+      "account_masked": "******0227",
+      "declared_balance": "6438.25"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0228",
+      "declared_balance": "6867.47"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "18158.77",
+      "monthly_payment": "434.75"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Summit Education Lending",
+      "balance": "24394.04",
+      "monthly_payment": "332.46"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Northwind Card Services",
+      "balance": "10229.67",
+      "monthly_payment": "306.89"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "6626.93",
+      "monthly_payment": "204.59"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "503500.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2412 Wrenfield Way",
+    "city": "Sandy Springs",
+    "state": "GA",
+    "postal_code": "30328",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "530000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000058-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-09-04",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-27",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-08-14",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-24",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/10_paystub_BORR-000070.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/11_w2_BORR-000070.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-27",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/12_employment_verification_BORR-000070.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-26",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-26",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-28",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-28",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-08-09",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-08-11",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-29",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000058-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-09-01",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000058/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

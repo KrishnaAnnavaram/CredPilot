@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Thornhill Insurance Brokers
+Employee              : Rosa Marchetti (BORR-000017)
+Taxpayer ID           : ***-**-0017  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 2,397.16
+  Net pay             : 1,777.49
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 35,957.40
+  Federal tax YTD     : 5,465.52
+  Social contributions: 2,750.74
+
+Annual salary rate    : 62,326.20

@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000052
+Application date      : 2026-09-04
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000063)
+    Name              : Freya Achterberg
+    Date of birth     : 1968-03-03
+    Taxpayer ID       : ***-**-0063  [masked]
+    Contact           : freya.achterberg063@example.com / (972) 555-0163
+    Current address   : 5062 Quarrystone Lane, Plano, TX 75024
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,350.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 307,500.00
+  Note amount          : 307,500.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2721 Copperbeech Drive, Plano, TX 75024
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 410,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       2,648.11  monthly      63.40
+  student_loan             balance       3,557.19  monthly      48.48
+  revolving_credit_card    balance       1,491.67  monthly      44.75
+  installment_personal     balance         966.23  monthly      29.83

@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Ingrid Petrosyan (BORR-000066)
+Account type          : savings
+Account number        : ******0214  [masked]
+Statement period end  : 2026-06-16
+
+  Opening balance                : 29,941.89
+  Closing balance                : 29,941.89

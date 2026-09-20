@@ -1,0 +1,21 @@
+==========================================================================
+  UNIFORM RESIDENTIAL APPRAISAL SUMMARY (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject property      : 2306 Kingsmere Lane, Coral Springs, FL 33071
+Property type         : single_family_detached (1 unit(s))
+Effective date        : 2026-07-19
+Valuation method      : full_appraisal
+Appraiser licence     : SYN-APPR-00418  [synthetic]
+Dataset version       : SYNTH-UAD-3.6
+
+  Opinion of value               : 448,800.00
+  Contract price                 : n/a
+  Condition rating               : C3
+
+-- Comparable sales (synthetic) -----------------------------------------
+  Comparable 1                   : 435,336.00
+  Comparable 2                   : 457,776.00
+  Comparable 3                   : 446,556.00

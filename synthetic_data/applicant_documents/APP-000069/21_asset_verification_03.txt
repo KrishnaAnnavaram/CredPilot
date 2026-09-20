@@ -1,0 +1,15 @@
+==========================================================================
+  VERIFICATION OF ASSETS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Custodian             : Tidewater Investment Services
+Account holder        : Tobias Osei (BORR-000082)
+Account type          : brokerage
+Account number        : ******0271  [masked]
+Valuation date        : 2026-08-05
+
+  Current balance                : 3,627.24
+
+Holdings are publicly traded securities valued at the market close on the valuation date.

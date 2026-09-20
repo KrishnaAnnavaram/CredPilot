@@ -1,0 +1,17 @@
+==========================================================================
+  TITLE COMMITMENT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Property              : 2402 Marlowe Crossing, Sugar Land, TX
+Commitment date       : 2026-08-06
+Required lien position: 1
+Vesting matches note  : yes
+Exceptions recorded   : 2
+
+  Exception detail               : Recorded judgment taking priority over the new lien
+
+The exception recorded above is a recorded judgment that would take
+priority over a new lien if not satisfied or subordinated before
+recording.

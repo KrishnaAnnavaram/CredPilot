@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Noor Ferreira (BORR-000084) ------------------------------
+  Credit file reference : ****0084  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 770, 776, 783
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Priya Mbeki (BORR-000085) ------------------------------
+  Credit file reference : ****0085  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 777, 781, 789
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Cascade Personal Loans           balance     13,277.31
+      limit         0.00   monthly     317.88   opened 2018-05-06   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     17,835.84
+      limit         0.00   monthly     243.08   opened 2021-01-27   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      7,479.67
+      limit    26,713.11   monthly     224.39   opened 2020-01-12   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      4,845.41
+      limit         0.00   monthly     149.59   opened 2020-07-31   late 30/60/90 in 24m: 0/0/0

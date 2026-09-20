@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000039
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000047)
+    Name              : Delia Saldivar
+    Date of birth     : 1990-11-26
+    Taxpayer ID       : ***-**-0047  [masked]
+    Contact           : delia.saldivar047@example.com / (303) 555-0147
+    Current address   : 3981 Pemberly Road, Broomfield, CO 80020
+    Years at address  : 12
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,725.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 344,000.00
+  Note amount          : 344,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2419 Sablecrest Drive, Broomfield, CO 80020
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 430,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,903.68  monthly     237.11
+  student_loan             balance      13,304.24  monthly     181.32
+  revolving_credit_card    balance       5,579.00  monthly     167.37
+  installment_personal     balance       3,614.54  monthly     111.59

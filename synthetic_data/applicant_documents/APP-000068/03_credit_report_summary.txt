@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Greta Achterberg (BORR-000081) ------------------------------
+  Credit file reference : ****0081  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 734, 742, 753
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance      7,854.53
+      limit         0.00   monthly     188.05   opened 2020-11-25   late 30/60/90 in 24m: 0/0/0
+  student_loan             Sablefield Mortgage Servicing    balance     10,551.96
+      limit         0.00   monthly     143.81   opened 2021-04-25   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      4,424.67
+      limit    15,802.39   monthly     132.74   opened 2019-03-13   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      2,866.63
+      limit         0.00   monthly      88.50   opened 2018-07-28   late 30/60/90 in 24m: 0/0/0

@@ -1,0 +1,53 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000015
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000017)
+    Name              : Rosa Marchetti
+    Date of birth     : 1970-08-12
+    Taxpayer ID       : ***-**-0017  [masked]
+    Contact           : rosa.marchetti017@example.com / (913) 555-0117
+    Current address   : 6485 Yarrowfield Road, Overland Park, KS 66210
+    Years at address  : 11
+
+  CO_BORROWER (BORR-000018)
+    Name              : Ruth Baptiste
+    Date of birth     : 1986-04-10
+    Taxpayer ID       : ***-**-0018  [masked]
+    Contact           : ruth.baptiste018@example.com / (913) 555-0118
+    Current address   : 8984 Umberwood Place, Overland Park, KS 66210
+    Years at address  : 9
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 5,193.85
+  bonus                declared monthly 1,074.59
+  overtime             declared monthly 895.49
+  salaried             declared monthly 3,761.07
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 384,000.00
+  Note amount          : 384,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2814 Kingsmere Lane, Overland Park, KS 66210
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 480,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       9,295.95  monthly     222.56
+  student_loan             balance      12,488.31  monthly     170.20
+  revolving_credit_card    balance       5,236.67  monthly     157.10
+  installment_personal     balance       3,392.66  monthly     104.74

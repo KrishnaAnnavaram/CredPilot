@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Felix Ravenscroft (BORR-000067)
+Date of birth         : 1972-02-17
+Taxpayer ID           : ***-**-0067  [masked]
+Address on file       : 5866 Quarrystone Lane, Sugar Land, TX 77479
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0067  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-06-30
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

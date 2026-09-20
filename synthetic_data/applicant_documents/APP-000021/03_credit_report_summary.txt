@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Rashid Ivanova (BORR-000025) ------------------------------
+  Credit file reference : ****0025  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 690, 704, 712
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance      1,651.52
+      limit         0.00   monthly      39.54   opened 2021-06-30   late 30/60/90 in 24m: 0/0/0
+  student_loan             Summit Education Lending         balance      2,218.11
+      limit         0.00   monthly      30.23   opened 2020-04-03   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Sablefield Mortgage Servicing    balance        930.33
+      limit     3,322.61   monthly      27.91   opened 2021-03-31   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance        602.48
+      limit         0.00   monthly      18.60   opened 2023-08-16   late 30/60/90 in 24m: 0/0/0

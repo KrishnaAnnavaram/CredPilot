@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000060
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000072)
+    Name              : Talia Ravenscroft
+    Date of birth     : 1961-03-03
+    Taxpayer ID       : ***-**-0072  [masked]
+    Contact           : talia.ravenscroft072@example.com / (630) 555-0172
+    Current address   : 3744 Quarrystone Lane, Naperville, IL 60540
+    Years at address  : 3
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 14,916.67
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 465,600.00
+  Note amount          : 465,600.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2224 Wrenfield Way, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 480,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      14,830.25  monthly     355.06
+  student_loan             balance      19,922.60  monthly     271.52
+  revolving_credit_card    balance       8,354.33  monthly     250.63
+  installment_personal     balance       5,411.93  monthly     167.08

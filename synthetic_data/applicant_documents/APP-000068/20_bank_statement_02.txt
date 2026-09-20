@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Greta Achterberg (BORR-000081)
+Account type          : savings
+Account number        : ******0266  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 66,718.84
+  Closing balance                : 66,718.84

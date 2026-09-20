@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000023
+Application date      : 2026-08-12
+Loan purpose          : cash_out_refinance
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000028)
+    Name              : Caleb Fairbanks
+    Date of birth     : 1982-08-01
+    Taxpayer ID       : ***-**-0028  [masked]
+    Contact           : caleb.fairbanks028@example.com / (954) 555-0128
+    Current address   : 7281 Kestrel Ridge, Coral Springs, FL 33071
+    Years at address  : 7
+
+  CO_BORROWER (BORR-000029)
+    Name              : Sofia Blackwood
+    Date of birth     : 1967-05-28
+    Taxpayer ID       : ***-**-0029  [masked]
+    Contact           : sofia.blackwood029@example.com / (615) 555-0129
+    Current address   : 9033 Kestrel Ridge, Franklin, TN 37067
+    Years at address  : 8
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 5,191.00
+  salaried             declared monthly 3,759.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 332,112.00
+  Note amount          : 332,112.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2306 Kingsmere Lane, Coral Springs, FL 33071
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : n/a
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       8,892.89  monthly     212.91
+  student_loan             balance      11,946.08  monthly     162.81
+  revolving_credit_card    balance       5,009.67  monthly     150.29
+  installment_personal     balance       3,245.28  monthly     100.19

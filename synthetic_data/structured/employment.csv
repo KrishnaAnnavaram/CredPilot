@@ -1,0 +1,182 @@
+employment_id,application_id,borrower_id,employer_name,occupation,employment_type,self_employed_flag,business_ownership_pct,declared_start_date,verified_start_date,end_date,is_current,tenure_months,pay_frequency
+APP-000001-EMP-1,APP-000001,BORR-000001,Sable Ridge Software,Systems Analyst,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000001-EMP-1P,APP-000001,BORR-000001,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000002-EMP-1,APP-000002,BORR-000002,Aldermill Retail Group,Store Manager,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000002-EMP-1P,APP-000002,BORR-000002,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000003-EMP-1,APP-000003,BORR-000003,Pinewater Utilities District,Grid Technician,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000003-EMP-1P,APP-000003,BORR-000003,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000004-EMP-1,APP-000004,BORR-000004,Meridian Civic Health,Clinical Technologist,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000004-EMP-1P,APP-000004,BORR-000004,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000005-EMP-1,APP-000005,BORR-000005,Orchard Point Hospitality,Events Director,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000005-EMP-1P,APP-000005,BORR-000005,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000005-EMP-2,APP-000005,BORR-000006,Harborline Logistics,Warehouse Planner,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000005-EMP-2P,APP-000005,BORR-000006,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000006-EMP-1,APP-000006,BORR-000007,Pinewater Utilities District,Grid Technician,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000006-EMP-1P,APP-000006,BORR-000007,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000007-EMP-1,APP-000007,BORR-000008,Cartwright & Vale Advisory,Analyst,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000007-EMP-1P,APP-000007,BORR-000008,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000008-EMP-1,APP-000008,BORR-000009,Meridian Civic Health,Clinical Technologist,employed,false,0,2025-09-12,2025-09-12,,true,11,bi_weekly
+APP-000008-EMP-1P,APP-000008,BORR-000009,Kestrel Freight Services,Operations Associate,employed,false,0,2025-03-12,2025-03-12,2025-08-12,false,5,bi_weekly
+APP-000009-EMP-1,APP-000009,BORR-000010,Cartwright & Vale Advisory,Account Director,employed,false,0,2026-04-12,2026-04-12,,true,4,bi_weekly
+APP-000009-EMP-1P,APP-000009,BORR-000010,Kestrel Freight Services,Operations Associate,employed,false,0,2020-08-12,2020-08-12,2026-03-12,false,67,bi_weekly
+APP-000010-EMP-1,APP-000010,BORR-000011,Orchard Point Hospitality,Operations Manager,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000010-EMP-1P,APP-000010,BORR-000011,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000011-EMP-1,APP-000011,BORR-000012,Silverbrook Diagnostics,Registered Nurse,self_employed,true,100,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000011-EMP-1P,APP-000011,BORR-000012,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000012-EMP-1,APP-000012,BORR-000013,Pinewater Utilities District,Field Supervisor,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000012-EMP-1P,APP-000012,BORR-000013,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000013-EMP-1,APP-000013,BORR-000014,Sable Ridge Software,Systems Analyst,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000013-EMP-1P,APP-000013,BORR-000014,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000013-EMP-2,APP-000013,BORR-000015,Latchford Construction,Estimator,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000013-EMP-2P,APP-000013,BORR-000015,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000014-EMP-1,APP-000014,BORR-000016,Grayson Municipal Authority,Records Administrator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000014-EMP-1P,APP-000014,BORR-000016,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000015-EMP-1,APP-000015,BORR-000017,Thornhill Insurance Brokers,Claims Adjuster,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000015-EMP-1P,APP-000015,BORR-000017,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000015-EMP-2,APP-000015,BORR-000018,Verity Loom Textiles,Quality Engineer,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000015-EMP-2P,APP-000015,BORR-000018,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000016-EMP-1,APP-000016,BORR-000019,Thornhill Insurance Brokers,Broker,employed,false,0,2026-08-12,2026-08-12,,true,0,bi_weekly
+APP-000016-EMP-1P,APP-000016,BORR-000019,Kestrel Freight Services,Operations Associate,employed,false,0,2022-07-12,2022-07-12,2026-07-12,false,48,bi_weekly
+APP-000017-EMP-1,APP-000017,BORR-000020,Sable Ridge Software,Systems Analyst,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000017-EMP-1P,APP-000017,BORR-000020,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000018-EMP-1,APP-000018,BORR-000021,Northgate Public Schools,Classroom Teacher,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000018-EMP-1P,APP-000018,BORR-000021,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000019-EMP-1,APP-000019,BORR-000022,Harborline Logistics,Warehouse Planner,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000019-EMP-1P,APP-000019,BORR-000022,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000019-EMP-2,APP-000019,BORR-000023,Grayson Municipal Authority,Inspector,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000019-EMP-2P,APP-000019,BORR-000023,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000020-EMP-1,APP-000020,BORR-000024,Pinewater Utilities District,Compliance Officer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000020-EMP-1P,APP-000020,BORR-000024,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000021-EMP-1,APP-000021,BORR-000025,Thornhill Insurance Brokers,Broker,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000021-EMP-1P,APP-000021,BORR-000025,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000022-EMP-1,APP-000022,BORR-000026,Latchford Construction,Site Supervisor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000022-EMP-1P,APP-000022,BORR-000026,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000022-EMP-2,APP-000022,BORR-000027,Kestrel Freight Services,Logistics Planner,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000022-EMP-2P,APP-000022,BORR-000027,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000023-EMP-1,APP-000023,BORR-000028,Thornhill Insurance Brokers,Underwriting Assistant,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000023-EMP-1P,APP-000023,BORR-000028,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000023-EMP-2,APP-000023,BORR-000029,Orchard Point Hospitality,Front Office Manager,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000023-EMP-2P,APP-000023,BORR-000029,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000024-EMP-1,APP-000024,BORR-000030,Fenwick Structural Engineering,Structural Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000024-EMP-1P,APP-000024,BORR-000030,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000025-EMP-1,APP-000025,BORR-000031,Pinewater Utilities District,Compliance Officer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000025-EMP-1P,APP-000025,BORR-000031,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000026-EMP-1,APP-000026,BORR-000032,Kestrel Freight Services,Dispatch Lead,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000026-EMP-1P,APP-000026,BORR-000032,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000027-EMP-1,APP-000027,BORR-000033,Fenwick Structural Engineering,Structural Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000027-EMP-1P,APP-000027,BORR-000033,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000027-EMP-2,APP-000027,BORR-000034,Latchford Construction,Project Coordinator,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000027-EMP-2P,APP-000027,BORR-000034,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000028-EMP-1,APP-000028,BORR-000035,Verity Loom Textiles,Quality Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000028-EMP-1P,APP-000028,BORR-000035,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000029-EMP-1,APP-000029,BORR-000036,Harborline Logistics,Operations Supervisor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000029-EMP-1P,APP-000029,BORR-000036,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000030-EMP-1,APP-000030,BORR-000037,Sable Ridge Software,Software Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000030-EMP-1P,APP-000030,BORR-000037,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000031-EMP-1,APP-000031,BORR-000038,Latchford Construction,Estimator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000031-EMP-1P,APP-000031,BORR-000038,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000032-EMP-1,APP-000032,BORR-000039,Orchard Point Hospitality,Events Director,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000032-EMP-1P,APP-000032,BORR-000039,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000033-EMP-1,APP-000033,BORR-000040,Blue Larkspur Manufacturing,Maintenance Technician,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000033-EMP-1P,APP-000033,BORR-000040,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000034-EMP-1,APP-000034,BORR-000041,Cartwright & Vale Advisory,Senior Consultant,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000034-EMP-1P,APP-000034,BORR-000041,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000035-EMP-1,APP-000035,BORR-000042,Orchard Point Hospitality,Events Director,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000035-EMP-1P,APP-000035,BORR-000042,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000036-EMP-1,APP-000036,BORR-000043,Northgate Public Schools,School Counsellor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000036-EMP-1P,APP-000036,BORR-000043,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000036-EMP-2,APP-000036,BORR-000044,Silverbrook Diagnostics,Clinical Technologist,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000036-EMP-2P,APP-000036,BORR-000044,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000037-EMP-1,APP-000037,BORR-000045,Sable Ridge Software,Product Manager,employed,false,0,2023-11-12,2024-03-12,,true,29,bi_weekly
+APP-000037-EMP-1P,APP-000037,BORR-000045,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2024-02-12,false,31,bi_weekly
+APP-000038-EMP-1,APP-000038,BORR-000046,Thornhill Insurance Brokers,Broker,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000038-EMP-1P,APP-000038,BORR-000046,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000039-EMP-1,APP-000039,BORR-000047,Northgate Public Schools,School Counsellor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000039-EMP-1P,APP-000039,BORR-000047,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000040-EMP-1,APP-000040,BORR-000048,Pinewater Utilities District,Field Supervisor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000040-EMP-1P,APP-000040,BORR-000048,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000041-EMP-1,APP-000041,BORR-000049,Pinewater Utilities District,Field Supervisor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000041-EMP-1P,APP-000041,BORR-000049,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000042-EMP-1,APP-000042,BORR-000050,Pinewater Utilities District,Grid Technician,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000042-EMP-1P,APP-000042,BORR-000050,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000043-EMP-1,APP-000043,BORR-000051,Sable Ridge Software,Systems Analyst,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000043-EMP-1P,APP-000043,BORR-000051,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000044-EMP-1,APP-000044,BORR-000052,Blue Larkspur Manufacturing,Production Lead,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000044-EMP-1P,APP-000044,BORR-000052,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000045-EMP-1,APP-000045,BORR-000053,Grayson Municipal Authority,Inspector,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000045-EMP-1P,APP-000045,BORR-000053,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000045-EMP-2,APP-000045,BORR-000054,Kestrel Freight Services,Dispatch Lead,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000045-EMP-2P,APP-000045,BORR-000054,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000046-EMP-1,APP-000046,BORR-000055,Silverbrook Diagnostics,Registered Nurse,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000046-EMP-1P,APP-000046,BORR-000055,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000047-EMP-1,APP-000047,BORR-000056,Verity Loom Textiles,Quality Engineer,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000047-EMP-1P,APP-000047,BORR-000056,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000047-EMP-2,APP-000047,BORR-000057,Kestrel Freight Services,Dispatch Lead,employed,false,0,2022-10-04,2022-10-04,,true,47,bi_weekly
+APP-000047-EMP-2P,APP-000047,BORR-000057,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-09-04,false,13,bi_weekly
+APP-000048-EMP-1,APP-000048,BORR-000058,Grayson Municipal Authority,Records Administrator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000048-EMP-1P,APP-000048,BORR-000058,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000049-EMP-1,APP-000049,BORR-000059,Harborline Logistics,Fleet Coordinator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000049-EMP-1P,APP-000049,BORR-000059,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000050-EMP-1,APP-000050,BORR-000060,Blue Larkspur Manufacturing,Production Lead,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000050-EMP-1P,APP-000050,BORR-000060,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000050-EMP-2,APP-000050,BORR-000061,Fenwick Structural Engineering,Structural Engineer,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000050-EMP-2P,APP-000050,BORR-000061,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000051-EMP-1,APP-000051,BORR-000062,Orchard Point Hospitality,Operations Manager,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000051-EMP-1P,APP-000051,BORR-000062,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000052-EMP-1,APP-000052,BORR-000063,Orchard Point Hospitality,Events Director,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000052-EMP-1P,APP-000052,BORR-000063,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000053-EMP-1,APP-000053,BORR-000064,Latchford Construction,Estimator,employed,false,0,2021-12-25,2021-12-25,,true,54,bi_weekly
+APP-000053-EMP-1P,APP-000053,BORR-000064,Kestrel Freight Services,Operations Associate,employed,false,0,2021-05-25,2021-05-25,2021-11-25,false,6,bi_weekly
+APP-000054-EMP-1,APP-000054,BORR-000065,Meridian Civic Health,Practice Manager,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000054-EMP-1P,APP-000054,BORR-000065,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000055-EMP-1,APP-000055,BORR-000066,Sable Ridge Software,Product Manager,employed,false,0,2021-12-25,2021-12-25,,true,54,bi_weekly
+APP-000055-EMP-1P,APP-000055,BORR-000066,Kestrel Freight Services,Operations Associate,employed,false,0,2021-05-25,2021-05-25,2021-11-25,false,6,bi_weekly
+APP-000056-EMP-1,APP-000056,BORR-000067,Thornhill Insurance Brokers,Broker,employed,false,0,2022-01-08,2022-01-08,,true,54,bi_weekly
+APP-000056-EMP-1P,APP-000056,BORR-000067,Kestrel Freight Services,Operations Associate,employed,false,0,2021-06-08,2021-06-08,2021-12-08,false,6,bi_weekly
+APP-000057-EMP-1,APP-000057,BORR-000068,Thornhill Insurance Brokers,Broker,employed,false,0,2022-01-08,2022-01-08,,true,54,bi_weekly
+APP-000057-EMP-1P,APP-000057,BORR-000068,Kestrel Freight Services,Operations Associate,employed,false,0,2021-06-08,2021-06-08,2021-12-08,false,6,bi_weekly
+APP-000057-EMP-2,APP-000057,BORR-000069,Pinewater Utilities District,Grid Technician,employed,false,0,2022-08-08,2022-08-08,,true,47,bi_weekly
+APP-000057-EMP-2P,APP-000057,BORR-000069,Kestrel Freight Services,Operations Associate,employed,false,0,2021-06-08,2021-06-08,2022-07-08,false,13,bi_weekly
+APP-000058-EMP-1,APP-000058,BORR-000070,Verity Loom Textiles,Quality Engineer,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000058-EMP-1P,APP-000058,BORR-000070,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000059-EMP-1,APP-000059,BORR-000071,Meridian Civic Health,Practice Manager,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000059-EMP-1P,APP-000059,BORR-000071,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000060-EMP-1,APP-000060,BORR-000072,Grayson Municipal Authority,Records Administrator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000060-EMP-1P,APP-000060,BORR-000072,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000061-EMP-1,APP-000061,BORR-000073,Northgate Public Schools,School Counsellor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000061-EMP-1P,APP-000061,BORR-000073,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000061-EMP-2,APP-000061,BORR-000074,Pinewater Utilities District,Field Supervisor,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000061-EMP-2P,APP-000061,BORR-000074,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000062-EMP-1,APP-000062,BORR-000075,Harborline Logistics,Operations Supervisor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000062-EMP-1P,APP-000062,BORR-000075,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000062-EMP-2,APP-000062,BORR-000076,Aldermill Retail Group,District Supervisor,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000062-EMP-2P,APP-000062,BORR-000076,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000063-EMP-1,APP-000063,BORR-000001,Sable Ridge Software,Systems Analyst,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000063-EMP-1P,APP-000063,BORR-000001,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000064-EMP-1,APP-000064,BORR-000011,Orchard Point Hospitality,Operations Manager,employed,false,0,2022-03-04,2022-03-04,,true,54,bi_weekly
+APP-000064-EMP-1P,APP-000064,BORR-000011,Kestrel Freight Services,Operations Associate,employed,false,0,2021-08-04,2021-08-04,2022-02-04,false,6,bi_weekly
+APP-000065-EMP-1,APP-000065,BORR-000077,Latchford Construction,Estimator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000065-EMP-1P,APP-000065,BORR-000077,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000065-EMP-2,APP-000065,BORR-000078,Orchard Point Hospitality,Front Office Manager,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000065-EMP-2P,APP-000065,BORR-000078,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000066-EMP-1,APP-000066,BORR-000079,Latchford Construction,Estimator,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000066-EMP-1P,APP-000066,BORR-000079,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000067-EMP-1,APP-000067,BORR-000080,Blue Larkspur Manufacturing,Quality Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000067-EMP-1P,APP-000067,BORR-000080,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000068-EMP-1,APP-000068,BORR-000081,Northgate Public Schools,Classroom Teacher,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000068-EMP-1P,APP-000068,BORR-000081,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000069-EMP-1,APP-000069,BORR-000082,Sable Ridge Software,Product Manager,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000069-EMP-1P,APP-000069,BORR-000082,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000070-EMP-1,APP-000070,BORR-000083,Pinewater Utilities District,Compliance Officer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000070-EMP-1P,APP-000070,BORR-000083,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000071-EMP-1,APP-000071,BORR-000084,Northgate Public Schools,Curriculum Coordinator,employed,false,0,2018-07-12,2018-07-12,,true,97,bi_weekly
+APP-000071-EMP-2,APP-000071,BORR-000085,Harborline Logistics,Operations Supervisor,employed,false,0,2019-02-12,2019-02-12,,true,90,bi_weekly
+APP-000072-EMP-1,APP-000072,BORR-000086,Blue Larkspur Manufacturing,Quality Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000072-EMP-1P,APP-000072,BORR-000086,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000073-EMP-1,APP-000073,BORR-000087,Sable Ridge Software,Software Engineer,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000073-EMP-1P,APP-000073,BORR-000087,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000073-EMP-2,APP-000073,BORR-000088,Cartwright & Vale Advisory,Analyst,employed,false,0,2022-09-12,2022-09-12,,true,47,bi_weekly
+APP-000073-EMP-2P,APP-000073,BORR-000088,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-08-12,false,13,bi_weekly
+APP-000074-EMP-1,APP-000074,BORR-000089,Northgate Public Schools,School Counsellor,employed,false,0,2022-02-12,2022-02-12,,true,54,bi_weekly
+APP-000074-EMP-1P,APP-000074,BORR-000089,Kestrel Freight Services,Operations Associate,employed,false,0,2021-07-12,2021-07-12,2022-01-12,false,6,bi_weekly
+APP-000075-EMP-1,APP-000075,BORR-000090,Northgate Public Schools,Curriculum Coordinator,employed,false,0,2026-08-12,2026-08-12,,true,0,bi_weekly

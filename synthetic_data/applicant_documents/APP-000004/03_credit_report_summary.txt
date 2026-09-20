@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Bianca Kirilenko (BORR-000004) ------------------------------
+  Credit file reference : ****0004  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 734, 742, 746
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance     21,322.30
+      limit         0.00   monthly     510.49   opened 2020-03-10   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance     28,643.14
+      limit         0.00   monthly     390.37   opened 2021-09-28   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance     12,011.33
+      limit    42,897.61   monthly     360.34   opened 2024-11-24   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      7,781.35
+      limit         0.00   monthly     240.23   opened 2025-03-26   late 30/60/90 in 24m: 0/0/0

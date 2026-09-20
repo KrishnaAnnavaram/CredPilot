@@ -1,0 +1,654 @@
+audit_event_id,application_id,sequence,actor_type,actor_id,action,tool,object_type,object_id,outcome,correlation_id,timestamp
+APP-000001-AUD-01,APP-000001,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000001,GRANTED,RUN-APP-000001,2026-08-12
+APP-000001-AUD-02,APP-000001,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000001,MORTGAGE_UNDERWRITING,RUN-APP-000001,2026-08-12
+APP-000001-AUD-03,APP-000001,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000001,2026-08-12
+APP-000001-AUD-04,APP-000001,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000001,COMPLETED,RUN-APP-000001,2026-08-12
+APP-000001-AUD-05,APP-000001,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000001,COMPLETED,RUN-APP-000001,2026-08-12
+APP-000001-AUD-06,APP-000001,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000001,23 evaluated,RUN-APP-000001,2026-08-12
+APP-000001-AUD-07,APP-000001,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000001,0 flags,RUN-APP-000001,2026-08-12
+APP-000001-AUD-08,APP-000001,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000001,APPROVE_RECOMMENDATION,RUN-APP-000001,2026-08-12
+APP-000002-AUD-01,APP-000002,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000002,GRANTED,RUN-APP-000002,2026-08-12
+APP-000002-AUD-02,APP-000002,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000002,MORTGAGE_UNDERWRITING,RUN-APP-000002,2026-08-12
+APP-000002-AUD-03,APP-000002,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000002,2026-08-12
+APP-000002-AUD-04,APP-000002,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000002,COMPLETED,RUN-APP-000002,2026-08-12
+APP-000002-AUD-05,APP-000002,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000002,COMPLETED,RUN-APP-000002,2026-08-12
+APP-000002-AUD-06,APP-000002,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000002,25 evaluated,RUN-APP-000002,2026-08-12
+APP-000002-AUD-07,APP-000002,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000002,0 flags,RUN-APP-000002,2026-08-12
+APP-000002-AUD-08,APP-000002,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000002,MANUAL_REVIEW_REQUIRED,RUN-APP-000002,2026-08-12
+APP-000002-AUD-09,APP-000002,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000002,QUEUED,RUN-APP-000002,2026-08-12
+APP-000003-AUD-01,APP-000003,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000003,GRANTED,RUN-APP-000003,2026-08-12
+APP-000003-AUD-02,APP-000003,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000003,MORTGAGE_UNDERWRITING,RUN-APP-000003,2026-08-12
+APP-000003-AUD-03,APP-000003,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000003,2026-08-12
+APP-000003-AUD-04,APP-000003,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000003,COMPLETED,RUN-APP-000003,2026-08-12
+APP-000003-AUD-05,APP-000003,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000003,COMPLETED,RUN-APP-000003,2026-08-12
+APP-000003-AUD-06,APP-000003,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000003,23 evaluated,RUN-APP-000003,2026-08-12
+APP-000003-AUD-07,APP-000003,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000003,1 flags,RUN-APP-000003,2026-08-12
+APP-000003-AUD-08,APP-000003,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000003,DECLINE_RECOMMENDATION,RUN-APP-000003,2026-08-12
+APP-000003-AUD-09,APP-000003,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000003,QUEUED,RUN-APP-000003,2026-08-12
+APP-000004-AUD-01,APP-000004,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000004,GRANTED,RUN-APP-000004,2026-08-12
+APP-000004-AUD-02,APP-000004,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000004,MORTGAGE_UNDERWRITING,RUN-APP-000004,2026-08-12
+APP-000004-AUD-03,APP-000004,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000004,2026-08-12
+APP-000004-AUD-04,APP-000004,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000004,COMPLETED,RUN-APP-000004,2026-08-12
+APP-000004-AUD-05,APP-000004,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000004,COMPLETED,RUN-APP-000004,2026-08-12
+APP-000004-AUD-06,APP-000004,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000004,24 evaluated,RUN-APP-000004,2026-08-12
+APP-000004-AUD-07,APP-000004,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000004,1 flags,RUN-APP-000004,2026-08-12
+APP-000004-AUD-08,APP-000004,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000004,DECLINE_RECOMMENDATION,RUN-APP-000004,2026-08-12
+APP-000004-AUD-09,APP-000004,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000004,QUEUED,RUN-APP-000004,2026-08-12
+APP-000005-AUD-01,APP-000005,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000005,GRANTED,RUN-APP-000005,2026-08-12
+APP-000005-AUD-02,APP-000005,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000005,MORTGAGE_UNDERWRITING,RUN-APP-000005,2026-08-12
+APP-000005-AUD-03,APP-000005,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000005,2026-08-12
+APP-000005-AUD-04,APP-000005,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000005,COMPLETED,RUN-APP-000005,2026-08-12
+APP-000005-AUD-05,APP-000005,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000005,COMPLETED,RUN-APP-000005,2026-08-12
+APP-000005-AUD-06,APP-000005,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000005,24 evaluated,RUN-APP-000005,2026-08-12
+APP-000005-AUD-07,APP-000005,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000005,0 flags,RUN-APP-000005,2026-08-12
+APP-000005-AUD-08,APP-000005,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000005,APPROVE_RECOMMENDATION,RUN-APP-000005,2026-08-12
+APP-000006-AUD-01,APP-000006,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000006,GRANTED,RUN-APP-000006,2026-08-12
+APP-000006-AUD-02,APP-000006,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000006,MORTGAGE_UNDERWRITING,RUN-APP-000006,2026-08-12
+APP-000006-AUD-03,APP-000006,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000006,2026-08-12
+APP-000006-AUD-04,APP-000006,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000006,COMPLETED,RUN-APP-000006,2026-08-12
+APP-000006-AUD-05,APP-000006,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000006,COMPLETED,RUN-APP-000006,2026-08-12
+APP-000006-AUD-06,APP-000006,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000006,23 evaluated,RUN-APP-000006,2026-08-12
+APP-000006-AUD-07,APP-000006,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000006,1 flags,RUN-APP-000006,2026-08-12
+APP-000006-AUD-08,APP-000006,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000006,DECLINE_RECOMMENDATION,RUN-APP-000006,2026-08-12
+APP-000006-AUD-09,APP-000006,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000006,QUEUED,RUN-APP-000006,2026-08-12
+APP-000007-AUD-01,APP-000007,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000007,GRANTED,RUN-APP-000007,2026-08-12
+APP-000007-AUD-02,APP-000007,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000007,MORTGAGE_UNDERWRITING,RUN-APP-000007,2026-08-12
+APP-000007-AUD-03,APP-000007,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000007,2026-08-12
+APP-000007-AUD-04,APP-000007,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000007,COMPLETED,RUN-APP-000007,2026-08-12
+APP-000007-AUD-05,APP-000007,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000007,COMPLETED,RUN-APP-000007,2026-08-12
+APP-000007-AUD-06,APP-000007,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000007,25 evaluated,RUN-APP-000007,2026-08-12
+APP-000007-AUD-07,APP-000007,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000007,2 flags,RUN-APP-000007,2026-08-12
+APP-000007-AUD-08,APP-000007,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000007,DECLINE_RECOMMENDATION,RUN-APP-000007,2026-08-12
+APP-000007-AUD-09,APP-000007,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000007,QUEUED,RUN-APP-000007,2026-08-12
+APP-000008-AUD-01,APP-000008,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000008,GRANTED,RUN-APP-000008,2026-08-12
+APP-000008-AUD-02,APP-000008,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000008,MORTGAGE_UNDERWRITING,RUN-APP-000008,2026-08-12
+APP-000008-AUD-03,APP-000008,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000008,2026-08-12
+APP-000008-AUD-04,APP-000008,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000008,COMPLETED,RUN-APP-000008,2026-08-12
+APP-000008-AUD-05,APP-000008,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000008,COMPLETED,RUN-APP-000008,2026-08-12
+APP-000008-AUD-06,APP-000008,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000008,24 evaluated,RUN-APP-000008,2026-08-12
+APP-000008-AUD-07,APP-000008,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000008,0 flags,RUN-APP-000008,2026-08-12
+APP-000008-AUD-08,APP-000008,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000008,MANUAL_REVIEW_REQUIRED,RUN-APP-000008,2026-08-12
+APP-000008-AUD-09,APP-000008,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000008,QUEUED,RUN-APP-000008,2026-08-12
+APP-000009-AUD-01,APP-000009,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000009,GRANTED,RUN-APP-000009,2026-08-12
+APP-000009-AUD-02,APP-000009,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000009,MORTGAGE_UNDERWRITING,RUN-APP-000009,2026-08-12
+APP-000009-AUD-03,APP-000009,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000009,2026-08-12
+APP-000009-AUD-04,APP-000009,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000009,COMPLETED,RUN-APP-000009,2026-08-12
+APP-000009-AUD-05,APP-000009,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000009,COMPLETED,RUN-APP-000009,2026-08-12
+APP-000009-AUD-06,APP-000009,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000009,25 evaluated,RUN-APP-000009,2026-08-12
+APP-000009-AUD-07,APP-000009,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000009,0 flags,RUN-APP-000009,2026-08-12
+APP-000009-AUD-08,APP-000009,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000009,MANUAL_REVIEW_REQUIRED,RUN-APP-000009,2026-08-12
+APP-000009-AUD-09,APP-000009,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000009,QUEUED,RUN-APP-000009,2026-08-12
+APP-000010-AUD-01,APP-000010,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000010,GRANTED,RUN-APP-000010,2026-08-12
+APP-000010-AUD-02,APP-000010,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000010,MORTGAGE_UNDERWRITING,RUN-APP-000010,2026-08-12
+APP-000010-AUD-03,APP-000010,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000010,2026-08-12
+APP-000010-AUD-04,APP-000010,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000010,COMPLETED,RUN-APP-000010,2026-08-12
+APP-000010-AUD-05,APP-000010,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000010,COMPLETED,RUN-APP-000010,2026-08-12
+APP-000010-AUD-06,APP-000010,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000010,24 evaluated,RUN-APP-000010,2026-08-12
+APP-000010-AUD-07,APP-000010,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000010,0 flags,RUN-APP-000010,2026-08-12
+APP-000010-AUD-08,APP-000010,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000010,APPROVE_RECOMMENDATION,RUN-APP-000010,2026-08-12
+APP-000011-AUD-01,APP-000011,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000011,GRANTED,RUN-APP-000011,2026-08-12
+APP-000011-AUD-02,APP-000011,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000011,MORTGAGE_UNDERWRITING,RUN-APP-000011,2026-08-12
+APP-000011-AUD-03,APP-000011,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000011,2026-08-12
+APP-000011-AUD-04,APP-000011,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000011,COMPLETED,RUN-APP-000011,2026-08-12
+APP-000011-AUD-05,APP-000011,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000011,COMPLETED,RUN-APP-000011,2026-08-12
+APP-000011-AUD-06,APP-000011,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000011,25 evaluated,RUN-APP-000011,2026-08-12
+APP-000011-AUD-07,APP-000011,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000011,0 flags,RUN-APP-000011,2026-08-12
+APP-000011-AUD-08,APP-000011,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000011,MANUAL_REVIEW_REQUIRED,RUN-APP-000011,2026-08-12
+APP-000011-AUD-09,APP-000011,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000011,QUEUED,RUN-APP-000011,2026-08-12
+APP-000012-AUD-01,APP-000012,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000012,GRANTED,RUN-APP-000012,2026-09-04
+APP-000012-AUD-02,APP-000012,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000012,MORTGAGE_UNDERWRITING,RUN-APP-000012,2026-09-04
+APP-000012-AUD-03,APP-000012,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000012,2026-09-04
+APP-000012-AUD-04,APP-000012,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000012,COMPLETED,RUN-APP-000012,2026-09-04
+APP-000012-AUD-05,APP-000012,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000012,COMPLETED,RUN-APP-000012,2026-09-04
+APP-000012-AUD-06,APP-000012,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000012,25 evaluated,RUN-APP-000012,2026-09-04
+APP-000012-AUD-07,APP-000012,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000012,0 flags,RUN-APP-000012,2026-09-04
+APP-000012-AUD-08,APP-000012,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000012,MANUAL_REVIEW_REQUIRED,RUN-APP-000012,2026-09-04
+APP-000012-AUD-09,APP-000012,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000012,QUEUED,RUN-APP-000012,2026-09-04
+APP-000013-AUD-01,APP-000013,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000013,GRANTED,RUN-APP-000013,2026-08-12
+APP-000013-AUD-02,APP-000013,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000013,MORTGAGE_UNDERWRITING,RUN-APP-000013,2026-08-12
+APP-000013-AUD-03,APP-000013,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000013,2026-08-12
+APP-000013-AUD-04,APP-000013,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000013,COMPLETED,RUN-APP-000013,2026-08-12
+APP-000013-AUD-05,APP-000013,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000013,COMPLETED,RUN-APP-000013,2026-08-12
+APP-000013-AUD-06,APP-000013,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000013,23 evaluated,RUN-APP-000013,2026-08-12
+APP-000013-AUD-07,APP-000013,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000013,0 flags,RUN-APP-000013,2026-08-12
+APP-000013-AUD-08,APP-000013,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000013,APPROVE_RECOMMENDATION,RUN-APP-000013,2026-08-12
+APP-000014-AUD-01,APP-000014,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000014,GRANTED,RUN-APP-000014,2026-08-12
+APP-000014-AUD-02,APP-000014,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000014,MORTGAGE_UNDERWRITING,RUN-APP-000014,2026-08-12
+APP-000014-AUD-03,APP-000014,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000014,2026-08-12
+APP-000014-AUD-04,APP-000014,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000014,COMPLETED,RUN-APP-000014,2026-08-12
+APP-000014-AUD-05,APP-000014,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000014,COMPLETED,RUN-APP-000014,2026-08-12
+APP-000014-AUD-06,APP-000014,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000014,24 evaluated,RUN-APP-000014,2026-08-12
+APP-000014-AUD-07,APP-000014,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000014,1 flags,RUN-APP-000014,2026-08-12
+APP-000014-AUD-08,APP-000014,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000014,DECLINE_RECOMMENDATION,RUN-APP-000014,2026-08-12
+APP-000014-AUD-09,APP-000014,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000014,QUEUED,RUN-APP-000014,2026-08-12
+APP-000015-AUD-01,APP-000015,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000015,GRANTED,RUN-APP-000015,2026-08-12
+APP-000015-AUD-02,APP-000015,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000015,MORTGAGE_UNDERWRITING,RUN-APP-000015,2026-08-12
+APP-000015-AUD-03,APP-000015,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000015,2026-08-12
+APP-000015-AUD-04,APP-000015,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000015,COMPLETED,RUN-APP-000015,2026-08-12
+APP-000015-AUD-05,APP-000015,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000015,COMPLETED,RUN-APP-000015,2026-08-12
+APP-000015-AUD-06,APP-000015,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000015,24 evaluated,RUN-APP-000015,2026-08-12
+APP-000015-AUD-07,APP-000015,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000015,0 flags,RUN-APP-000015,2026-08-12
+APP-000015-AUD-08,APP-000015,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000015,APPROVE_RECOMMENDATION,RUN-APP-000015,2026-08-12
+APP-000016-AUD-01,APP-000016,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000016,GRANTED,RUN-APP-000016,2026-08-12
+APP-000016-AUD-02,APP-000016,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000016,MORTGAGE_UNDERWRITING,RUN-APP-000016,2026-08-12
+APP-000016-AUD-03,APP-000016,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000016,2026-08-12
+APP-000016-AUD-04,APP-000016,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000016,COMPLETED,RUN-APP-000016,2026-08-12
+APP-000016-AUD-05,APP-000016,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000016,COMPLETED,RUN-APP-000016,2026-08-12
+APP-000016-AUD-06,APP-000016,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000016,25 evaluated,RUN-APP-000016,2026-08-12
+APP-000016-AUD-07,APP-000016,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000016,0 flags,RUN-APP-000016,2026-08-12
+APP-000016-AUD-08,APP-000016,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000016,MANUAL_REVIEW_REQUIRED,RUN-APP-000016,2026-08-12
+APP-000016-AUD-09,APP-000016,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000016,QUEUED,RUN-APP-000016,2026-08-12
+APP-000017-AUD-01,APP-000017,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000017,GRANTED,RUN-APP-000017,2026-08-12
+APP-000017-AUD-02,APP-000017,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000017,MORTGAGE_UNDERWRITING,RUN-APP-000017,2026-08-12
+APP-000017-AUD-03,APP-000017,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000017,2026-08-12
+APP-000017-AUD-04,APP-000017,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000017,COMPLETED,RUN-APP-000017,2026-08-12
+APP-000017-AUD-05,APP-000017,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000017,COMPLETED,RUN-APP-000017,2026-08-12
+APP-000017-AUD-06,APP-000017,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000017,26 evaluated,RUN-APP-000017,2026-08-12
+APP-000017-AUD-07,APP-000017,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000017,1 flags,RUN-APP-000017,2026-08-12
+APP-000017-AUD-08,APP-000017,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000017,MANUAL_REVIEW_REQUIRED,RUN-APP-000017,2026-08-12
+APP-000017-AUD-09,APP-000017,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000017,QUEUED,RUN-APP-000017,2026-08-12
+APP-000018-AUD-01,APP-000018,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000018,GRANTED,RUN-APP-000018,2026-09-04
+APP-000018-AUD-02,APP-000018,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000018,MORTGAGE_UNDERWRITING,RUN-APP-000018,2026-09-04
+APP-000018-AUD-03,APP-000018,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000018,2026-09-04
+APP-000018-AUD-04,APP-000018,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000018,COMPLETED,RUN-APP-000018,2026-09-04
+APP-000018-AUD-05,APP-000018,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000018,COMPLETED,RUN-APP-000018,2026-09-04
+APP-000018-AUD-06,APP-000018,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000018,26 evaluated,RUN-APP-000018,2026-09-04
+APP-000018-AUD-07,APP-000018,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000018,1 flags,RUN-APP-000018,2026-09-04
+APP-000018-AUD-08,APP-000018,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000018,MANUAL_REVIEW_REQUIRED,RUN-APP-000018,2026-09-04
+APP-000018-AUD-09,APP-000018,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000018,QUEUED,RUN-APP-000018,2026-09-04
+APP-000019-AUD-01,APP-000019,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000019,GRANTED,RUN-APP-000019,2026-08-12
+APP-000019-AUD-02,APP-000019,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000019,MORTGAGE_UNDERWRITING,RUN-APP-000019,2026-08-12
+APP-000019-AUD-03,APP-000019,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000019,2026-08-12
+APP-000019-AUD-04,APP-000019,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000019,COMPLETED,RUN-APP-000019,2026-08-12
+APP-000019-AUD-05,APP-000019,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000019,COMPLETED,RUN-APP-000019,2026-08-12
+APP-000019-AUD-06,APP-000019,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000019,22 evaluated,RUN-APP-000019,2026-08-12
+APP-000019-AUD-07,APP-000019,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000019,0 flags,RUN-APP-000019,2026-08-12
+APP-000019-AUD-08,APP-000019,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000019,APPROVE_RECOMMENDATION,RUN-APP-000019,2026-08-12
+APP-000020-AUD-01,APP-000020,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000020,GRANTED,RUN-APP-000020,2026-08-12
+APP-000020-AUD-02,APP-000020,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000020,MORTGAGE_UNDERWRITING,RUN-APP-000020,2026-08-12
+APP-000020-AUD-03,APP-000020,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000020,2026-08-12
+APP-000020-AUD-04,APP-000020,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000020,COMPLETED,RUN-APP-000020,2026-08-12
+APP-000020-AUD-05,APP-000020,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000020,COMPLETED,RUN-APP-000020,2026-08-12
+APP-000020-AUD-06,APP-000020,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000020,21 evaluated,RUN-APP-000020,2026-08-12
+APP-000020-AUD-07,APP-000020,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000020,1 flags,RUN-APP-000020,2026-08-12
+APP-000020-AUD-08,APP-000020,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000020,DECLINE_RECOMMENDATION,RUN-APP-000020,2026-08-12
+APP-000020-AUD-09,APP-000020,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000020,QUEUED,RUN-APP-000020,2026-08-12
+APP-000021-AUD-01,APP-000021,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000021,GRANTED,RUN-APP-000021,2026-08-12
+APP-000021-AUD-02,APP-000021,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000021,MORTGAGE_UNDERWRITING,RUN-APP-000021,2026-08-12
+APP-000021-AUD-03,APP-000021,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000021,2026-08-12
+APP-000021-AUD-04,APP-000021,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000021,COMPLETED,RUN-APP-000021,2026-08-12
+APP-000021-AUD-05,APP-000021,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000021,COMPLETED,RUN-APP-000021,2026-08-12
+APP-000021-AUD-06,APP-000021,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000021,23 evaluated,RUN-APP-000021,2026-08-12
+APP-000021-AUD-07,APP-000021,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000021,0 flags,RUN-APP-000021,2026-08-12
+APP-000021-AUD-08,APP-000021,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000021,DECLINE_RECOMMENDATION,RUN-APP-000021,2026-08-12
+APP-000021-AUD-09,APP-000021,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000021,QUEUED,RUN-APP-000021,2026-08-12
+APP-000022-AUD-01,APP-000022,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000022,GRANTED,RUN-APP-000022,2026-08-12
+APP-000022-AUD-02,APP-000022,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000022,MORTGAGE_UNDERWRITING,RUN-APP-000022,2026-08-12
+APP-000022-AUD-03,APP-000022,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000022,2026-08-12
+APP-000022-AUD-04,APP-000022,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000022,COMPLETED,RUN-APP-000022,2026-08-12
+APP-000022-AUD-05,APP-000022,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000022,COMPLETED,RUN-APP-000022,2026-08-12
+APP-000022-AUD-06,APP-000022,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000022,23 evaluated,RUN-APP-000022,2026-08-12
+APP-000022-AUD-07,APP-000022,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000022,0 flags,RUN-APP-000022,2026-08-12
+APP-000022-AUD-08,APP-000022,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000022,APPROVE_RECOMMENDATION,RUN-APP-000022,2026-08-12
+APP-000023-AUD-01,APP-000023,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000023,GRANTED,RUN-APP-000023,2026-08-12
+APP-000023-AUD-02,APP-000023,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000023,MORTGAGE_UNDERWRITING,RUN-APP-000023,2026-08-12
+APP-000023-AUD-03,APP-000023,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000023,2026-08-12
+APP-000023-AUD-04,APP-000023,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000023,COMPLETED,RUN-APP-000023,2026-08-12
+APP-000023-AUD-05,APP-000023,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000023,COMPLETED,RUN-APP-000023,2026-08-12
+APP-000023-AUD-06,APP-000023,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000023,25 evaluated,RUN-APP-000023,2026-08-12
+APP-000023-AUD-07,APP-000023,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000023,0 flags,RUN-APP-000023,2026-08-12
+APP-000023-AUD-08,APP-000023,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000023,APPROVE_RECOMMENDATION,RUN-APP-000023,2026-08-12
+APP-000024-AUD-01,APP-000024,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000024,GRANTED,RUN-APP-000024,2026-08-12
+APP-000024-AUD-02,APP-000024,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000024,MORTGAGE_UNDERWRITING,RUN-APP-000024,2026-08-12
+APP-000024-AUD-03,APP-000024,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000024,2026-08-12
+APP-000024-AUD-04,APP-000024,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000024,COMPLETED,RUN-APP-000024,2026-08-12
+APP-000024-AUD-05,APP-000024,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000024,COMPLETED,RUN-APP-000024,2026-08-12
+APP-000024-AUD-06,APP-000024,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000024,25 evaluated,RUN-APP-000024,2026-08-12
+APP-000024-AUD-07,APP-000024,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000024,0 flags,RUN-APP-000024,2026-08-12
+APP-000024-AUD-08,APP-000024,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000024,DECLINE_RECOMMENDATION,RUN-APP-000024,2026-08-12
+APP-000024-AUD-09,APP-000024,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000024,QUEUED,RUN-APP-000024,2026-08-12
+APP-000025-AUD-01,APP-000025,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000025,GRANTED,RUN-APP-000025,2026-08-12
+APP-000025-AUD-02,APP-000025,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000025,MORTGAGE_UNDERWRITING,RUN-APP-000025,2026-08-12
+APP-000025-AUD-03,APP-000025,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000025,2026-08-12
+APP-000025-AUD-04,APP-000025,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000025,COMPLETED,RUN-APP-000025,2026-08-12
+APP-000025-AUD-05,APP-000025,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000025,COMPLETED,RUN-APP-000025,2026-08-12
+APP-000025-AUD-06,APP-000025,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000025,26 evaluated,RUN-APP-000025,2026-08-12
+APP-000025-AUD-07,APP-000025,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000025,0 flags,RUN-APP-000025,2026-08-12
+APP-000025-AUD-08,APP-000025,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000025,APPROVE_RECOMMENDATION,RUN-APP-000025,2026-08-12
+APP-000026-AUD-01,APP-000026,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000026,GRANTED,RUN-APP-000026,2026-08-12
+APP-000026-AUD-02,APP-000026,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000026,MORTGAGE_UNDERWRITING,RUN-APP-000026,2026-08-12
+APP-000026-AUD-03,APP-000026,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000026,2026-08-12
+APP-000026-AUD-04,APP-000026,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000026,COMPLETED,RUN-APP-000026,2026-08-12
+APP-000026-AUD-05,APP-000026,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000026,COMPLETED,RUN-APP-000026,2026-08-12
+APP-000026-AUD-06,APP-000026,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000026,25 evaluated,RUN-APP-000026,2026-08-12
+APP-000026-AUD-07,APP-000026,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000026,2 flags,RUN-APP-000026,2026-08-12
+APP-000026-AUD-08,APP-000026,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000026,DECLINE_RECOMMENDATION,RUN-APP-000026,2026-08-12
+APP-000026-AUD-09,APP-000026,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000026,QUEUED,RUN-APP-000026,2026-08-12
+APP-000027-AUD-01,APP-000027,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000027,GRANTED,RUN-APP-000027,2026-08-12
+APP-000027-AUD-02,APP-000027,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000027,MORTGAGE_UNDERWRITING,RUN-APP-000027,2026-08-12
+APP-000027-AUD-03,APP-000027,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000027,2026-08-12
+APP-000027-AUD-04,APP-000027,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000027,COMPLETED,RUN-APP-000027,2026-08-12
+APP-000027-AUD-05,APP-000027,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000027,COMPLETED,RUN-APP-000027,2026-08-12
+APP-000027-AUD-06,APP-000027,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000027,24 evaluated,RUN-APP-000027,2026-08-12
+APP-000027-AUD-07,APP-000027,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000027,0 flags,RUN-APP-000027,2026-08-12
+APP-000027-AUD-08,APP-000027,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000027,APPROVE_RECOMMENDATION,RUN-APP-000027,2026-08-12
+APP-000028-AUD-01,APP-000028,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000028,GRANTED,RUN-APP-000028,2026-08-12
+APP-000028-AUD-02,APP-000028,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000028,MORTGAGE_UNDERWRITING,RUN-APP-000028,2026-08-12
+APP-000028-AUD-03,APP-000028,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000028,2026-08-12
+APP-000028-AUD-04,APP-000028,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000028,COMPLETED,RUN-APP-000028,2026-08-12
+APP-000028-AUD-05,APP-000028,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000028,COMPLETED,RUN-APP-000028,2026-08-12
+APP-000028-AUD-06,APP-000028,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000028,24 evaluated,RUN-APP-000028,2026-08-12
+APP-000028-AUD-07,APP-000028,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000028,1 flags,RUN-APP-000028,2026-08-12
+APP-000028-AUD-08,APP-000028,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000028,DECLINE_RECOMMENDATION,RUN-APP-000028,2026-08-12
+APP-000028-AUD-09,APP-000028,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000028,QUEUED,RUN-APP-000028,2026-08-12
+APP-000029-AUD-01,APP-000029,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000029,GRANTED,RUN-APP-000029,2026-08-12
+APP-000029-AUD-02,APP-000029,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000029,MORTGAGE_UNDERWRITING,RUN-APP-000029,2026-08-12
+APP-000029-AUD-03,APP-000029,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000029,2026-08-12
+APP-000029-AUD-04,APP-000029,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000029,COMPLETED,RUN-APP-000029,2026-08-12
+APP-000029-AUD-05,APP-000029,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000029,COMPLETED,RUN-APP-000029,2026-08-12
+APP-000029-AUD-06,APP-000029,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000029,24 evaluated,RUN-APP-000029,2026-08-12
+APP-000029-AUD-07,APP-000029,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000029,1 flags,RUN-APP-000029,2026-08-12
+APP-000029-AUD-08,APP-000029,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000029,DECLINE_RECOMMENDATION,RUN-APP-000029,2026-08-12
+APP-000029-AUD-09,APP-000029,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000029,QUEUED,RUN-APP-000029,2026-08-12
+APP-000030-AUD-01,APP-000030,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000030,GRANTED,RUN-APP-000030,2026-08-12
+APP-000030-AUD-02,APP-000030,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000030,MORTGAGE_UNDERWRITING,RUN-APP-000030,2026-08-12
+APP-000030-AUD-03,APP-000030,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000030,2026-08-12
+APP-000030-AUD-04,APP-000030,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000030,COMPLETED,RUN-APP-000030,2026-08-12
+APP-000030-AUD-05,APP-000030,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000030,COMPLETED,RUN-APP-000030,2026-08-12
+APP-000030-AUD-06,APP-000030,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000030,24 evaluated,RUN-APP-000030,2026-08-12
+APP-000030-AUD-07,APP-000030,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000030,0 flags,RUN-APP-000030,2026-08-12
+APP-000030-AUD-08,APP-000030,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000030,MANUAL_REVIEW_REQUIRED,RUN-APP-000030,2026-08-12
+APP-000030-AUD-09,APP-000030,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000030,QUEUED,RUN-APP-000030,2026-08-12
+APP-000031-AUD-01,APP-000031,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000031,GRANTED,RUN-APP-000031,2026-08-12
+APP-000031-AUD-02,APP-000031,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000031,MORTGAGE_UNDERWRITING,RUN-APP-000031,2026-08-12
+APP-000031-AUD-03,APP-000031,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000031,2026-08-12
+APP-000031-AUD-04,APP-000031,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000031,COMPLETED,RUN-APP-000031,2026-08-12
+APP-000031-AUD-05,APP-000031,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000031,COMPLETED,RUN-APP-000031,2026-08-12
+APP-000031-AUD-06,APP-000031,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000031,25 evaluated,RUN-APP-000031,2026-08-12
+APP-000031-AUD-07,APP-000031,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000031,1 flags,RUN-APP-000031,2026-08-12
+APP-000031-AUD-08,APP-000031,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000031,MANUAL_REVIEW_REQUIRED,RUN-APP-000031,2026-08-12
+APP-000031-AUD-09,APP-000031,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000031,QUEUED,RUN-APP-000031,2026-08-12
+APP-000032-AUD-01,APP-000032,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000032,GRANTED,RUN-APP-000032,2026-08-12
+APP-000032-AUD-02,APP-000032,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000032,MORTGAGE_UNDERWRITING,RUN-APP-000032,2026-08-12
+APP-000032-AUD-03,APP-000032,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000032,2026-08-12
+APP-000032-AUD-04,APP-000032,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000032,COMPLETED,RUN-APP-000032,2026-08-12
+APP-000032-AUD-05,APP-000032,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000032,COMPLETED,RUN-APP-000032,2026-08-12
+APP-000032-AUD-06,APP-000032,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000032,24 evaluated,RUN-APP-000032,2026-08-12
+APP-000032-AUD-07,APP-000032,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000032,0 flags,RUN-APP-000032,2026-08-12
+APP-000032-AUD-08,APP-000032,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000032,APPROVE_WITH_CONDITIONS,RUN-APP-000032,2026-08-12
+APP-000033-AUD-01,APP-000033,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000033,GRANTED,RUN-APP-000033,2026-09-04
+APP-000033-AUD-02,APP-000033,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000033,MORTGAGE_UNDERWRITING,RUN-APP-000033,2026-09-04
+APP-000033-AUD-03,APP-000033,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000033,2026-09-04
+APP-000033-AUD-04,APP-000033,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000033,COMPLETED,RUN-APP-000033,2026-09-04
+APP-000033-AUD-05,APP-000033,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000033,COMPLETED,RUN-APP-000033,2026-09-04
+APP-000033-AUD-06,APP-000033,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000033,23 evaluated,RUN-APP-000033,2026-09-04
+APP-000033-AUD-07,APP-000033,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000033,0 flags,RUN-APP-000033,2026-09-04
+APP-000033-AUD-08,APP-000033,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000033,REFER,RUN-APP-000033,2026-09-04
+APP-000033-AUD-09,APP-000033,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000033,QUEUED,RUN-APP-000033,2026-09-04
+APP-000034-AUD-01,APP-000034,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000034,GRANTED,RUN-APP-000034,2026-08-12
+APP-000034-AUD-02,APP-000034,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000034,MORTGAGE_UNDERWRITING,RUN-APP-000034,2026-08-12
+APP-000034-AUD-03,APP-000034,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000034,2026-08-12
+APP-000034-AUD-04,APP-000034,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000034,COMPLETED,RUN-APP-000034,2026-08-12
+APP-000034-AUD-05,APP-000034,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000034,COMPLETED,RUN-APP-000034,2026-08-12
+APP-000034-AUD-06,APP-000034,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000034,25 evaluated,RUN-APP-000034,2026-08-12
+APP-000034-AUD-07,APP-000034,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000034,0 flags,RUN-APP-000034,2026-08-12
+APP-000034-AUD-08,APP-000034,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000034,MANUAL_REVIEW_REQUIRED,RUN-APP-000034,2026-08-12
+APP-000034-AUD-09,APP-000034,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000034,QUEUED,RUN-APP-000034,2026-08-12
+APP-000035-AUD-01,APP-000035,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000035,GRANTED,RUN-APP-000035,2026-08-12
+APP-000035-AUD-02,APP-000035,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000035,MORTGAGE_UNDERWRITING,RUN-APP-000035,2026-08-12
+APP-000035-AUD-03,APP-000035,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000035,2026-08-12
+APP-000035-AUD-04,APP-000035,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000035,COMPLETED,RUN-APP-000035,2026-08-12
+APP-000035-AUD-05,APP-000035,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000035,COMPLETED,RUN-APP-000035,2026-08-12
+APP-000035-AUD-06,APP-000035,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000035,26 evaluated,RUN-APP-000035,2026-08-12
+APP-000035-AUD-07,APP-000035,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000035,1 flags,RUN-APP-000035,2026-08-12
+APP-000035-AUD-08,APP-000035,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000035,MANUAL_REVIEW_REQUIRED,RUN-APP-000035,2026-08-12
+APP-000035-AUD-09,APP-000035,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000035,QUEUED,RUN-APP-000035,2026-08-12
+APP-000036-AUD-01,APP-000036,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000036,GRANTED,RUN-APP-000036,2026-08-12
+APP-000036-AUD-02,APP-000036,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000036,MORTGAGE_UNDERWRITING,RUN-APP-000036,2026-08-12
+APP-000036-AUD-03,APP-000036,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000036,2026-08-12
+APP-000036-AUD-04,APP-000036,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000036,COMPLETED,RUN-APP-000036,2026-08-12
+APP-000036-AUD-05,APP-000036,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000036,COMPLETED,RUN-APP-000036,2026-08-12
+APP-000036-AUD-06,APP-000036,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000036,25 evaluated,RUN-APP-000036,2026-08-12
+APP-000036-AUD-07,APP-000036,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000036,1 flags,RUN-APP-000036,2026-08-12
+APP-000036-AUD-08,APP-000036,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000036,MANUAL_REVIEW_REQUIRED,RUN-APP-000036,2026-08-12
+APP-000036-AUD-09,APP-000036,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000036,QUEUED,RUN-APP-000036,2026-08-12
+APP-000037-AUD-01,APP-000037,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000037,GRANTED,RUN-APP-000037,2026-08-12
+APP-000037-AUD-02,APP-000037,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000037,MORTGAGE_UNDERWRITING,RUN-APP-000037,2026-08-12
+APP-000037-AUD-03,APP-000037,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000037,2026-08-12
+APP-000037-AUD-04,APP-000037,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000037,COMPLETED,RUN-APP-000037,2026-08-12
+APP-000037-AUD-05,APP-000037,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000037,COMPLETED,RUN-APP-000037,2026-08-12
+APP-000037-AUD-06,APP-000037,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000037,25 evaluated,RUN-APP-000037,2026-08-12
+APP-000037-AUD-07,APP-000037,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000037,1 flags,RUN-APP-000037,2026-08-12
+APP-000037-AUD-08,APP-000037,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000037,MANUAL_REVIEW_REQUIRED,RUN-APP-000037,2026-08-12
+APP-000037-AUD-09,APP-000037,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000037,QUEUED,RUN-APP-000037,2026-08-12
+APP-000038-AUD-01,APP-000038,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000038,GRANTED,RUN-APP-000038,2026-08-12
+APP-000038-AUD-02,APP-000038,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000038,MORTGAGE_UNDERWRITING,RUN-APP-000038,2026-08-12
+APP-000038-AUD-03,APP-000038,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000038,2026-08-12
+APP-000038-AUD-04,APP-000038,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000038,COMPLETED,RUN-APP-000038,2026-08-12
+APP-000038-AUD-05,APP-000038,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000038,COMPLETED,RUN-APP-000038,2026-08-12
+APP-000038-AUD-06,APP-000038,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000038,25 evaluated,RUN-APP-000038,2026-08-12
+APP-000038-AUD-07,APP-000038,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000038,0 flags,RUN-APP-000038,2026-08-12
+APP-000038-AUD-08,APP-000038,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000038,MANUAL_REVIEW_REQUIRED,RUN-APP-000038,2026-08-12
+APP-000038-AUD-09,APP-000038,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000038,QUEUED,RUN-APP-000038,2026-08-12
+APP-000039-AUD-01,APP-000039,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000039,GRANTED,RUN-APP-000039,2026-08-12
+APP-000039-AUD-02,APP-000039,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000039,MORTGAGE_UNDERWRITING,RUN-APP-000039,2026-08-12
+APP-000039-AUD-03,APP-000039,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000039,2026-08-12
+APP-000039-AUD-04,APP-000039,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000039,COMPLETED,RUN-APP-000039,2026-08-12
+APP-000039-AUD-05,APP-000039,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000039,COMPLETED,RUN-APP-000039,2026-08-12
+APP-000039-AUD-06,APP-000039,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000039,25 evaluated,RUN-APP-000039,2026-08-12
+APP-000039-AUD-07,APP-000039,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000039,1 flags,RUN-APP-000039,2026-08-12
+APP-000039-AUD-08,APP-000039,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000039,MANUAL_REVIEW_REQUIRED,RUN-APP-000039,2026-08-12
+APP-000039-AUD-09,APP-000039,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000039,QUEUED,RUN-APP-000039,2026-08-12
+APP-000040-AUD-01,APP-000040,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000040,GRANTED,RUN-APP-000040,2026-08-12
+APP-000040-AUD-02,APP-000040,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000040,MORTGAGE_UNDERWRITING,RUN-APP-000040,2026-08-12
+APP-000040-AUD-03,APP-000040,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000040,2026-08-12
+APP-000040-AUD-04,APP-000040,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000040,COMPLETED,RUN-APP-000040,2026-08-12
+APP-000040-AUD-05,APP-000040,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000040,COMPLETED,RUN-APP-000040,2026-08-12
+APP-000040-AUD-06,APP-000040,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000040,25 evaluated,RUN-APP-000040,2026-08-12
+APP-000040-AUD-07,APP-000040,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000040,1 flags,RUN-APP-000040,2026-08-12
+APP-000040-AUD-08,APP-000040,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000040,MANUAL_REVIEW_REQUIRED,RUN-APP-000040,2026-08-12
+APP-000040-AUD-09,APP-000040,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000040,QUEUED,RUN-APP-000040,2026-08-12
+APP-000041-AUD-01,APP-000041,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000041,GRANTED,RUN-APP-000041,2026-08-12
+APP-000041-AUD-02,APP-000041,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000041,MORTGAGE_UNDERWRITING,RUN-APP-000041,2026-08-12
+APP-000041-AUD-03,APP-000041,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000041,2026-08-12
+APP-000041-AUD-04,APP-000041,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000041,COMPLETED,RUN-APP-000041,2026-08-12
+APP-000041-AUD-05,APP-000041,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000041,COMPLETED,RUN-APP-000041,2026-08-12
+APP-000041-AUD-06,APP-000041,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000041,26 evaluated,RUN-APP-000041,2026-08-12
+APP-000041-AUD-07,APP-000041,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000041,0 flags,RUN-APP-000041,2026-08-12
+APP-000041-AUD-08,APP-000041,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000041,APPROVE_RECOMMENDATION,RUN-APP-000041,2026-08-12
+APP-000042-AUD-01,APP-000042,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000042,GRANTED,RUN-APP-000042,2026-08-12
+APP-000042-AUD-02,APP-000042,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000042,MORTGAGE_UNDERWRITING,RUN-APP-000042,2026-08-12
+APP-000042-AUD-03,APP-000042,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000042,2026-08-12
+APP-000042-AUD-04,APP-000042,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000042,COMPLETED,RUN-APP-000042,2026-08-12
+APP-000042-AUD-05,APP-000042,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000042,COMPLETED,RUN-APP-000042,2026-08-12
+APP-000042-AUD-06,APP-000042,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000042,27 evaluated,RUN-APP-000042,2026-08-12
+APP-000042-AUD-07,APP-000042,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000042,0 flags,RUN-APP-000042,2026-08-12
+APP-000042-AUD-08,APP-000042,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000042,SUSPENDED_INCOMPLETE,RUN-APP-000042,2026-08-12
+APP-000043-AUD-01,APP-000043,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000043,GRANTED,RUN-APP-000043,2026-08-12
+APP-000043-AUD-02,APP-000043,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000043,MORTGAGE_UNDERWRITING,RUN-APP-000043,2026-08-12
+APP-000043-AUD-03,APP-000043,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000043,2026-08-12
+APP-000043-AUD-04,APP-000043,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000043,COMPLETED,RUN-APP-000043,2026-08-12
+APP-000043-AUD-05,APP-000043,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000043,COMPLETED,RUN-APP-000043,2026-08-12
+APP-000043-AUD-06,APP-000043,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000043,26 evaluated,RUN-APP-000043,2026-08-12
+APP-000043-AUD-07,APP-000043,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000043,2 flags,RUN-APP-000043,2026-08-12
+APP-000043-AUD-08,APP-000043,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000043,MANUAL_REVIEW_REQUIRED,RUN-APP-000043,2026-08-12
+APP-000043-AUD-09,APP-000043,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000043,QUEUED,RUN-APP-000043,2026-08-12
+APP-000044-AUD-01,APP-000044,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000044,GRANTED,RUN-APP-000044,2026-08-12
+APP-000044-AUD-02,APP-000044,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000044,MORTGAGE_UNDERWRITING,RUN-APP-000044,2026-08-12
+APP-000044-AUD-03,APP-000044,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000044,2026-08-12
+APP-000044-AUD-04,APP-000044,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000044,COMPLETED,RUN-APP-000044,2026-08-12
+APP-000044-AUD-05,APP-000044,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000044,COMPLETED,RUN-APP-000044,2026-08-12
+APP-000044-AUD-06,APP-000044,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000044,25 evaluated,RUN-APP-000044,2026-08-12
+APP-000044-AUD-07,APP-000044,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000044,1 flags,RUN-APP-000044,2026-08-12
+APP-000044-AUD-08,APP-000044,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000044,MANUAL_REVIEW_REQUIRED,RUN-APP-000044,2026-08-12
+APP-000044-AUD-09,APP-000044,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000044,QUEUED,RUN-APP-000044,2026-08-12
+APP-000045-AUD-01,APP-000045,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000045,GRANTED,RUN-APP-000045,2026-08-12
+APP-000045-AUD-02,APP-000045,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000045,MORTGAGE_UNDERWRITING,RUN-APP-000045,2026-08-12
+APP-000045-AUD-03,APP-000045,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000045,2026-08-12
+APP-000045-AUD-04,APP-000045,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000045,COMPLETED,RUN-APP-000045,2026-08-12
+APP-000045-AUD-05,APP-000045,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000045,COMPLETED,RUN-APP-000045,2026-08-12
+APP-000045-AUD-06,APP-000045,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000045,24 evaluated,RUN-APP-000045,2026-08-12
+APP-000045-AUD-07,APP-000045,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000045,0 flags,RUN-APP-000045,2026-08-12
+APP-000045-AUD-08,APP-000045,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000045,SUSPENDED_INCOMPLETE,RUN-APP-000045,2026-08-12
+APP-000046-AUD-01,APP-000046,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000046,GRANTED,RUN-APP-000046,2026-08-12
+APP-000046-AUD-02,APP-000046,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000046,MORTGAGE_UNDERWRITING,RUN-APP-000046,2026-08-12
+APP-000046-AUD-03,APP-000046,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000046,2026-08-12
+APP-000046-AUD-04,APP-000046,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000046,COMPLETED,RUN-APP-000046,2026-08-12
+APP-000046-AUD-05,APP-000046,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000046,COMPLETED,RUN-APP-000046,2026-08-12
+APP-000046-AUD-06,APP-000046,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000046,24 evaluated,RUN-APP-000046,2026-08-12
+APP-000046-AUD-07,APP-000046,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000046,0 flags,RUN-APP-000046,2026-08-12
+APP-000046-AUD-08,APP-000046,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000046,APPROVE_WITH_CONDITIONS,RUN-APP-000046,2026-08-12
+APP-000047-AUD-01,APP-000047,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000047,GRANTED,RUN-APP-000047,2026-09-04
+APP-000047-AUD-02,APP-000047,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000047,MORTGAGE_UNDERWRITING,RUN-APP-000047,2026-09-04
+APP-000047-AUD-03,APP-000047,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000047,2026-09-04
+APP-000047-AUD-04,APP-000047,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000047,COMPLETED,RUN-APP-000047,2026-09-04
+APP-000047-AUD-05,APP-000047,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000047,COMPLETED,RUN-APP-000047,2026-09-04
+APP-000047-AUD-06,APP-000047,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000047,24 evaluated,RUN-APP-000047,2026-09-04
+APP-000047-AUD-07,APP-000047,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000047,0 flags,RUN-APP-000047,2026-09-04
+APP-000047-AUD-08,APP-000047,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000047,REFER,RUN-APP-000047,2026-09-04
+APP-000047-AUD-09,APP-000047,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000047,QUEUED,RUN-APP-000047,2026-09-04
+APP-000048-AUD-01,APP-000048,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000048,GRANTED,RUN-APP-000048,2026-08-12
+APP-000048-AUD-02,APP-000048,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000048,MORTGAGE_UNDERWRITING,RUN-APP-000048,2026-08-12
+APP-000048-AUD-03,APP-000048,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000048,2026-08-12
+APP-000048-AUD-04,APP-000048,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000048,COMPLETED,RUN-APP-000048,2026-08-12
+APP-000048-AUD-05,APP-000048,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000048,COMPLETED,RUN-APP-000048,2026-08-12
+APP-000048-AUD-06,APP-000048,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000048,25 evaluated,RUN-APP-000048,2026-08-12
+APP-000048-AUD-07,APP-000048,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000048,0 flags,RUN-APP-000048,2026-08-12
+APP-000048-AUD-08,APP-000048,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000048,SUSPENDED_INCOMPLETE,RUN-APP-000048,2026-08-12
+APP-000049-AUD-01,APP-000049,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000049,GRANTED,RUN-APP-000049,2026-08-12
+APP-000049-AUD-02,APP-000049,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000049,MORTGAGE_UNDERWRITING,RUN-APP-000049,2026-08-12
+APP-000049-AUD-03,APP-000049,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000049,2026-08-12
+APP-000049-AUD-04,APP-000049,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000049,COMPLETED,RUN-APP-000049,2026-08-12
+APP-000049-AUD-05,APP-000049,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000049,COMPLETED,RUN-APP-000049,2026-08-12
+APP-000049-AUD-06,APP-000049,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000049,25 evaluated,RUN-APP-000049,2026-08-12
+APP-000049-AUD-07,APP-000049,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000049,1 flags,RUN-APP-000049,2026-08-12
+APP-000049-AUD-08,APP-000049,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000049,MANUAL_REVIEW_REQUIRED,RUN-APP-000049,2026-08-12
+APP-000049-AUD-09,APP-000049,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000049,QUEUED,RUN-APP-000049,2026-08-12
+APP-000050-AUD-01,APP-000050,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000050,GRANTED,RUN-APP-000050,2026-08-12
+APP-000050-AUD-02,APP-000050,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000050,MORTGAGE_UNDERWRITING,RUN-APP-000050,2026-08-12
+APP-000050-AUD-03,APP-000050,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000050,2026-08-12
+APP-000050-AUD-04,APP-000050,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000050,COMPLETED,RUN-APP-000050,2026-08-12
+APP-000050-AUD-05,APP-000050,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000050,COMPLETED,RUN-APP-000050,2026-08-12
+APP-000050-AUD-06,APP-000050,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000050,25 evaluated,RUN-APP-000050,2026-08-12
+APP-000050-AUD-07,APP-000050,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000050,1 flags,RUN-APP-000050,2026-08-12
+APP-000050-AUD-08,APP-000050,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000050,APPROVE_RECOMMENDATION,RUN-APP-000050,2026-08-12
+APP-000051-AUD-01,APP-000051,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000051,GRANTED,RUN-APP-000051,2026-08-12
+APP-000051-AUD-02,APP-000051,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000051,MORTGAGE_UNDERWRITING,RUN-APP-000051,2026-08-12
+APP-000051-AUD-03,APP-000051,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000051,2026-08-12
+APP-000051-AUD-04,APP-000051,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000051,COMPLETED,RUN-APP-000051,2026-08-12
+APP-000051-AUD-05,APP-000051,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000051,COMPLETED,RUN-APP-000051,2026-08-12
+APP-000051-AUD-06,APP-000051,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000051,25 evaluated,RUN-APP-000051,2026-08-12
+APP-000051-AUD-07,APP-000051,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000051,1 flags,RUN-APP-000051,2026-08-12
+APP-000051-AUD-08,APP-000051,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000051,MANUAL_REVIEW_REQUIRED,RUN-APP-000051,2026-08-12
+APP-000051-AUD-09,APP-000051,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000051,QUEUED,RUN-APP-000051,2026-08-12
+APP-000052-AUD-01,APP-000052,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000052,GRANTED,RUN-APP-000052,2026-09-04
+APP-000052-AUD-02,APP-000052,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000052,MORTGAGE_UNDERWRITING,RUN-APP-000052,2026-09-04
+APP-000052-AUD-03,APP-000052,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000052,2026-09-04
+APP-000052-AUD-04,APP-000052,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000052,COMPLETED,RUN-APP-000052,2026-09-04
+APP-000052-AUD-05,APP-000052,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000052,COMPLETED,RUN-APP-000052,2026-09-04
+APP-000052-AUD-06,APP-000052,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000052,23 evaluated,RUN-APP-000052,2026-09-04
+APP-000052-AUD-07,APP-000052,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000052,0 flags,RUN-APP-000052,2026-09-04
+APP-000052-AUD-08,APP-000052,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000052,APPROVE_RECOMMENDATION,RUN-APP-000052,2026-09-04
+APP-000053-AUD-01,APP-000053,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000053,GRANTED,RUN-APP-000053,2026-06-25
+APP-000053-AUD-02,APP-000053,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000053,MORTGAGE_UNDERWRITING,RUN-APP-000053,2026-06-25
+APP-000053-AUD-03,APP-000053,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-06-25,RESOLVED,RUN-APP-000053,2026-06-25
+APP-000053-AUD-04,APP-000053,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000053,COMPLETED,RUN-APP-000053,2026-06-25
+APP-000053-AUD-05,APP-000053,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000053,COMPLETED,RUN-APP-000053,2026-06-25
+APP-000053-AUD-06,APP-000053,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000053,22 evaluated,RUN-APP-000053,2026-06-25
+APP-000053-AUD-07,APP-000053,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000053,0 flags,RUN-APP-000053,2026-06-25
+APP-000053-AUD-08,APP-000053,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000053,APPROVE_WITH_CONDITIONS,RUN-APP-000053,2026-06-25
+APP-000054-AUD-01,APP-000054,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000054,GRANTED,RUN-APP-000054,2026-08-12
+APP-000054-AUD-02,APP-000054,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000054,MORTGAGE_UNDERWRITING,RUN-APP-000054,2026-08-12
+APP-000054-AUD-03,APP-000054,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000054,2026-08-12
+APP-000054-AUD-04,APP-000054,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000054,COMPLETED,RUN-APP-000054,2026-08-12
+APP-000054-AUD-05,APP-000054,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000054,COMPLETED,RUN-APP-000054,2026-08-12
+APP-000054-AUD-06,APP-000054,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000054,23 evaluated,RUN-APP-000054,2026-08-12
+APP-000054-AUD-07,APP-000054,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000054,0 flags,RUN-APP-000054,2026-08-12
+APP-000054-AUD-08,APP-000054,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000054,APPROVE_WITH_CONDITIONS,RUN-APP-000054,2026-08-12
+APP-000055-AUD-01,APP-000055,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000055,GRANTED,RUN-APP-000055,2026-06-25
+APP-000055-AUD-02,APP-000055,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000055,MORTGAGE_UNDERWRITING,RUN-APP-000055,2026-06-25
+APP-000055-AUD-03,APP-000055,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-06-25,RESOLVED,RUN-APP-000055,2026-06-25
+APP-000055-AUD-04,APP-000055,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000055,COMPLETED,RUN-APP-000055,2026-06-25
+APP-000055-AUD-05,APP-000055,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000055,COMPLETED,RUN-APP-000055,2026-06-25
+APP-000055-AUD-06,APP-000055,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000055,25 evaluated,RUN-APP-000055,2026-06-25
+APP-000055-AUD-07,APP-000055,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000055,0 flags,RUN-APP-000055,2026-06-25
+APP-000055-AUD-08,APP-000055,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000055,MANUAL_REVIEW_REQUIRED,RUN-APP-000055,2026-06-25
+APP-000055-AUD-09,APP-000055,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000055,QUEUED,RUN-APP-000055,2026-06-25
+APP-000056-AUD-01,APP-000056,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000056,GRANTED,RUN-APP-000056,2026-07-08
+APP-000056-AUD-02,APP-000056,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000056,MORTGAGE_UNDERWRITING,RUN-APP-000056,2026-07-08
+APP-000056-AUD-03,APP-000056,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-07-08,RESOLVED,RUN-APP-000056,2026-07-08
+APP-000056-AUD-04,APP-000056,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000056,COMPLETED,RUN-APP-000056,2026-07-08
+APP-000056-AUD-05,APP-000056,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000056,COMPLETED,RUN-APP-000056,2026-07-08
+APP-000056-AUD-06,APP-000056,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000056,25 evaluated,RUN-APP-000056,2026-07-08
+APP-000056-AUD-07,APP-000056,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000056,2 flags,RUN-APP-000056,2026-07-08
+APP-000056-AUD-08,APP-000056,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000056,DECLINE_RECOMMENDATION,RUN-APP-000056,2026-07-08
+APP-000056-AUD-09,APP-000056,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000056,QUEUED,RUN-APP-000056,2026-07-08
+APP-000057-AUD-01,APP-000057,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000057,GRANTED,RUN-APP-000057,2026-07-08
+APP-000057-AUD-02,APP-000057,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000057,MORTGAGE_UNDERWRITING,RUN-APP-000057,2026-07-08
+APP-000057-AUD-03,APP-000057,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-07-08,RESOLVED,RUN-APP-000057,2026-07-08
+APP-000057-AUD-04,APP-000057,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000057,COMPLETED,RUN-APP-000057,2026-07-08
+APP-000057-AUD-05,APP-000057,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000057,COMPLETED,RUN-APP-000057,2026-07-08
+APP-000057-AUD-06,APP-000057,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000057,25 evaluated,RUN-APP-000057,2026-07-08
+APP-000057-AUD-07,APP-000057,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000057,0 flags,RUN-APP-000057,2026-07-08
+APP-000057-AUD-08,APP-000057,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000057,MANUAL_REVIEW_REQUIRED,RUN-APP-000057,2026-07-08
+APP-000057-AUD-09,APP-000057,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000057,QUEUED,RUN-APP-000057,2026-07-08
+APP-000058-AUD-01,APP-000058,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000058,GRANTED,RUN-APP-000058,2026-09-04
+APP-000058-AUD-02,APP-000058,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000058,MORTGAGE_UNDERWRITING,RUN-APP-000058,2026-09-04
+APP-000058-AUD-03,APP-000058,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000058,2026-09-04
+APP-000058-AUD-04,APP-000058,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000058,COMPLETED,RUN-APP-000058,2026-09-04
+APP-000058-AUD-05,APP-000058,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000058,COMPLETED,RUN-APP-000058,2026-09-04
+APP-000058-AUD-06,APP-000058,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000058,24 evaluated,RUN-APP-000058,2026-09-04
+APP-000058-AUD-07,APP-000058,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000058,0 flags,RUN-APP-000058,2026-09-04
+APP-000058-AUD-08,APP-000058,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000058,APPROVE_RECOMMENDATION,RUN-APP-000058,2026-09-04
+APP-000059-AUD-01,APP-000059,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000059,GRANTED,RUN-APP-000059,2026-09-04
+APP-000059-AUD-02,APP-000059,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000059,MORTGAGE_UNDERWRITING,RUN-APP-000059,2026-09-04
+APP-000059-AUD-03,APP-000059,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000059,2026-09-04
+APP-000059-AUD-04,APP-000059,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000059,COMPLETED,RUN-APP-000059,2026-09-04
+APP-000059-AUD-05,APP-000059,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000059,COMPLETED,RUN-APP-000059,2026-09-04
+APP-000059-AUD-06,APP-000059,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000059,24 evaluated,RUN-APP-000059,2026-09-04
+APP-000059-AUD-07,APP-000059,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000059,1 flags,RUN-APP-000059,2026-09-04
+APP-000059-AUD-08,APP-000059,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000059,DECLINE_RECOMMENDATION,RUN-APP-000059,2026-09-04
+APP-000059-AUD-09,APP-000059,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000059,QUEUED,RUN-APP-000059,2026-09-04
+APP-000060-AUD-01,APP-000060,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000060,GRANTED,RUN-APP-000060,2026-08-12
+APP-000060-AUD-02,APP-000060,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000060,MORTGAGE_UNDERWRITING,RUN-APP-000060,2026-08-12
+APP-000060-AUD-03,APP-000060,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000060,2026-08-12
+APP-000060-AUD-04,APP-000060,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000060,COMPLETED,RUN-APP-000060,2026-08-12
+APP-000060-AUD-05,APP-000060,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000060,COMPLETED,RUN-APP-000060,2026-08-12
+APP-000060-AUD-06,APP-000060,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000060,24 evaluated,RUN-APP-000060,2026-08-12
+APP-000060-AUD-07,APP-000060,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000060,0 flags,RUN-APP-000060,2026-08-12
+APP-000060-AUD-08,APP-000060,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000060,APPROVE_RECOMMENDATION,RUN-APP-000060,2026-08-12
+APP-000061-AUD-01,APP-000061,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000061,GRANTED,RUN-APP-000061,2026-08-12
+APP-000061-AUD-02,APP-000061,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000061,MORTGAGE_UNDERWRITING,RUN-APP-000061,2026-08-12
+APP-000061-AUD-03,APP-000061,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000061,2026-08-12
+APP-000061-AUD-04,APP-000061,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000061,COMPLETED,RUN-APP-000061,2026-08-12
+APP-000061-AUD-05,APP-000061,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000061,COMPLETED,RUN-APP-000061,2026-08-12
+APP-000061-AUD-06,APP-000061,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000061,23 evaluated,RUN-APP-000061,2026-08-12
+APP-000061-AUD-07,APP-000061,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000061,0 flags,RUN-APP-000061,2026-08-12
+APP-000061-AUD-08,APP-000061,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000061,APPROVE_RECOMMENDATION,RUN-APP-000061,2026-08-12
+APP-000062-AUD-01,APP-000062,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000062,GRANTED,RUN-APP-000062,2026-08-12
+APP-000062-AUD-02,APP-000062,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000062,MORTGAGE_UNDERWRITING,RUN-APP-000062,2026-08-12
+APP-000062-AUD-03,APP-000062,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000062,2026-08-12
+APP-000062-AUD-04,APP-000062,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000062,COMPLETED,RUN-APP-000062,2026-08-12
+APP-000062-AUD-05,APP-000062,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000062,COMPLETED,RUN-APP-000062,2026-08-12
+APP-000062-AUD-06,APP-000062,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000062,23 evaluated,RUN-APP-000062,2026-08-12
+APP-000062-AUD-07,APP-000062,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000062,1 flags,RUN-APP-000062,2026-08-12
+APP-000062-AUD-08,APP-000062,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000062,DECLINE_RECOMMENDATION,RUN-APP-000062,2026-08-12
+APP-000062-AUD-09,APP-000062,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000062,QUEUED,RUN-APP-000062,2026-08-12
+APP-000063-AUD-01,APP-000063,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000063,GRANTED,RUN-APP-000063,2026-09-04
+APP-000063-AUD-02,APP-000063,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000063,MORTGAGE_UNDERWRITING,RUN-APP-000063,2026-09-04
+APP-000063-AUD-03,APP-000063,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000063,2026-09-04
+APP-000063-AUD-04,APP-000063,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000063,COMPLETED,RUN-APP-000063,2026-09-04
+APP-000063-AUD-05,APP-000063,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000063,COMPLETED,RUN-APP-000063,2026-09-04
+APP-000063-AUD-06,APP-000063,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000063,24 evaluated,RUN-APP-000063,2026-09-04
+APP-000063-AUD-07,APP-000063,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000063,0 flags,RUN-APP-000063,2026-09-04
+APP-000063-AUD-08,APP-000063,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000063,APPROVE_RECOMMENDATION,RUN-APP-000063,2026-09-04
+APP-000064-AUD-01,APP-000064,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000064,GRANTED,RUN-APP-000064,2026-09-04
+APP-000064-AUD-02,APP-000064,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000064,MORTGAGE_UNDERWRITING,RUN-APP-000064,2026-09-04
+APP-000064-AUD-03,APP-000064,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-09-04,RESOLVED,RUN-APP-000064,2026-09-04
+APP-000064-AUD-04,APP-000064,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000064,COMPLETED,RUN-APP-000064,2026-09-04
+APP-000064-AUD-05,APP-000064,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000064,COMPLETED,RUN-APP-000064,2026-09-04
+APP-000064-AUD-06,APP-000064,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000064,25 evaluated,RUN-APP-000064,2026-09-04
+APP-000064-AUD-07,APP-000064,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000064,1 flags,RUN-APP-000064,2026-09-04
+APP-000064-AUD-08,APP-000064,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000064,DECLINE_RECOMMENDATION,RUN-APP-000064,2026-09-04
+APP-000064-AUD-09,APP-000064,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000064,QUEUED,RUN-APP-000064,2026-09-04
+APP-000065-AUD-01,APP-000065,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000065,GRANTED,RUN-APP-000065,2026-08-12
+APP-000065-AUD-02,APP-000065,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000065,MORTGAGE_UNDERWRITING,RUN-APP-000065,2026-08-12
+APP-000065-AUD-03,APP-000065,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000065,2026-08-12
+APP-000065-AUD-04,APP-000065,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000065,QUARANTINED,RUN-APP-000065,2026-08-12
+APP-000065-AUD-05,APP-000065,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000065,COMPLETED,RUN-APP-000065,2026-08-12
+APP-000065-AUD-06,APP-000065,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000065,COMPLETED,RUN-APP-000065,2026-08-12
+APP-000065-AUD-07,APP-000065,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000065,26 evaluated,RUN-APP-000065,2026-08-12
+APP-000065-AUD-08,APP-000065,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000065,2 flags,RUN-APP-000065,2026-08-12
+APP-000065-AUD-09,APP-000065,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000065,DECLINE_RECOMMENDATION,RUN-APP-000065,2026-08-12
+APP-000065-AUD-10,APP-000065,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000065,QUEUED,RUN-APP-000065,2026-08-12
+APP-000066-AUD-01,APP-000066,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000066,GRANTED,RUN-APP-000066,2026-08-12
+APP-000066-AUD-02,APP-000066,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000066,MORTGAGE_UNDERWRITING,RUN-APP-000066,2026-08-12
+APP-000066-AUD-03,APP-000066,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000066,2026-08-12
+APP-000066-AUD-04,APP-000066,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000066,QUARANTINED,RUN-APP-000066,2026-08-12
+APP-000066-AUD-05,APP-000066,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000066,COMPLETED,RUN-APP-000066,2026-08-12
+APP-000066-AUD-06,APP-000066,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000066,COMPLETED,RUN-APP-000066,2026-08-12
+APP-000066-AUD-07,APP-000066,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000066,25 evaluated,RUN-APP-000066,2026-08-12
+APP-000066-AUD-08,APP-000066,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000066,2 flags,RUN-APP-000066,2026-08-12
+APP-000066-AUD-09,APP-000066,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000066,DECLINE_RECOMMENDATION,RUN-APP-000066,2026-08-12
+APP-000066-AUD-10,APP-000066,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000066,QUEUED,RUN-APP-000066,2026-08-12
+APP-000067-AUD-01,APP-000067,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000067,GRANTED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-02,APP-000067,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000067,MORTGAGE_UNDERWRITING,RUN-APP-000067,2026-08-12
+APP-000067-AUD-03,APP-000067,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-04,APP-000067,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000067,QUARANTINED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-05,APP-000067,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000067,COMPLETED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-06,APP-000067,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000067,COMPLETED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-07,APP-000067,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000067,25 evaluated,RUN-APP-000067,2026-08-12
+APP-000067-AUD-08,APP-000067,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000067,1 flags,RUN-APP-000067,2026-08-12
+APP-000067-AUD-09,APP-000067,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000067,MANUAL_REVIEW_REQUIRED,RUN-APP-000067,2026-08-12
+APP-000067-AUD-10,APP-000067,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000067,QUEUED,RUN-APP-000067,2026-08-12
+APP-000068-AUD-01,APP-000068,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000068,GRANTED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-02,APP-000068,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000068,MORTGAGE_UNDERWRITING,RUN-APP-000068,2026-08-12
+APP-000068-AUD-03,APP-000068,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-04,APP-000068,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000068,QUARANTINED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-05,APP-000068,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000068,COMPLETED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-06,APP-000068,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000068,COMPLETED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-07,APP-000068,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000068,25 evaluated,RUN-APP-000068,2026-08-12
+APP-000068-AUD-08,APP-000068,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000068,1 flags,RUN-APP-000068,2026-08-12
+APP-000068-AUD-09,APP-000068,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000068,MANUAL_REVIEW_REQUIRED,RUN-APP-000068,2026-08-12
+APP-000068-AUD-10,APP-000068,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000068,QUEUED,RUN-APP-000068,2026-08-12
+APP-000069-AUD-01,APP-000069,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000069,GRANTED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-02,APP-000069,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000069,MORTGAGE_UNDERWRITING,RUN-APP-000069,2026-08-12
+APP-000069-AUD-03,APP-000069,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-04,APP-000069,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000069,QUARANTINED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-05,APP-000069,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000069,COMPLETED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-06,APP-000069,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000069,COMPLETED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-07,APP-000069,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000069,25 evaluated,RUN-APP-000069,2026-08-12
+APP-000069-AUD-08,APP-000069,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000069,1 flags,RUN-APP-000069,2026-08-12
+APP-000069-AUD-09,APP-000069,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000069,MANUAL_REVIEW_REQUIRED,RUN-APP-000069,2026-08-12
+APP-000069-AUD-10,APP-000069,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000069,QUEUED,RUN-APP-000069,2026-08-12
+APP-000070-AUD-01,APP-000070,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000070,GRANTED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-02,APP-000070,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000070,MORTGAGE_UNDERWRITING,RUN-APP-000070,2026-08-12
+APP-000070-AUD-03,APP-000070,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-04,APP-000070,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,quarantine_untrusted_text,guardrail,security_events,APP-000070,QUARANTINED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-05,APP-000070,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000070,COMPLETED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-06,APP-000070,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000070,COMPLETED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-07,APP-000070,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000070,25 evaluated,RUN-APP-000070,2026-08-12
+APP-000070-AUD-08,APP-000070,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000070,1 flags,RUN-APP-000070,2026-08-12
+APP-000070-AUD-09,APP-000070,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000070,MANUAL_REVIEW_REQUIRED,RUN-APP-000070,2026-08-12
+APP-000070-AUD-10,APP-000070,10,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000070,QUEUED,RUN-APP-000070,2026-08-12
+APP-000071-AUD-01,APP-000071,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000071,GRANTED,RUN-APP-000071,2026-08-12
+APP-000071-AUD-02,APP-000071,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000071,MORTGAGE_UNDERWRITING,RUN-APP-000071,2026-08-12
+APP-000071-AUD-03,APP-000071,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000071,2026-08-12
+APP-000071-AUD-04,APP-000071,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000071,COMPLETED,RUN-APP-000071,2026-08-12
+APP-000071-AUD-05,APP-000071,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000071,COMPLETED,RUN-APP-000071,2026-08-12
+APP-000071-AUD-06,APP-000071,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000071,23 evaluated,RUN-APP-000071,2026-08-12
+APP-000071-AUD-07,APP-000071,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000071,0 flags,RUN-APP-000071,2026-08-12
+APP-000071-AUD-08,APP-000071,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000071,APPROVE_RECOMMENDATION,RUN-APP-000071,2026-08-12
+APP-000072-AUD-01,APP-000072,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000072,GRANTED,RUN-APP-000072,2026-08-12
+APP-000072-AUD-02,APP-000072,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000072,MORTGAGE_UNDERWRITING,RUN-APP-000072,2026-08-12
+APP-000072-AUD-03,APP-000072,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000072,2026-08-12
+APP-000072-AUD-04,APP-000072,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000072,COMPLETED,RUN-APP-000072,2026-08-12
+APP-000072-AUD-05,APP-000072,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000072,COMPLETED,RUN-APP-000072,2026-08-12
+APP-000072-AUD-06,APP-000072,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000072,23 evaluated,RUN-APP-000072,2026-08-12
+APP-000072-AUD-07,APP-000072,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000072,0 flags,RUN-APP-000072,2026-08-12
+APP-000072-AUD-08,APP-000072,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000072,APPROVE_RECOMMENDATION,RUN-APP-000072,2026-08-12
+APP-000073-AUD-01,APP-000073,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000073,GRANTED,RUN-APP-000073,2026-08-12
+APP-000073-AUD-02,APP-000073,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000073,MORTGAGE_UNDERWRITING,RUN-APP-000073,2026-08-12
+APP-000073-AUD-03,APP-000073,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000073,2026-08-12
+APP-000073-AUD-04,APP-000073,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000073,COMPLETED,RUN-APP-000073,2026-08-12
+APP-000073-AUD-05,APP-000073,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000073,COMPLETED,RUN-APP-000073,2026-08-12
+APP-000073-AUD-06,APP-000073,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000073,24 evaluated,RUN-APP-000073,2026-08-12
+APP-000073-AUD-07,APP-000073,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000073,0 flags,RUN-APP-000073,2026-08-12
+APP-000073-AUD-08,APP-000073,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000073,APPROVE_RECOMMENDATION,RUN-APP-000073,2026-08-12
+APP-000074-AUD-01,APP-000074,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000074,GRANTED,RUN-APP-000074,2026-08-12
+APP-000074-AUD-02,APP-000074,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000074,MORTGAGE_UNDERWRITING,RUN-APP-000074,2026-08-12
+APP-000074-AUD-03,APP-000074,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000074,2026-08-12
+APP-000074-AUD-04,APP-000074,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000074,COMPLETED,RUN-APP-000074,2026-08-12
+APP-000074-AUD-05,APP-000074,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000074,COMPLETED,RUN-APP-000074,2026-08-12
+APP-000074-AUD-06,APP-000074,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000074,24 evaluated,RUN-APP-000074,2026-08-12
+APP-000074-AUD-07,APP-000074,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000074,0 flags,RUN-APP-000074,2026-08-12
+APP-000074-AUD-08,APP-000074,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000074,APPROVE_RECOMMENDATION,RUN-APP-000074,2026-08-12
+APP-000075-AUD-01,APP-000075,1,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,authorise_case_access,authorisation,applications,APP-000075,GRANTED,RUN-APP-000075,2026-08-12
+APP-000075-AUD-02,APP-000075,2,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,classify_request,intent_classifier,applications,APP-000075,MORTGAGE_UNDERWRITING,RUN-APP-000075,2026-08-12
+APP-000075-AUD-03,APP-000075,3,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,select_policy_versions,policy_retrieval,policy_documents,as_of=2026-08-12,RESOLVED,RUN-APP-000075,2026-08-12
+APP-000075-AUD-04,APP-000075,4,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,extract_document_fields,document_extraction,documents,APP-000075,COMPLETED,RUN-APP-000075,2026-08-12
+APP-000075-AUD-05,APP-000075,5,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,run_calculations,calculation_engine,underwriting_calculations,APP-000075,COMPLETED,RUN-APP-000075,2026-08-12
+APP-000075-AUD-06,APP-000075,6,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,evaluate_rules,rules_engine,rule_evaluations,APP-000075,24 evaluated,RUN-APP-000075,2026-08-12
+APP-000075-AUD-07,APP-000075,7,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,screen_risk,risk_screening,risk_flags,APP-000075,0 flags,RUN-APP-000075,2026-08-12
+APP-000075-AUD-08,APP-000075,8,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,produce_recommendation,decision_composer,decisions,APP-000075,MANUAL_REVIEW_REQUIRED,RUN-APP-000075,2026-08-12
+APP-000075-AUD-09,APP-000075,9,AUTOMATED_COMPONENT,credpilot-underwriting-copilot,route_to_human_review,router,human_reviews,APP-000075,QUEUED,RUN-APP-000075,2026-08-12

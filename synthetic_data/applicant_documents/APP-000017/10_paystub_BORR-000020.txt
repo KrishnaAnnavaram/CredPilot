@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Sable Ridge Software
+Employee              : Ruth Lindstrom (BORR-000020)
+Taxpayer ID           : ***-**-0020  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 13,511.54
+  Net pay             : 10,018.81
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 202,673.10
+  Federal tax YTD     : 30,806.31
+  Social contributions: 15,504.49
+
+Annual salary rate    : 351,300.00

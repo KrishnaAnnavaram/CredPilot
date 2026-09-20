@@ -1,0 +1,26 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Theo Osei (BORR-000039) ------------------------------
+  Credit file reference : ****0039  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 672, 682, 691
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Sablefield Mortgage Servicing    balance     12,154.57
+      limit         0.00   monthly     291.00   opened 2023-06-23   late 30/60/90 in 24m: 0/0/0
+  student_loan             Cascade Personal Loans           balance     16,327.99
+      limit         0.00   monthly     222.53   opened 2024-02-28   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      6,847.00
+      limit    24,453.57   monthly     205.41   opened 2018-06-25   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      4,435.66
+      limit         0.00   monthly     136.94   opened 2018-05-28   late 30/60/90 in 24m: 0/0/0
+  collection               Cascade Personal Loans           balance      7,400.00
+      limit         0.00   monthly       0.00   opened 2023-03-23   late 30/60/90 in 24m: 0/0/0

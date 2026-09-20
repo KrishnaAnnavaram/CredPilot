@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Isaac Quintero
+Property              : 2233 Foxglove Terrace, Sandy Springs, GA
+Coverage amount       : 1,645,000.00
+Annual premium        : 8,225.04
+Monthly escrow        : 685.42
+Effective date        : 2026-09-25
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

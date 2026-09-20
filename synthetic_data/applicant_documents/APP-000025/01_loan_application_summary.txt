@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000025
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : second_home
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000031)
+    Name              : Ruth Lindstrom
+    Date of birth     : 1979-08-15
+    Taxpayer ID       : ***-**-0031  [masked]
+    Contact           : ruth.lindstrom031@example.com / (770) 555-0131
+    Current address   : 6546 Pemberly Road, Sandy Springs, GA 30328
+    Years at address  : 4
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 9,533.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 348,500.00
+  Note amount          : 348,500.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2697 Foxglove Terrace, Sandy Springs, GA 30328
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 410,000.00
+  Occupancy intent     : second_home
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       6,777.32  monthly     162.26
+  student_loan             balance       9,104.29  monthly     124.08
+  revolving_credit_card    balance       3,818.00  monthly     114.54
+  installment_personal     balance       2,473.40  monthly      76.36

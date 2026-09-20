@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Harbor Point Savings
+Account holder        : Winona Lindstrom (BORR-000040)
+Account type          : checking
+Account number        : ******0127  [masked]
+Statement period end  : 2026-08-26
+
+  Opening balance                : 45,972.93
+  2026-08-14  -     5,100.00  Earnest money deposit to settlement agent
+  Closing balance                : 40,872.93

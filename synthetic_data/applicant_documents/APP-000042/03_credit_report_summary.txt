@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Malik Guerrero (BORR-000050) ------------------------------
+  Credit file reference : ****0050  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 730, 742, 751
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Northwind Card Services          balance     12,470.76
+      limit         0.00   monthly     298.57   opened 2019-09-17   late 30/60/90 in 24m: 0/0/0
+  student_loan             Pinnacle Auto Finance            balance     16,752.83
+      limit         0.00   monthly     228.32   opened 2022-02-20   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Pinnacle Auto Finance            balance      7,025.33
+      limit    25,090.46   monthly     210.76   opened 2017-12-13   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Sablefield Mortgage Servicing    balance      4,551.30
+      limit         0.00   monthly     140.51   opened 2018-07-24   late 30/60/90 in 24m: 0/0/0

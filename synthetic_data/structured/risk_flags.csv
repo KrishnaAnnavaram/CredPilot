@@ -1,0 +1,39 @@
+risk_flag_id,application_id,category,severity,detail,evidence,rule_id,status
+APP-000003-RSK-01,APP-000003,CREDIT,HIGH,Representative score 598 below the floor 620.,credit_profiles.representative_score,CRD-SCR-003,OPEN
+APP-000004-RSK-01,APP-000004,AFFORDABILITY,HIGH,Back-end DTI 49.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000006-RSK-01,APP-000006,ASSET_LIQUIDITY,HIGH,"Funds-to-close shortfall 23,080.86.",underwriting_calculations.funds_shortfall,AST-FTC-003,OPEN
+APP-000007-RSK-01,APP-000007,AFFORDABILITY,HIGH,Back-end DTI 44.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000007-RSK-02,APP-000007,ASSET_LIQUIDITY,MEDIUM,Reserves 0.50 months below the 4-month requirement.,underwriting_calculations.months_reserves,AST-RSV-002,OPEN
+APP-000014-RSK-01,APP-000014,AFFORDABILITY,HIGH,Back-end DTI 46.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000017-RSK-01,APP-000017,PRODUCT_EXPOSURE,MEDIUM,Jumbo exposure above the conforming limit.,loans.base_loan_amount,JMB-ELG-004,OPEN
+APP-000018-RSK-01,APP-000018,PRODUCT_EXPOSURE,MEDIUM,Jumbo exposure above the conforming limit.,loans.base_loan_amount,JMB-ELG-004,OPEN
+APP-000020-RSK-01,APP-000020,AFFORDABILITY,HIGH,"Residual income 1,302.00 insufficient for a household of 4.",underwriting_calculations.residual_income_monthly,VA-OVL-003,OPEN
+APP-000026-RSK-01,APP-000026,ASSET_LIQUIDITY,HIGH,"Funds-to-close shortfall 12,688.45.",underwriting_calculations.funds_shortfall,AST-FTC-003,OPEN
+APP-000026-RSK-02,APP-000026,ASSET_LIQUIDITY,MEDIUM,Reserves 1.60 months below the 8-month requirement.,underwriting_calculations.months_reserves,AST-RSV-002,OPEN
+APP-000028-RSK-01,APP-000028,CREDIT_EVENT,HIGH,chapter_7_bankruptcy seasoned 30 of 48 months.,credit_events,CRD-EVT-001,OPEN
+APP-000029-RSK-01,APP-000029,CREDIT_EVENT,HIGH,foreclosure seasoned 54 of 84 months.,credit_events,CRD-EVT-001,OPEN
+APP-000031-RSK-01,APP-000031,CREDIT,MEDIUM,Revolving utilisation 84.00%.,underwriting_calculations.credit_utilization,CRD-DLQ-003,OPEN
+APP-000035-RSK-01,APP-000035,DATA_QUALITY,MEDIUM,Credit report discloses an obligation absent from the application.,liabilities,LIA-INC-006,OPEN
+APP-000036-RSK-01,APP-000036,DATA_QUALITY,HIGH,Income evidence variance 7.06%.,document_extractions,INC-GEN-006,OPEN
+APP-000037-RSK-01,APP-000037,EMPLOYMENT,MEDIUM,Employment verification contradicts the application.,verifications.employment,EMP-VER-003,OPEN
+APP-000039-RSK-01,APP-000039,OCCUPANCY,HIGH,Declared occupancy contradicted by file evidence.,properties.occupancy_type,PRP-OCC-002,OPEN
+APP-000040-RSK-01,APP-000040,SOURCE_OF_FUNDS,HIGH,"Unsourced deposit 16,733.33.",asset_transactions,AST-SRC-002,OPEN
+APP-000043-RSK-01,APP-000043,FRAUD,HIGH,paystub year-to-date total does not sum from its line items,document_extractions,FRD-IND-001,OPEN
+APP-000043-RSK-02,APP-000043,DOCUMENT_FRAUD,HIGH,Document shows alteration indicators.,documents.tampering_indicator,FRD-IND-002,OPEN
+APP-000044-RSK-01,APP-000044,IDENTITY,HIGH,Identity verification REFERRED.,verifications.identity,KYC-IDV-002,OPEN
+APP-000049-RSK-01,APP-000049,TITLE,MEDIUM,Blocking title exception.,title_records.exceptions,TTL-LIE-002,OPEN
+APP-000050-RSK-01,APP-000050,VALUATION,MEDIUM,Appraised value below contract price.,appraisals.appraised_value,VAL-APR-002,OPEN
+APP-000051-RSK-01,APP-000051,COLLATERAL,MEDIUM,Property condition finding requiring repair.,appraisals.condition_rating,PRP-ELG-002,OPEN
+APP-000056-RSK-01,APP-000056,AFFORDABILITY,HIGH,Back-end DTI 44.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000056-RSK-02,APP-000056,ASSET_LIQUIDITY,MEDIUM,Reserves 3.00 months below the 4-month requirement.,underwriting_calculations.months_reserves,AST-RSV-002,OPEN
+APP-000059-RSK-01,APP-000059,CREDIT,HIGH,Representative score 639 below the floor 640.,credit_profiles.representative_score,CRD-SCR-003,OPEN
+APP-000062-RSK-01,APP-000062,CREDIT,HIGH,Representative score 604 below the floor 620.,credit_profiles.representative_score,CRD-SCR-003,OPEN
+APP-000064-RSK-01,APP-000064,AFFORDABILITY,HIGH,Back-end DTI 47.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000065-RSK-01,APP-000065,SECURITY,HIGH,PROMPT_INJECTION raised on applicant-supplied content.,security_events,SEC-INJ-001,OPEN
+APP-000065-RSK-02,APP-000065,AFFORDABILITY,HIGH,Back-end DTI 48.00% exceeds 43.00%.,underwriting_calculations.back_end_dti,DTI-CONV-001,OPEN
+APP-000066-RSK-01,APP-000066,SECURITY,HIGH,POLICY_OVERRIDE_ATTEMPT raised on applicant-supplied content.,security_events,SEC-INJ-001,OPEN
+APP-000066-RSK-02,APP-000066,CREDIT,HIGH,Representative score 602 below the floor 620.,credit_profiles.representative_score,CRD-SCR-003,OPEN
+APP-000067-RSK-01,APP-000067,SECURITY,HIGH,PII_EXTRACTION raised on applicant-supplied content.,security_events,SEC-INJ-003,OPEN
+APP-000068-RSK-01,APP-000068,SECURITY,HIGH,CROSS_CUSTOMER_ACCESS raised on applicant-supplied content.,security_events,SEC-INJ-002,OPEN
+APP-000069-RSK-01,APP-000069,SECURITY,HIGH,INSTRUCTION_SMUGGLING raised on applicant-supplied content.,security_events,SEC-INJ-001,OPEN
+APP-000070-RSK-01,APP-000070,SECURITY,HIGH,OUT_OF_SCOPE_REQUEST raised on applicant-supplied content.,security_events,SEC-INJ-004,OPEN

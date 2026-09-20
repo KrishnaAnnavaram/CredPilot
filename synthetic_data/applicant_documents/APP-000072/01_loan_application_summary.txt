@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000072
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000086)
+    Name              : Nadia Nakagawa
+    Date of birth     : 1970-09-17
+    Taxpayer ID       : ***-**-0086  [masked]
+    Contact           : nadia.nakagawa086@example.com / (603) 555-0186
+    Current address   : 4044 Orchardstone Way, Nashua, NH 03062
+    Years at address  : 9
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 8,858.33
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 336,000.00
+  Note amount          : 336,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2440 Ambersley Road, Nashua, NH 03062
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 420,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance       6,302.00  monthly     150.88
+  student_loan             balance       8,465.93  monthly     115.38
+  revolving_credit_card    balance       3,550.00  monthly     106.50
+  installment_personal     balance       2,299.46  monthly      70.99

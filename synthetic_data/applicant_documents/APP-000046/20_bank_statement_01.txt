@@ -1,0 +1,15 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Sablefield Trust
+Account holder        : Emeka Ferreira (BORR-000055)
+Account type          : checking
+Account number        : ******0179  [masked]
+Statement period end  : 2026-05-29
+
+  Opening balance                : 45,678.01
+  2026-07-22  -     4,900.00  Earnest money deposit to settlement agent
+  Closing balance                : 40,778.01

@@ -1,0 +1,14 @@
+==========================================================================
+  DEPOSIT ACCOUNT STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Institution           : Harbor Point Savings
+Account holder        : Ruth Lindstrom (BORR-000031)
+Account type          : savings
+Account number        : ******0094  [masked]
+Statement period end  : 2026-08-03
+
+  Opening balance                : 32,410.49
+  Closing balance                : 32,410.49

@@ -1,0 +1,33 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Rosa Hollingsworth (BORR-000056) ------------------------------
+  Credit file reference : ****0056  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 731, 742, 750
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 4
+
+-- Noor Hargrave (BORR-000057) ------------------------------
+  Credit file reference : ****0057  [masked]
+  Report date           : 2026-08-14   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 746, 758, 766
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 4
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Harborline Retail Credit         balance      6,240.60
+      limit         0.00   monthly     149.41   opened 2019-05-12   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      8,383.02
+      limit         0.00   monthly     114.25   opened 2019-09-24   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Cascade Personal Loans           balance      3,515.33
+      limit    12,554.75   monthly     105.46   opened 2025-04-29   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Summit Education Lending         balance      2,277.43
+      limit         0.00   monthly      70.31   opened 2021-02-21   late 30/60/90 in 24m: 0/0/0

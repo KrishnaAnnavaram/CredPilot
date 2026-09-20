@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Pinewater Utilities District
+Employee              : Malik Guerrero (BORR-000050)
+Taxpayer ID           : ***-**-0050  [masked]
+
+Wages, tips and other compensation : 145,135.96
+Federal income tax withheld        : 21,480.12
+Social contribution wages          : 145,135.96
+
+This statement reports the prior tax year only.

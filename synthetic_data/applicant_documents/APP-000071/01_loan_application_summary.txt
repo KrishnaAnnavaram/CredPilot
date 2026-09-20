@@ -1,0 +1,51 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000071
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000084)
+    Name              : Noor Ferreira
+    Date of birth     : 1982-02-01
+    Taxpayer ID       : ***-**-0084  [masked]
+    Contact           : noor.ferreira084@example.com / (630) 555-0184
+    Current address   : 3754 Thistledown Drive, Naperville, IL 60540
+    Years at address  : 7
+
+  CO_BORROWER (BORR-000085)
+    Name              : Priya Mbeki
+    Date of birth     : 1991-11-21
+    Taxpayer ID       : ***-**-0085  [masked]
+    Contact           : priya.mbeki085@example.com / (303) 555-0185
+    Current address   : 5694 Nightingale Close, Broomfield, CO 80020
+    Years at address  : 9
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 7,743.00
+  salaried             declared monthly 5,607.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 301,000.00
+  Note amount          : 301,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2461 Copperbeech Drive, Naperville, IL 60540
+  Property type        : single_family_detached (1 unit(s))
+  Purchase price       : 430,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      13,277.31  monthly     317.88
+  student_loan             balance      17,835.84  monthly     243.08
+  revolving_credit_card    balance       7,479.67  monthly     224.39
+  installment_personal     balance       4,845.41  monthly     149.59

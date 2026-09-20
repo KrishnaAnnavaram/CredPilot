@@ -1,0 +1,42 @@
+==========================================================================
+  UNIFORM LOAN APPLICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Application reference : APP-000074
+Application date      : 2026-08-12
+Loan purpose          : purchase
+Product               : conventional_conforming
+Occupancy             : primary_residence
+Household size        : 2
+
+-- Borrowers ------------------------------------------------------------
+  PRIMARY (BORR-000089)
+    Name              : Omar Underhill
+    Date of birth     : 1961-04-20
+    Taxpayer ID       : ***-**-0089  [masked]
+    Contact           : omar.underhill089@example.com / (303) 555-0189
+    Current address   : 3363 Gullwing Road, Broomfield, CO 80020
+    Years at address  : 11
+
+-- Declared income ------------------------------------------------------
+  salaried             declared monthly 11,475.00
+
+-- Requested loan -------------------------------------------------------
+  Base loan amount     : 396,000.00
+  Note amount          : 396,000.00
+  Term (months)        : 360
+  Interest rate        : 6.65%
+
+-- Subject property -----------------------------------------------------
+  Address              : 2722 Marlowe Crossing, Broomfield, CO 80020
+  Property type        : condominium (1 unit(s))
+  Purchase price       : 440,000.00
+  Occupancy intent     : primary_residence
+
+-- Declared liabilities -------------------------------------------------
+  auto_loan                balance      13,022.10  monthly     311.77
+  student_loan             balance      17,493.18  monthly     238.41
+  revolving_credit_card    balance       7,335.67  monthly     220.07
+  installment_personal     balance       4,752.45  monthly     146.72

@@ -1,0 +1,16 @@
+==========================================================================
+  WAGE AND TAX STATEMENT (SYNTHETIC)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Tax year              : 2025
+Employer              : Pinewater Utilities District
+Employee              : Anton Adeyemi (BORR-000083)
+Taxpayer ID           : ***-**-0083  [masked]
+
+Wages, tips and other compensation : 94,666.50
+Federal income tax withheld        : 14,010.64
+Social contribution wages          : 94,666.50
+
+This statement reports the prior tax year only.

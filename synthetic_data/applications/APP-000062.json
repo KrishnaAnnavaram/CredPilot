@@ -1,0 +1,292 @@
+{
+  "application_id": "APP-000062",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 4,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000075",
+      "role": "primary",
+      "name": "Malik Okafor",
+      "date_of_birth": "1980-01-11",
+      "taxpayer_id_masked": "***-**-0075",
+      "email": "malik.okafor075@example.com",
+      "phone": "(480) 555-0175",
+      "current_address": {
+        "street": "3046 Orchardstone Way",
+        "city": "Chandler",
+        "state": "AZ",
+        "postal_code": "85224"
+      },
+      "previous_address": null,
+      "years_at_current_address": 8,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    },
+    {
+      "borrower_id": "BORR-000076",
+      "role": "co_borrower",
+      "name": "Ruth Whitfield",
+      "date_of_birth": "1967-08-01",
+      "taxpayer_id_masked": "***-**-0076",
+      "email": "ruth.whitfield076@example.com",
+      "phone": "(954) 555-0176",
+      "current_address": {
+        "street": "6471 Verdigris Lane",
+        "city": "Coral Springs",
+        "state": "FL",
+        "postal_code": "33071"
+      },
+      "previous_address": null,
+      "years_at_current_address": 4,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000075",
+      "employer_name": "Harborline Logistics",
+      "occupation": "Operations Supervisor",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000075",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000076",
+      "employer_name": "Aldermill Retail Group",
+      "occupation": "District Supervisor",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-09-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000076",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "6428.33"
+    },
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "4655.00"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0241",
+      "declared_balance": "40438.64"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0242",
+      "declared_balance": "75100.34"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0243",
+      "declared_balance": "8035.73"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0244",
+      "declared_balance": "8571.43"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Harborline Retail Credit",
+      "balance": "7867.89",
+      "monthly_payment": "188.37"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Harborline Retail Credit",
+      "balance": "10569.57",
+      "monthly_payment": "144.05"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Summit Education Lending",
+      "balance": "4432.33",
+      "monthly_payment": "132.97"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "2871.49",
+      "monthly_payment": "88.65"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "432000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2842 Marlowe Crossing",
+    "city": "Chandler",
+    "state": "AZ",
+    "postal_code": "85224",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "540000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000062-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/10_paystub_BORR-000075.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/11_w2_BORR-000075.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/12_employment_verification_BORR-000075.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-07",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/10_paystub_BORR-000076.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-08",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/11_w2_BORR-000076.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-09",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/12_employment_verification_BORR-000076.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-10",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-11",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-12",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-13",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-14",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-15",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-16",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000062-DOC-17",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/applicant_documents/APP-000062/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

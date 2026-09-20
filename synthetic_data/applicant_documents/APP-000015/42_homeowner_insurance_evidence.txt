@@ -1,0 +1,14 @@
+==========================================================================
+  EVIDENCE OF PROPERTY INSURANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Carrier               : Thornhill Insurance Brokers
+Insured               : Rosa Marchetti
+Property              : 2814 Kingsmere Lane, Overland Park, KS
+Coverage amount       : 384,000.00
+Annual premium        : 1,680.00
+Monthly escrow        : 140.00
+Effective date        : 2026-09-02
+Mortgagee clause      : Northwind Residential Lending (fictional), its successors and assigns

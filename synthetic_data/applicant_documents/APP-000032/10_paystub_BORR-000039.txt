@@ -1,0 +1,23 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Orchard Point Hospitality
+Employee              : Theo Osei (BORR-000039)
+Taxpayer ID           : ***-**-0039  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,938.46
+  Net pay             : 3,661.87
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 74,076.90
+  Federal tax YTD     : 11,259.69
+  Social contributions: 5,666.88
+
+Annual salary rate    : 128,400.00

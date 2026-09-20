@@ -1,0 +1,18 @@
+==========================================================================
+  IDENTITY VERIFICATION SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Subject               : Caleb Fairbanks (BORR-000028)
+Date of birth         : 1982-08-01
+Taxpayer ID           : ***-**-0028  [masked]
+Address on file       : 7281 Kestrel Ridge, Coral Springs, FL 33071
+Identification type   : State-issued driver licence (synthetic)
+Identification number : ****0028  [masked]
+
+Verification provider : SYNTH-VERIFY
+Verification date     : 2026-08-04
+Result                : VERIFIED
+
+Elements checked      : name, date of birth, address, identification number

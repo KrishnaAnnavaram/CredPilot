@@ -1,0 +1,28 @@
+==========================================================================
+  EARNINGS STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+Employer              : Sable Ridge Software
+Employee              : Niall Nakamura (BORR-000051)
+Taxpayer ID           : ***-**-0051  [masked]
+Pay frequency         : bi_weekly (26 periods per year)
+Pay period end        : 2026-08-01
+Periods elapsed (YTD) : 15
+
+-- Current period -------------------------------------------------------
+  Gross earnings      : 4,634.62
+  Net pay             : 3,436.57
+
+-- Year to date ---------------------------------------------------------
+  Gross earnings YTD  : 69,519.30
+  Federal tax YTD     : 10,566.93
+  Social contributions: 5,318.23
+
+Annual salary rate    : 120,500.04
+
+-- Line item detail -----------------------------------------------------
+  Base earnings YTD   : 42,406.77
+  Overtime YTD        : 9,732.70
+  Other YTD           : 6,256.74

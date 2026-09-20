@@ -1,0 +1,24 @@
+==========================================================================
+  TRI-MERGE CREDIT REPORT SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+-- Winona Nakagawa (BORR-000024) ------------------------------
+  Credit file reference : ****0024  [masked]
+  Report date           : 2026-07-22   (21 days old at the as-of date)
+  Bureau / vendor       : SYNTH-TRIMERGE
+  Score model           : SYNTH-SCORE-4
+  Scores returned       : 692, 698, 710
+  Scoreable tradelines  : 6
+  Inquiries (90 days)   : 1
+
+-- Tradelines ----------------------------------------------------------
+  auto_loan                Pinnacle Auto Finance            balance      3,548.63
+      limit         0.00   monthly      84.96   opened 2020-01-03   late 30/60/90 in 24m: 0/0/0
+  student_loan             Harborline Retail Credit         balance      4,767.13
+      limit         0.00   monthly      64.97   opened 2018-08-02   late 30/60/90 in 24m: 0/0/0
+  revolving_credit_card    Harborline Retail Credit         balance      1,999.00
+      limit     7,139.29   monthly      59.97   opened 2019-02-15   late 30/60/90 in 24m: 0/0/0
+  installment_personal     Pinnacle Auto Finance            balance      1,295.33
+      limit         0.00   monthly      39.99   opened 2022-03-09   late 30/60/90 in 24m: 0/0/0
