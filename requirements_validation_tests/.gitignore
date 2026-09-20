@@ -1,0 +1,16 @@
+# Ignore rules for the validation suite ONLY.
+#
+# This file deliberately lives inside requirements_validation_tests/ rather than at the
+# repository root. The source document makes a root .gitignore covering .env a CredPilot
+# deliverable (NFR-01 / "Secrets hygiene | .env.example, .gitignore"), and the suite tests
+# for it. Creating one at the root here would manufacture a PASS for a requirement the
+# implementation has not met. The QA layer never supplies the evidence it grades.
+#
+# The evidence scanner excludes this whole directory, so nothing here is ever mistaken for
+# implementation evidence.
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

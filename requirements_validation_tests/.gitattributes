@@ -1,0 +1,27 @@
+# Line-ending policy for the validation suite.
+#
+# WHY THIS FILE EXISTS
+# The requirements baseline is protected by a SHA-256 taken over its RAW BYTES
+# (validators/baseline_guard.py). Git's autocrlf would rewrite LF to CRLF on checkout,
+# which changes those bytes and would make every fresh clone on Windows report
+# REQUIREMENTS_BASELINE_MODIFIED even though nobody had touched the requirements.
+#
+# A false alarm on that control is worse than no control - people learn to ignore it.
+# So line endings are pinned here, and the baseline itself is exempted from any
+# conversion at all.
+#
+# This file sits inside requirements_validation_tests/ rather than at the repository
+# root: gitattributes apply to their own subtree, and the root belongs to the CredPilot
+# implementation, not to the QA layer.
+
+# Normalise the suite's text files to LF in the repository and in the working tree.
+* text=auto eol=lf
+
+# The hashed baseline: never convert, byte-for-byte as committed.
+source_requirements/requirements_verbatim.md -text
+
+# The source document and its page images are binary evidence - never touch them.
+*.docx  binary
+*.png   binary
+*.jpeg  binary
+*.jpg   binary

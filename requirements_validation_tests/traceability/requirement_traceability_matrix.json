@@ -1,0 +1,2937 @@
+{
+  "generated_at": "2026-09-20T05:48:35Z",
+  "source_document": "source_document/Loan_Origination_Underwriting_Copilot_Merged.docx",
+  "requirements_baseline": "source_requirements/requirements_verbatim.md",
+  "requirements_baseline_sha256": "ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917",
+  "total_requirements": 112,
+  "total_tests": 320,
+  "requirements_with_tests": 112,
+  "requirements_without_tests": 0,
+  "source_coverage_percent": 100.0,
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "source_location": "Document title block — banner line above the title (first line of the document)",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Agentic AI Engineer Pathway — Capstone Hackathon",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-001-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File paths and line numbers for both matched fragments."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-002",
+      "source_location": "Document title block — document title",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Loan Origination & Underwriting Copilot",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-002-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File path and line number of the matched title."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-003",
+      "source_location": "Document title block — subtitle line beneath the title",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "Business Case BC-AAIE-HACK-02 · Domain: Banking & Finance · Cross-cutting finale: Agentic Core + Context Engineering + MCP + Observability + Cost Governance + Security & Governance + Agent Evaluation",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "DOCUMENTATION_TEST",
+        "GOVERNANCE_TEST",
+        "INTEGRATION_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-003-T01",
+        "REQ-003-T02",
+        "REQ-003-T03",
+        "REQ-003-T04",
+        "REQ-003-T05",
+        "REQ-003-T06",
+        "REQ-003-T07",
+        "REQ-003-T08"
+      ],
+      "test_count": 8,
+      "automatable_tests": 8,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-004",
+      "source_location": "Section 1. Project Identity — table row 1",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Business Case Title | Loan Origination & Underwriting Copilot",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-004-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File path and line number of the matched title."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-005",
+      "source_location": "Section 1. Project Identity — table row 2",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Business Case ID | BC-AAIE-HACK-02",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-005-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File path and line number of the matched ID."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-006",
+      "source_location": "Section 1. Project Identity — table row 3",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Domain | Banking & Finance",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-006-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File path and line number of the matched domain statement."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-007",
+      "source_location": "Section 1. Project Identity — table row 4",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Project Type | Agentic AI Engineer Pathway — Cross-Cutting Capstone Hackathon",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-007-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "File paths and line numbers for both matched fragments."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-008",
+      "source_location": "Section 2. Engagement Overview — table row 1",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Duration | 20 hours",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-008-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 0,
+      "manual_tests": 1,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "A completed attestation record for REQ-008-T01 naming 'the 20-hour engagement duration', its attester and date."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-009",
+      "source_location": "Section 2. Engagement Overview — table row 2",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Format | Team of 2–4",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-009-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 0,
+      "manual_tests": 1,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "A completed attestation record for REQ-009-T01 naming 'a team of 2-4 people', its attester and date."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-010",
+      "source_location": "Section 2. Engagement Overview — table row 3",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Evaluation Mode | Automated review of the submitted Git repository against the Hackathon Rubric (7 categories / 100 marks), scored entirely from committed evidence in the repository. No live demo judging.",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-010-T01",
+        "REQ-010-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 1,
+      "manual_tests": 1,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "A completed attestation record for REQ-010-T02 naming 'an automated review against the Hackathon Rubric (7 categories / 100 marks), with no live demo judging', its attester and date.",
+        "git ls-files output count."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-011",
+      "source_location": "Section 2. Engagement Overview — table row 4",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Submission | Push the final repository to your assigned Virtusa GitLab project by the cut-off.",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-011-T01",
+        "REQ-011-T02",
+        "REQ-011-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 2,
+      "manual_tests": 1,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "The 'git remote -v' output.",
+        "The exact source text of REQ-011, showing it fixes no testable value for 'the submission cut-off date and time, and the identity of the assigned Virtusa GitLab project'.",
+        "The matching remote URL."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-012",
+      "source_location": "Section 2. Engagement Overview — table row 5",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Review Output | Per-team Excel report (Summary, Categories, Scorecard, Detailed, Improvement).",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-012-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 0,
+      "manual_tests": 1,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "A completed attestation record for REQ-012-T01 naming 'a per-team Excel report containing the Summary, Categories, Scorecard, Detailed and Improvement sections', its attester and date."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-013",
+      "source_location": "Section 2. Engagement Overview — table row 6",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Grade Bands | Pass ≥ 60 · Not Yet Passed < 60",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-013-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 0,
+      "manual_tests": 1,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "A completed attestation record for REQ-013-T01 naming 'the grade bands Pass >= 60 and Not Yet Passed < 60', its attester and date."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-014",
+      "source_location": "Section 2. Engagement Overview — paragraph \"What is evaluated\", sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "What is evaluated: a working LangGraph multi-agent system (foundation: context engineering, tiered memory, a custom MCP server, an agentic-RAG tool) that is then instrumented and governed — Arize Phoenix observability, cost & latency governance, guardrails & audit, governance/compliance documentation, and agent-level evaluation & testing.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "GOVERNANCE_TEST",
+        "INTEGRATION_TEST",
+        "OBSERVABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-014-T01",
+        "REQ-014-T02",
+        "REQ-014-T03",
+        "REQ-014-T04",
+        "REQ-014-T05",
+        "REQ-014-T06",
+        "REQ-014-T07",
+        "REQ-014-T08",
+        "REQ-014-T09",
+        "REQ-014-T10"
+      ],
+      "test_count": 10,
+      "automatable_tests": 10,
+      "manual_tests": 0,
+      "weight_total": 10,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-015",
+      "source_location": "Section 2. Engagement Overview — paragraph \"What is evaluated\", sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Every claim is scored from committed evidence.",
+      "verification_methods": [
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-015-T01",
+        "REQ-015-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "For each artifact: its path and its presence or absence in 'git ls-files'."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-016",
+      "source_location": "Section 2. Engagement Overview — paragraph \"What is not evaluated\", sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "What is not evaluated: the visual polish of any interface, generic unit-test volume, or which optional deployment path you use.",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-016-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "The registry scan result, listing any offending test IDs."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-017",
+      "source_location": "Section 2. Engagement Overview — paragraph \"What is not evaluated\", sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "Containerized/cloud deployment is out of scope for this cut.",
+      "verification_methods": [
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-017-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "The README lines searched, and any container command found."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-018",
+      "source_location": "Section 3.1 Problem — sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "underwriting",
+      "exact_source_text": "A retail bank's loan officers spend most of an application on manual work: gathering the applicant's documents, checking eligibility against product policy, computing affordability, screening for risk flags, and drafting a decision rationale.",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-018-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-019",
+      "source_location": "Section 3.1 Problem — sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "policy",
+      "exact_source_text": "Rules are scattered across policy PDFs and change often, so decisions are inconsistent and slow.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST"
+      ],
+      "test_ids": [
+        "REQ-019-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-020",
+      "source_location": "Section 3.1 Problem — sentence 3",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "underwriting",
+      "exact_source_text": "The bank wants an agentic copilot that ingests a loan application, retrieves the current lending policy, computes eligibility and affordability, screens risk, and drafts an auditable decision recommendation — with a human making the final call.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "INTEGRATION_TEST",
+        "STATIC_TEST",
+        "WORKFLOW_TEST"
+      ],
+      "test_ids": [
+        "REQ-020-T01",
+        "REQ-020-T02",
+        "REQ-020-T03",
+        "REQ-020-T04",
+        "REQ-020-T05",
+        "REQ-020-T06"
+      ],
+      "test_count": 6,
+      "automatable_tests": 6,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-021",
+      "source_location": "Section 3.2 Your Role — sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "Agentic AI Engineer.",
+      "verification_methods": [
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-021-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-022",
+      "source_location": "Section 3.2 Your Role — sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "You build a LangGraph multi-agent copilot, then instrument it with Arize Phoenix, govern its cost and latency, harden it with guardrails and an audit trail, document its risk and compliance posture, and prove its behaviour with agent-level evaluation and tests — delivering every artifact as committed evidence.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "INTEGRATION_TEST",
+        "OBSERVABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-022-T01",
+        "REQ-022-T02",
+        "REQ-022-T03",
+        "REQ-022-T04",
+        "REQ-022-T05",
+        "REQ-022-T06",
+        "REQ-022-T07"
+      ],
+      "test_count": 7,
+      "automatable_tests": 7,
+      "manual_tests": 0,
+      "weight_total": 7,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-023",
+      "source_location": "Section 3.3 Expected Solution — lead-in sentence",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "A working, instrumented multi-agent application delivered as a Git repository that demonstrates:",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-023-T01",
+        "REQ-023-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-024",
+      "source_location": "Section 3.3 Expected Solution — bullet 1",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "A LangGraph graph: typed state, a supervisor routing loan applications to specialized worker agents (an eligibility-and-affordability agent, a policy-retrieval agent, a risk-screening agent), conditional routing, checkpointing and structured output.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "OUTPUT_VALIDATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-024-T01",
+        "REQ-024-T02",
+        "REQ-024-T03",
+        "REQ-024-T04",
+        "REQ-024-T05",
+        "REQ-024-T06"
+      ],
+      "test_count": 6,
+      "automatable_tests": 6,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-025",
+      "source_location": "Section 3.3 Expected Solution — bullet 2",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "A custom MCP server (≥ 2 tools + 1 resource) consumed via langchain-mcp-adapters, engineered context (write/select/compress/isolate + summarization + quarantine of untrusted applicant-supplied text), tiered memory with verified cross-session persistence, and an agentic-RAG tool over a synthetic lending-policy corpus.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "INTEGRATION_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-025-T01",
+        "REQ-025-T02",
+        "REQ-025-T03",
+        "REQ-025-T04",
+        "REQ-025-T05",
+        "REQ-025-T06",
+        "REQ-025-T07"
+      ],
+      "test_count": 7,
+      "automatable_tests": 7,
+      "manual_tests": 0,
+      "weight_total": 7,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The registered tool and resource names found in the MCP server sources."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-026",
+      "source_location": "Section 3.3 Expected Solution — bullet 3",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Arize Phoenix instrumentation with a committed trace export, a machine-generated tool-invocation log, and an evidence-linked failure-mode analysis.",
+      "verification_methods": [
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-026-T01",
+        "REQ-026-T02",
+        "REQ-026-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-027",
+      "source_location": "Section 3.3 Expected Solution — bullet 4",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "A Phoenix-derived golden-signals report and a cost/latency dashboard; input/output guardrails, an audit trail and secrets hygiene; a governance pack (risk register, model card, compliance mapping, output-risk classification).",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "OBSERVABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-027-T01",
+        "REQ-027-T02",
+        "REQ-027-T03",
+        "REQ-027-T04",
+        "REQ-027-T05",
+        "REQ-027-T06"
+      ],
+      "test_count": 6,
+      "automatable_tests": 6,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-028",
+      "source_location": "Section 3.3 Expected Solution — bullet 5",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "Agent-level evaluation (LLM-as-judge + hallucination) and agent tests (routing-logic, loop/cascade guard, tool-contract), with a reproducible local-run runbook.",
+      "verification_methods": [
+        "DOCUMENTATION_TEST",
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-028-T01",
+        "REQ-028-T02",
+        "REQ-028-T03",
+        "REQ-028-T04",
+        "REQ-028-T05"
+      ],
+      "test_count": 5,
+      "automatable_tests": 5,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-029",
+      "source_location": "Section 3.4 Applicable Rules — bullet 1 (Evidence-in-Repo Rule)",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Evidence-in-Repo Rule. Only committed artifacts are scored. A claim with no committed evidence scores zero; an evidence artifact with no producing code (a metric, trace or log a team could hand-write) is heavily discounted.",
+      "verification_methods": [
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-029-T01",
+        "REQ-029-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "For each artifact: the producing source file and line, or a statement that none exists."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-030",
+      "source_location": "Section 3.4 Applicable Rules — bullet 2 (Citation-Resolves Rule)",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Citation-Resolves Rule. Wherever a document cites evidence (a Phoenix run/span id, a log record, a control file), the citation must resolve to a committed artifact. Unresolvable citations are treated as missing.",
+      "verification_methods": [
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-030-T01",
+        "REQ-030-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-031",
+      "source_location": "Section 3.4 Applicable Rules — bullet 3 (Synthetic-Data Rule)",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Synthetic-Data Rule. Use only synthetic loan applications and lending policies you generate. Applicant PII and account/card numbers must be synthetic and masked where shown; never write them to logs in plaintext.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "NEGATIVE_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-031-T01",
+        "REQ-031-T02",
+        "REQ-031-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The scanned file count, and any matching file and line."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-032",
+      "source_location": "Section 3.4 Applicable Rules — bullet 4 (Open-Source & Gemini-Only Rule)",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Open-Source & Gemini-Only Rule. Use the approved open-source stack with Google Gemini as the only model provider (not Claude). Build, run and evaluate with pip + Python — no Docker or external database service required for this cut.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "INTEGRATION_TEST",
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-032-T01",
+        "REQ-032-T02",
+        "REQ-032-T03",
+        "REQ-032-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "Scanned file count, and any offending file and line."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-033",
+      "source_location": "Section 3.4 Applicable Rules — bullet 5 (Reproducibility Rule)",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "Reproducibility Rule. The system, its traces and its evaluation must be regenerable from a single documented command with committed sample inputs.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-033-T01",
+        "REQ-033-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The documented command lines found in README.md."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-034",
+      "source_location": "Section 4. Technology & Framework Stack — lead-in paragraph",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Fixed open-source toolchain with Google Gemini as the only model provider. Everything installs with pip; no Docker or external DB service required.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-034-T01",
+        "REQ-034-T02",
+        "REQ-034-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-035",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Language / Agent Framework\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Language / Agent Framework | Python 3.11+ · LangGraph (MIT)",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-035-T01",
+        "REQ-035-T02",
+        "REQ-035-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 2,
+      "manual_tests": 1,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The exact source text of REQ-035, showing it fixes no testable value for 'any licence artifact the implementation must carry to evidence LangGraph's MIT licence'."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-036",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"LLM Provider\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "LLM Provider | Google Gemini (API) — the only approved provider; not Claude",
+      "verification_methods": [
+        "INTEGRATION_TEST",
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-036-T01",
+        "REQ-036-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-037",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Interoperability\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Interoperability | MCP Python SDK (stdio) + langchain-mcp-adapters",
+      "verification_methods": [
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-037-T01",
+        "REQ-037-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-038",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Memory\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Memory | langgraph-checkpoint-sqlite (SQLite file) + LangMem",
+      "verification_methods": [
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-038-T01",
+        "REQ-038-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-039",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Retrieval\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "policy",
+      "exact_source_text": "Retrieval | Chroma or FAISS + Sentence-Transformers (local)",
+      "verification_methods": [
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-039-T01",
+        "REQ-039-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-040",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Observability (mandated)\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Observability (mandated) | Arize Phoenix + OpenTelemetry / openinference (local, in-process)",
+      "verification_methods": [
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-040-T01",
+        "REQ-040-T02",
+        "REQ-040-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-041",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Evaluation\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "Evaluation | DeepEval (LLM-as-judge = Gemini) · pytest for agent tests",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-041-T01",
+        "REQ-041-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-042",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Security\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Security | Guardrails-AI / LLM Guard · Presidio (PII) · python-dotenv",
+      "verification_methods": [
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-042-T01",
+        "REQ-042-T02",
+        "REQ-042-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-043",
+      "source_location": "Section 4. Technology & Framework Stack — table row \"Interface\" (continuation table)",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "functional",
+      "exact_source_text": "Interface | CLI (required) · FastAPI streaming (optional / bonus)",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "CONFIGURATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-043-T01",
+        "REQ-043-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Presence or absence of the optional API surface.",
+        "The CLI entry point location and the documented invocation."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-044",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-01",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "eligibility",
+      "exact_source_text": "AC-01 | Given a synthetic loan application, the copilot retrieves the applicable current lending policy and returns an eligibility determination that cites the policy rule it applied.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "INTEGRATION_TEST",
+        "OUTPUT_VALIDATION_TEST",
+        "RUNTIME_TEST"
+      ],
+      "test_ids": [
+        "REQ-044-T01",
+        "REQ-044-T02",
+        "REQ-044-T03",
+        "REQ-044-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The executed command and the matched output text.",
+        "The matched policy-rule citation in the observable output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-045",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-02",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "affordability",
+      "exact_source_text": "AC-02 | The copilot computes affordability (DTI / disposable income) from the application data and flags any policy breach with the threshold it failed.",
+      "verification_methods": [
+        "BOUNDARY_TEST",
+        "RUNTIME_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-045-T01",
+        "REQ-045-T02",
+        "REQ-045-T03",
+        "REQ-045-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 3,
+      "manual_tests": 1,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The exact source text of REQ-045, showing it fixes no testable value for 'the numeric DTI or disposable-income threshold that constitutes a policy breach'."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-046",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-03",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "underwriting",
+      "exact_source_text": "AC-03 | The copilot produces a decision recommendation (approve / refer / decline) with a written rationale; a decline or high-value case is routed for human review rather than auto-decided.",
+      "verification_methods": [
+        "BOUNDARY_TEST",
+        "OUTPUT_VALIDATION_TEST",
+        "RUNTIME_TEST",
+        "STATIC_TEST",
+        "WORKFLOW_TEST"
+      ],
+      "test_ids": [
+        "REQ-046-T01",
+        "REQ-046-T02",
+        "REQ-046-T03",
+        "REQ-046-T04",
+        "REQ-046-T05",
+        "REQ-046-T06",
+        "REQ-046-T07"
+      ],
+      "test_count": 7,
+      "automatable_tests": 6,
+      "manual_tests": 1,
+      "weight_total": 9,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The exact source text of REQ-046, showing it fixes no testable value for 'the loan value above which a case counts as a high-value case'."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-047",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-04",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "workflow",
+      "exact_source_text": "AC-04 | The copilot identifies each application's intent and handles it with the right capability; ambiguous or out-of-scope requests are clarified or escalated to a human, not mishandled.",
+      "verification_methods": [
+        "STATIC_TEST",
+        "WORKFLOW_TEST"
+      ],
+      "test_ids": [
+        "REQ-047-T01",
+        "REQ-047-T02",
+        "REQ-047-T03",
+        "REQ-047-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-048",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-05",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "functional",
+      "exact_source_text": "AC-05 | The copilot maintains context — it uses facts stated earlier in the interaction and recalls prior-session context on a return visit.",
+      "verification_methods": [
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-048-T01",
+        "REQ-048-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-049",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-06",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "AC-06 | The copilot handles untrusted applicant-supplied input safely: attempts to inject instructions or access another applicant's data are refused, and sensitive data (income, account numbers, credit identifiers) is never exposed in answers or logs.",
+      "verification_methods": [
+        "NEGATIVE_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-049-T01",
+        "REQ-049-T02",
+        "REQ-049-T03",
+        "REQ-049-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 7,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-050",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-07",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "AC-07 | A machine-generated tool-invocation log (logs/tool_calls.jsonl) written by committed logging middleware; tool names reconcile with the agent/MCP code.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-050-T01",
+        "REQ-050-T02",
+        "REQ-050-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-051",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-08",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "AC-08 | docs/failure-analysis.md documents ≥ 3 real failures from your own runs, each citing the Phoenix run_id + span_id (or a tool-log record) that shows it, plus root cause and fix.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-051-T01",
+        "REQ-051-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-052",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-09",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "AC-09 | A Phoenix-derived golden-signals report (latency incl. thinking/acting/tool, tokens, cost estimate, plus accuracy + hallucination rate from the eval) and a cost/latency dashboard (Phoenix screenshot + underlying data file).",
+      "verification_methods": [
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-052-T01",
+        "REQ-052-T02",
+        "REQ-052-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-053",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-10",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "AC-10 | Input/output guardrails wired into the agent's I/O path, and a machine-generated audit trail of agent actions (logs/agent_actions.jsonl).",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-053-T01",
+        "REQ-053-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-054",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-11",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "AC-11 | A governance pack: risk register, model/system card, compliance mapping (EU AI Act / NIST AI RMF / DPDP) and output-risk classification — each mitigation/claim citing a committed control.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-054-T01",
+        "REQ-054-T02",
+        "REQ-054-T03",
+        "REQ-054-T04",
+        "REQ-054-T05"
+      ],
+      "test_count": 5,
+      "automatable_tests": 5,
+      "manual_tests": 0,
+      "weight_total": 7,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-055",
+      "source_location": "Section 5.1 Functional Acceptance Criteria — table row AC-12",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "AC-12 | Agent evaluation: a DeepEval (or equivalent) report over a golden set (hallucination + faithfulness/relevance), and agent tests — routing-logic, loop/cascade guard, and tool-contract.",
+      "verification_methods": [
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-055-T01",
+        "REQ-055-T02",
+        "REQ-055-T03",
+        "REQ-055-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-056",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-01",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "NFR-01 | No secrets/keys committed; env-var config with a committed .env.example and a .gitignore covering .env.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-056-T01",
+        "REQ-056-T02",
+        "REQ-056-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-057",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-02",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "NFR-02 | Single documented command runs the copilot and a second regenerates the Phoenix traces and the evaluation; committed sample inputs.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "DOCUMENTATION_TEST",
+        "RUNTIME_TEST"
+      ],
+      "test_ids": [
+        "REQ-057-T01",
+        "REQ-057-T02",
+        "REQ-057-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-058",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-03",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "NFR-03 | Untrusted free-text applicant-supplied content is quarantined and never treated as instructions.",
+      "verification_methods": [
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-058-T01",
+        "REQ-058-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-059",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-04",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "NFR-04 | Agent pipeline uses async where it calls tools/models; graceful degradation on tool/model failure (timeouts, retries, exit conditions).",
+      "verification_methods": [
+        "ARCHITECTURE_TEST"
+      ],
+      "test_ids": [
+        "REQ-059-T01",
+        "REQ-059-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-060",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-05",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "NFR-05 | All data synthetic; income, account numbers, credit identifiers masked and never logged in plaintext.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-060-T01",
+        "REQ-060-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-061",
+      "source_location": "Section 5.2 Non-Functional Requirements — table row NFR-06",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "NFR-06 | Evidence artifacts (traces, logs, reports) are machine-generated by committed code; the code that produced each is committed alongside it.",
+      "verification_methods": [
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-061-T01",
+        "REQ-061-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-062",
+      "source_location": "Section 6.1 In Scope — bullet 1",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "The LangGraph multi-agent copilot (foundation) plus its full observability, cost-governance, security, governance and evaluation surface.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST"
+      ],
+      "test_ids": [
+        "REQ-062-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-063",
+      "source_location": "Section 6.1 In Scope — bullet 2",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Arize Phoenix tracing, golden-signals + cost/latency governance, guardrails + audit + secrets hygiene, governance/compliance docs, and agent-level evaluation & tests.",
+      "verification_methods": [
+        "GOVERNANCE_TEST",
+        "INTEGRATION_TEST",
+        "OBSERVABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-063-T01",
+        "REQ-063-T02",
+        "REQ-063-T03",
+        "REQ-063-T04",
+        "REQ-063-T05"
+      ],
+      "test_count": 5,
+      "automatable_tests": 5,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-064",
+      "source_location": "Section 6.1 In Scope — bullet 3",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "functional",
+      "exact_source_text": "A CLI to drive applications through the graph and to regenerate traces and the evaluation.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "DOCUMENTATION_TEST",
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-064-T01",
+        "REQ-064-T02",
+        "REQ-064-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-065",
+      "source_location": "Section 6.2 Out of Scope (this cut) — bullet 1",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "Containerized / cloud deployment (Docker, Rancher, k8s) — deferred; do not spend hackathon time on it.",
+      "verification_methods": [
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-065-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-066",
+      "source_location": "Section 6.2 Out of Scope (this cut) — bullet 2",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Real credit-bureau or core-banking integrations — use synthetic application and policy data.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-066-T01",
+        "REQ-066-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-067",
+      "source_location": "Section 6.2 Out of Scope (this cut) — bullet 3",
+      "source_type": "BULLET",
+      "requirement_class": "ENGAGEMENT",
+      "category": "non_functional",
+      "exact_source_text": "Front-end visual polish; generic unit-test volume for its own sake.",
+      "verification_methods": [
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-067-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-068",
+      "source_location": "Section 6.2 Out of Scope (this cut) — bullet 4",
+      "source_type": "BULLET",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Advanced OAuth flows and live secrets-rotation infrastructure (document the approach instead).",
+      "verification_methods": [
+        "DOCUMENTATION_TEST",
+        "NEGATIVE_TEST"
+      ],
+      "test_ids": [
+        "REQ-068-T01",
+        "REQ-068-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-069",
+      "source_location": "Section 7. Required Artifacts — What to Commit — lead-in paragraph, sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "ENGAGEMENT",
+      "category": "governance",
+      "exact_source_text": "This is the checklist your submission is scored against.",
+      "verification_methods": [
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-069-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-070",
+      "source_location": "Section 7. Required Artifacts — What to Commit — lead-in paragraph, sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Each artifact must be present at (or near) the path shown and contain what is listed.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-070-T01",
+        "REQ-070-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-071",
+      "source_location": "Section 7. Required Artifacts — What to Commit — lead-in paragraph, sentence 3",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Remember the Evidence-in-Repo and Citation-Resolves rules: outputs must be produced by committed code, and every citation must resolve to a committed artifact.",
+      "verification_methods": [
+        "AUDITABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-071-T01",
+        "REQ-071-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-072",
+      "source_location": "Section 7.1 Agentic System — Foundation — table row \"LangGraph graph\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "LangGraph graph | src/graph.py | Typed state; supervisor + ≥3 worker agents; conditional edges; checkpointer; structured output at node boundaries",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "OUTPUT_VALIDATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-072-T01",
+        "REQ-072-T02",
+        "REQ-072-T03",
+        "REQ-072-T04",
+        "REQ-072-T05",
+        "REQ-072-T06"
+      ],
+      "test_count": 6,
+      "automatable_tests": 6,
+      "manual_tests": 0,
+      "weight_total": 10,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The supervisor location and the located worker agents."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-073",
+      "source_location": "Section 7.1 Agentic System — Foundation — table row \"MCP server\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "MCP server | mcp_server/ + logs/mcp_transcript.jsonl | ≥2 tools + 1 resource; consumed via langchain-mcp-adapters; committed tool-call transcript",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-073-T01",
+        "REQ-073-T02",
+        "REQ-073-T03",
+        "REQ-073-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The registered tool and resource names."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-074",
+      "source_location": "Section 7.1 Agentic System — Foundation — table row \"Context engineering\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "functional",
+      "exact_source_text": "Context engineering | src/context/ | write/select/compress/isolate; summarization middleware; quarantine of untrusted text",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "SECURITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-074-T01",
+        "REQ-074-T02",
+        "REQ-074-T03",
+        "REQ-074-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-075",
+      "source_location": "Section 7.1 Agentic System — Foundation — table row \"Tiered memory\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "functional",
+      "exact_source_text": "Tiered memory | src/memory/ + tests/test_memory_persistence.py + logs/memory_test.log | short + long/semantic memory; cross-session recall test with committed output log",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "AUDITABILITY_TEST",
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-075-T01",
+        "REQ-075-T02",
+        "REQ-075-T03",
+        "REQ-075-T04",
+        "REQ-075-T05"
+      ],
+      "test_count": 5,
+      "automatable_tests": 5,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-076",
+      "source_location": "Section 7.1 Agentic System — Foundation — table row \"Agentic-RAG tool\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "policy",
+      "exact_source_text": "Agentic-RAG tool | src/tools/rag_tool.py + data/policy_corpus/ | retrieval-in-the-loop over a synthetic lending-policy corpus",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-076-T01",
+        "REQ-076-T02",
+        "REQ-076-T03",
+        "REQ-076-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-077",
+      "source_location": "Section 7.2 Observability & Tracing (Arize Phoenix — mandated) — table row \"Phoenix instrumentation\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Phoenix instrumentation | src/observability/tracing.py | Phoenix/openinference tracer wired into the run path (called, not just imported)",
+      "verification_methods": [
+        "OBSERVABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-077-T01",
+        "REQ-077-T02",
+        "REQ-077-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "The AST call site that activates the tracer."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-078",
+      "source_location": "Section 7.2 Observability & Tracing (Arize Phoenix — mandated) — table row \"Trace export\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Trace export | traces/phoenix_spans.parquet (or .jsonl) | ≥1 full run; spans across multiple agents + every tool call; latencies present",
+      "verification_methods": [
+        "OBSERVABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-078-T01",
+        "REQ-078-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "Span count, distinct span names, and the latency column or key."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-079",
+      "source_location": "Section 7.2 Observability & Tracing (Arize Phoenix — mandated) — table row \"Tool-invocation log\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Tool-invocation log | logs/tool_calls.jsonl | machine-generated; per call: timestamp, agent/node, tool_name, args, result, latency_ms, status; names reconcile with code",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "OBSERVABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-079-T01",
+        "REQ-079-T02",
+        "REQ-079-T03",
+        "REQ-079-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-080",
+      "source_location": "Section 7.2 Observability & Tracing (Arize Phoenix — mandated) — table row \"Failure-mode analysis\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Failure-mode analysis | docs/failure-analysis.md | ≥3 real failures, EACH citing Phoenix run_id + span_id (or tool-log record) + root cause + fix",
+      "verification_methods": [
+        "OBSERVABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-080-T01",
+        "REQ-080-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-081",
+      "source_location": "Section 7.3 Performance & Cost Governance — table row \"Golden-signals report\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Golden-signals report | reports/golden_signals.json + producing script | Phoenix-derived latency (thinking/acting/tool), tokens in/out, cost estimate; accuracy + hallucination rate from the eval",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "OBSERVABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-081-T01",
+        "REQ-081-T02",
+        "REQ-081-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-082",
+      "source_location": "Section 7.3 Performance & Cost Governance — table row \"Cost/latency dashboard\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Cost/latency dashboard | reports/dashboard.png + reports/dashboard_data.csv | Phoenix latency/cost/token dashboard screenshot AND the underlying data file it was drawn from",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-082-T01",
+        "REQ-082-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-083",
+      "source_location": "Section 7.4 Security & Guardrails — table row \"Guardrail code\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Guardrail code | src/guardrails/ | input/output guardrails wired into the agent's I/O path (blocks/sanitizes)",
+      "verification_methods": [
+        "SECURITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-083-T01",
+        "REQ-083-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-084",
+      "source_location": "Section 7.4 Security & Guardrails — table row \"Audit trail\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Audit trail | logs/agent_actions.jsonl + audit middleware | machine-generated: actor, action, tool, decision, timestamp for consequential actions",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-084-T01",
+        "REQ-084-T02",
+        "REQ-084-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-085",
+      "source_location": "Section 7.4 Security & Guardrails — table row \"Secrets hygiene\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Secrets hygiene | .env.example, .gitignore | env-var config; .gitignore covers .env; no secrets committed anywhere",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-085-T01",
+        "REQ-085-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-086",
+      "source_location": "Section 7.5 Governance & Compliance (citation-gated) — table row \"Risk register\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "risk",
+      "exact_source_text": "Risk register | docs/risk-register.md | risk, category (OWASP/NIST), likelihood, impact, mitigation (cite the committed control), residual risk, owner",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-086-T01",
+        "REQ-086-T02",
+        "REQ-086-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-087",
+      "source_location": "Section 7.5 Governance & Compliance (citation-gated) — table row \"Model / system card\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "Model / system card | docs/model-card.md | model (Gemini), data (synthetic), intended use, limitations, known failure modes (cite failure-analysis.md), out-of-scope",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-087-T01",
+        "REQ-087-T02",
+        "REQ-087-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-088",
+      "source_location": "Section 7.5 Governance & Compliance (citation-gated) — table row \"Compliance mapping\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "Compliance mapping | docs/compliance.md | applicable EU AI Act / NIST AI RMF / DPDP obligations → how addressed → evidence artifact",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-088-T01",
+        "REQ-088-T02",
+        "REQ-088-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-089",
+      "source_location": "Section 7.5 Governance & Compliance (citation-gated) — table row \"Output-risk classification\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "risk",
+      "exact_source_text": "Output-risk classification | docs/output-risk.md | low/med/high output tiers + how high-risk is gated (human-in-loop / refusal) + a sample",
+      "verification_methods": [
+        "GOVERNANCE_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-089-T01",
+        "REQ-089-T02",
+        "REQ-089-T03",
+        "REQ-089-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-090",
+      "source_location": "Section 7.6 Agent Evaluation & Testing (lean, agent-specific) — table row \"Evaluation report\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "Evaluation report | reports/eval_report.json + harness | DeepEval (or equiv) over a golden set: hallucination + faithfulness/relevance; LLM-as-judge",
+      "verification_methods": [
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-090-T01",
+        "REQ-090-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-091",
+      "source_location": "Section 7.6 Agent Evaluation & Testing (lean, agent-specific) — table row \"Routing-logic test\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "Routing-logic test | tests/test_routing.py | asserts conditional edges route the right worker for given states",
+      "verification_methods": [
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-091-T01",
+        "REQ-091-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-092",
+      "source_location": "Section 7.6 Agent Evaluation & Testing (lean, agent-specific) — table row \"Loop/cascade guard\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "orchestration",
+      "exact_source_text": "Loop/cascade guard | tests/test_loops.py | asserts a max-steps / recursion-limit stops runaway loops",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-092-T01",
+        "REQ-092-T02",
+        "REQ-092-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-093",
+      "source_location": "Section 7.6 Agent Evaluation & Testing (lean, agent-specific) — table row \"Tool-contract test\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "integration",
+      "exact_source_text": "Tool-contract test | tests/test_tool_contracts.py | asserts each tool's input/output schema + one error path",
+      "verification_methods": [
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-093-T01",
+        "REQ-093-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-094",
+      "source_location": "Section 7.7 Engineering & Delivery — table row \"Local-run runbook\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "non_functional",
+      "exact_source_text": "Local-run runbook | README.md | single-command run; how to regenerate traces (Phoenix) and the eval; committed sample inputs",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "DOCUMENTATION_TEST",
+        "RUNTIME_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-094-T01",
+        "REQ-094-T02",
+        "REQ-094-T03",
+        "REQ-094-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-095",
+      "source_location": "Section 7.7 Engineering & Delivery — table row \"Bonus\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "OPTIONAL",
+      "category": "functional",
+      "exact_source_text": "Bonus | src/api/ (FastAPI streaming) | OPTIONAL: async FastAPI streaming endpoint — extra credit, not required",
+      "verification_methods": [
+        "API_TEST",
+        "ARCHITECTURE_TEST"
+      ],
+      "test_ids": [
+        "REQ-095-T01",
+        "REQ-095-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output.",
+        "Presence or absence of src/api/, and the state of the required CLI."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-096",
+      "source_location": "Section 8. Producing the Evidence — Format & Where to Obtain — lead-in paragraph, sentence 1",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Every evidence artifact must be produced by committed code and committed in the format shown below.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "DATA_VALIDATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-096-T01",
+        "REQ-096-T02",
+        "REQ-096-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-097",
+      "source_location": "Section 8. Producing the Evidence — Format & Where to Obtain — lead-in paragraph, sentence 2",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "This tells you the exact format and the tool / method to generate each one, so “observability” or “cost governance” becomes a concrete file you generate — not a slide.",
+      "verification_methods": [
+        "NEGATIVE_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-097-T01",
+        "REQ-097-T02",
+        "REQ-097-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-098",
+      "source_location": "Section 8. Producing the Evidence — Format & Where to Obtain — lead-in paragraph, sentence 3",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Enable Arize Phoenix locally (`pip install arize-phoenix openinference-instrumentation-langchain`; the UI runs at localhost:6006) — it is the single source your traces, latency, token and cost evidence come from.",
+      "verification_methods": [
+        "CONFIGURATION_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-098-T01",
+        "REQ-098-T02",
+        "REQ-098-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-099",
+      "source_location": "Section 8. Producing the Evidence — table row \"Phoenix trace export\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Phoenix trace export | Parquet or JSONL of OTel spans | Turn on Phoenix tracing (openinference-instrumentation-langchain), run one full conversation, then export: px.Client().get_spans_dataframe().to_parquet('traces/phoenix_spans.parquet').",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "DATA_VALIDATION_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-099-T01",
+        "REQ-099-T02",
+        "REQ-099-T03",
+        "REQ-099-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-100",
+      "source_location": "Section 8. Producing the Evidence — table row \"Tool-invocation log\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Tool-invocation log | JSONL — one object per tool call | A logging wrapper/decorator on every tool that appends {timestamp, agent, tool_name, args, result, latency_ms, status} to logs/tool_calls.jsonl.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "DATA_VALIDATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-100-T01",
+        "REQ-100-T02",
+        "REQ-100-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 7,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-101",
+      "source_location": "Section 8. Producing the Evidence — table row \"Failure-mode analysis\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Failure-mode analysis | Markdown | Open your Phoenix traces, pick ≥ 3 real failures, write each up citing its run_id + span_id, with root cause and the fix.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-101-T01",
+        "REQ-101-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-102",
+      "source_location": "Section 8. Producing the Evidence — table row \"Golden-signals report\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Golden-signals report | JSON | A script reads the Phoenix spans (get_spans_dataframe()): p50/p95 latency by span type (thinking / acting / tool), token totals from LLM spans, cost = tokens × price; import accuracy + hallucination from the eval report; write reports/golden_signals.json.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-102-T01",
+        "REQ-102-T02",
+        "REQ-102-T03",
+        "REQ-102-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-103",
+      "source_location": "Section 8. Producing the Evidence — table row \"Cost/latency dashboard\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "observability",
+      "exact_source_text": "Cost/latency dashboard | PNG + CSV | Phoenix UI (localhost:6006) shows latency / cost / token dashboards — screenshot one; export the data with get_spans_dataframe().to_csv('reports/dashboard_data.csv').",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "DATA_VALIDATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-103-T01",
+        "REQ-103-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-104",
+      "source_location": "Section 8. Producing the Evidence — table row \"Guardrail code\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "security",
+      "exact_source_text": "Guardrail code | Python module | Guardrails-AI / LLM Guard validators (or policy functions) wrapped around the agent’s input and output, wired into the graph’s I/O nodes.",
+      "verification_methods": [
+        "ARCHITECTURE_TEST",
+        "SECURITY_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-104-T01",
+        "REQ-104-T02",
+        "REQ-104-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 6,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-105",
+      "source_location": "Section 8. Producing the Evidence — table row \"Audit trail\"",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "auditability",
+      "exact_source_text": "Audit trail | JSONL | Audit middleware that appends {actor, action, tool, decision, timestamp} for each consequential action to logs/agent_actions.jsonl.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "DATA_VALIDATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-105-T01",
+        "REQ-105-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-106",
+      "source_location": "Section 8. Producing the Evidence — table row \"Governance pack\" (continuation table)",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "Governance pack | Markdown | risk-register.md, model-card.md, compliance.md, output-risk.md — each entry cites the committed control/artifact it refers to.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST"
+      ],
+      "test_ids": [
+        "REQ-106-T01",
+        "REQ-106-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-107",
+      "source_location": "Section 8. Producing the Evidence — table row \"Evaluation report\" (continuation table)",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "Evaluation report | JSON | A DeepEval run over your golden set (hallucination, faithfulness, answer-relevance) that writes reports/eval_report.json, plus the harness.",
+      "verification_methods": [
+        "DATA_VALIDATION_TEST",
+        "INTEGRATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-107-T01",
+        "REQ-107-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 4,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-108",
+      "source_location": "Section 8. Producing the Evidence — table row \"Agent tests\" (continuation table)",
+      "source_type": "TABLE_ROW",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "evaluation",
+      "exact_source_text": "Agent tests | pytest files | tests/test_routing.py (routing), tests/test_loops.py (recursion/step limit), tests/test_tool_contracts.py (I/O schema + error path).",
+      "verification_methods": [
+        "INTEGRATION_TEST",
+        "STATIC_TEST"
+      ],
+      "test_ids": [
+        "REQ-108-T01",
+        "REQ-108-T02",
+        "REQ-108-T03",
+        "REQ-108-T04"
+      ],
+      "test_count": 4,
+      "automatable_tests": 4,
+      "manual_tests": 0,
+      "weight_total": 5,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-109",
+      "source_location": "Section 8.1 Good-to-Have — bullet 1",
+      "source_type": "BULLET",
+      "requirement_class": "OPTIONAL",
+      "category": "functional",
+      "exact_source_text": "FastAPI streaming endpoint; a demonstrated local run (screenshot/log).",
+      "verification_methods": [
+        "API_TEST",
+        "DOCUMENTATION_TEST"
+      ],
+      "test_ids": [
+        "REQ-109-T01",
+        "REQ-109-T02"
+      ],
+      "test_count": 2,
+      "automatable_tests": 2,
+      "manual_tests": 0,
+      "weight_total": 2,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-110",
+      "source_location": "Section 8.1 Good-to-Have — bullet 2",
+      "source_type": "BULLET",
+      "requirement_class": "OPTIONAL",
+      "category": "security",
+      "exact_source_text": "PII-redaction middleware (Presidio) with a before/after sample; a small red-team attack set + results.",
+      "verification_methods": [
+        "DOCUMENTATION_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-110-T01",
+        "REQ-110-T02",
+        "REQ-110-T03"
+      ],
+      "test_count": 3,
+      "automatable_tests": 3,
+      "manual_tests": 0,
+      "weight_total": 3,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-111",
+      "source_location": "Section 8.1 Good-to-Have — bullet 3",
+      "source_type": "BULLET",
+      "requirement_class": "OPTIONAL",
+      "category": "observability",
+      "exact_source_text": "An optimization note showing a measured before/after latency or cost improvement (two Phoenix-derived reports).",
+      "verification_methods": [
+        "OBSERVABILITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-111-T01"
+      ],
+      "test_count": 1,
+      "automatable_tests": 1,
+      "manual_tests": 0,
+      "weight_total": 1,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    },
+    {
+      "requirement_id": "REQ-112",
+      "source_location": "Section 8.1 Good-to-Have — closing italic paragraph (final paragraph of the document)",
+      "source_type": "SENTENCE",
+      "requirement_class": "IMPLEMENTATION",
+      "category": "governance",
+      "exact_source_text": "On completion you will have demonstrated the skill the industry actually screens for: not just building a LangGraph agent, but making a lending decision observable, cost-governed, secure, compliant and continuously evaluated — the full production surface of an agentic system, proven with committed evidence rather than a demo that worked once.",
+      "verification_methods": [
+        "AUDITABILITY_TEST",
+        "GOVERNANCE_TEST",
+        "INTEGRATION_TEST",
+        "OBSERVABILITY_TEST",
+        "SECURITY_TEST"
+      ],
+      "test_ids": [
+        "REQ-112-T01",
+        "REQ-112-T02",
+        "REQ-112-T03",
+        "REQ-112-T04",
+        "REQ-112-T05",
+        "REQ-112-T06"
+      ],
+      "test_count": 6,
+      "automatable_tests": 6,
+      "manual_tests": 0,
+      "weight_total": 8,
+      "implementation_evidence_required": [
+        "Concrete artifact evidence: resolved path, matched line with line number, record count, or captured process output."
+      ],
+      "status": "NOT_RUN",
+      "fit_score": null
+    }
+  ]
+}

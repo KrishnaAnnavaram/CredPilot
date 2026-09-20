@@ -1,0 +1,78 @@
+{
+  "_comment": [
+    "Human-recorded evidence for the statements no artifact in the implementation can",
+    "settle on its own.",
+    "",
+    "An entry counts ONLY when evidence, attested_by and attested_on are all non-empty.",
+    "An empty entry is a FAIL: the brief is explicit that no evidence is never a pass.",
+    "",
+    "Entries marked UNSPECIFIED_BY_REQUIREMENT cannot be attested at all: the source",
+    "document fixes no value to verify against. They stay FAIL and are reported as",
+    "specification gaps, not as implementation defects."
+  ],
+  "attestations": {
+    "REQ-008-T01": {
+      "requirement_id": "REQ-008",
+      "what_must_be_attested": "The engagement ran for the stated duration.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-009-T01": {
+      "requirement_id": "REQ-009",
+      "what_must_be_attested": "The delivery team matched the stated team size.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-010-T02": {
+      "requirement_id": "REQ-010",
+      "what_must_be_attested": "The review was performed automatically against the Hackathon Rubric with no live demo judging.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-011-T03": {
+      "requirement_id": "REQ-011",
+      "what_must_be_attested": "The push happened by the cut-off.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-012-T01": {
+      "requirement_id": "REQ-012",
+      "what_must_be_attested": "The per-team Excel review report with its five stated sections was produced.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-013-T01": {
+      "requirement_id": "REQ-013",
+      "what_must_be_attested": "The stated grade bands were applied.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-035-T03": {
+      "requirement_id": "REQ-035",
+      "what_must_be_attested": "LangGraph is used under the MIT licence.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-045-T04": {
+      "requirement_id": "REQ-045",
+      "what_must_be_attested": "The DTI / disposable-income threshold values themselves.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    },
+    "REQ-046-T07": {
+      "requirement_id": "REQ-046",
+      "what_must_be_attested": "The monetary boundary at which a case becomes high-value.",
+      "evidence": null,
+      "attested_by": null,
+      "attested_on": null
+    }
+  }
+}

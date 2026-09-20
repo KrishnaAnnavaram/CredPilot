@@ -1,0 +1,30 @@
+{
+  "_comment": [
+    "Configuration for the CredPilot requirements-validation suite.",
+    "This file configures HOW the suite reaches the implementation. It must never be used",
+    "to weaken a requirement expectation: there is no setting here that can turn a FAIL",
+    "into a PASS.",
+    "",
+    "implementation_root: where the CredPilot implementation lives. null means 'the parent",
+    "directory of requirements_validation_tests'. A relative path is resolved against the",
+    "suite root. Overridden by the CREDPILOT_ROOT environment variable, and by --target.",
+    "",
+    "runtime.enabled: whether the suite may execute the implementation's own documented",
+    "command to perform black-box checks. With this false, the runtime checks report FAIL",
+    "with the reason 'runtime execution disabled' rather than silently passing.",
+    "",
+    "runtime.run_command / traces_command / eval_command: normally left empty. The suite",
+    "DISCOVERS these from the implementation's README.md, because the source document",
+    "requires a single documented command and a local-run runbook. Set one here only when",
+    "an operator needs to point the harness at a command the README does not yet document;",
+    "doing so does not excuse the README requirement, which is tested separately."
+  ],
+  "implementation_root": null,
+  "runtime": {
+    "enabled": true,
+    "timeout_seconds": 300,
+    "run_command": "",
+    "traces_command": "",
+    "eval_command": ""
+  }
+}

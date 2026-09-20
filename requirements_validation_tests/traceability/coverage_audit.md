@@ -1,0 +1,226 @@
+<!-- GENERATED FILE - do not edit by hand.
+     Regenerate with:  python traceability/build_traceability.py
+     Sources: source_requirements/requirements_verbatim.md (hashed) and
+              automated_tests/registry/ -->
+
+# CredPilot - Mandatory Coverage Audit
+
+Generated: 2026-09-20T05:48:35Z
+
+This is the second, independent pass required by the validation brief. It compares the source document, the verbatim baseline, the traceability matrix and the generated tests, and reports any statement that was dropped, paraphrased or left untested.
+
+## What was compared
+
+| Comparison | Result |
+| --- | --- |
+| Source document -> verbatim baseline | 112 requirement units extracted from `source_document/Loan_Origination_Underwriting_Copilot_Merged.docx`; see `source_document/EXTRACTION_NOTE.md` for the page-by-page coverage map |
+| Verbatim baseline -> requirement IDs | 112 of 112 carry an ID |
+| Requirement IDs -> test IDs | 112 of 112 have >= 1 test |
+| Test IDs -> source text | 320 of 320 resolve to exactly one identified requirement |
+| Baseline text vs. spec text | byte-for-byte identical for all 320 tests |
+
+## Totals
+
+| Metric | Value |
+| --- | --- |
+| Source requirement units | 112 |
+| Requirements with an ID | 112 |
+| Requirements with >= 1 test | 112 |
+| Requirements with no test | 0 |
+| Total test cases | 320 |
+| Automated test cases | 311 |
+| Manual / non-automatable test cases | 9 |
+| Baseline SHA-256 | `ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917` |
+
+## Requirements by class
+
+| Class | Count |
+| --- | --- |
+| ENGAGEMENT | 18 |
+| IMPLEMENTATION | 90 |
+| OPTIONAL | 4 |
+
+## Requirements by category
+
+| Category | Count |
+| --- | --- |
+| affordability | 1 |
+| auditability | 11 |
+| eligibility | 1 |
+| evaluation | 6 |
+| functional | 7 |
+| governance | 23 |
+| integration | 10 |
+| non_functional | 8 |
+| observability | 19 |
+| orchestration | 6 |
+| policy | 3 |
+| risk | 2 |
+| security | 11 |
+| underwriting | 3 |
+| workflow | 1 |
+
+## Tests by verification type
+
+| Verification type | Count |
+| --- | --- |
+| API_TEST | 2 |
+| ARCHITECTURE_TEST | 30 |
+| AUDITABILITY_TEST | 37 |
+| BOUNDARY_TEST | 2 |
+| CONFIGURATION_TEST | 16 |
+| DATA_VALIDATION_TEST | 16 |
+| DOCUMENTATION_TEST | 17 |
+| GOVERNANCE_TEST | 29 |
+| INTEGRATION_TEST | 47 |
+| NEGATIVE_TEST | 12 |
+| OBSERVABILITY_TEST | 40 |
+| OUTPUT_VALIDATION_TEST | 4 |
+| RUNTIME_TEST | 5 |
+| SECURITY_TEST | 25 |
+| STATIC_TEST | 31 |
+| WORKFLOW_TEST | 7 |
+
+## Tests by executing suite
+
+| Suite | Count |
+| --- | --- |
+| `automated_tests/api/` | 2 |
+| `automated_tests/functional/` | 9 |
+| `automated_tests/governance/` | 85 |
+| `automated_tests/integration/` | 47 |
+| `automated_tests/static/` | 170 |
+| `automated_tests/workflow/` | 7 |
+
+## Per-requirement coverage
+
+| Requirement | Class | Tests | Test IDs |
+| --- | --- | --- | --- |
+| REQ-001 | ENGAGEMENT | 1 | REQ-001-T01 |
+| REQ-002 | ENGAGEMENT | 1 | REQ-002-T01 |
+| REQ-003 | IMPLEMENTATION | 8 | REQ-003-T01, REQ-003-T02, REQ-003-T03, REQ-003-T04, REQ-003-T05, REQ-003-T06, REQ-003-T07, REQ-003-T08 |
+| REQ-004 | ENGAGEMENT | 1 | REQ-004-T01 |
+| REQ-005 | ENGAGEMENT | 1 | REQ-005-T01 |
+| REQ-006 | ENGAGEMENT | 1 | REQ-006-T01 |
+| REQ-007 | ENGAGEMENT | 1 | REQ-007-T01 |
+| REQ-008 | ENGAGEMENT | 1 | REQ-008-T01 |
+| REQ-009 | ENGAGEMENT | 1 | REQ-009-T01 |
+| REQ-010 | ENGAGEMENT | 2 | REQ-010-T01, REQ-010-T02 |
+| REQ-011 | ENGAGEMENT | 3 | REQ-011-T01, REQ-011-T02, REQ-011-T03 |
+| REQ-012 | ENGAGEMENT | 1 | REQ-012-T01 |
+| REQ-013 | ENGAGEMENT | 1 | REQ-013-T01 |
+| REQ-014 | IMPLEMENTATION | 10 | REQ-014-T01, REQ-014-T02, REQ-014-T03, REQ-014-T04, REQ-014-T05, REQ-014-T06, REQ-014-T07, REQ-014-T08, REQ-014-T09, REQ-014-T10 |
+| REQ-015 | IMPLEMENTATION | 2 | REQ-015-T01, REQ-015-T02 |
+| REQ-016 | ENGAGEMENT | 1 | REQ-016-T01 |
+| REQ-017 | IMPLEMENTATION | 1 | REQ-017-T01 |
+| REQ-018 | ENGAGEMENT | 1 | REQ-018-T01 |
+| REQ-019 | ENGAGEMENT | 1 | REQ-019-T01 |
+| REQ-020 | IMPLEMENTATION | 6 | REQ-020-T01, REQ-020-T02, REQ-020-T03, REQ-020-T04, REQ-020-T05, REQ-020-T06 |
+| REQ-021 | ENGAGEMENT | 1 | REQ-021-T01 |
+| REQ-022 | IMPLEMENTATION | 7 | REQ-022-T01, REQ-022-T02, REQ-022-T03, REQ-022-T04, REQ-022-T05, REQ-022-T06, REQ-022-T07 |
+| REQ-023 | IMPLEMENTATION | 2 | REQ-023-T01, REQ-023-T02 |
+| REQ-024 | IMPLEMENTATION | 6 | REQ-024-T01, REQ-024-T02, REQ-024-T03, REQ-024-T04, REQ-024-T05, REQ-024-T06 |
+| REQ-025 | IMPLEMENTATION | 7 | REQ-025-T01, REQ-025-T02, REQ-025-T03, REQ-025-T04, REQ-025-T05, REQ-025-T06, REQ-025-T07 |
+| REQ-026 | IMPLEMENTATION | 3 | REQ-026-T01, REQ-026-T02, REQ-026-T03 |
+| REQ-027 | IMPLEMENTATION | 6 | REQ-027-T01, REQ-027-T02, REQ-027-T03, REQ-027-T04, REQ-027-T05, REQ-027-T06 |
+| REQ-028 | IMPLEMENTATION | 5 | REQ-028-T01, REQ-028-T02, REQ-028-T03, REQ-028-T04, REQ-028-T05 |
+| REQ-029 | IMPLEMENTATION | 2 | REQ-029-T01, REQ-029-T02 |
+| REQ-030 | IMPLEMENTATION | 2 | REQ-030-T01, REQ-030-T02 |
+| REQ-031 | IMPLEMENTATION | 3 | REQ-031-T01, REQ-031-T02, REQ-031-T03 |
+| REQ-032 | IMPLEMENTATION | 4 | REQ-032-T01, REQ-032-T02, REQ-032-T03, REQ-032-T04 |
+| REQ-033 | IMPLEMENTATION | 2 | REQ-033-T01, REQ-033-T02 |
+| REQ-034 | IMPLEMENTATION | 3 | REQ-034-T01, REQ-034-T02, REQ-034-T03 |
+| REQ-035 | IMPLEMENTATION | 3 | REQ-035-T01, REQ-035-T02, REQ-035-T03 |
+| REQ-036 | IMPLEMENTATION | 2 | REQ-036-T01, REQ-036-T02 |
+| REQ-037 | IMPLEMENTATION | 2 | REQ-037-T01, REQ-037-T02 |
+| REQ-038 | IMPLEMENTATION | 2 | REQ-038-T01, REQ-038-T02 |
+| REQ-039 | IMPLEMENTATION | 2 | REQ-039-T01, REQ-039-T02 |
+| REQ-040 | IMPLEMENTATION | 3 | REQ-040-T01, REQ-040-T02, REQ-040-T03 |
+| REQ-041 | IMPLEMENTATION | 2 | REQ-041-T01, REQ-041-T02 |
+| REQ-042 | IMPLEMENTATION | 3 | REQ-042-T01, REQ-042-T02, REQ-042-T03 |
+| REQ-043 | IMPLEMENTATION | 2 | REQ-043-T01, REQ-043-T02 |
+| REQ-044 | IMPLEMENTATION | 4 | REQ-044-T01, REQ-044-T02, REQ-044-T03, REQ-044-T04 |
+| REQ-045 | IMPLEMENTATION | 4 | REQ-045-T01, REQ-045-T02, REQ-045-T03, REQ-045-T04 |
+| REQ-046 | IMPLEMENTATION | 7 | REQ-046-T01, REQ-046-T02, REQ-046-T03, REQ-046-T04, REQ-046-T05, REQ-046-T06, REQ-046-T07 |
+| REQ-047 | IMPLEMENTATION | 4 | REQ-047-T01, REQ-047-T02, REQ-047-T03, REQ-047-T04 |
+| REQ-048 | IMPLEMENTATION | 2 | REQ-048-T01, REQ-048-T02 |
+| REQ-049 | IMPLEMENTATION | 4 | REQ-049-T01, REQ-049-T02, REQ-049-T03, REQ-049-T04 |
+| REQ-050 | IMPLEMENTATION | 3 | REQ-050-T01, REQ-050-T02, REQ-050-T03 |
+| REQ-051 | IMPLEMENTATION | 2 | REQ-051-T01, REQ-051-T02 |
+| REQ-052 | IMPLEMENTATION | 3 | REQ-052-T01, REQ-052-T02, REQ-052-T03 |
+| REQ-053 | IMPLEMENTATION | 2 | REQ-053-T01, REQ-053-T02 |
+| REQ-054 | IMPLEMENTATION | 5 | REQ-054-T01, REQ-054-T02, REQ-054-T03, REQ-054-T04, REQ-054-T05 |
+| REQ-055 | IMPLEMENTATION | 4 | REQ-055-T01, REQ-055-T02, REQ-055-T03, REQ-055-T04 |
+| REQ-056 | IMPLEMENTATION | 3 | REQ-056-T01, REQ-056-T02, REQ-056-T03 |
+| REQ-057 | IMPLEMENTATION | 3 | REQ-057-T01, REQ-057-T02, REQ-057-T03 |
+| REQ-058 | IMPLEMENTATION | 2 | REQ-058-T01, REQ-058-T02 |
+| REQ-059 | IMPLEMENTATION | 2 | REQ-059-T01, REQ-059-T02 |
+| REQ-060 | IMPLEMENTATION | 2 | REQ-060-T01, REQ-060-T02 |
+| REQ-061 | IMPLEMENTATION | 2 | REQ-061-T01, REQ-061-T02 |
+| REQ-062 | IMPLEMENTATION | 1 | REQ-062-T01 |
+| REQ-063 | IMPLEMENTATION | 5 | REQ-063-T01, REQ-063-T02, REQ-063-T03, REQ-063-T04, REQ-063-T05 |
+| REQ-064 | IMPLEMENTATION | 3 | REQ-064-T01, REQ-064-T02, REQ-064-T03 |
+| REQ-065 | IMPLEMENTATION | 1 | REQ-065-T01 |
+| REQ-066 | IMPLEMENTATION | 2 | REQ-066-T01, REQ-066-T02 |
+| REQ-067 | ENGAGEMENT | 1 | REQ-067-T01 |
+| REQ-068 | IMPLEMENTATION | 2 | REQ-068-T01, REQ-068-T02 |
+| REQ-069 | ENGAGEMENT | 1 | REQ-069-T01 |
+| REQ-070 | IMPLEMENTATION | 2 | REQ-070-T01, REQ-070-T02 |
+| REQ-071 | IMPLEMENTATION | 2 | REQ-071-T01, REQ-071-T02 |
+| REQ-072 | IMPLEMENTATION | 6 | REQ-072-T01, REQ-072-T02, REQ-072-T03, REQ-072-T04, REQ-072-T05, REQ-072-T06 |
+| REQ-073 | IMPLEMENTATION | 4 | REQ-073-T01, REQ-073-T02, REQ-073-T03, REQ-073-T04 |
+| REQ-074 | IMPLEMENTATION | 4 | REQ-074-T01, REQ-074-T02, REQ-074-T03, REQ-074-T04 |
+| REQ-075 | IMPLEMENTATION | 5 | REQ-075-T01, REQ-075-T02, REQ-075-T03, REQ-075-T04, REQ-075-T05 |
+| REQ-076 | IMPLEMENTATION | 4 | REQ-076-T01, REQ-076-T02, REQ-076-T03, REQ-076-T04 |
+| REQ-077 | IMPLEMENTATION | 3 | REQ-077-T01, REQ-077-T02, REQ-077-T03 |
+| REQ-078 | IMPLEMENTATION | 2 | REQ-078-T01, REQ-078-T02 |
+| REQ-079 | IMPLEMENTATION | 4 | REQ-079-T01, REQ-079-T02, REQ-079-T03, REQ-079-T04 |
+| REQ-080 | IMPLEMENTATION | 2 | REQ-080-T01, REQ-080-T02 |
+| REQ-081 | IMPLEMENTATION | 3 | REQ-081-T01, REQ-081-T02, REQ-081-T03 |
+| REQ-082 | IMPLEMENTATION | 2 | REQ-082-T01, REQ-082-T02 |
+| REQ-083 | IMPLEMENTATION | 2 | REQ-083-T01, REQ-083-T02 |
+| REQ-084 | IMPLEMENTATION | 3 | REQ-084-T01, REQ-084-T02, REQ-084-T03 |
+| REQ-085 | IMPLEMENTATION | 2 | REQ-085-T01, REQ-085-T02 |
+| REQ-086 | IMPLEMENTATION | 3 | REQ-086-T01, REQ-086-T02, REQ-086-T03 |
+| REQ-087 | IMPLEMENTATION | 3 | REQ-087-T01, REQ-087-T02, REQ-087-T03 |
+| REQ-088 | IMPLEMENTATION | 3 | REQ-088-T01, REQ-088-T02, REQ-088-T03 |
+| REQ-089 | IMPLEMENTATION | 4 | REQ-089-T01, REQ-089-T02, REQ-089-T03, REQ-089-T04 |
+| REQ-090 | IMPLEMENTATION | 2 | REQ-090-T01, REQ-090-T02 |
+| REQ-091 | IMPLEMENTATION | 2 | REQ-091-T01, REQ-091-T02 |
+| REQ-092 | IMPLEMENTATION | 3 | REQ-092-T01, REQ-092-T02, REQ-092-T03 |
+| REQ-093 | IMPLEMENTATION | 2 | REQ-093-T01, REQ-093-T02 |
+| REQ-094 | IMPLEMENTATION | 4 | REQ-094-T01, REQ-094-T02, REQ-094-T03, REQ-094-T04 |
+| REQ-095 | OPTIONAL | 2 | REQ-095-T01, REQ-095-T02 |
+| REQ-096 | IMPLEMENTATION | 3 | REQ-096-T01, REQ-096-T02, REQ-096-T03 |
+| REQ-097 | IMPLEMENTATION | 3 | REQ-097-T01, REQ-097-T02, REQ-097-T03 |
+| REQ-098 | IMPLEMENTATION | 3 | REQ-098-T01, REQ-098-T02, REQ-098-T03 |
+| REQ-099 | IMPLEMENTATION | 4 | REQ-099-T01, REQ-099-T02, REQ-099-T03, REQ-099-T04 |
+| REQ-100 | IMPLEMENTATION | 3 | REQ-100-T01, REQ-100-T02, REQ-100-T03 |
+| REQ-101 | IMPLEMENTATION | 2 | REQ-101-T01, REQ-101-T02 |
+| REQ-102 | IMPLEMENTATION | 4 | REQ-102-T01, REQ-102-T02, REQ-102-T03, REQ-102-T04 |
+| REQ-103 | IMPLEMENTATION | 2 | REQ-103-T01, REQ-103-T02 |
+| REQ-104 | IMPLEMENTATION | 3 | REQ-104-T01, REQ-104-T02, REQ-104-T03 |
+| REQ-105 | IMPLEMENTATION | 2 | REQ-105-T01, REQ-105-T02 |
+| REQ-106 | IMPLEMENTATION | 2 | REQ-106-T01, REQ-106-T02 |
+| REQ-107 | IMPLEMENTATION | 2 | REQ-107-T01, REQ-107-T02 |
+| REQ-108 | IMPLEMENTATION | 4 | REQ-108-T01, REQ-108-T02, REQ-108-T03, REQ-108-T04 |
+| REQ-109 | OPTIONAL | 2 | REQ-109-T01, REQ-109-T02 |
+| REQ-110 | OPTIONAL | 3 | REQ-110-T01, REQ-110-T02, REQ-110-T03 |
+| REQ-111 | OPTIONAL | 1 | REQ-111-T01 |
+| REQ-112 | IMPLEMENTATION | 6 | REQ-112-T01, REQ-112-T02, REQ-112-T03, REQ-112-T04, REQ-112-T05, REQ-112-T06 |
+
+## Audit findings
+
+No findings. Specifically:
+
+- Every source requirement unit is captured in the verbatim baseline.
+- Every captured requirement has a Requirement ID.
+- Every Requirement ID has at least one Test ID.
+- Every Test ID maps back to exactly one identified source requirement.
+- No requirement text has been paraphrased: every test's Exact Original Requirement is byte-for-byte identical to the hashed baseline.
+- No requirement was silently dropped: requirement IDs form a dense sequence REQ-001..REQ-112 with no gaps.
+- No generated requirement exists without source evidence: every requirement records the section, table row or sentence it was taken from.
+
+---
+
+SOURCE REQUIREMENTS COVERAGE: 100.0%

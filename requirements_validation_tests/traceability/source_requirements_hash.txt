@@ -1,0 +1,4 @@
+# SHA-256 of source_requirements/requirements_verbatim.md
+# Verified before every validation run by validators/baseline_guard.py.
+# A mismatch halts validation with REQUIREMENTS_BASELINE_MODIFIED.
+ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917  requirements_verbatim.md
