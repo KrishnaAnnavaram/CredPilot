@@ -1,0 +1,228 @@
+{
+  "application_id": "APP-000034",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000041",
+      "role": "primary",
+      "name": "Gregor Ferreira",
+      "date_of_birth": "1963-02-06",
+      "taxpayer_id_masked": "***-**-0041",
+      "email": "gregor.ferreira041@example.com",
+      "phone": "(972) 555-0141",
+      "current_address": {
+        "street": "5836 Larkspur Avenue",
+        "city": "Plano",
+        "state": "TX",
+        "postal_code": "75024"
+      },
+      "previous_address": null,
+      "years_at_current_address": 8,
+      "dependents": 2,
+      "citizenship_status": "Permanent Resident"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000041",
+      "employer_name": "Cartwright & Vale Advisory",
+      "occupation": "Senior Consultant",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000041",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "9091.67"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Northwind Community Bank",
+      "account_masked": "******0131",
+      "declared_balance": "29109.12"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Northwind Community Bank",
+      "account_masked": "******0132",
+      "declared_balance": "54059.78"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0133",
+      "declared_balance": "5765.31"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0134",
+      "declared_balance": "6149.67"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Summit Education Lending",
+      "balance": "3887.79",
+      "monthly_payment": "93.08"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Northwind Card Services",
+      "balance": "5222.79",
+      "monthly_payment": "71.18"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Summit Education Lending",
+      "balance": "2190.00",
+      "monthly_payment": "65.70"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "1418.74",
+      "monthly_payment": "43.80"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "304000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2681 Copperbeech Drive",
+    "city": "Plano",
+    "state": "TX",
+    "postal_code": "75024",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "380000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000034-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/10_paystub_BORR-000041.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/11_w2_BORR-000041.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/12_employment_verification_BORR-000041.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000034-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000034/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

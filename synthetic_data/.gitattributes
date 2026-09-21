@@ -1,13 +1,13 @@
 # Line-ending policy for the synthetic-data foundation.
 #
 # WHY THIS FILE EXISTS
-# The headline property of this dataset is that it regenerates byte-for-byte: run
-# generator/generate_synthetic_data.py twice with the same seed and every one of the
-# ~1,300 artifacts is identical. The generator writes LF explicitly.
+# The headline property of these datasets is that they regenerate byte-for-byte: run
+# a product's generator/generate_synthetic_data.py twice with the same seed and every
+# one of its artifacts is identical. The generators write LF explicitly.
 #
 # Git's autocrlf rewrites LF to CRLF on checkout. Without this file, a fresh clone on
 # Windows would land CRLF in the working tree, the first regeneration would rewrite
-# every file back to LF, and `git status` would report all 1,300 artifacts as modified
+# every file back to LF, and `git status` would report all ~1,500 artifacts as modified
 # by someone who had done nothing but run the documented command.
 #
 # That turns the reproducibility guarantee into noise, and a guarantee that cries wolf
@@ -16,12 +16,14 @@
 #
 # This file sits inside synthetic_data/ rather than at the repository root, matching
 # the convention the validation suite already uses: gitattributes apply to their own
-# subtree, and the root belongs to the CredPilot implementation.
+# subtree, and the root belongs to the CredPilot implementation. It covers every
+# lending product under this root, so a new product folder inherits the policy without
+# needing its own copy.
 
 # Every text artifact here is LF, in the repository and checked out.
 * text=auto eol=lf
 
-# The completed research report is source evidence. It is quoted by 82 policy rules
-# and its content should be byte-for-byte what was supplied, so it is exempted from
-# conversion entirely rather than merely pinned.
-research/deep-research-report.md -text
+# The completed research report is source evidence. It is quoted by 82 mortgage policy
+# rules and its content should be byte-for-byte what was supplied, so it is exempted
+# from conversion entirely rather than merely pinned.
+mortgage/research/deep-research-report.md -text

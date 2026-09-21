@@ -1,0 +1,241 @@
+{
+  "application_id": "APP-000042",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000050",
+      "role": "primary",
+      "name": "Malik Guerrero",
+      "date_of_birth": "1992-11-18",
+      "taxpayer_id_masked": "***-**-0050",
+      "email": "malik.guerrero050@example.com",
+      "phone": "(503) 555-0150",
+      "current_address": {
+        "street": "7500 Juniper Bend",
+        "city": "Beaverton",
+        "state": "OR",
+        "postal_code": "97006"
+      },
+      "previous_address": null,
+      "years_at_current_address": 11,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000050",
+      "employer_name": "Pinewater Utilities District",
+      "occupation": "Grid Technician",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000050",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "12533.33"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0162",
+      "declared_balance": "4621.68"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0163",
+      "declared_balance": "8583.12"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Ravenscourt Securities",
+      "account_masked": "******0164",
+      "declared_balance": "3406.73"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0165",
+      "declared_balance": "3633.83"
+    },
+    {
+      "asset_type": "gift_funds",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0166",
+      "declared_balance": "48000.00"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Northwind Card Services",
+      "balance": "12470.76",
+      "monthly_payment": "298.57"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "16752.83",
+      "monthly_payment": "228.32"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "7025.33",
+      "monthly_payment": "210.76"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Sablefield Mortgage Servicing",
+      "balance": "4551.30",
+      "monthly_payment": "140.51"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "450000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2674 Marlowe Crossing",
+    "city": "Beaverton",
+    "state": "OR",
+    "postal_code": "97006",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "500000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000042-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/10_paystub_BORR-000050.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/11_w2_BORR-000050.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/12_employment_verification_BORR-000050.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/42_homeowner_insurance_evidence.txt"
+    },
+    {
+      "document_id": "APP-000042-DOC-15",
+      "document_type": "letter_of_explanation",
+      "document_date": "2026-08-09",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000042/60_letter_of_explanation.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}
