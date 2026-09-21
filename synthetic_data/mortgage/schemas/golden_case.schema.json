@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "credpilot/golden_case.schema.json",
+  "title": "CredPilot expected result record",
+  "description": "Ground truth. Never supplied to an agent as input - see synthetic_data/mortgage/README.md on data leakage.",
+  "type": "object",
+  "required": [
+    "case_id",
+    "application_id",
+    "expected_eligibility",
+    "expected_recommendation",
+    "expected_human_review",
+    "applicable_rule_ids"
+  ],
+  "properties": {
+    "expected_eligibility": {
+      "enum": [
+        "ELIGIBLE",
+        "INELIGIBLE",
+        "INDETERMINATE"
+      ]
+    },
+    "expected_recommendation": {
+      "enum": [
+        "APPROVE_RECOMMENDATION",
+        "APPROVE_WITH_CONDITIONS",
+        "REFER",
+        "MANUAL_REVIEW_REQUIRED",
+        "SUSPENDED_INCOMPLETE",
+        "DECLINE_RECOMMENDATION"
+      ]
+    },
+    "expected_route": {
+      "enum": [
+        "HUMAN_REVIEW_QUEUE",
+        "AUTOMATED_RECOMMENDATION"
+      ]
+    },
+    "expected_human_review": {
+      "type": "boolean"
+    }
+  }
+}

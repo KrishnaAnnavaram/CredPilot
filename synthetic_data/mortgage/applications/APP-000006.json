@@ -1,0 +1,202 @@
+{
+  "application_id": "APP-000006",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000007",
+      "role": "primary",
+      "name": "Emeka Underhill",
+      "date_of_birth": "1999-10-20",
+      "taxpayer_id_masked": "***-**-0007",
+      "email": "emeka.underhill007@example.com",
+      "phone": "(248) 555-0107",
+      "current_address": {
+        "street": "1559 Thistledown Drive",
+        "city": "Rochester Hills",
+        "state": "MI",
+        "postal_code": "48307"
+      },
+      "previous_address": null,
+      "years_at_current_address": 10,
+      "dependents": 2,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000007",
+      "employer_name": "Pinewater Utilities District",
+      "occupation": "Grid Technician",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000007",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "9025.00"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0021",
+      "declared_balance": "20772.78"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0022",
+      "declared_balance": "38578.02"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "7690.80",
+      "monthly_payment": "184.13"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Cascade Personal Loans",
+      "balance": "10331.84",
+      "monthly_payment": "140.81"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Harborline Retail Credit",
+      "balance": "4332.67",
+      "monthly_payment": "129.98"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "2806.70",
+      "monthly_payment": "86.65"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "312000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2775 Sablecrest Drive",
+    "city": "Rochester Hills",
+    "state": "MI",
+    "postal_code": "48307",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "390000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000006-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/10_paystub_BORR-000007.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/11_w2_BORR-000007.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/12_employment_verification_BORR-000007.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-09",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-10",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-11",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000006-DOC-12",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000006/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}
