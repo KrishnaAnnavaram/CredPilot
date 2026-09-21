@@ -1,0 +1,37 @@
+# Secrets. Never committed. See .env.example for the shape.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Benchmark scratch space. The benchmark *results* under eval/results/ are
+# committed evidence; the throwaway indexes they build are not.
+data/benchmark/
+
+# Model caches
+.cache/
+
+# The Chroma binary store is a build product: `python scripts/build_policy_indexes.py`
+# regenerates it deterministically in ~30 seconds. What is committed instead is
+# the evidence about it — index_manifest.json (models, counts, per-document
+# SHA-256), index_integrity.json (all 16 checks) and the BM25 indexes, which are
+# readable JSON a reviewer can inspect without running anything.
+data/vectorstore/credpilot/
+
+# LangGraph checkpoints are per-run state, not evidence.
+data/memory/

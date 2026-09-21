@@ -1,0 +1,1471 @@
+{
+  "description": "Machine-generated inventory of the lending-policy corpora CredPilot's vector and lexical indexes are built from. The policy documents themselves are committed under synthetic_data/<product>/policy_corpus/ and are not duplicated here.",
+  "generated_by": "scripts/build_policy_indexes.py",
+  "index_build": {
+    "built_at_utc": "2026-09-21T09:11:03+00:00",
+    "embedding_dimension": 768,
+    "embedding_model": "intfloat/e5-base-v2",
+    "products": {
+      "education": {
+        "chunk_count": 101,
+        "collection": "credpilot_education_policies",
+        "source_document_count": 12
+      },
+      "mortgage": {
+        "chunk_count": 329,
+        "collection": "credpilot_mortgage_policies",
+        "source_document_count": 42
+      }
+    }
+  },
+  "products": {
+    "education": {
+      "canonical_corpus_root": "synthetic_data/education/policy_corpus",
+      "collection": "credpilot_education_policies",
+      "declared_rule_count": 72,
+      "document_count": 12,
+      "documents": [
+        {
+          "bytes": 6734,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-001",
+          "policy_title": "Master Credit Policy and Governance",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-GOV-001",
+            "EDU-GOV-002",
+            "EDU-GOV-003",
+            "EDU-GOV-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-001_credit_policy_manual.md",
+          "source_sha256": "ba84ceb4235ab4fb8e96221e254e385a30fc443af7aab0a4e06d5a0e1e221666",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8839,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-002",
+          "policy_title": "Underwriting Guidelines by Product",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-UW-001",
+            "EDU-UW-002",
+            "EDU-UW-003",
+            "EDU-UW-004",
+            "EDU-UW-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-002_underwriting_guidelines_by_product.md",
+          "source_sha256": "42ffa21171e7cce3c138a6cdf86df87a27e5b7e8433b58625fa0c0c42cbfdcd9",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6069,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-003",
+          "policy_title": "Risk Grading and Pricing Matrix",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-RG-001",
+            "EDU-RG-002",
+            "EDU-RG-003",
+            "EDU-RG-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-003_risk_grading_and_pricing_matrix.md",
+          "source_sha256": "8b0f08ad3d896e2acce14ebb6c73050d336b24baae0645b681945948911c91b6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7954,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-004",
+          "policy_title": "Cosigner Policy and Release Criteria",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-COS-001",
+            "EDU-COS-002",
+            "EDU-COS-003",
+            "EDU-COS-004",
+            "EDU-COS-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-004_cosigner_policy_and_release.md",
+          "source_sha256": "e42c20c75d3dadcd77efc44c09938763aa83899fb9cd23c7a737d2b03896420d",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8882,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-005",
+          "policy_title": "Income Verification and DTI Policy",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-INC-001",
+            "EDU-INC-002",
+            "EDU-INC-003",
+            "EDU-INC-004",
+            "EDU-INC-005",
+            "EDU-INC-006",
+            "EDU-INC-007"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-005_income_verification_and_dti_policy.md",
+          "source_sha256": "71a98a7423dd69cd36288dcbb406a971a325ea7022e74410aa0b4234880d5fd6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8410,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-006",
+          "policy_title": "School Eligibility and Approved List",
+          "policy_version": "1.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-SCH-001",
+            "EDU-SCH-002",
+            "EDU-SCH-003",
+            "EDU-SCH-004",
+            "EDU-SCH-005",
+            "EDU-SCH-006",
+            "EDU-SCH-007"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/education/policy_corpus/POL-006_school_eligibility_and_approved_list.md",
+          "source_sha256": "2e2ad5df52953db34f08e28b261c23b0b5340faf7d0af954b431bdc2cd00b0f6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6870,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-007",
+          "policy_title": "Exception and Override Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-EXC-001",
+            "EDU-EXC-002",
+            "EDU-EXC-003",
+            "EDU-EXC-004",
+            "EDU-EXC-005"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-007_exception_and_override_policy.md",
+          "source_sha256": "5546937df8a819ed432c951ea2ad6ce797d8b0dea3a73bcb17d47cf43c54576f",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8155,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-008",
+          "policy_title": "Fraud, Identity Verification, and Anti-Money Laundering Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-FRD-001",
+            "EDU-FRD-002",
+            "EDU-FRD-003",
+            "EDU-FRD-004",
+            "EDU-FRD-005",
+            "EDU-FRD-006",
+            "EDU-FRD-007",
+            "EDU-FRD-008"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-008_fraud_identity_and_aml_policy.md",
+          "source_sha256": "53ac7fe55fa3e67f93034f85e724b465b429fc0db994d8388589e5bc35466dce",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7855,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-009",
+          "policy_title": "Adverse Action and Reason Code Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-AA-001",
+            "EDU-AA-002",
+            "EDU-AA-003",
+            "EDU-AA-004"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-009_adverse_action_and_reason_codes.md",
+          "source_sha256": "660f785a6840d8db3ae15d379c9bbdd1bdfec6638dd211b8879ca2e9dafc287c",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8138,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-010",
+          "policy_title": "Regulation Z Private Education Loan Disclosure Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-DIS-001",
+            "EDU-DIS-002",
+            "EDU-DIS-003",
+            "EDU-DIS-004",
+            "EDU-DIS-005",
+            "EDU-DIS-006",
+            "EDU-DIS-007"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-010_reg_z_private_education_loan_disclosures.md",
+          "source_sha256": "62346c5a44d7dad6f29f854907e5cb21f061981aee5762fdc9d1b989bd92a263",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8817,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-011",
+          "policy_title": "Fair Lending and Equal Credit Opportunity Act (ECOA) Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "UG",
+            "GR",
+            "SP",
+            "INTL",
+            "REFI"
+          ],
+          "rule_ids": [
+            "EDU-FL-001",
+            "EDU-FL-002",
+            "EDU-FL-003",
+            "EDU-FL-004",
+            "EDU-FL-005",
+            "EDU-FL-006",
+            "EDU-FL-007"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-011_fair_lending_and_ecoa_policy.md",
+          "source_sha256": "387d67cce351b26e64cfa54dc0fd760d10a73995cf61bcef67f480a523fd8c80",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 9760,
+          "effective_date": "2025-01-15",
+          "expiration_date": null,
+          "policy_id": "POL-012",
+          "policy_title": "International Student Lending Policy",
+          "policy_version": "2.0",
+          "product_scope": [
+            "INTL"
+          ],
+          "rule_ids": [
+            "EDU-INTL-001",
+            "EDU-INTL-002",
+            "EDU-INTL-003",
+            "EDU-INTL-004",
+            "EDU-INTL-005",
+            "EDU-INTL-006",
+            "EDU-INTL-007",
+            "EDU-INTL-008",
+            "EDU-INTL-009"
+          ],
+          "source_category": "Internal \u2013 Confidential",
+          "source_path": "synthetic_data/education/policy_corpus/POL-012_international_lending_policy.md",
+          "source_sha256": "74dafd76aa02cd4b66705901d336d2b31befe15bab8345947529483309386374",
+          "superseded_by": null,
+          "supersedes": null
+        }
+      ],
+      "product_domain": "EDUCATION_LOAN"
+    },
+    "mortgage": {
+      "canonical_corpus_root": "synthetic_data/mortgage/policy_corpus",
+      "collection": "credpilot_mortgage_policies",
+      "declared_rule_count": 203,
+      "document_count": 42,
+      "documents": [
+        {
+          "bytes": 7296,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-AST-001",
+          "policy_title": "Assets and Eligible Funds",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "AST-ELG-001",
+            "AST-ELG-002",
+            "AST-ELG-003",
+            "AST-ELG-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-AST-001_assets-eligibility_v1.0.md",
+          "source_sha256": "61db2d3ddbed87f57ec0898d6e8c1013b781f54c5d908e5a070bcbc4d291b264",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7483,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-AST-002",
+          "policy_title": "Funds to Close and the Settlement Calculation",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "AST-FTC-001",
+            "AST-FTC-002",
+            "AST-FTC-003",
+            "AST-FTC-004",
+            "AST-FTC-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-AST-002_funds-to-close_v1.0.md",
+          "source_sha256": "efe3f5a0dae19472ddf75049da96393eb3c7dba4451de64c2427be646decd1e6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 5825,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-AST-003",
+          "policy_title": "Reserve Requirements",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "AST-RSV-001",
+            "AST-RSV-004",
+            "AST-RSV-002",
+            "AST-RSV-003"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-AST-003_reserves_v1.0.md",
+          "source_sha256": "0651026af4ce481ffb66b9244ccccc6d6b5591727fdcae0ee99e8d9f280c7228",
+          "superseded_by": "POL-AST-003 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 7027,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-AST-003",
+          "policy_title": "Reserve Requirements",
+          "policy_version": "2.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "AST-RSV-001",
+            "AST-RSV-004",
+            "AST-RSV-002",
+            "AST-RSV-003",
+            "AST-RSV-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-AST-003_reserves_v2.0.md",
+          "source_sha256": "6270c637be9dbca952c4baf967846ed93a3b81dcf03b4d866ba6fc461d12d116",
+          "superseded_by": null,
+          "supersedes": "POL-AST-003 v1.0"
+        },
+        {
+          "bytes": 7436,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-AST-004",
+          "policy_title": "Gifts, Grants and Source of Funds",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "AST-SRC-001",
+            "AST-SRC-002",
+            "AST-SRC-003",
+            "AST-SRC-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-AST-004_source-of-funds_v1.0.md",
+          "source_sha256": "240af93f402114abea945bed2607083ee00914bef2aea33f35708a4ba121fcb6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8340,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-CONV-001",
+          "policy_title": "Conventional Conforming Purchase Eligibility",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming"
+          ],
+          "rule_ids": [
+            "CONV-PUR-001",
+            "CONV-PUR-002",
+            "CONV-PUR-003",
+            "CONV-PUR-004",
+            "CONV-PUR-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CONV-001_conventional-purchase_v1.0.md",
+          "source_sha256": "f68f751e14e55a23a7f790f21e75f7a95db922e3dd4590373ea2a5c0714383c0",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6594,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-CONV-002",
+          "policy_title": "Conventional Rate and Term Refinance Eligibility",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming"
+          ],
+          "rule_ids": [
+            "CONV-RTR-001",
+            "CONV-RTR-002",
+            "CONV-RTR-003",
+            "CONV-RTR-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CONV-002_conventional-rate-term-refinance_v1.0.md",
+          "source_sha256": "1c86454c63d4b0d0cb78f54ae4600a200ad6ea8c7fb7d614084b9829c63a7a75",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6366,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-CONV-003",
+          "policy_title": "Cash-Out Refinance Eligibility",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming"
+          ],
+          "rule_ids": [
+            "CONV-COR-001",
+            "CONV-COR-002",
+            "CONV-COR-003",
+            "CONV-COR-004",
+            "CONV-COR-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CONV-003_cash-out-refinance_v1.0.md",
+          "source_sha256": "c0024d402d9a4b90d927c350a7ea28fcc0b85cd029f99bccfcb031d04ba3caa6",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8205,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-CRD-001",
+          "policy_title": "Credit Assessment and Representative Score",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "CRD-SCR-001",
+            "CRD-SCR-002",
+            "CRD-SCR-005",
+            "CRD-SCR-006",
+            "CRD-SCR-003",
+            "CRD-SCR-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CRD-001_credit-assessment_v1.0.md",
+          "source_sha256": "e4ebc50149ef9dd986a9a25e19ab83566ef7fcafa8d266ebe96a734b29ea42f4",
+          "superseded_by": "POL-CRD-001 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 9800,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-CRD-001",
+          "policy_title": "Credit Assessment and Representative Score",
+          "policy_version": "2.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "CRD-SCR-001",
+            "CRD-SCR-002",
+            "CRD-SCR-005",
+            "CRD-SCR-006",
+            "CRD-SCR-003",
+            "CRD-SCR-004",
+            "CRD-SCR-007"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CRD-001_credit-assessment_v2.0.md",
+          "source_sha256": "413faf15e24506f39ab33efd09c252b27425a92c2bc189d0d808e6482790392c",
+          "superseded_by": null,
+          "supersedes": "POL-CRD-001 v1.0"
+        },
+        {
+          "bytes": 7350,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-CRD-002",
+          "policy_title": "Significant Derogatory Credit Events and Seasoning",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "CRD-EVT-001",
+            "CRD-EVT-002",
+            "CRD-EVT-003",
+            "CRD-EVT-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CRD-002_credit-events_v1.0.md",
+          "source_sha256": "161654f3b10cc1330f87512f708010e098f4a3a20d72cbfe3eee505c404b3b03",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 5827,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-CRD-003",
+          "policy_title": "Delinquency and Payment History Treatment",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "CRD-DLQ-001",
+            "CRD-DLQ-002",
+            "CRD-DLQ-003",
+            "CRD-DLQ-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-CRD-003_delinquency-treatment_v1.0.md",
+          "source_sha256": "33d910013967bfe63a6c710e02abb695c78723a2aada93e5285bcf8b35aeff7d",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7644,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-DEC-001",
+          "policy_title": "Decisioning, Recommendations and Adverse-Action Handling",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "DEC-REC-001",
+            "DEC-REC-002",
+            "DEC-ADV-001",
+            "DEC-ADV-002",
+            "DEC-ADV-003",
+            "DEC-AUD-001"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-DEC-001_decisioning_v1.0.md",
+          "source_sha256": "2558151ab866f3cfa15f4e4c3ffb0de3cc136397bc529862816fbd2f9ff60b7e",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7856,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-DOC-001",
+          "policy_title": "Documentation Requirements, Completeness and Freshness",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "DOC-REQ-001",
+            "DOC-REQ-002",
+            "DOC-REQ-003",
+            "DOC-REQ-004",
+            "DOC-REQ-005",
+            "DOC-REQ-006"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-DOC-001_documentation_v1.0.md",
+          "source_sha256": "f956418366235d6cf3ee3488ab81e57060b5b6efcf14db984e73112dfdfba18b",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 9433,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-DTI-001",
+          "policy_title": "Affordability, Debt-to-Income and Disposable Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "DTI-CALC-001",
+            "DTI-CALC-002",
+            "DTI-CALC-003",
+            "DTI-CONV-001",
+            "DTI-CONV-002",
+            "DTI-BRE-001",
+            "DTI-BRE-002"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-DTI-001_affordability-dti_v1.0.md",
+          "source_sha256": "cb276750d559672b6d70b99298f34b6618b41366e26911498d324e6edb50d023",
+          "superseded_by": "POL-DTI-001 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 11313,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-DTI-001",
+          "policy_title": "Affordability, Debt-to-Income and Disposable Income",
+          "policy_version": "2.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "DTI-CALC-001",
+            "DTI-CALC-002",
+            "DTI-CALC-003",
+            "DTI-CONV-001",
+            "DTI-CONV-002",
+            "DTI-CONV-003",
+            "DTI-BRE-001",
+            "DTI-BRE-002"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-DTI-001_affordability-dti_v2.0.md",
+          "source_sha256": "53b1e0430dd3f02f3bec0bd638f8dced9b0db008a15686f74ea808a0182674f6",
+          "superseded_by": null,
+          "supersedes": "POL-DTI-001 v1.0"
+        },
+        {
+          "bytes": 5970,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-EMP-001",
+          "policy_title": "Employment Verification",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "EMP-VER-001",
+            "EMP-VER-002",
+            "EMP-VER-003",
+            "EMP-VER-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-EMP-001_employment-verification_v1.0.md",
+          "source_sha256": "14c33644fc4767d7554b00534cdd5543a94a829c781a38ed93ee7fe97bd457ff",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7145,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-EMP-002",
+          "policy_title": "Employment Continuity, Gaps and Future Employment",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "EMP-CNT-001",
+            "EMP-CNT-002",
+            "EMP-CNT-003",
+            "EMP-CNT-004",
+            "EMP-CNT-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-EMP-002_employment-continuity_v1.0.md",
+          "source_sha256": "fed7c6227d371f9b556ff7ac18cd940767f202d927952d5a9f62a708055aea51",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 5847,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-FHA-001",
+          "policy_title": "FHA-Style Programme Overlay",
+          "policy_version": "1.0",
+          "product_scope": [
+            "fha"
+          ],
+          "rule_ids": [
+            "FHA-OVL-001",
+            "FHA-OVL-002",
+            "FHA-OVL-003",
+            "FHA-OVL-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-FHA-001_fha-overlay_v1.0.md",
+          "source_sha256": "ac28c7048676df1adecf7239fc2ce21f5931254ad5a43c6b4c175c7fdda21c36",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6887,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-FRD-001",
+          "policy_title": "Fraud Indicators and Document Integrity",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "FRD-IND-001",
+            "FRD-IND-002",
+            "FRD-IND-003",
+            "FRD-IND-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-FRD-001_fraud-and-integrity_v1.0.md",
+          "source_sha256": "d5b38e9071292bd35aa4c509f14d71f50480d6340ed77ba716077aaf25b3aa3b",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 10703,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-GEN-001",
+          "policy_title": "General Mortgage Eligibility and Programme Framework",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "GEN-ELG-001",
+            "GEN-ELG-002",
+            "GEN-ELG-003",
+            "GEN-ELG-004",
+            "GEN-ELG-005",
+            "GEN-ELG-006"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-GEN-001_general-eligibility_v1.0.md",
+          "source_sha256": "5c43ab2d664943c07528312d60c690006b7543951dc2d2b170cc8c3e7866bf03",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8574,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-001",
+          "policy_title": "Income General Principles and Qualifying Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-GEN-001",
+            "INC-GEN-002",
+            "INC-GEN-003",
+            "INC-GEN-004",
+            "INC-GEN-005",
+            "INC-GEN-006"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-001_income-general_v1.0.md",
+          "source_sha256": "3319100c9ab9aee989a231cd88ddd61bd5bfaeb0ebf12107330f817cafc43f7e",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6956,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-002",
+          "policy_title": "Salaried Income Qualification",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-SAL-001",
+            "INC-SAL-002",
+            "INC-SAL-003",
+            "INC-SAL-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-002_income-salaried_v1.0.md",
+          "source_sha256": "351c5cbea83aa7005663d152ca7d312cb6de8124293ea72487c6517dc347b6bd",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6039,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-003",
+          "policy_title": "Hourly and Variable-Hour Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-HRL-001",
+            "INC-HRL-002",
+            "INC-HRL-003",
+            "INC-HRL-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-003_income-hourly_v1.0.md",
+          "source_sha256": "f24334ea4d08c1290349a10415f190753207883f8bd09848bd7e909c5e406b79",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6551,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-INC-004",
+          "policy_title": "Bonus, Overtime, Commission and Tip Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-VAR-001",
+            "INC-VAR-002",
+            "INC-VAR-003",
+            "INC-VAR-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-004_income-variable_v1.0.md",
+          "source_sha256": "8f2253fb030e768c538aa7f32fd8d70f663005ea2f6a2f7b371df6c4ab66f3de",
+          "superseded_by": "POL-INC-004 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 7765,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-004",
+          "policy_title": "Bonus, Overtime, Commission and Tip Income",
+          "policy_version": "2.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-VAR-001",
+            "INC-VAR-002",
+            "INC-VAR-003",
+            "INC-VAR-004",
+            "INC-VAR-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-004_income-variable_v2.0.md",
+          "source_sha256": "41fb409e9e02e0fb5611fa552e0f670f00322a54e1daeaf3b3d77b6cffa03a41",
+          "superseded_by": null,
+          "supersedes": "POL-INC-004 v1.0"
+        },
+        {
+          "bytes": 8669,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-005",
+          "policy_title": "Self-Employment Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-SEB-001",
+            "INC-SEB-002",
+            "INC-SEB-003",
+            "INC-SEB-004",
+            "INC-SEB-005",
+            "INC-SEB-006"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-005_income-self-employed_v1.0.md",
+          "source_sha256": "d03a1bdd4afe5c3da71d68fcc0a0a9bd86b11a85f42484e39a5f1503381ba2f3",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6091,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-006",
+          "policy_title": "Rental Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-RNT-001",
+            "INC-RNT-002",
+            "INC-RNT-003",
+            "INC-RNT-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-006_income-rental_v1.0.md",
+          "source_sha256": "f6d31c3d575f1cd6100b67b9fab0823a48da885e3c13dbedbf3317d104ddee8b",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7101,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-INC-007",
+          "policy_title": "Other Qualifying Income",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "INC-OTH-001",
+            "INC-OTH-002",
+            "INC-OTH-003",
+            "INC-OTH-004",
+            "INC-OTH-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-INC-007_income-other_v1.0.md",
+          "source_sha256": "a44558d715a58a1d7f4b4175d9827899b4a0c53246a6c0214ed62e3b6d4d308d",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6057,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-JUMBO-001",
+          "policy_title": "Jumbo and High-Value Mortgage Overlay",
+          "policy_version": "1.0",
+          "product_scope": [
+            "jumbo"
+          ],
+          "rule_ids": [
+            "JMB-ELG-001",
+            "JMB-ELG-004",
+            "JMB-ELG-002",
+            "JMB-ELG-003"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-JUMBO-001_jumbo-overlay_v1.0.md",
+          "source_sha256": "c818c835b9a5529fe2a8f4a4f91ec7aa72a49e83973a50f7fb313ea76fedc2ee",
+          "superseded_by": "POL-JUMBO-001 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 7207,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-JUMBO-001",
+          "policy_title": "Jumbo and High-Value Mortgage Overlay",
+          "policy_version": "2.0",
+          "product_scope": [
+            "jumbo"
+          ],
+          "rule_ids": [
+            "JMB-ELG-001",
+            "JMB-ELG-004",
+            "JMB-ELG-002",
+            "JMB-ELG-003",
+            "JMB-ELG-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-JUMBO-001_jumbo-overlay_v2.0.md",
+          "source_sha256": "8a04f8fdb33d6a29a7953eb8ed4d89e166a6a01ef471644b2b3490eabba6bdf3",
+          "superseded_by": null,
+          "supersedes": "POL-JUMBO-001 v1.0"
+        },
+        {
+          "bytes": 5914,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-KYC-001",
+          "policy_title": "Identity Verification and Customer Identification",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "KYC-IDV-001",
+            "KYC-IDV-002",
+            "KYC-IDV-003"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-KYC-001_identity-kyc_v1.0.md",
+          "source_sha256": "5186073db3bf33cad9e9d39733681c55cda7f9e6582211df06320c5076a6949b",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 8084,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-LIA-001",
+          "policy_title": "Liabilities and Debt Inclusion",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "LIA-INC-001",
+            "LIA-INC-002",
+            "LIA-INC-003",
+            "LIA-INC-004",
+            "LIA-INC-005",
+            "LIA-INC-006"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-LIA-001_liabilities_v1.0.md",
+          "source_sha256": "0525c2dce35bc356c10254a851e8780f3fc68112ec35a52bfa1925adbb93272f",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6638,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-PRP-001",
+          "policy_title": "Property Eligibility",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "PRP-ELG-001",
+            "PRP-ELG-002",
+            "PRP-ELG-003",
+            "PRP-ELG-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-PRP-001_property-eligibility_v1.0.md",
+          "source_sha256": "27d163b3d07d8c2c3f68c4a37b0e718bdc053300d9e017ea6457ad795ed7de82",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 5285,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-PRP-002",
+          "policy_title": "Occupancy Classification and Verification",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "PRP-OCC-001",
+            "PRP-OCC-002",
+            "PRP-OCC-003"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-PRP-002_occupancy_v1.0.md",
+          "source_sha256": "2da2e792e88faa78dfb1268a70144537f336b52ec6e7ad95c691b72c38050240",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 10360,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-SEC-001",
+          "policy_title": "Privacy, Sensitive Data and AI Input Security",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "SEC-PII-001",
+            "SEC-PII-002",
+            "SEC-INJ-001",
+            "SEC-INJ-002",
+            "SEC-INJ-003",
+            "SEC-INJ-004",
+            "SEC-AUD-001"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-SEC-001_privacy-and-ai-security_v1.0.md",
+          "source_sha256": "f787671d1e7d75e6e81fa3a3658aa93aeed07f85701495e39e1c7ad38d045a9a",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6029,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-TTL-001",
+          "policy_title": "Title, Lien Position and Property Insurance",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "TTL-LIE-001",
+            "TTL-LIE-002",
+            "TTL-INS-001",
+            "TTL-INS-002"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-TTL-001_title-and-insurance_v1.0.md",
+          "source_sha256": "b93de4ce31b8f7e64499a27c7e2fa9f002112fc2a0890dd0971f265b91987dd4",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 5374,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-USDA-001",
+          "policy_title": "USDA-Style Rural Programme Overlay",
+          "policy_version": "1.0",
+          "product_scope": [
+            "usda"
+          ],
+          "rule_ids": [
+            "USD-OVL-001",
+            "USD-OVL-002",
+            "USD-OVL-003",
+            "USD-OVL-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-USDA-001_usda-overlay_v1.0.md",
+          "source_sha256": "2bef25e077f3a57547385734d94ecbfce33af09c04a7c4f06b122312d8e24c42",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 7951,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-UWR-001",
+          "policy_title": "Conditions, Manual Review and Exception Authority",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "UWR-HRV-001",
+            "UWR-CND-001",
+            "UWR-CND-002",
+            "UWR-EXC-001",
+            "UWR-EXC-002"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-UWR-001_underwriting-control_v1.0.md",
+          "source_sha256": "c4702fba29366cb5938e2eeca84ab1a8b13b2a4269cae66b8f572821e80c7979",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6399,
+          "effective_date": "2026-01-01",
+          "expiration_date": null,
+          "policy_id": "POL-VA-001",
+          "policy_title": "VA-Style Programme Overlay",
+          "policy_version": "1.0",
+          "product_scope": [
+            "va"
+          ],
+          "rule_ids": [
+            "VA-OVL-001",
+            "VA-OVL-002",
+            "VA-OVL-003",
+            "VA-OVL-004"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-VA-001_va-overlay_v1.0.md",
+          "source_sha256": "03d41a7d4626ee9af033221590f6eb4035a98464d49c3a23a65ad08cca3f3abf",
+          "superseded_by": null,
+          "supersedes": null
+        },
+        {
+          "bytes": 6711,
+          "effective_date": "2026-01-01",
+          "expiration_date": "2026-07-01",
+          "policy_id": "POL-VAL-001",
+          "policy_title": "Appraisal and Valuation",
+          "policy_version": "1.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "VAL-APR-002",
+            "VAL-APR-004",
+            "VAL-APR-001",
+            "VAL-APR-003"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-VAL-001_valuation_v1.0.md",
+          "source_sha256": "880e4b20e2074bffb3e0c635001ba54511d05396c299eab4641263ddafdb316a",
+          "superseded_by": "POL-VAL-001 v2.0",
+          "supersedes": null
+        },
+        {
+          "bytes": 8567,
+          "effective_date": "2026-07-01",
+          "expiration_date": null,
+          "policy_id": "POL-VAL-001",
+          "policy_title": "Appraisal and Valuation",
+          "policy_version": "2.0",
+          "product_scope": [
+            "conventional_conforming",
+            "jumbo",
+            "fha",
+            "va",
+            "usda"
+          ],
+          "rule_ids": [
+            "VAL-APR-002",
+            "VAL-APR-004",
+            "VAL-APR-001",
+            "VAL-APR-003",
+            "VAL-APR-005"
+          ],
+          "source_category": "SYNTHETIC_INTERNAL_POLICY",
+          "source_path": "synthetic_data/mortgage/policy_corpus/POL-VAL-001_valuation_v2.0.md",
+          "source_sha256": "db26057b3eeaf25510bc3a9d7c9b003aafb5782200c41d2eaead6799df43f9c8",
+          "superseded_by": null,
+          "supersedes": "POL-VAL-001 v1.0"
+        }
+      ],
+      "product_domain": "MORTGAGE"
+    }
+  },
+  "schema_version": 1,
+  "total_declared_rule_count": 275,
+  "total_document_count": 54
+}
