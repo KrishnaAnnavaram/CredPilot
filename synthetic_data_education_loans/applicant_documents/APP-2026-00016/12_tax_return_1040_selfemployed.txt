@@ -1,0 +1,89 @@
+==========================================================================
+  FORM 1040  U.S. INDIVIDUAL INCOME TAX RETURN  (SUMMARY)
+  WITH SCHEDULE C -- PROFIT OR LOSS FROM BUSINESS
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    FORM 1040  --  U.S. Individual Income Tax Return
+                              Tax Year: 2025
+
+--------------------------------------------------------------------------
+Filing Status:     Single
+Name:              Wendy Ortega
+SSN:               XXX-XX-0016
+Address:           8268 Cherry Ln, Cincinnati, OH 44268
+Occupation:        Research Scientist / Consultant
+--------------------------------------------------------------------------
+
+                           TAX YEAR 2025         TAX YEAR 2024
+                           ---------------       ---------------
+INCOME
+  1  Wages, salaries                $       0.00       $       0.00
+  8  Business income (Sched C)      $  54,355.25       $  51,218.00
+  9  Total income                   $  54,355.25       $  51,218.00
+
+ADJUSTMENTS TO INCOME
+ 15  Deductible self-employment tax $   3,840.10       $   3,618.63
+ 16  Self-employed health insurance $   4,800.00       $   4,560.00
+     Adjusted Gross Income (AGI)    $  45,715.15       $  43,039.37
+
+DEDUCTIONS
+     Standard deduction             $  14,600.00       $  14,600.00
+     Taxable income                 $  31,115.15       $  28,439.37
+
+TAX COMPUTATION
+     Tax                            $   3,496.98       $   3,166.22
+     Self-employment tax            $   7,680.19       $   7,237.26
+     Total tax                      $  11,177.17       $  10,403.48
+     Estimated payments made        $  11,400.00       $  10,800.00
+     Overpayment / (balance due)    $     222.83       $     396.52
+
+==========================================================================
+                    SCHEDULE C  --  PROFIT OR LOSS FROM BUSINESS
+                              Tax Year: 2025
+==========================================================================
+
+Business Name:          Meridian Consulting LLC
+Business Address:       8268 Cherry Ln, Cincinnati, OH 44268
+EIN:                    61-XXXXXXX
+Business Code (NAICS):  541990  (Other Professional Services)
+Accounting Method:      Cash
+Principal Service:      Scientific Research & Technical Consulting
+
+--------------------------------------------------------------------------
+                           TAX YEAR 2025         TAX YEAR 2024
+                           ---------------       ---------------
+INCOME
+  1  Gross receipts               $  78,420.00       $  73,950.00
+  2  Returns and allowances       $       0.00       $       0.00
+  7  Gross income                 $  78,420.00       $  73,950.00
+
+EXPENSES
+  8  Advertising                  $     620.00       $     580.00
+ 10  Car and truck expenses       $   2,145.00       $   1,980.00
+ 11  Commissions and fees         $     450.00       $     400.00
+ 13  Depreciation (equip/comp)    $   1,825.00       $   1,825.00
+ 15  Insurance (business)         $   1,440.00       $   1,380.00
+ 17  Legal and professional       $   1,200.00       $   1,050.00
+ 18  Office expense               $   2,380.00       $   2,215.00
+ 20  Rent (office co-working)     $   4,800.00       $   4,560.00
+ 22  Supplies                     $   1,815.00       $   1,720.00
+ 24  Travel                       $   3,240.00       $   2,900.00
+ 25  Meals (50% deductible)       $   1,050.00       $     980.00
+ 27  Other expenses               $   3,100.00       $   3,142.00
+     -------------------------    ---------------    ---------------
+ 28  Total expenses               $  24,065.00       $  22,732.00
+
+ 31  Net profit                   $  54,355.00       $  51,218.00
+
+==========================================================================
+NOTES:
+- Two-year income history provided for underwriting review.
+- Borrower has operated Meridian Consulting LLC continuously since 2019.
+- All income is derived from self-employment activity.
+- Tax returns were prepared by: H&L Tax Advisors, Cincinnati, OH
+  Preparer PTIN: P0XXXXXXX
+
+Verification: IRS Form 4506-C transcript request filed.
+==========================================================================

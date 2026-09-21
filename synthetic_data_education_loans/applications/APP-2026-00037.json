@@ -1,0 +1,152 @@
+{
+  "application_id": "APP-2026-00037",
+  "product_code": "REFI",
+  "submitted_at": "2026-08-02T09:40:00",
+  "channel": "partner",
+  "requested_amount": 175356.73,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "SC",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00037",
+    "first_name": "Wesley",
+    "last_name": "Walsh",
+    "dob": "1990-06-28",
+    "age": 36,
+    "ssn_itin_masked": "XXX-XX-0037",
+    "email": "wesley.walsh37@example.com",
+    "phone": "(932) 978-9267",
+    "address_line1": "7257 Pine Dr",
+    "city": "Springfield",
+    "state": "SC",
+    "zip": "22115",
+    "citizenship_status": "US_CITIZEN",
+    "years_at_address": 4,
+    "references_provided": 1
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00037",
+      "subject_type": "borrower",
+      "pull_date": "2026-08-01",
+      "pull_type": "HARD",
+      "fico_score": 727,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 215,
+      "open_tradelines": 14,
+      "total_debt": 64544.48,
+      "revolving_utilization_pct": 0.35,
+      "inquiries_6mo": 5,
+      "delinq_30_24mo": 0,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00037",
+      "verification_method": "W2",
+      "employer_name": "Ashford Media Group",
+      "employment_type": "W2",
+      "job_title": "Admin Assistant",
+      "tenure_months": 143,
+      "gross_annual_income": 149909.71,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 2252.96,
+      "monthly_debt_service": 5307.93,
+      "dti_pct": 0.4249,
+      "residual_income": 7184.55,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "PRIVATE",
+      "current_balance": 53857.65,
+      "current_rate_pct": 8.69,
+      "monthly_payment": 673.24,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 29688.65,
+      "current_rate_pct": 7.14,
+      "monthly_payment": 346.86,
+      "status": "30DPD",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 3,
+      "servicer_name": "Horizon Loan Management",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 68073.85,
+      "current_rate_pct": 7.67,
+      "monthly_payment": 814.1,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 4,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 39609.96,
+      "current_rate_pct": 5.75,
+      "monthly_payment": 434.8,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 21,
+    "velocity_flag": false,
+    "synthetic_identity_score": 16,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 2,
+    "prior_balance_with_us": 20215.03,
+    "federal_loan_balance": 23031.77,
+    "other_private_balance": 10567.56,
+    "total_education_debt": 229171.09,
+    "projected_debt_at_graduation": 229171.09,
+    "projected_starting_salary": 139684.45,
+    "debt_to_projected_income_ratio": 1.6406
+  },
+  "decision": {
+    "risk_grade": "C1",
+    "decision": "APPROVE",
+    "approved_amount": 175356.73,
+    "offered_rate_pct": 7.99,
+    "rate_type": "FIXED",
+    "term_months": 84,
+    "repayment_option": "IMMEDIATE",
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [],
+    "adverse_action_required": false,
+    "decisioned_at": "2026-09-09T14:51:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

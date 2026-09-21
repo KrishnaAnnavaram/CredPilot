@@ -1,0 +1,87 @@
+==========================================================================
+  VERIFICATION OF EMPLOYMENT (VOE) LETTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    ASHFORD MEDIA GROUP
+                    Corporate Human Resources
+                    2750 Meridian Boulevard, Suite 800
+                    Charleston, SC 29401
+                    Tel: (843) 555-0234 | Fax: (843) 555-0235
+                    hr@ashfordmediagroup.example.com
+
+--------------------------------------------------------------------------
+
+                    EMPLOYMENT VERIFICATION LETTER
+
+Date:              August 15, 2026
+
+To:                Edgemont Education Lending
+                   Loan Origination Department
+
+Re:                Employment Verification for Wesley Walsh
+
+--------------------------------------------------------------------------
+
+To Whom It May Concern:
+
+This letter confirms the employment of the individual named below at
+Ashford Media Group. The following details are provided for the purpose
+of loan qualification and verification.
+
+EMPLOYEE INFORMATION
+--------------------------------------------------------------------------
+  Full Name:                 Wesley Walsh
+  Employee ID:               AMG-EMP-04517
+  Social Security (last 4):  XXXX-0037
+  Date of Birth:             06/28/1990
+
+EMPLOYMENT DETAILS
+--------------------------------------------------------------------------
+  Job Title:                 Administrative Assistant
+  Department:                Operations
+  Employment Status:         Active, Full-Time
+  Start Date:                September 12, 2014
+  Tenure:                    11 years, 11 months (143 months)
+  Employment Type:           W-2 Employee
+
+COMPENSATION
+--------------------------------------------------------------------------
+  Current Annual Salary:     $149,909.71
+  Pay Frequency:             Bi-Weekly (26 pay periods)
+  Current Gross Per Period:  $  5,765.76
+  Overtime Eligible:         No
+  Bonus Eligible:            Yes (discretionary, performance-based)
+  Commission:                N/A
+
+ADDITIONAL INFORMATION
+--------------------------------------------------------------------------
+  Probability of Continued
+    Employment:              High -- no pending disciplinary action,
+                             layoff, or reduction in force.
+  Last Performance Review:   Meets/Exceeds Expectations (Apr 2026)
+  Eligible for Rehire:       N/A (currently employed)
+
+--------------------------------------------------------------------------
+
+This information is provided in response to an authorized request and is
+believed to be accurate as of the date of this letter. Ashford Media
+Group makes no guarantees regarding future employment status or
+compensation changes.
+
+If you have additional questions, please contact our HR Verification
+line at (843) 555-0234, option 3.
+
+Sincerely,
+
+_____________________________
+Patricia Donovan
+Director, Human Resources
+Ashford Media Group
+
+Date: 08/15/2026
+
+--------------------------------------------------------------------------
+EMPLOYER VERIFICATION STAMP:  [AMG-HR-VERIFIED-2026-0815]
+==========================================================================

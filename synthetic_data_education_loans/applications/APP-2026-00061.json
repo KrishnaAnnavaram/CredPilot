@@ -1,0 +1,122 @@
+{
+  "application_id": "APP-2026-00061",
+  "product_code": "REFI",
+  "submitted_at": "2026-07-13T17:09:00",
+  "channel": "partner",
+  "requested_amount": 126263.18,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "NJ",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00061",
+    "first_name": "Lorenzo",
+    "last_name": "Hartwell",
+    "dob": "2002-05-10",
+    "age": 24,
+    "ssn_itin_masked": "XXX-XX-0061",
+    "email": "lorenzo.hartwell61@example.com",
+    "phone": "(583) 241-6080",
+    "address_line1": "7372 Willow Ct",
+    "city": "Springfield",
+    "state": "NJ",
+    "zip": "79596",
+    "citizenship_status": "US_CITIZEN",
+    "years_at_address": 7,
+    "references_provided": 0
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00061",
+      "subject_type": "borrower",
+      "pull_date": "2026-07-17",
+      "pull_type": "HARD",
+      "fico_score": 749,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 45,
+      "open_tradelines": 14,
+      "total_debt": 55571.53,
+      "revolving_utilization_pct": 0.24,
+      "inquiries_6mo": 0,
+      "delinq_30_24mo": 1,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00061",
+      "verification_method": "TAX_RETURN",
+      "employer_name": "Northwind Analytics",
+      "employment_type": "W2",
+      "job_title": "Project Manager",
+      "tenure_months": 162,
+      "gross_annual_income": 104936.7,
+      "other_income": 2149.18,
+      "other_income_source": "Rental income",
+      "monthly_housing_expense": 1921.86,
+      "monthly_debt_service": 3436.76,
+      "dti_pct": 0.3851,
+      "residual_income": 5487.06,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 17801.45,
+      "current_rate_pct": 10.69,
+      "monthly_payment": 242.1,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 11,
+    "velocity_flag": false,
+    "synthetic_identity_score": 23,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 1,
+    "prior_balance_with_us": 4539.5,
+    "federal_loan_balance": 23113.38,
+    "other_private_balance": 0,
+    "total_education_debt": 153916.06,
+    "projected_debt_at_graduation": 153916.06,
+    "projected_starting_salary": 94931.33,
+    "debt_to_projected_income_ratio": 1.6213
+  },
+  "decision": {
+    "risk_grade": "B2",
+    "decision": "APPROVE",
+    "approved_amount": 126263.18,
+    "offered_rate_pct": 6.99,
+    "rate_type": "FIXED",
+    "term_months": 120,
+    "repayment_option": "IMMEDIATE",
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [],
+    "adverse_action_required": false,
+    "decisioned_at": "2026-08-16T14:42:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

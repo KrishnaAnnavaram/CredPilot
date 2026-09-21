@@ -1,0 +1,105 @@
+==========================================================================
+  SCHOOL CERTIFICATION FORM
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    PRIVATE EDUCATION LOAN
+                    SCHOOL CERTIFICATION FORM
+
+                    Lender: Edgemont Education Lending
+                    Application ID: APP-2026-00024
+
+==========================================================================
+SECTION 1: SCHOOL INFORMATION
+==========================================================================
+
+  School Name:                   Crestmont University
+  School ID:                     SCH-001
+  OPE ID:                        00XXXX
+  School Type:                   Public 4-Year (PUBLIC_4YR)
+  Title IV Eligible:             Yes
+  Accreditation:                 Regional
+  School Address:                One University Circle
+                                 Springfield, AL 35801
+
+  Certifying Official:           Margaret Liu
+  Title:                         Director of Financial Aid
+  Phone:                         (256) 555-0112
+  Email:                         finaid-cert@crestmont.example.edu
+  Date of Certification:         06/24/2026
+
+==========================================================================
+SECTION 2: STUDENT INFORMATION
+==========================================================================
+
+  Student Name:                  Sofia Kaur
+  Borrower ID:                   BORR-00024
+  Date of Birth:                 06/08/2005
+  Student ID (School):           CU-2026-F-024893
+  SSN (last 4):                  0024
+
+==========================================================================
+SECTION 3: ENROLLMENT AND PROGRAM DETAILS
+==========================================================================
+
+  Degree Level:                  BS (Bachelor of Science)
+  Program Name:                  Engineering
+  Year in Program:               3
+  Enrollment Intensity:          FULL_TIME
+  Enrollment Period Start:       01/10/2027
+  Enrollment Period End:         01/10/2028
+  Expected Graduation Date:      05/15/2031
+
+==========================================================================
+SECTION 4: COST AND FINANCIAL AID CERTIFICATION
+==========================================================================
+
+  A. Cost of Attendance (COA)
+     for Certification Period:             $ 16,450.50
+
+  B. Other Financial Aid
+     (grants, scholarships, other):        $  5,326.63
+
+  C. Federal Loans Amount:                 $  4,335.47
+
+  D. Total Aid (B + C):                    $  9,662.10
+
+  E. Remaining Need (A - D):              $  6,788.40
+
+  F. Certified Maximum Eligible
+     for Private Loan:                     $  6,788.40
+
+--------------------------------------------------------------------------
+  Note: The certified maximum eligible amount represents the difference
+  between the student's cost of attendance and all other financial
+  assistance. The private education loan may not exceed this amount per
+  federal regulation (TILA Section 128(e)(3)).
+--------------------------------------------------------------------------
+
+==========================================================================
+SECTION 5: SCHOOL CERTIFICATION ATTESTATION
+==========================================================================
+
+  I certify that the information provided above is true and correct to
+  the best of my knowledge. The student named above is enrolled or
+  accepted for enrollment in the program indicated. The cost of
+  attendance and financial aid figures reflect the school's official
+  records for the enrollment period specified.
+
+  Certification Status:          RECEIVED
+
+  _____________________________
+  Margaret Liu
+  Director of Financial Aid
+  Crestmont University
+  Date: 06/24/2026
+
+  School Seal: [CRESTMONT UNIVERSITY - FINANCIAL AID OFFICE]
+
+==========================================================================
+  For lender use only:
+  Received by Edgemont Education Lending: 06/25/2026
+  Reviewed by: Loan Operations
+  Status: Verified and matched to application APP-2026-00024
+==========================================================================
