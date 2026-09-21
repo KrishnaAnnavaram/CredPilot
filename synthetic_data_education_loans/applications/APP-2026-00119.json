@@ -1,0 +1,124 @@
+{
+  "application_id": "APP-2026-00119",
+  "product_code": "REFI",
+  "submitted_at": "2026-08-15T12:39:00",
+  "channel": "partner",
+  "requested_amount": 151604.98,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "IN",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00119",
+    "first_name": "Dmitri",
+    "last_name": "Sato",
+    "dob": "1985-08-26",
+    "age": 41,
+    "ssn_itin_masked": "XXX-XX-0119",
+    "email": "dmitri.sato119@example.com",
+    "phone": "(997) 414-1192",
+    "address_line1": "3297 Spruce Ave",
+    "city": "Springfield",
+    "state": "IN",
+    "zip": "82556",
+    "citizenship_status": "PERM_RESIDENT",
+    "years_at_address": 0,
+    "references_provided": 3
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00119",
+      "subject_type": "borrower",
+      "pull_date": "2026-08-03",
+      "pull_type": "HARD",
+      "fico_score": 682,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 270,
+      "open_tradelines": 15,
+      "total_debt": 85366.72,
+      "revolving_utilization_pct": 0.5,
+      "inquiries_6mo": 1,
+      "delinq_30_24mo": 1,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00119",
+      "verification_method": "W2",
+      "employer_name": "Prairie Wind Energy",
+      "employment_type": "W2",
+      "job_title": "Physical Therapist",
+      "tenure_months": 89,
+      "gross_annual_income": 51377.77,
+      "other_income": 2.79,
+      "other_income_source": "Rental income",
+      "monthly_housing_expense": 844.86,
+      "monthly_debt_service": 2831.48,
+      "dti_pct": 0.6613,
+      "residual_income": 1450.23,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 35916.22,
+      "current_rate_pct": 5.1,
+      "monthly_payment": 382.71,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 28,
+    "velocity_flag": false,
+    "synthetic_identity_score": 22,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": true
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 3,
+    "prior_balance_with_us": 40380.67,
+    "federal_loan_balance": 29776.96,
+    "other_private_balance": 0,
+    "total_education_debt": 221762.61,
+    "projected_debt_at_graduation": 221762.61,
+    "projected_starting_salary": 94407.99,
+    "debt_to_projected_income_ratio": 2.349
+  },
+  "decision": {
+    "risk_grade": "D3",
+    "decision": "DECLINE",
+    "approved_amount": null,
+    "offered_rate_pct": 11.99,
+    "rate_type": "FIXED",
+    "term_months": null,
+    "repayment_option": null,
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [
+      "RC-003"
+    ],
+    "adverse_action_required": true,
+    "decisioned_at": "2026-08-17T10:12:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

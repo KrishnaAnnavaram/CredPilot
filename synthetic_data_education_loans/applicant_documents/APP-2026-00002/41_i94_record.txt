@@ -1,0 +1,72 @@
+==========================================================================
+  I-94 ARRIVAL/DEPARTURE RECORD
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    U.S. CUSTOMS AND BORDER PROTECTION
+                    DEPARTMENT OF HOMELAND SECURITY
+
+                    I-94 ARRIVAL/DEPARTURE RECORD
+                    (Electronic -- Retrieved from i94.cbp.dhs.gov)
+
+==========================================================================
+
+TRAVELER INFORMATION
+--------------------------------------------------------------------------
+  Last/Surname:              Ivanov
+  First (Given) Name:        Sofia
+  Date of Birth:             08/04/2000
+  Passport Country:          Mexico
+  Passport Number:           MX-G28XXXXXX
+  Citizenship:               Mexico
+
+I-94 RECORD DETAILS
+--------------------------------------------------------------------------
+  I-94 Admission Number:     261-4073-46430
+  Admission Record Number:   I94-2025-MX-07284631
+
+  Most Recent Arrival
+  --------------------------------------------------------------------------
+  Date of Entry:             08/12/2025
+  Port of Entry:             Washington Dulles International (IAD)
+  Class of Admission:        F-1 (Academic Student)
+  Admitted Until:            D/S (Duration of Status)
+
+  Travel Document Type:      Passport with F-1 Visa
+  Carrier/Flight:            Aeromexico AM-0456
+
+PREVIOUS ENTRY (PRIOR ARRIVAL)
+--------------------------------------------------------------------------
+  Date of Entry:             08/10/2024
+  Port of Entry:             Los Angeles International (LAX)
+  Class of Admission:        F-1
+  Admitted Until:            D/S
+
+STATUS INFORMATION
+--------------------------------------------------------------------------
+  Current Status:            F-1 (Active Student)
+  Status Valid:              Duration of Status (D/S) -- valid as long
+                             as student maintains full-time enrollment
+                             and valid SEVIS record.
+
+  SEVIS ID:                  N6420734643
+  I-20 School:               Prairie Heights University
+  Program End Date:          05/15/2031
+
+==========================================================================
+VERIFICATION NOTES
+==========================================================================
+
+  - I-94 record retrieved electronically on 07/20/2026 for loan
+    application verification purposes.
+  - i94_verified in application: Pending lender verification
+  - Student has maintained continuous F-1 status since initial entry.
+  - No out-of-status gaps identified in SEVIS record.
+  - Passport valid through: 03/2031
+
+--------------------------------------------------------------------------
+  This record was obtained from the CBP I-94 website.
+  Verification URL: https://i94.cbp.dhs.gov/I94/#/home
+  Record printed for: Edgemont Education Lending -- APP-2026-00002
+==========================================================================

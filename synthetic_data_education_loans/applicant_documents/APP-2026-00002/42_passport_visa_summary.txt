@@ -1,0 +1,91 @@
+==========================================================================
+  PASSPORT AND VISA SUMMARY
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    PASSPORT AND VISA VERIFICATION SUMMARY
+                    Prepared for: Edgemont Education Lending
+                    Application ID: APP-2026-00002
+
+--------------------------------------------------------------------------
+
+SECTION 1: PASSPORT INFORMATION
+--------------------------------------------------------------------------
+
+  Document Type:             Passport
+  Issuing Country:           Mexico (Estados Unidos Mexicanos)
+  Passport Number:           MX-G28XXXXXX
+  Type:                      P (Ordinary)
+
+  Surname:                   Ivanov
+  Given Names:               Sofia
+  Date of Birth:             08/04/2000
+  Place of Birth:            Mexico City, Mexico
+  Sex:                       F
+  Nationality:               Mexican
+
+  Date of Issue:             06/15/2022
+  Date of Expiration:        06/14/2032
+  Issuing Authority:         Secretaria de Relaciones Exteriores
+
+  Machine Readable Zone (MRZ):
+    P<MEXIVANOV<<SOFIA<<<<<<<<<<<<<<<<<<<<<
+    G28XXXXXXMEX0008040F3206XXXXXXXXX<<XX
+
+  Passport Status:           Valid (expires 06/14/2032)
+  Pages Remaining:           Sufficient
+
+--------------------------------------------------------------------------
+
+SECTION 2: U.S. VISA INFORMATION
+--------------------------------------------------------------------------
+
+  Visa Type:                 F-1 (Academic Student)
+  Visa Number:               F1-2025-XXXXXXXX
+  Visa Foil Control Number:  20250XXXXXXXXXX
+
+  Issuance Post:             U.S. Embassy, Mexico City
+  Issue Date:                07/20/2025
+  Expiration Date:           07/19/2030
+  Entries:                   Multiple (M)
+  Annotation:                SEVIS ID: N6420734643
+                             Prairie Heights University
+
+  Visa Status:               Valid and Current
+
+--------------------------------------------------------------------------
+
+SECTION 3: COMPLIANCE VERIFICATION
+--------------------------------------------------------------------------
+
+  Passport Valid for Entry:          Yes (valid through 06/14/2032)
+  Visa Valid for Entry:              Yes (valid through 07/19/2030)
+  Visa Classification Matches I-20:  Yes (F-1)
+  SEVIS ID Matches I-20:            Yes (N6420734643)
+  Passport Expiration > Program End: Yes (2032 > 2031)
+
+  Identity Verification:
+    Photo Match:                     Confirmed
+    Name Match (passport vs app):    Confirmed
+    DOB Match:                       Confirmed
+
+--------------------------------------------------------------------------
+
+SECTION 4: ADDITIONAL NOTES
+--------------------------------------------------------------------------
+
+  - Borrower entered the U.S. on 08/12/2025 on F-1 visa at IAD port
+    of entry (see I-94 record).
+  - Passport was issued by Mexico and remains valid for the duration
+    of the academic program.
+  - F-1 visa permits multiple entries; student may travel and re-enter
+    with valid I-20 and visa.
+  - Cosigner Ada Mendoza (COSIG-00002) is a U.S. Citizen and is not
+    subject to visa/passport verification.
+
+--------------------------------------------------------------------------
+  Document reviewed by: Loan Operations, Edgemont Education Lending
+  Review date: 08/01/2026
+  Copies retained: Passport bio page, visa foil page
+==========================================================================

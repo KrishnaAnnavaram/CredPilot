@@ -1,0 +1,175 @@
+==========================================================================
+  COSIGNER NOTICE AND ACKNOWLEDGMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    EDGEMONT EDUCATION LENDING
+                    Private Education Loan Program
+
+                    COSIGNER NOTICE AND ACKNOWLEDGMENT
+                    (Per Regulation Z / TILA Section 128(e)(11))
+
+==========================================================================
+LOAN AND APPLICATION INFORMATION
+==========================================================================
+
+  Application ID:            APP-2026-00003
+  Borrower:                  Leon Park (BORR-00003)
+  Cosigner:                  Umar Xu (COSIG-00003)
+  Cosigner Relationship:     Other
+  Loan Product:              UG (Undergraduate)
+  Requested Amount:          $7,892.22
+  Approved Amount:           $7,892.22
+  Interest Rate:             7.99% Fixed
+  Loan Term:                 120 months
+  Repayment Option:          FLAT_25
+
+==========================================================================
+IMPORTANT COSIGNER NOTICE
+==========================================================================
+
+PLEASE READ THIS NOTICE CAREFULLY BEFORE SIGNING.
+
+You are being asked to guarantee the private education loan described
+above. Think carefully before you do. If the borrower does not pay
+the loan, you will have to. Be sure you can afford to pay if you
+have to, and that you want to accept this responsibility.
+
+YOU MAY HAVE TO PAY UP TO THE FULL AMOUNT OF THE DEBT IF THE
+BORROWER DOES NOT PAY.
+
+You may also have to pay late fees, collection costs, and attorney's
+fees. The creditor can collect this debt from you without first trying
+to collect from the borrower. The creditor can use the same collection
+methods against you that can be used against the borrower, including
+suing you and garnishing your wages. If this debt is ever in default,
+that fact may become a part of your credit record.
+
+==========================================================================
+SECTION 1: COSIGNER LIABILITY
+==========================================================================
+
+  As cosigner, you acknowledge and agree to the following:
+
+  1.  JOINT AND SEVERAL LIABILITY. You are jointly and severally liable
+      with the borrower for the full amount of the loan, including
+      principal, interest, fees, and any collection costs.
+
+  2.  OBLIGATION TO PAY. If the borrower fails to make any payment when
+      due, you are obligated to make the payment. Edgemont Education
+      Lending may demand payment from you without first pursuing
+      collection from the borrower.
+
+  3.  CREDIT REPORTING. This loan will be reported to the major credit
+      bureaus under both the borrower's and your name. Late payments,
+      delinquencies, or default will appear on your credit report.
+
+  4.  NO RIGHT TO DIRECT LOAN PROCEEDS. You acknowledge that loan
+      proceeds will be disbursed to the school or the borrower, and
+      you have no right to receive or direct the loan funds.
+
+==========================================================================
+SECTION 2: RIGHT TO RECEIVE STATEMENTS AND NOTICES
+==========================================================================
+
+  As cosigner, you have the right to:
+
+  1.  Receive a copy of all billing statements sent to the borrower.
+  2.  Receive notice if the borrower's payment is more than 30 days
+      late.
+  3.  Receive notice before any adverse action is taken on the account
+      that would affect your credit.
+  4.  Receive notification of any material changes to the loan terms.
+
+  To receive billing statements, provide your preferred contact
+  information below.
+
+==========================================================================
+SECTION 3: COSIGNER RELEASE TERMS
+==========================================================================
+
+  Cosigner Release Eligible:  Yes
+
+  You may be eligible for release from your cosigner obligation under
+  the following conditions:
+
+  1.  The borrower has made at least 24 consecutive, on-time, full
+      principal-and-interest payments.
+  2.  The borrower individually meets Edgemont Education Lending's
+      credit and income underwriting criteria at the time of the
+      release request.
+  3.  The borrower is not in default, forbearance, or deferment at
+      the time of the release request.
+  4.  The borrower submits a formal Cosigner Release Application and
+      consents to a new credit inquiry.
+
+  NOTE: Cosigner release is not automatic. It must be requested by the
+  borrower, and approval is subject to underwriting review at the time
+  of the request. Meeting the minimum requirements does not guarantee
+  release.
+
+==========================================================================
+SECTION 4: ADDITIONAL DISCLOSURES
+==========================================================================
+
+  1.  RIGHT TO CANCEL. After receiving the final loan disclosure (the
+      "approval disclosure"), you have 3 business days to cancel the
+      loan without penalty per TILA requirements.
+
+  2.  DEATH OR BANKRUPTCY. In the event of the borrower's death,
+      disability, or bankruptcy, you may remain liable for the
+      outstanding balance unless otherwise provided by law or the
+      loan agreement.
+
+  3.  DISPUTE RESOLUTION. Any disputes arising from this loan are
+      subject to the dispute resolution process outlined in the
+      loan agreement, including binding arbitration if applicable.
+
+==========================================================================
+SECTION 5: COSIGNER ACKNOWLEDGMENT AND SIGNATURE
+==========================================================================
+
+  By signing below, I, Umar Xu, acknowledge that:
+
+  [ X ]  I have read and understand this Cosigner Notice.
+  [ X ]  I understand that I am jointly liable for this loan.
+  [ X ]  I understand the lender may collect from me without first
+         pursuing the borrower.
+  [ X ]  I understand the impact on my credit report.
+  [ X ]  I have been informed of the cosigner release terms.
+  [ X ]  I have received a copy of this notice for my records.
+  [ X ]  I wish to receive billing statements at the address and
+         email on file.
+
+  Cosigner Contact Information:
+    Name:     Umar Xu
+    Address:  3873 Maple Way, Los Angeles, CA 90841
+    SSN:      XXX-XX-5003
+    Phone:    On file
+    Email:    On file
+
+  _____________________________
+  Umar Xu
+  Cosigner
+
+  Date: _09_/_15_/_2026_
+
+--------------------------------------------------------------------------
+
+  Witnessed by Edgemont Education Lending:
+
+  _____________________________
+  Loan Officer / Authorized Representative
+
+  Date: _09_/_15_/_2026_
+
+==========================================================================
+  Edgemont Education Lending
+  NMLS# XXXXXX | Equal Credit Opportunity Lender
+  This notice is provided in compliance with the Truth in Lending Act
+  (TILA), Regulation Z, 12 CFR 1026.48, and applicable state laws.
+
+  Document ID: COSIGN-NOTICE-APP-2026-00003-V1
+  Generated: 09/15/2026
+==========================================================================
