@@ -1,0 +1,197 @@
+{
+  "generated_at_utc": "2026-09-21T09:40:11+00:00",
+  "run_id": "dffa06e884954d5fbee3098a8c35a2a6",
+  "runs": [
+    {
+      "application_id": "APP-000055",
+      "as_of_date": "2026-06-25",
+      "evidence_count": 43,
+      "loan_domain": "MORTGAGE",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation"
+      ],
+      "recommendation": "APPROVE_RECOMMENDATION",
+      "requires_human_review": false,
+      "thread_id": "trace-APP-000055-dffa06e8"
+    },
+    {
+      "application_id": "APP-000056",
+      "as_of_date": "2026-07-08",
+      "evidence_count": 50,
+      "loan_domain": "MORTGAGE",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation",
+        "human_review"
+      ],
+      "recommendation": "DECLINE_RECOMMENDATION",
+      "requires_human_review": true,
+      "thread_id": "trace-APP-000056-dffa06e8"
+    },
+    {
+      "application_id": "APP-000057",
+      "as_of_date": "2026-07-08",
+      "evidence_count": 50,
+      "loan_domain": "MORTGAGE",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation"
+      ],
+      "recommendation": "APPROVE_RECOMMENDATION",
+      "requires_human_review": false,
+      "thread_id": "trace-APP-000057-dffa06e8"
+    },
+    {
+      "application_id": "APP-000065",
+      "as_of_date": "2026-08-12",
+      "evidence_count": 54,
+      "loan_domain": "MORTGAGE",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation",
+        "human_review"
+      ],
+      "recommendation": "DECLINE_RECOMMENDATION",
+      "requires_human_review": true,
+      "thread_id": "trace-APP-000065-dffa06e8"
+    },
+    {
+      "application_id": "APP-2026-00001",
+      "as_of_date": "2026-07-11",
+      "evidence_count": 45,
+      "loan_domain": "EDUCATION_LOAN",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation"
+      ],
+      "recommendation": "APPROVE_RECOMMENDATION",
+      "requires_human_review": false,
+      "thread_id": "trace-APP-2026-00001-dffa06e8"
+    },
+    {
+      "application_id": "APP-2026-00002",
+      "as_of_date": "2026-08-24",
+      "evidence_count": 48,
+      "loan_domain": "EDUCATION_LOAN",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation"
+      ],
+      "recommendation": "APPROVE_RECOMMENDATION",
+      "requires_human_review": false,
+      "thread_id": "trace-APP-2026-00002-dffa06e8"
+    },
+    {
+      "application_id": "APP-2026-00037",
+      "as_of_date": "2026-08-02",
+      "evidence_count": 48,
+      "loan_domain": "EDUCATION_LOAN",
+      "nodes": [
+        "supervisor",
+        "domain_router",
+        "policy_retrieval",
+        "eligibility",
+        "risk",
+        "recommendation"
+      ],
+      "recommendation": "APPROVE_RECOMMENDATION",
+      "requires_human_review": false,
+      "thread_id": "trace-APP-2026-00037-dffa06e8"
+    }
+  ],
+  "span_count": 814,
+  "span_names": {
+    "bm25.search": {
+      "count": 74,
+      "p50_ms": 2.003,
+      "p95_ms": 2.007,
+      "total_ms": 87.337
+    },
+    "chroma.search": {
+      "count": 74,
+      "p50_ms": 9.547,
+      "p95_ms": 18.111,
+      "total_ms": 1321.051
+    },
+    "citation.validate": {
+      "count": 74,
+      "p50_ms": 2.556,
+      "p95_ms": 4.823,
+      "total_ms": 228.901
+    },
+    "domain.resolve": {
+      "count": 74,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "total_ms": 3.583
+    },
+    "embedding.query": {
+      "count": 74,
+      "p50_ms": 21.552,
+      "p95_ms": 34.475,
+      "total_ms": 8223.689
+    },
+    "metadata.filter": {
+      "count": 74,
+      "p50_ms": 1.745,
+      "p95_ms": 2.596,
+      "total_ms": 114.836
+    },
+    "rag.result": {
+      "count": 74,
+      "p50_ms": 0.0,
+      "p95_ms": 2.004,
+      "total_ms": 19.857
+    },
+    "rag.retrieve": {
+      "count": 74,
+      "p50_ms": 434.739,
+      "p95_ms": 498.487,
+      "total_ms": 40515.263
+    },
+    "reranker.run": {
+      "count": 74,
+      "p50_ms": 392.378,
+      "p95_ms": 458.148,
+      "total_ms": 30336.216
+    },
+    "rrf.fusion": {
+      "count": 74,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "total_ms": 3.896
+    },
+    "temporal.validate": {
+      "count": 74,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "total_ms": 6.017
+    }
+  },
+  "trace_count": 148
+}

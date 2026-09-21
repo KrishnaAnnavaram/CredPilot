@@ -1,0 +1,29 @@
+{
+  "as_measured": 0.6483,
+  "cases_cleared": 49,
+  "cases_flagged_originally": 50,
+  "cases_still_unfaithful": 1,
+  "corrected": {
+    "macro": 0.975,
+    "per_product": {
+      "EDUCATION_LOAN": 0.95,
+      "MORTGAGE": 1.0
+    }
+  },
+  "generated_at_utc": "2026-09-21T20:34:25+00:00",
+  "rechecked_run_id": "6910a018",
+  "still_unfaithful": [
+    {
+      "case_id": "GOLD-16",
+      "flagged_originally": [],
+      "product": "EDUCATION_LOAN",
+      "still_unsupported": [],
+      "unsupported_citations": [
+        "POL-001 EDU-GOV-002"
+      ]
+    }
+  ],
+  "why": "The run measured deterministic faithfulness with a supported-set that omitted two sources the narrative prompt actually supplies: figures published at the top level of the calculations (months_of_reserves) and the rule evaluations (the representative score and every policy floor). The check flagged the model for quoting what it had been handed.",
+  "why_this_is_a_lower_bound": "The same round of fixes also tightened the figure pattern, so that a formula version no longer reads as a quoted number. The record keeps the flagged string but not the sentence around it, so a figure the new pattern would no longer match cannot be identified from the record alone and stays counted as unfaithful. The true figure is at least this high, never lower. Runs from now on commit the narrative text with each case, so a future recheck can re-read the prose directly.",
+  "why_this_is_sound": "The run records every figure it flagged, and the fix only widens the supported set, so it can clear a flag and never raise a new one. Each flagged figure was re-tested against a supported set rebuilt from retrieval, the calculators and the rule engine \u2014 none of which involve a model."
+}

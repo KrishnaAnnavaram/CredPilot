@@ -1,0 +1,145 @@
+{
+  "check_count": 16,
+  "checks": [
+    {
+      "check": "MORTGAGE: every source document is indexed",
+      "detail": "42/42 documents indexed",
+      "expected": 42,
+      "measured": 42,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: every declared rule is indexed",
+      "detail": "174/174 declared rules indexed",
+      "expected": 174,
+      "measured": 174,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: collection contains only MORTGAGE policy",
+      "detail": "cross_product_contamination_rate=0.0000",
+      "expected": 0.0,
+      "measured": 0.0,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: every source path lies under synthetic_data/mortgage/policy_corpus/",
+      "detail": "all 42 source paths are under synthetic_data/mortgage/policy_corpus/",
+      "expected": 0,
+      "measured": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: indexed content hashes match the committed corpus",
+      "detail": "all hashes match",
+      "expected": 0,
+      "measured": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: lexical and vector indexes cover the same chunks",
+      "detail": "bm25=329 chroma=329",
+      "expected": 329,
+      "measured": 329,
+      "status": "PASS"
+    },
+    {
+      "check": "MORTGAGE: every indexed citation resolves",
+      "detail": "citation_validity=1.0000",
+      "expected": 1.0,
+      "measured": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: every source document is indexed",
+      "detail": "12/12 documents indexed",
+      "expected": 12,
+      "measured": 12,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: every declared rule is indexed",
+      "detail": "72/72 declared rules indexed",
+      "expected": 72,
+      "measured": 72,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: collection contains only EDUCATION_LOAN policy",
+      "detail": "cross_product_contamination_rate=0.0000",
+      "expected": 0.0,
+      "measured": 0.0,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: every source path lies under synthetic_data/education/policy_corpus/",
+      "detail": "all 12 source paths are under synthetic_data/education/policy_corpus/",
+      "expected": 0,
+      "measured": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: indexed content hashes match the committed corpus",
+      "detail": "all hashes match",
+      "expected": 0,
+      "measured": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: lexical and vector indexes cover the same chunks",
+      "detail": "bm25=101 chroma=101",
+      "expected": 101,
+      "measured": 101,
+      "status": "PASS"
+    },
+    {
+      "check": "EDUCATION_LOAN: every indexed citation resolves",
+      "detail": "citation_validity=1.0000",
+      "expected": 1.0,
+      "measured": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "cross-product: no policy id appears in both collections",
+      "detail": "0 shared policy id(s): []",
+      "expected": 0,
+      "measured": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "cross-product: each product has its own collection",
+      "detail": "collections=['credpilot_mortgage_policies', 'credpilot_education_policies']",
+      "expected": 2,
+      "measured": 2,
+      "status": "PASS"
+    }
+  ],
+  "failed_count": 0,
+  "metrics": {
+    "citation_validity": 1.0,
+    "cross_product_contamination_rate": 0.0,
+    "products": {
+      "education": {
+        "chunk_count": 101,
+        "citation_validity": 1.0,
+        "cross_product_contamination_rate": 0.0,
+        "declared_rule_count": 72,
+        "indexed_rule_count": 72,
+        "indexed_source_count": 12,
+        "source_document_count": 12,
+        "stale_documents": 0
+      },
+      "mortgage": {
+        "chunk_count": 329,
+        "citation_validity": 1.0,
+        "cross_product_contamination_rate": 0.0,
+        "declared_rule_count": 174,
+        "indexed_rule_count": 174,
+        "indexed_source_count": 42,
+        "source_document_count": 42,
+        "stale_documents": 0
+      }
+    }
+  },
+  "status": "PASS"
+}
