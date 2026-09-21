@@ -25,9 +25,13 @@ DOCS = (
     "docs/rag/REQUIREMENTS_MAPPING.md",
     "docs/rag/TEMPORAL_RETRIEVAL.md",
     "docs/rag/RETRIEVAL_ABLATION.md",
-    "docs/rag/FAILURE_ANALYSIS.md",
+    "docs/failure-analysis.md",
     "docs/rag/DATA_QUALITY_FINDINGS.md",
     "docs/rag/RUNBOOK.md",
+    "docs/model-card.md",
+    "docs/risk-register.md",
+    "docs/compliance.md",
+    "docs/output-risk.md",
 )
 
 _MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)#]+?)(?:#[^)]*)?\)")

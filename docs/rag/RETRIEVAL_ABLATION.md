@@ -142,7 +142,7 @@ candidate count faster than its recall does. The committed configuration is
 
 Those widths are *floors*, not caps. Every stage only removes candidates, so a
 width below the requested `top_k` truncates the answer silently — which it did,
-until [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) F-7. Each is now
+until [../failure-analysis.md](../failure-analysis.md) F-7. Each is now
 `max(configured, top_k + slack)`, unchanged at the default `top_k` of 6.
 
 ---

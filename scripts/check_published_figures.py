@@ -43,6 +43,21 @@ WATCHED_DOCUMENTS = (
     "docs/rag/REQUIREMENTS_MAPPING.md",
 )
 
+EVAL_REPORT = REPO_ROOT / "reports" / "eval_report.json"
+
+#: ``key in eval_report.json macro`` -> the label it is published as.
+#:
+#: The end-to-end figures. They live in a different file from the retrieval ones
+#: and are re-derived the same way, because a headline number nobody re-derives is
+#: a number that drifts the first time the code moves.
+END_TO_END_HEADLINE = {
+    "outcome_accuracy": "outcome_accuracy",
+    "directional_agreement": "directional_agreement",
+    "citation_recall": "citation_recall",
+    "judge_faithfulness": "judge_faithfulness",
+    "judge_answer_relevancy": "judge_answer_relevancy",
+}
+
 #: ``key in retrieval_eval.json authored macro`` -> the label it is published as.
 HEADLINE = {
     "macro_policy_recall@5": "policy_recall@5",
@@ -82,6 +97,16 @@ def main(argv: list[str] | None = None) -> int:
         measured["cross_product_contamination"] = round(
             float(metrics["cross_product_contamination_rate"]), 4
         )
+
+    # The end-to-end figures, re-derived the same way. Absent before the agent
+    # evaluation has been run, which is why this is conditional rather than
+    # required — a clean checkout with no key still checks everything else.
+    if EVAL_REPORT.exists():
+        end_to_end = json.loads(EVAL_REPORT.read_text(encoding="utf-8"))["macro"]
+        for key, label in END_TO_END_HEADLINE.items():
+            value = end_to_end.get(key)
+            if isinstance(value, (int, float)):
+                measured[label] = round(float(value), 4)
 
     print("Measured (from committed results)")
     for label, value in sorted(measured.items()):

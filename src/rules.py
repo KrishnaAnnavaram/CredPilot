@@ -62,6 +62,12 @@ class RuleEvaluation:
     comparator: str = "<="
     detail: str = ""
     factors: list[str] = field(default_factory=list)
+    #: The programme limit before any discretionary extension was applied.
+    #: ``threshold`` is what the file was judged against; this is the bar it
+    #: would have faced without the concession. UWR-HRV-001 reads the tighter of
+    #: the two, because a file that clears only on an extension is nearer a
+    #: policy edge than its applied threshold suggests.
+    baseline_threshold: float | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -74,6 +80,7 @@ class RuleEvaluation:
             "comparator": self.comparator,
             "detail": self.detail,
             "compensating_factors": self.factors,
+            "baseline_threshold": self.baseline_threshold,
         }
 
 
@@ -316,6 +323,290 @@ def evaluate_mortgage_affordability(
             comparator="<=",
             detail=detail,
             factors=factors,
+            baseline_threshold=float(base),
+        )
+    ]
+
+
+def evaluate_mortgage_credit_score(
+    calculations: Mapping[str, Any],
+    packet: Mapping[str, Any],
+    evidence: Sequence[Mapping[str, Any]],
+) -> list[RuleEvaluation]:
+    """``CRD-SCR-003`` — minimum representative score. Severity ``HARD_FAIL``.
+
+    A knockout: no compensating factor reaches it, and leverage does not move it
+    (``leverage_adjustment: none``).
+    """
+    rule = find_rule(evidence, "CRD-SCR-003")
+    observed = _representative_score(packet)
+
+    if rule is None:
+        return [
+            RuleEvaluation(
+                rule_id="CRD-SCR-003",
+                citation="",
+                measure="representative_score",
+                verdict=Verdict.INDETERMINATE,
+                observed=observed,
+                comparator=">=",
+                detail=(
+                    "the minimum representative score was not retrieved; absence is "
+                    "not permission (GEN-ELG-005)"
+                ),
+            )
+        ]
+
+    citation = rule.get("citation", "")
+    parameters = parameters_of(rule)
+    ltv = (calculations.get("ratios") or {}).get("ltv")
+    floor, basis = _score_floor(parameters, ltv)
+
+    if observed is None or floor is None:
+        return [
+            RuleEvaluation(
+                rule_id="CRD-SCR-003",
+                citation=citation,
+                measure="representative_score",
+                verdict=Verdict.INDETERMINATE,
+                observed=observed,
+                threshold=floor,
+                comparator=">=",
+                detail=(
+                    "no representative score on the file"
+                    if observed is None
+                    else basis
+                ),
+            )
+        ]
+
+    return [
+        RuleEvaluation(
+            rule_id="CRD-SCR-003",
+            citation=citation,
+            measure="representative_score",
+            verdict=Verdict.PASS if observed >= floor else Verdict.FAIL,
+            observed=observed,
+            threshold=floor,
+            baseline_threshold=floor,
+            comparator=">=",
+            detail=f"floor {floor:.0f} {basis}, per {citation}",
+        )
+    ]
+
+
+def _score_floor(
+    parameters: Mapping[str, Any], ltv: float | None
+) -> tuple[float | None, str]:
+    """The score floor the retrieved version of CRD-SCR-003 sets.
+
+    The rule changed shape at its 2026-07-01 boundary: v1.0 publishes one flat
+    ``min_representative_score_conventional``, v2.0 replaces it with a pair
+    graduated by leverage. Reading whichever is present keeps the engine
+    version-agnostic — a file dated before the boundary retrieves v1.0 and is
+    measured against the flat floor, without the engine needing to know that two
+    versions exist.
+    """
+    flat = parameters.get("min_representative_score_conventional")
+    if isinstance(flat, (int, float)):
+        return float(flat), "at every leverage level"
+
+    low = parameters.get("min_representative_score_ltv_at_or_below_90")
+    high = parameters.get("min_representative_score_ltv_above_90")
+    boundary = parameters.get("ltv_band_boundary")
+    if not (isinstance(low, (int, float)) and isinstance(high, (int, float))):
+        return None, "no score floor in the retrieved rule"
+    if not isinstance(boundary, (int, float)):
+        return None, "the retrieved rule graduates by leverage but sets no band boundary"
+    if ltv is None:
+        # The floor genuinely depends on a figure that is missing. Guessing the
+        # lower band would be the generous direction on a knockout rule.
+        return None, "leverage could not be computed, and the floor depends on it"
+
+    if ltv > float(boundary):
+        return float(high), f"for leverage above {float(boundary):.0%}"
+    return float(low), f"for leverage at or below {float(boundary):.0%}"
+
+
+#: AST-RSV-002 sets its requirement by occupancy and spells each out in its own
+#: parameter. This maps the packet's vocabulary to the rule's.
+_RESERVE_PARAMETER_BY_OCCUPANCY = {
+    "primary_residence": "min_months_primary_residence",
+    "second_home": "min_months_second_home",
+    "investment": "min_months_investment",
+    "investment_property": "min_months_investment",
+}
+
+
+def evaluate_mortgage_reserves(
+    calculations: Mapping[str, Any],
+    packet: Mapping[str, Any],
+    evidence: Sequence[Mapping[str, Any]],
+) -> list[RuleEvaluation]:
+    """``AST-RSV-002`` — minimum reserves, measured after the closing draw.
+
+    The months come from :func:`src.calculations.mortgage_affordability`, which
+    measures them on what remains once funds to close are drawn (AST-RSV-001),
+    not on the balance before closing.
+    """
+    rule = find_rule(evidence, "AST-RSV-002")
+    observed = calculations.get("months_of_reserves")
+    occupancy = str(packet.get("occupancy_type") or "").lower()
+
+    if rule is None:
+        return [
+            RuleEvaluation(
+                rule_id="AST-RSV-002",
+                citation="",
+                measure="months_of_reserves",
+                verdict=Verdict.INDETERMINATE,
+                observed=observed,
+                comparator=">=",
+                detail="the reserve requirement was not retrieved (GEN-ELG-005)",
+            )
+        ]
+
+    citation = rule.get("citation", "")
+    parameters = parameters_of(rule)
+    parameter = _RESERVE_PARAMETER_BY_OCCUPANCY.get(occupancy)
+    base = parameters.get(parameter) if parameter else None
+
+    if observed is None or not isinstance(base, (int, float)):
+        return [
+            RuleEvaluation(
+                rule_id="AST-RSV-002",
+                citation=citation,
+                measure="months_of_reserves",
+                verdict=Verdict.INDETERMINATE,
+                observed=observed,
+                comparator=">=",
+                detail=(
+                    f"the retrieved rule sets no requirement for occupancy "
+                    f"{occupancy or 'unstated'}"
+                    if observed is not None
+                    else "reserves could not be measured"
+                ),
+            )
+        ]
+
+    required, additions = _reserve_requirement(parameters, float(base), calculations)
+    detail = (
+        f"{required:.0f} month(s) required on {occupancy or 'this occupancy'} "
+        f"(base {float(base):.0f}"
+        + (f"; " + "; ".join(additions) if additions else "")
+        + f"), measured after the funds-to-close draw (AST-RSV-001), per {citation}"
+    )
+
+    return [
+        RuleEvaluation(
+            rule_id="AST-RSV-002",
+            citation=citation,
+            measure="months_of_reserves",
+            verdict=Verdict.PASS if observed >= required else Verdict.FAIL,
+            observed=observed,
+            threshold=required,
+            baseline_threshold=float(base),
+            comparator=">=",
+            detail=detail,
+        )
+    ]
+
+
+def _reserve_requirement(
+    parameters: Mapping[str, Any],
+    base: float,
+    calculations: Mapping[str, Any],
+) -> tuple[float, list[str]]:
+    """The reserve requirement, with the risk-based additions v2.0 introduced.
+
+    v1.0 published the occupancy base alone. v2.0 adds two months above 90%
+    leverage and a further two above 43% back-end DTI, cumulatively. A file
+    retrieving v1.0 finds neither addition parameter and gets the base, which is
+    the correct answer for its as-of date rather than a special case in the code.
+    """
+    ratios = calculations.get("ratios") or {}
+    required = base
+    additions: list[str] = []
+
+    for ratio_name, addition_key, trigger_key, label in (
+        ("ltv", "additional_months_ltv_above_90", "ltv_trigger", "leverage"),
+        ("back_end_dti", "additional_months_dti_above_43", "dti_trigger", "back-end DTI"),
+    ):
+        addition = parameters.get(addition_key)
+        trigger = parameters.get(trigger_key)
+        observed = ratios.get(ratio_name)
+        if not isinstance(addition, (int, float)) or not isinstance(trigger, (int, float)):
+            continue
+        if observed is not None and observed > float(trigger):
+            required += float(addition)
+            additions.append(
+                f"+{float(addition):.0f} for {label} {observed:.2%} above {float(trigger):.0%}"
+            )
+
+    return required, additions
+
+
+def evaluate_mortgage_funds_to_close(
+    calculations: Mapping[str, Any],
+    evidence: Sequence[Mapping[str, Any]],
+) -> list[RuleEvaluation]:
+    """``AST-FTC-003`` — the sufficiency test.
+
+    The rule is explicit that this one is arithmetic rather than judgement:
+    *"A shortfall is a deterministic arithmetic failure, not a judgement: no
+    compensating factor cures it."* So there is no extension branch here, unlike
+    the DTI ceiling.
+    """
+    rule = find_rule(evidence, "AST-FTC-003")
+    amounts = calculations.get("amounts") or {}
+    available = amounts.get("funds_to_close_available")
+    required = amounts.get("funds_to_close_required")
+
+    if rule is None:
+        return [
+            RuleEvaluation(
+                rule_id="AST-FTC-003",
+                citation="",
+                measure="funds_to_close",
+                verdict=Verdict.INDETERMINATE,
+                observed=available,
+                threshold=required,
+                comparator=">=",
+                detail="the sufficiency test was not retrieved (GEN-ELG-005)",
+            )
+        ]
+
+    citation = rule.get("citation", "")
+    if available is None or required is None:
+        return [
+            RuleEvaluation(
+                rule_id="AST-FTC-003",
+                citation=citation,
+                measure="funds_to_close",
+                verdict=Verdict.INDETERMINATE,
+                observed=available,
+                threshold=required,
+                comparator=">=",
+                detail="funds to close could not be computed from the committed inputs",
+            )
+        ]
+
+    shortfall = float(required) - float(available)
+    return [
+        RuleEvaluation(
+            rule_id="AST-FTC-003",
+            citation=citation,
+            measure="funds_to_close",
+            verdict=Verdict.PASS if float(available) >= float(required) else Verdict.FAIL,
+            observed=float(available),
+            threshold=float(required),
+            baseline_threshold=float(required),
+            comparator=">=",
+            detail=(
+                f"available {float(available):,.2f} against required {float(required):,.2f}"
+                + (f"; shortfall {shortfall:,.2f}" if shortfall > 0 else "")
+                + f", per {citation} (components per AST-FTC-001)"
+            ),
         )
     ]
 
@@ -580,7 +871,15 @@ def evaluate(
 ) -> list[RuleEvaluation]:
     """Apply the product's retrieved rules to its computed figures."""
     if domain is LendingProductDomain.MORTGAGE:
-        return evaluate_mortgage_affordability(calculations, packet, evidence)
+        # Affordability, then the three knockouts. Each is evaluated
+        # independently: a file can clear its DTI ceiling comfortably and still
+        # fail on a score floor, and a reader of the result should see which.
+        return [
+            *evaluate_mortgage_affordability(calculations, packet, evidence),
+            *evaluate_mortgage_credit_score(calculations, packet, evidence),
+            *evaluate_mortgage_reserves(calculations, packet, evidence),
+            *evaluate_mortgage_funds_to_close(calculations, evidence),
+        ]
     return evaluate_education_capacity(calculations, packet, evidence)
 
 

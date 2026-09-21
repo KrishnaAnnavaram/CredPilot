@@ -1,0 +1,102 @@
+{
+  "accuracy": {
+    "comment": "Agreement with a synthetic generator, which is not the same as correctness. See R-01 in docs/risk-register.md.",
+    "directional_agreement_macro": 0.695,
+    "human_review_agreement_macro": 0.6133,
+    "outcome_accuracy_all_cases_macro": 0.6433,
+    "outcome_accuracy_macro": 0.6987,
+    "per_product": {
+      "EDUCATION_LOAN": {
+        "directional_agreement": 0.75,
+        "outcome_accuracy": 0.7778
+      },
+      "MORTGAGE": {
+        "directional_agreement": 0.64,
+        "outcome_accuracy": 0.6197
+      }
+    }
+  },
+  "cost": {
+    "basis": "estimate from published per-million rates, not a billing record",
+    "currency": "USD",
+    "judge_note": "evaluation overhead, not a running cost of the system",
+    "judge_total": 1.057558,
+    "rate_input_per_million": 0.3,
+    "rate_output_per_million": 2.5,
+    "run_total": 1.30609,
+    "system_per_assessment": 0.002616,
+    "system_total": 0.248532
+  },
+  "derived_from": {
+    "eval_cases": "reports/eval_cases.jsonl",
+    "eval_generated_at_utc": "2026-09-21T19:43:34+00:00",
+    "eval_report": "reports/eval_report.json"
+  },
+  "errors": {
+    "comment": "A failed run is loud and rare. The three rows beneath it are the quiet failures that matter more: a rationale that asserted something its evidence does not support, a citation that does not resolve, and a run that spent its budget without reaching a decision.",
+    "failed_runs": 0,
+    "failure_rate": 0.0,
+    "halted_on_budget": 0,
+    "runs_with_unresolvable_citation": 0,
+    "unfaithful_rationales": 1
+  },
+  "generated_at_utc": "2026-09-21T20:36:32+00:00",
+  "grounding": {
+    "citation_recall_macro": 0.603,
+    "citation_validity_macro": 1.0,
+    "citation_validity_meets_target": true,
+    "citation_validity_target": 1.0,
+    "comment": "hallucination_rate is derived as 1 - DeepEval's hallucination score, which in 4.x runs 1 = grounded. The deterministic figure beside it asks no model anything; on disagreement it is the one to believe.",
+    "deterministic_faithfulness_macro": 0.975,
+    "hallucination_rate_macro": 0.0074,
+    "hallucination_rate_meets_target": false,
+    "hallucination_rate_target": 0.0,
+    "judge_answer_relevancy_macro": 1.0,
+    "judge_faithfulness_macro": 0.9841
+  },
+  "latency": {
+    "assessment_mean": 18715.3,
+    "assessment_p50": 17955.7,
+    "assessment_p95": 28041.7,
+    "assessment_p99": 30903.3,
+    "comment": "The deterministic pipeline \u2014 retrieval, calculation, rules \u2014 is the faster half and does not vary with a provider. The single model call dominates the tail.",
+    "deterministic_share_of_mean": 0.7602,
+    "narrative_call_mean": 4487.5,
+    "narrative_call_p50": 4402.5,
+    "narrative_call_p95": 5573.8,
+    "unit": "milliseconds"
+  },
+  "note": "Re-derived from a committed evaluation run, not re-measured. Figures are macro-averaged across products where the underlying metric is a rate.",
+  "saturation": {
+    "budget_headroom_mean": 0.6817,
+    "recursion_limit": 40,
+    "step_budget": 24,
+    "steps_taken_max": 8,
+    "steps_taken_mean": 7.6383
+  },
+  "tokens": {
+    "comment": "Reasoning tokens are billed as output and never appear in the text. Gemini allocates them by how hard it judges the task, so the figure belongs to the prompt rather than the model: a short under-specified prompt drew 388 of 419 output tokens, while the narrative prompt \u2014 long, fully specified, decision already made \u2014 draws none. Reported separately so a prompt change that starts drawing them is visible.",
+    "judge_input_total": 1492595,
+    "judge_output_total": 243912,
+    "reasoning_share_of_output": 0.0,
+    "system_input_per_assessment": 3578.9,
+    "system_input_total": 339991,
+    "system_output_per_assessment": 617.0,
+    "system_output_total": 58615,
+    "system_reasoning_total": 0
+  },
+  "traffic": {
+    "assessments": 95,
+    "assessments_completed": 95,
+    "cases_per_product": {
+      "EDUCATION_LOAN": 20,
+      "MORTGAGE": 75
+    },
+    "judge_calls_total": 360,
+    "model_calls_per_assessment": 1,
+    "products": [
+      "EDUCATION_LOAN",
+      "MORTGAGE"
+    ]
+  }
+}

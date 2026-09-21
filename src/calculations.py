@@ -126,12 +126,46 @@ def mortgage_affordability(packet: Mapping[str, Any]) -> dict[str, Any]:
         Decimal("0"),
     )
 
+    # Funds to close, per AST-FTC-001. Every component is kept separately —
+    # "a single net figure with no components cannot be reconciled against the
+    # settlement statement" — and only summed at the end.
+    #
+    # The payoff term carries a qualifier that is easy to lose and expensive to
+    # lose: "plus any lien payoff **not financed by the new loan**". On a
+    # refinance the new loan is what retires the existing lien — that is what a
+    # refinance *is* — so the borrower brings cash only for the shortfall, if the
+    # payoff exceeds what the new loan advances. Counting the whole payoff makes
+    # every refinance look like the borrower must arrive with the entire existing
+    # balance, and declines files that should approve.
+    payoff = _dec(costs.get("payoff_amount"))
+    unfinanced_payoff = max(payoff - base_loan, Decimal("0")) if payoff > 0 else Decimal("0")
+
+    funds_components = {
+        "down_payment_amount": _dec(costs.get("down_payment_amount")),
+        "closing_costs": _dec(costs.get("closing_costs")),
+        "prepaids_and_escrow": _dec(costs.get("prepaids_and_escrow")),
+        "unfinanced_payoff": unfinanced_payoff,
+        "seller_credits": -_dec(costs.get("seller_credits")),
+        "lender_credits": -_dec(costs.get("lender_credits")),
+        "earnest_money_paid": -_dec(costs.get("earnest_money_paid")),
+        "cash_out_proceeds": -_dec(costs.get("cash_out_proceeds")),
+    }
+    funds_required = sum(funds_components.values(), Decimal("0")).quantize(_MONEY_PLACES)
+    funds_available = liquid_assets
+    funds_surplus = (funds_available - funds_required).quantize(_MONEY_PLACES)
+
     ratios = {
         "back_end_dti": _ratio(total_obligations, monthly_income),
         "front_end_dti": _ratio(housing_expense, monthly_income),
         "ltv": _ratio(base_loan, value),
     }
     residual = monthly_income - total_obligations
+
+    # AST-RSV-001: reserves are what remains *after* the funds-to-close draw,
+    # not the whole liquid balance. Measuring the balance before closing
+    # overstates reserves by the entire down payment — on a file with $132,711
+    # liquid and $108,000 down that is the difference between 40 months and 7.
+    reserve_assets = max(funds_surplus, Decimal("0"))
 
     return {
         "product_domain": LendingProductDomain.MORTGAGE.value,
@@ -148,13 +182,22 @@ def mortgage_affordability(packet: Mapping[str, Any]) -> dict[str, Any]:
             "verified_liquid_assets": _money(liquid_assets),
             "base_loan_amount": _money(base_loan),
             "property_value": _money(value),
+            "funds_to_close_required": _money(funds_required),
+            "funds_to_close_available": _money(funds_available),
+            "lien_payoff_total": _money(payoff),
+            "lien_payoff_financed_by_new_loan": _money(payoff - unfinanced_payoff),
+            "funds_to_close_surplus": _money(funds_surplus),
+            "reserve_eligible_assets_after_closing": _money(reserve_assets),
+        },
+        "funds_to_close_components": {
+            name: _money(amount) for name, amount in funds_components.items()
         },
         "months_of_reserves": (
-            float((liquid_assets / housing_expense).quantize(_RATIO_PLACES))
+            float((reserve_assets / housing_expense).quantize(_RATIO_PLACES))
             if housing_expense > 0
             else None
         ),
-        "formula_version": "mortgage-affordability-1.0",
+        "formula_version": "mortgage-affordability-2.1",
         "inputs": {
             "income_rows": len(income_rows),
             "liability_rows": len(liability_rows),

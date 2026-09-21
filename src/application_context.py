@@ -16,7 +16,10 @@ of the tables that hold facts about the applicant and the transaction.
 evaluations, eligibility results, decisions, conditions, risk flags — and reading
 one raises. A retriever or an underwriting agent that could read
 ``underwriting_calculations.csv`` would not be underwriting; it would be copying.
-``tests/rag/test_no_golden_leakage.py`` checks the boundary holds.
+An education packet embeds its outcome in the submitted JSON rather than in a
+separate table, so the allowlist alone would not catch it;
+``EMBEDDED_OUTCOME_FIELDS`` closes that half of the boundary.
+``tests/rag/test_no_golden_leakage.py`` checks both halves hold.
 """
 
 from __future__ import annotations
@@ -78,6 +81,25 @@ OUTCOME_TABLES = frozenset(
 )
 
 
+#: Keys an application packet may carry that hold the generator's own answer
+#: rather than a fact about the applicant.
+#:
+#: Mortgage keeps its outcomes in the structured tables above, where the
+#: allowlist catches them. Every education packet instead embeds the decision it
+#: was generated with — ``{"decision": "APPROVE", "risk_grade": "B3",
+#: "approved_amount": ...}`` — directly in the submitted JSON, where no table
+#: guard can see it. Left in place it would ride the packet into graph state, the
+#: checkpoint and any prompt built from application facts, and an evaluation run
+#: against it would be scoring a system that had been shown the answer.
+#:
+#: Vendor results are deliberately *not* on this list. ``fraud_screening`` and
+#: ``credit_bureau`` hold what a third party reported — a KYC status, an OFAC
+#: hit, a bureau score — which underwriting consumes as input and does not
+#: compute. ``status`` is workflow state and reveals that a file was decided,
+#: never which way.
+EMBEDDED_OUTCOME_FIELDS = frozenset({"decision", "decision_reasons", "conditions"})
+
+
 class OutcomeAccessError(PermissionError):
     """Raised when runtime code tries to read a table holding the answer."""
 
@@ -130,6 +152,16 @@ def mortgage_property_costs(application_id: str) -> dict[str, Any]:
         "financed_premium_amount": loan.get("financed_premium_amount"),
         "down_payment_amount": loan.get("down_payment_amount"),
         "seller_credits": loan.get("seller_credits"),
+        # The remaining funds-to-close components. AST-FTC-001 requires each to
+        # be stored individually — "a single net figure with no components cannot
+        # be reconciled against the settlement statement" — so they are carried
+        # through separately rather than netted here.
+        "lender_credits": loan.get("lender_credits"),
+        "closing_costs": loan.get("closing_costs"),
+        "prepaids_and_escrow": loan.get("prepaids_and_escrow"),
+        "earnest_money_paid": loan.get("earnest_money_paid"),
+        "payoff_amount": loan.get("payoff_amount"),
+        "cash_out_proceeds": loan.get("cash_out_proceeds"),
     }
 
 
@@ -170,6 +202,60 @@ def mortgage_credit(application_id: str) -> dict[str, Any]:
     }
 
 
+def strip_embedded_outcomes(packet: Mapping[str, Any]) -> dict[str, Any]:
+    """Remove any answer the packet carries, before runtime can see it.
+
+    Returns a copy. What was removed is recorded under
+    ``_withheld_outcome_fields`` rather than dropped silently, so a reader of
+    graph state can tell that the packet had an outcome and that it was withheld,
+    not that the generator never wrote one.
+    """
+    clean = {k: v for k, v in packet.items() if k not in EMBEDDED_OUTCOME_FIELDS}
+    withheld = sorted(set(packet) & EMBEDDED_OUTCOME_FIELDS)
+    if withheld:
+        clean["_withheld_outcome_fields"] = withheld
+    return clean
+
+
+def mortgage_asset_transactions(application_id: str) -> list[dict[str, Any]]:
+    """Deposits and their sourcing, for AST-SRC and the review triggers.
+
+    ``UWR-HRV-001`` makes an unsourced large deposit a mandatory human-review
+    trigger, and this is where the flag lives.
+    """
+    return [
+        {
+            "asset_id": r.get("asset_id"),
+            "transaction_type": r.get("transaction_type"),
+            "amount": r.get("amount"),
+            "transaction_date": r.get("transaction_date"),
+            "source_status": r.get("source_status"),
+            "large_deposit_flag": str(r.get("large_deposit_flag", "")).lower() == "true",
+        }
+        for r in rows_for("asset_transactions", application_id)
+    ]
+
+
+def mortgage_verifications(application_id: str) -> list[dict[str, Any]]:
+    """Third-party verification results.
+
+    ``result`` is polymorphic: for ``flood_determination`` it carries a FEMA zone
+    code (``X`` for minimal hazard, ``AE`` for a special flood hazard area), and
+    for every other category a verification status. A reader of this list has to
+    know that, so the category travels with the result.
+    """
+    return [
+        {
+            "category": r.get("category"),
+            "provider": r.get("provider"),
+            "result": r.get("result"),
+            "rule_id": r.get("rule_id"),
+            "completed_date": r.get("completed_date"),
+        }
+        for r in rows_for("verifications", application_id)
+    ]
+
+
 def build_underwriting_input(
     application_path: "str | Path", *, domain: LendingProductDomain | None = None
 ) -> dict[str, Any]:
@@ -179,7 +265,7 @@ def build_underwriting_input(
     (income verification, certification, aggregate exposure), so nothing is
     added for them.
     """
-    packet = load_application(application_path)
+    packet = strip_embedded_outcomes(load_application(application_path))
     application_id = packet.get("application_id", "")
     resolved = domain or (
         LendingProductDomain.MORTGAGE
@@ -192,6 +278,8 @@ def build_underwriting_input(
     enriched = dict(packet)
     enriched["property_costs"] = mortgage_property_costs(application_id)
     enriched["verified_liabilities"] = mortgage_liabilities(application_id)
+    enriched["asset_transactions"] = mortgage_asset_transactions(application_id)
+    enriched["verification_results"] = mortgage_verifications(application_id)
     credit = mortgage_credit(application_id)
     if credit:
         enriched["credit_summary"] = credit
@@ -206,12 +294,16 @@ def available_inputs(application_id: str) -> dict[str, int]:
 __all__ = [
     "INPUT_TABLES",
     "OUTCOME_TABLES",
+    "EMBEDDED_OUTCOME_FIELDS",
+    "strip_embedded_outcomes",
     "OutcomeAccessError",
     "available_inputs",
     "build_underwriting_input",
+    "mortgage_asset_transactions",
     "mortgage_credit",
     "mortgage_liabilities",
     "mortgage_property_costs",
+    "mortgage_verifications",
     "row_for",
     "rows_for",
 ]

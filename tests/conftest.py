@@ -8,10 +8,21 @@ own in a temporary directory.
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
 import pytest
+
+# The suite makes no model call. Every graph test would otherwise reach the
+# narrative node and call Gemini — six minutes for one module, a key required to
+# run `pytest`, and assertions about routing and rule application made to depend
+# on a hosted service that has nothing to do with them.
+#
+# Set before any src import so the graph never sees it on. Tests that mean to
+# exercise generation set it back themselves; the end-to-end evaluation runs
+# outside pytest and is unaffected.
+os.environ.setdefault("CREDPILOT_NARRATIVE", "off")
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:

@@ -22,6 +22,8 @@ boundary.
                                   |
                           Recommendation
                                   |
+                        Narrative Rationale      <-- the only node an LLM touches
+                                  |
                         (conditional) Human Review
 
 Three rules the graph exists to enforce:
@@ -42,6 +44,7 @@ from __future__ import annotations
 
 import operator
 import re
+import uuid
 from datetime import date
 from pathlib import Path
 from typing import Annotated, Any, Literal, Mapping, Sequence, TypedDict
@@ -101,8 +104,20 @@ class CredPilotState(TypedDict, total=False):
     eligibility: dict[str, Any]
     risk: dict[str, Any]
     recommendation: dict[str, Any]
+    narrative: dict[str, Any]
+    context_record: dict[str, Any]
+
+    # memory
+    session_id: str
+    subject_id: str | None
+    recalled_memory: list[dict[str, Any]]
+    memory_written: list[str]
+    conversation: dict[str, Any]
 
     # control
+    step_budget: int
+    steps_taken: Annotated[int, operator.add]
+    halted: bool
     requires_human_review: bool
     human_review_reasons: Annotated[list[str], operator.add]
     security_findings: Annotated[list[str], operator.add]
@@ -173,6 +188,50 @@ _RULE_REFERENCE = re.compile(
 #: a "see also" reference, not enough to walk the whole corpus.
 MAX_DEPENDENCY_FOLLOWS = 6
 
+#: How many node executions one assessment may use. The graph is linear today, so
+#: a correct run visits at most seven nodes; the budget leaves room for a
+#: conditional edge to be added later without immediately tripping.
+#:
+#: Two independent guards, because they fail differently:
+#:   * this budget is *inside* the state, so a node can see it running out and
+#:     halt cleanly with a reason a human can read;
+#:   * LangGraph's own ``recursion_limit`` is *outside* and raises
+#:     ``GraphRecursionError`` — the backstop for a cycle that never reaches a
+#:     node able to check anything.
+#: A runaway loop in an underwriting system is not a performance problem; it is
+#: an unbounded spend against an applicant's file with no decision at the end.
+DEFAULT_STEP_BUDGET = 24
+RECURSION_LIMIT = 40
+
+
+def budget_exhausted(state: Mapping[str, Any]) -> bool:
+    """Whether this run has used its step budget."""
+    budget = int(state.get("step_budget") or DEFAULT_STEP_BUDGET)
+    return int(state.get("steps_taken") or 0) >= budget
+
+
+def _guard(state: Mapping[str, Any], node: str) -> dict[str, Any] | None:
+    """Halt the run if the budget is spent.
+
+    Returned as an ordinary state update rather than an exception: a file that
+    ran out of budget still needs a recommendation a human can act on, and
+    "halted after N steps" is that, where a traceback is not.
+    """
+    if not budget_exhausted(state):
+        return None
+    return {
+        "halted": True,
+        "route": "human_review",
+        "requires_human_review": True,
+        "human_review_reasons": [
+            f"the assessment halted at {node} after "
+            f"{state.get('steps_taken')} steps, its budget of "
+            f"{state.get('step_budget') or DEFAULT_STEP_BUDGET}; no decision was reached"
+        ],
+        "steps": [f"{node}:halted"],
+        "steps_taken": 1,
+    }
+
 
 def referenced_rules(evidence: Sequence[Mapping[str, Any]]) -> list[str]:
     """Rule ids that retrieved evidence points at but does not contain.
@@ -194,6 +253,24 @@ def referenced_rules(evidence: Sequence[Mapping[str, Any]]) -> list[str]:
             if rule_id and rule_id not in held and rule_id not in referenced:
                 referenced.append(rule_id)
     return referenced
+
+
+def subject_of(packet: Mapping[str, Any]) -> str | None:
+    """The party long-term memory is keyed on.
+
+    The primary borrower, not the application: an applicant who comes back with
+    a second file is the same person, and "recalls prior-session context on a
+    return visit" only means anything if the key survives the application id.
+    """
+    borrowers = packet.get("borrowers")
+    if isinstance(borrowers, list) and borrowers:
+        first = borrowers[0]
+        if isinstance(first, Mapping) and first.get("borrower_id"):
+            return str(first["borrower_id"])
+    borrower = packet.get("borrower")
+    if isinstance(borrower, Mapping) and borrower.get("borrower_id"):
+        return str(borrower["borrower_id"])
+    return None
 
 
 def _mortgage_flags(packet: dict[str, Any]) -> set[str]:
@@ -244,8 +321,95 @@ def plan_policy_questions(
 # ======================================================================================
 
 
+def recall_prior_context(subject_id: str | None) -> list[dict[str, Any]]:
+    """Prior-session context for this party, if any (AC-05).
+
+    Best-effort by design. Memory enriches an assessment; it never gates one, so
+    a missing or unreadable store leaves the file assessable on policy and the
+    packet alone. What comes back is context — outstanding documents, a stated
+    preference — never a decision or a threshold: :mod:`src.memory.long_term`
+    refuses to store those in the first place.
+    """
+    if not subject_id:
+        return []
+    try:
+        from src.memory import LongTermMemory
+
+        return [r.as_dict() for r in LongTermMemory().recall(subject_id, limit=10)]
+    except Exception:  # noqa: BLE001 - memory must never block an assessment
+        return []
+
+
+def record_interaction(state: Mapping[str, Any]) -> list[str]:
+    """Write what a returning applicant would want us to remember.
+
+    Best-effort, and deliberately incurious: an assessment happened, these policy
+    topics were examined, these documents were outstanding. No outcome, no
+    threshold, no figure — :mod:`src.memory.long_term` refuses those by kind, and
+    this is the caller that would otherwise be tempted.
+
+    A memory failure must never fail a file, so everything here is swallowed. The
+    ids written are returned for the state record.
+    """
+    subject = state.get("subject_id")
+    if not subject:
+        return []
+
+    try:
+        from src.memory import LongTermMemory
+
+        memory = LongTermMemory()
+        session = str(state.get("session_id") or "")
+        written: list[str] = []
+
+        topics = sorted({
+            str(q.get("topic")) for q in (state.get("policy_questions") or []) if q.get("topic")
+        })
+        if topics:
+            memory.remember(
+                subject_id=subject,
+                kind="interaction",
+                key="last-assessment",
+                content=(
+                    f"An underwriting assessment was run on "
+                    f"{state.get('as_of_date')} for a "
+                    f"{state.get('loan_domain')} application. Policy topics examined: "
+                    f"{', '.join(topics)}."
+                ),
+                metadata={"application_id": state.get("application_id")},
+                session_id=session,
+                embed=False,
+            )
+            written.append("last-assessment")
+
+        # Anything the engine could not settle for want of evidence is exactly
+        # what the applicant should be asked for next time.
+        outstanding = [
+            str(item.get("detail", ""))
+            for item in ((state.get("eligibility") or {}).get("indeterminate") or [])
+        ]
+        if outstanding:
+            memory.remember(
+                subject_id=subject,
+                kind="document_status",
+                key="outstanding-at-last-assessment",
+                content="Outstanding when last assessed: " + "; ".join(outstanding),
+                session_id=session,
+                embed=False,
+            )
+            written.append("outstanding-at-last-assessment")
+
+        return written
+    except Exception:  # noqa: BLE001 - memory must never fail an assessment
+        return []
+
+
 def supervisor_node(state: CredPilotState) -> dict[str, Any]:
     """Intake: quarantine untrusted text and decide where the file goes next."""
+    halt = _guard(state, "supervisor")
+    if halt is not None:
+        return halt
+
     packet = state.get("application_packet") or {}
     untrusted = packet.get("untrusted_applicant_text")
 
@@ -256,10 +420,16 @@ def supervisor_node(state: CredPilotState) -> dict[str, Any]:
         quarantined = quarantine(content)
         findings = list(quarantined["injection_findings"])
 
+    subject = subject_of(packet)
+    recalled = recall_prior_context(subject)
+
     update: dict[str, Any] = {
         "untrusted_applicant_text": quarantined,
         "security_findings": findings,
+        "subject_id": subject,
+        "recalled_memory": recalled,
         "steps": ["supervisor"],
+        "steps_taken": 1,
         "route": "domain_router",
     }
     if quarantined and quarantined["requires_human_review"]:
@@ -273,6 +443,10 @@ def supervisor_node(state: CredPilotState) -> dict[str, Any]:
 
 def domain_router_node(state: CredPilotState) -> dict[str, Any]:
     """Resolve the lending product from structured facts, before any retrieval."""
+    halt = _guard(state, "domain_router")
+    if halt is not None:
+        return halt
+
     try:
         domain = resolve_product_domain(
             explicit_domain=state.get("loan_domain"),
@@ -294,6 +468,7 @@ def domain_router_node(state: CredPilotState) -> dict[str, Any]:
             "requires_human_review": True,
             "human_review_reasons": ["lending product could not be resolved from structured facts"],
             "steps": ["domain_router"],
+        "steps_taken": 1,
         }
 
     log_agent_action(
@@ -309,6 +484,7 @@ def domain_router_node(state: CredPilotState) -> dict[str, Any]:
         "route": "policy_retrieval",
         "routing_reason": f"resolved to {domain.value}",
         "steps": ["domain_router"],
+        "steps_taken": 1,
     }
 
 
@@ -321,6 +497,10 @@ def make_policy_retrieval_node(retriever: PolicyRetriever | None = None):
     """
 
     def policy_retrieval_node(state: CredPilotState) -> dict[str, Any]:
+        halt = _guard(state, "policy_retrieval")
+        if halt is not None:
+            return halt
+
         domain = LendingProductDomain.from_any(state["loan_domain"])
         packet = state.get("application_packet") or {}
         as_of = state.get("as_of_date")
@@ -380,6 +560,7 @@ def make_policy_retrieval_node(retriever: PolicyRetriever | None = None):
             "retrieval_statuses": statuses,
             "route": "eligibility",
             "steps": ["policy_retrieval"],
+        "steps_taken": 1,
         }
         if review_reasons:
             update["requires_human_review"] = True
@@ -413,6 +594,10 @@ def eligibility_node(state: CredPilotState) -> dict[str, Any]:
     the retriever returned, and the verdict from the rule engine. No language
     model participates in any of the three.
     """
+    halt = _guard(state, "eligibility")
+    if halt is not None:
+        return halt
+
     from src import rules
     from src.calculations import compute_affordability
 
@@ -442,6 +627,7 @@ def eligibility_node(state: CredPilotState) -> dict[str, Any]:
         "eligibility": eligibility,
         "route": "risk",
         "steps": ["eligibility"],
+        "steps_taken": 1,
     }
     if eligibility["status"] == "INDETERMINATE":
         update["requires_human_review"] = True
@@ -453,6 +639,10 @@ def eligibility_node(state: CredPilotState) -> dict[str, Any]:
 
 def risk_node(state: CredPilotState) -> dict[str, Any]:
     """Risk Screening Agent: deterministic flags from the packet plus policy."""
+    halt = _guard(state, "risk")
+    if halt is not None:
+        return halt
+
     from src.calculations import screen_risk
 
     domain = LendingProductDomain.from_any(state["loan_domain"])
@@ -471,11 +661,23 @@ def risk_node(state: CredPilotState) -> dict[str, Any]:
         product_domain=domain.value,
         detail={"flags": risk.get("flags", [])},
     )
-    return {"risk": risk, "route": "recommend", "steps": ["risk"]}
+    return {
+        "risk": risk,
+        "route": "recommend",
+        "steps": ["risk"],
+        "steps_taken": 1,
+    }
 
 
 def recommendation_node(state: CredPilotState) -> dict[str, Any]:
     """Assemble the recommendation and decide whether a human must see it."""
+    halt = _guard(state, "recommendation")
+    if halt is not None:
+        return halt
+
+    from src.domain import LendingProductDomain as _Domain
+    from src.review_triggers import evaluate_review_triggers
+
     eligibility = state.get("eligibility") or {}
     risk = state.get("risk") or {}
     evidence = state_evidence(state)
@@ -483,6 +685,23 @@ def recommendation_node(state: CredPilotState) -> dict[str, Any]:
     breaches = eligibility.get("breaches") or []
     reasons = list(state.get("human_review_reasons") or [])
     requires_review = bool(state.get("requires_human_review"))
+
+    # POL-UWR-001 UWR-HRV-001 is a routing table, not a scoring input: a file
+    # matching any trigger reaches a human however comfortable the rest of it
+    # looks. So it is applied to a file that has already passed every threshold,
+    # and an eligible file can still be referred.
+    review = evaluate_review_triggers(
+        _Domain.from_any(state["loan_domain"]),
+        state.get("calculations") or {},
+        state.get("application_packet") or {},
+        evidence,
+        eligibility,
+        risk,
+        security_findings=state.get("security_findings") or [],
+    )
+    if review.required:
+        requires_review = True
+        reasons.extend(review.reasons)
 
     if eligibility.get("status") == "INDETERMINATE":
         # Missing evidence is not a negative result (GEN-ELG-005): the file is
@@ -505,6 +724,7 @@ def recommendation_node(state: CredPilotState) -> dict[str, Any]:
 
     recommendation = {
         "outcome": outcome,
+        "review_triggers": review.as_dict(),
         "eligibility": eligibility.get("status"),
         "risk_level": risk.get("level"),
         "breaches": breaches,
@@ -530,13 +750,86 @@ def recommendation_node(state: CredPilotState) -> dict[str, Any]:
         "recommendation": recommendation,
         "requires_human_review": requires_review,
         "human_review_reasons": [r for r in reasons if r not in (state.get("human_review_reasons") or [])],
-        "route": "human_review" if requires_review else "done",
+        "route": "narrative",
         "steps": ["recommendation"],
+        "steps_taken": 1,
     }
+
+
+def narrative_node(state: CredPilotState) -> dict[str, Any]:
+    """Write the rationale, then check it against its own evidence.
+
+    This is the only node a language model touches, and it runs *after* the
+    decision exists. It receives the outcome as a fact and the figures
+    pre-computed, so there is nothing here for a model to decide.
+
+    Generation is followed by a deterministic check that every citation and every
+    figure in the prose came from the evidence it was given. A narrative that
+    fails that check is kept, marked unfaithful and routed to a human — dropping
+    it would hide the failure, and shipping it unmarked would be worse.
+    """
+    halt = _guard(state, "narrative")
+    if halt is not None:
+        return halt
+
+    from src.context.write import Scratchpad
+    from src.narrative import draft_rationale
+
+    scratchpad = Scratchpad(application_id=state.get("application_id") or "")
+    result = draft_rationale(state, scratchpad=scratchpad)
+
+    recommendation = dict(state.get("recommendation") or {})
+    recommendation["rationale"] = result.text
+    recommendation["rationale_is_faithful"] = result.is_faithful
+    recommendation["rationale_model"] = result.model
+
+    update: dict[str, Any] = {
+        "narrative": result.as_dict(),
+        "recommendation": recommendation,
+        "context_record": scratchpad.as_dict(),
+        "steps": ["narrative"],
+        "steps_taken": 1,
+    }
+
+    if not result.is_faithful:
+        update["requires_human_review"] = True
+        update["human_review_reasons"] = [
+            "the drafted rationale asserted something its evidence does not support "
+            f"(citations: {result.unsupported_citations or 'none'}; "
+            f"figures: {result.unsupported_figures or 'none'})"
+        ]
+
+    log_agent_action(
+        actor="narrative_agent",
+        action="draft_rationale",
+        decision="FAITHFUL" if result.is_faithful else "UNSUPPORTED_CLAIM",
+        application_id=state.get("application_id"),
+        product_domain=state.get("loan_domain"),
+        detail={
+            "model": result.model,
+            "available": result.available,
+            "citations_used": result.citations_used,
+            "unsupported_citations": result.unsupported_citations,
+            "unsupported_figures": result.unsupported_figures,
+            "usage": result.usage,
+            "latency_ms": round(result.latency_ms, 1),
+        },
+    )
+
+    requires_review = state.get("requires_human_review") or not result.is_faithful
+    update["route"] = "human_review" if requires_review else "done"
+
+    # A file that ends here never reaches human_review, so this is its only
+    # chance to leave a trace for the applicant's next visit.
+    if not requires_review:
+        update["memory_written"] = record_interaction({**state, **update})
+
+    return update
 
 
 def human_review_node(state: CredPilotState) -> dict[str, Any]:
     """Terminal node for files a human must decide."""
+    record_interaction(state)
     log_agent_action(
         actor="supervisor",
         action="route_for_human_review",
@@ -545,7 +838,7 @@ def human_review_node(state: CredPilotState) -> dict[str, Any]:
         product_domain=state.get("loan_domain"),
         detail={"reasons": state.get("human_review_reasons") or []},
     )
-    return {"route": "done", "steps": ["human_review"]}
+    return {"route": "done", "steps": ["human_review"], "steps_taken": 1}
 
 
 # ======================================================================================
@@ -565,7 +858,17 @@ def route_after_retrieval(state: CredPilotState) -> Literal["eligibility", "huma
     return "human_review" if state.get("route") == "human_review" else "eligibility"
 
 
-def route_after_recommendation(state: CredPilotState) -> Literal["human_review", "__end__"]:
+def route_after_recommendation(state: CredPilotState) -> Literal["narrative", "human_review"]:
+    """Every file gets a written rationale, including the ones a human will decide.
+
+    A reviewer picking up a referred file needs the reasoning more than an
+    auto-approved file does, so the narrative comes before the handoff, not
+    instead of it.
+    """
+    return "human_review" if state.get("halted") else "narrative"
+
+
+def route_after_narrative(state: CredPilotState) -> Literal["human_review", "__end__"]:
     return "human_review" if state.get("requires_human_review") else "__end__"
 
 
@@ -594,6 +897,7 @@ def build_graph(
     builder.add_node("eligibility", eligibility_node)
     builder.add_node("risk", risk_node)
     builder.add_node("recommendation", recommendation_node)
+    builder.add_node("narrative", narrative_node)
     builder.add_node("human_review", human_review_node)
 
     builder.add_edge(START, "supervisor")
@@ -607,7 +911,12 @@ def build_graph(
     builder.add_edge("eligibility", "risk")
     builder.add_edge("risk", "recommendation")
     builder.add_conditional_edges(
-        "recommendation", route_after_recommendation, {"human_review": "human_review", "__end__": END}
+        "recommendation", route_after_recommendation,
+        {"narrative": "narrative", "human_review": "human_review"},
+    )
+    builder.add_conditional_edges(
+        "narrative", route_after_narrative,
+        {"human_review": "human_review", "__end__": END},
     )
     builder.add_edge("human_review", END)
 
@@ -620,7 +929,12 @@ def build_graph(
         context = SqliteSaver.from_conn_string(str(path))
         checkpointer = context.__enter__()
 
-    return builder.compile(checkpointer=checkpointer), context
+    compiled = builder.compile(checkpointer=checkpointer)
+    # LangGraph's own limit is the backstop for a cycle that never reaches a node
+    # able to check the in-state budget. Both are needed: this one raises,
+    # DEFAULT_STEP_BUDGET halts cleanly with a reason.
+    compiled = compiled.with_config(recursion_limit=RECURSION_LIMIT)
+    return compiled, context
 
 
 def initial_state(
@@ -628,6 +942,7 @@ def initial_state(
     *,
     as_of_date: "str | date | None" = None,
     config: RagConfig | None = None,
+    session_id: str | None = None,
 ) -> CredPilotState:
     """Build the graph's initial state from a committed application packet.
 
@@ -654,6 +969,12 @@ def initial_state(
         "security_findings": [],
         "errors": [],
         "steps": [],
+        "session_id": session_id or uuid.uuid4().hex[:12],
+        "subject_id": None,
+        "recalled_memory": [],
+        "step_budget": DEFAULT_STEP_BUDGET,
+        "steps_taken": 0,
+        "halted": False,
         "requires_human_review": False,
     }
 
@@ -663,10 +984,17 @@ __all__ = [
     "CredPilotState",
     "EDUCATION_QUESTIONS",
     "MORTGAGE_QUESTIONS",
+    "DEFAULT_STEP_BUDGET",
     "MAX_DEPENDENCY_FOLLOWS",
+    "RECURSION_LIMIT",
+    "budget_exhausted",
     "build_graph",
     "evidence_to_state",
+    "narrative_node",
+    "recall_prior_context",
+    "record_interaction",
     "referenced_rules",
+    "subject_of",
     "initial_state",
     "state_evidence",
     "plan_policy_questions",
