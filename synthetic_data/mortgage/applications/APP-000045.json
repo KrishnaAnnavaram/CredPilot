@@ -1,0 +1,257 @@
+{
+  "application_id": "APP-000045",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000053",
+      "role": "primary",
+      "name": "Salma Guerrero",
+      "date_of_birth": "1979-03-18",
+      "taxpayer_id_masked": "***-**-0053",
+      "email": "salma.guerrero053@example.com",
+      "phone": "(303) 555-0153",
+      "current_address": {
+        "street": "999 Pemberly Road",
+        "city": "Broomfield",
+        "state": "CO",
+        "postal_code": "80020"
+      },
+      "previous_address": null,
+      "years_at_current_address": 8,
+      "dependents": 2,
+      "citizenship_status": "US Citizen"
+    },
+    {
+      "borrower_id": "BORR-000054",
+      "role": "co_borrower",
+      "name": "Amara Saldivar",
+      "date_of_birth": "1965-10-23",
+      "taxpayer_id_masked": "***-**-0054",
+      "email": "amara.saldivar054@example.com",
+      "phone": "(503) 555-0154",
+      "current_address": {
+        "street": "1422 Juniper Bend",
+        "city": "Beaverton",
+        "state": "OR",
+        "postal_code": "97006"
+      },
+      "previous_address": null,
+      "years_at_current_address": 10,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000053",
+      "employer_name": "Grayson Municipal Authority",
+      "occupation": "Inspector",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000053",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000054",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Dispatch Lead",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-09-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000054",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "4591.67"
+    },
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "3325.00"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0175",
+      "declared_balance": "28434.46"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Cascade Mutual Credit Union",
+      "account_masked": "******0176",
+      "declared_balance": "52806.86"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0177",
+      "declared_balance": "4303.94"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0178",
+      "declared_balance": "4590.87"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Cascade Personal Loans",
+      "balance": "6751.43",
+      "monthly_payment": "161.64"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "9069.07",
+      "monthly_payment": "123.60"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Cascade Personal Loans",
+      "balance": "3803.33",
+      "monthly_payment": "114.10"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "2463.68",
+      "monthly_payment": "76.06"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "312000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2495 Sablecrest Drive",
+    "city": "Broomfield",
+    "state": "CO",
+    "postal_code": "80020",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "390000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000045-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/10_paystub_BORR-000053.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-05",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/10_paystub_BORR-000054.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-06",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-07",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-08",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-09",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-10",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-11",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/42_homeowner_insurance_evidence.txt"
+    },
+    {
+      "document_id": "APP-000045-DOC-12",
+      "document_type": "letter_of_explanation",
+      "document_date": "2026-08-09",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000045/60_letter_of_explanation.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}

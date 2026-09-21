@@ -1,0 +1,228 @@
+{
+  "application_id": "APP-000002",
+  "application_date": "2026-08-12",
+  "underwriting_as_of_date": "2026-08-12",
+  "channel": "retail",
+  "loan_purpose": "purchase",
+  "product_family": "conventional_conforming",
+  "occupancy_type": "primary_residence",
+  "household_size": 2,
+  "borrowers": [
+    {
+      "borrower_id": "BORR-000002",
+      "role": "primary",
+      "name": "Priya Lindqvist",
+      "date_of_birth": "1963-12-14",
+      "taxpayer_id_masked": "***-**-0002",
+      "email": "priya.lindqvist002@example.com",
+      "phone": "(630) 555-0102",
+      "current_address": {
+        "street": "2276 Innisfree Court",
+        "city": "Naperville",
+        "state": "IL",
+        "postal_code": "60540"
+      },
+      "previous_address": null,
+      "years_at_current_address": 3,
+      "dependents": 1,
+      "citizenship_status": "US Citizen"
+    }
+  ],
+  "employment": [
+    {
+      "borrower_id": "BORR-000002",
+      "employer_name": "Aldermill Retail Group",
+      "occupation": "Store Manager",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2022-02-12",
+      "is_current": true,
+      "pay_frequency": "bi_weekly"
+    },
+    {
+      "borrower_id": "BORR-000002",
+      "employer_name": "Kestrel Freight Services",
+      "occupation": "Operations Associate",
+      "employment_type": "employed",
+      "self_employed": false,
+      "declared_start_date": "2021-07-12",
+      "is_current": false,
+      "pay_frequency": "bi_weekly"
+    }
+  ],
+  "declared_income": [
+    {
+      "income_type": "salaried",
+      "declared_monthly_amount": "9466.67"
+    }
+  ],
+  "declared_assets": [
+    {
+      "asset_type": "checking",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0005",
+      "declared_balance": "32751.78"
+    },
+    {
+      "asset_type": "savings",
+      "institution": "Sablefield Trust",
+      "account_masked": "******0006",
+      "declared_balance": "60824.73"
+    },
+    {
+      "asset_type": "brokerage",
+      "institution": "Tidewater Investment Services",
+      "account_masked": "******0007",
+      "declared_balance": "3669.86"
+    },
+    {
+      "asset_type": "retirement",
+      "institution": "Meridian Retirement Trust",
+      "account_masked": "******0008",
+      "declared_balance": "3914.52"
+    }
+  ],
+  "declared_liabilities": [
+    {
+      "liability_type": "auto_loan",
+      "creditor": "Harborline Retail Credit",
+      "balance": "14770.94",
+      "monthly_payment": "353.64"
+    },
+    {
+      "liability_type": "student_loan",
+      "creditor": "Harborline Retail Credit",
+      "balance": "19842.62",
+      "monthly_payment": "270.43"
+    },
+    {
+      "liability_type": "revolving_credit_card",
+      "creditor": "Pinnacle Auto Finance",
+      "balance": "8321.00",
+      "monthly_payment": "249.63"
+    },
+    {
+      "liability_type": "installment_personal",
+      "creditor": "Northwind Card Services",
+      "balance": "5390.23",
+      "monthly_payment": "166.41"
+    }
+  ],
+  "requested_loan": {
+    "base_loan_amount": "328000.00",
+    "term_months": 360,
+    "interest_rate": "0.0665",
+    "rate_type": "fixed"
+  },
+  "subject_property": {
+    "street": "2731 Sablecrest Drive",
+    "city": "Naperville",
+    "state": "IL",
+    "postal_code": "60540",
+    "property_type": "single_family_detached",
+    "units": 1,
+    "occupancy_intent": "primary_residence",
+    "purchase_price": "410000.00"
+  },
+  "supplied_documents": [
+    {
+      "document_id": "APP-000002-DOC-01",
+      "document_type": "loan_application_summary",
+      "document_date": "2026-08-12",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/01_loan_application_summary.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-02",
+      "document_type": "identity_verification_summary",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/02_identity_verification_summary.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-03",
+      "document_type": "credit_report_summary",
+      "document_date": "2026-07-22",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/03_credit_report_summary.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-04",
+      "document_type": "paystub",
+      "document_date": "2026-08-01",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/10_paystub_BORR-000002.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-05",
+      "document_type": "w2",
+      "document_date": "2025-12-31",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/11_w2_BORR-000002.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-06",
+      "document_type": "employment_verification",
+      "document_date": "2026-08-04",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/12_employment_verification_BORR-000002.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-07",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/20_bank_statement_01.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-08",
+      "document_type": "bank_statement",
+      "document_date": "2026-08-03",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/20_bank_statement_02.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-09",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/21_asset_verification_03.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-10",
+      "document_type": "asset_verification",
+      "document_date": "2026-08-05",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/21_asset_verification_04.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-11",
+      "document_type": "purchase_agreement",
+      "document_date": "2026-07-17",
+      "trust_class": "customer_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/30_purchase_agreement.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-12",
+      "document_type": "appraisal_report",
+      "document_date": "2026-07-19",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/40_appraisal_report.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-13",
+      "document_type": "title_report",
+      "document_date": "2026-08-06",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/41_title_report.txt"
+    },
+    {
+      "document_id": "APP-000002-DOC-14",
+      "document_type": "homeowner_insurance_evidence",
+      "document_date": "2026-08-09",
+      "trust_class": "authoritative_evidence",
+      "relative_path": "synthetic_data/mortgage/applicant_documents/APP-000002/42_homeowner_insurance_evidence.txt"
+    }
+  ],
+  "untrusted_applicant_text": null
+}
