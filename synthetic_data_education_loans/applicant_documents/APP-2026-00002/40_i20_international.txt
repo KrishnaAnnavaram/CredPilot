@@ -1,0 +1,133 @@
+==========================================================================
+  CERTIFICATE OF ELIGIBILITY FOR NONIMMIGRANT STUDENT STATUS (I-20)
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    U.S. DEPARTMENT OF HOMELAND SECURITY
+                    U.S. Immigration and Customs Enforcement
+                    Student and Exchange Visitor Program (SEVP)
+
+                    FORM I-20
+                    Certificate of Eligibility for
+                    Nonimmigrant (F-1) Student Status
+
+==========================================================================
+SECTION 1: SCHOOL INFORMATION
+==========================================================================
+
+  School Name:               Prairie Heights University
+  School ID (SEVP):          SCH-017
+  School Address:            3200 University Avenue
+                             Springfield, MD 20901
+  School Type:               Public 4-Year (PUBLIC_4YR)
+  SEVP School Code:          PHU214F00XXXXX
+  DSO Name:                  Dr. Anita Patel
+  DSO Phone:                 (301) 555-0188
+  DSO Email:                 dso@prairieheights.example.edu
+
+==========================================================================
+SECTION 2: STUDENT INFORMATION
+==========================================================================
+
+  Family Name (Surname):     Ivanov
+  Given Name:                Sofia
+  Date of Birth:             08/04/2000
+  Country of Birth:          Mexico
+  Country of Citizenship:    Mexico
+  Borrower ID:               BORR-00002
+  Admission Number (I-94):   See I-94 Record
+
+==========================================================================
+SECTION 3: SEVIS INFORMATION
+==========================================================================
+
+  SEVIS ID Number:           N6420734643
+  SEVIS Status:              ACTIVE
+  Visa Type:                 F-1 (Academic Student)
+  I-20 Issue Date:           05/15/2026
+  I-20 Expiration Date:      05/15/2031
+
+==========================================================================
+SECTION 4: PROGRAM INFORMATION
+==========================================================================
+
+  Level of Education:        Bachelor's Degree (BS)
+  Program Name:              Computer Science
+  Year in Program:           2 (Sophomore)
+  Normal Program Length:     4 years (8 semesters)
+  Enrollment Intensity:      FULL_TIME
+  Enrollment Period Start:   01/10/2027
+  Enrollment Period End:     01/10/2028
+  Expected Graduation Date:  05/15/2031
+  Major:                     Computer Science
+  Minor:                     N/A
+  English Proficiency:       Met (TOEFL iBT: 96)
+
+==========================================================================
+SECTION 5: ESTIMATED COSTS AND FINANCIAL SUPPORT
+==========================================================================
+
+  A. Estimated Annual Costs
+  --------------------------------------------------------------------------
+     Tuition & Fees:                         $ 38,500.00
+     Living Expenses:                        $ 15,200.00
+     Dependent Expenses:                     $      0.00
+     Books & Supplies:                       $  1,800.00
+     Other (insurance, misc):                $ 18,186.41
+     -----------------------------------------------
+     TOTAL ESTIMATED COST OF ATTENDANCE:     $ 73,686.41
+
+  B. Financial Support
+  --------------------------------------------------------------------------
+     Personal/Family Funds:                  $ 12,000.00
+     Scholarships/University Aid:            $ 12,422.73
+     On-Campus Employment (est.):            $      0.00
+     Other Financial Aid:                    $ 24,422.73
+     Federal Loans:                          $      0.00
+     -----------------------------------------------
+     TOTAL SUPPORT:                          $ 24,422.73
+
+  C. Remaining Need / Private Loan Eligible: $ 49,263.68
+
+==========================================================================
+SECTION 6: OPT / STEM OPT ELIGIBILITY
+==========================================================================
+
+  OPT Eligible:              Yes
+  STEM OPT Eligible:         Yes (Computer Science is STEM-designated)
+  Post-Study Work Months:    36 (12 months OPT + 24 months STEM extension)
+
+==========================================================================
+SECTION 7: REMARKS
+==========================================================================
+
+  - Student is authorized to attend Prairie Heights University in F-1
+    status for the program and dates indicated above.
+  - Student must maintain full-time enrollment each semester.
+  - Any change in program, school, or funding must be reported to DSO.
+  - This I-20 must be presented upon re-entry to the United States.
+  - Home country credit report available: Yes
+  - Home country reference provided: Yes
+  - Sponsor funds documented: Pending verification
+
+==========================================================================
+SECTION 8: SCHOOL CERTIFICATION
+==========================================================================
+
+  I certify that the school is SEVP-certified, the student has been
+  admitted to the program listed, and the financial information is
+  accurate to the best of the school's knowledge.
+
+  _____________________________
+  Dr. Anita Patel
+  Principal Designated School Official (PDSO)
+  Prairie Heights University
+  Date: 05/15/2026
+
+  SEVIS Barcode: [||||||||||||||||||||||||||||||||]
+
+==========================================================================
+  USCIS Form I-20 | OMB No. 1653-0038
+  THIS IS NOT AN OFFICIAL GOVERNMENT DOCUMENT -- SYNTHETIC DATA ONLY
+==========================================================================

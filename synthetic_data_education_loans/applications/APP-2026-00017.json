@@ -1,0 +1,154 @@
+{
+  "application_id": "APP-2026-00017",
+  "product_code": "REFI",
+  "submitted_at": "2026-07-12T08:10:00",
+  "channel": "partner",
+  "requested_amount": 158996.17,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "CA",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00017",
+    "first_name": "Isla",
+    "last_name": "Quintero",
+    "dob": "2002-04-02",
+    "age": 24,
+    "ssn_itin_masked": "XXX-XX-0017",
+    "email": "isla.quintero17@example.com",
+    "phone": "(846) 664-2058",
+    "address_line1": "8722 Elm Way",
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "91951",
+    "citizenship_status": "US_CITIZEN",
+    "years_at_address": 1,
+    "references_provided": 2
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00017",
+      "subject_type": "borrower",
+      "pull_date": "2026-07-21",
+      "pull_type": "HARD",
+      "fico_score": 732,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 133,
+      "open_tradelines": 12,
+      "total_debt": 102483.6,
+      "revolving_utilization_pct": 0.65,
+      "inquiries_6mo": 2,
+      "delinq_30_24mo": 0,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00017",
+      "verification_method": "TAX_RETURN",
+      "employer_name": "Ironforge Defense Systems",
+      "employment_type": "SELF_EMPLOYED",
+      "job_title": "Financial Analyst",
+      "tenure_months": 31,
+      "gross_annual_income": 143659.23,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 1645.05,
+      "monthly_debt_service": 4641.77,
+      "dti_pct": 0.3877,
+      "residual_income": 7329.83,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 72493.52,
+      "current_rate_pct": 10.84,
+      "monthly_payment": 992.04,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "PRIVATE",
+      "current_balance": 20262.73,
+      "current_rate_pct": 6.31,
+      "monthly_payment": 228.13,
+      "status": "DEFAULT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 3,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 59847.04,
+      "current_rate_pct": 10.0,
+      "monthly_payment": 790.88,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 4,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 55715.4,
+      "current_rate_pct": 7.37,
+      "monthly_payment": 657.58,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 19,
+    "velocity_flag": false,
+    "synthetic_identity_score": 7,
+    "enrollment_fraud_flag": true,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 1,
+    "prior_balance_with_us": 11275.8,
+    "federal_loan_balance": 47758.8,
+    "other_private_balance": 0,
+    "total_education_debt": 218030.77,
+    "projected_debt_at_graduation": 218030.77,
+    "projected_starting_salary": 151772.67,
+    "debt_to_projected_income_ratio": 1.4366
+  },
+  "decision": {
+    "risk_grade": "B2",
+    "decision": "DECLINE",
+    "approved_amount": null,
+    "offered_rate_pct": 6.99,
+    "rate_type": "FIXED",
+    "term_months": null,
+    "repayment_option": null,
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [
+      "RC-016"
+    ],
+    "adverse_action_required": true,
+    "decisioned_at": "2026-09-05T13:12:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

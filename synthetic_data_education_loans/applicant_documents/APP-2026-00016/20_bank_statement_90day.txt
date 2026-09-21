@@ -1,0 +1,130 @@
+==========================================================================
+  90-DAY BANK STATEMENT
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    CASCADE MUTUAL CREDIT UNION
+                    Member NCUA | Equal Housing Lender
+                    1200 River Bend Parkway
+                    Cincinnati, OH 45202
+
+--------------------------------------------------------------------------
+ACCOUNT HOLDER:    Wendy Ortega
+ACCOUNT NUMBER:    ****-****-7204
+ACCOUNT TYPE:      Business Checking (Meridian Consulting LLC - DBA)
+STATEMENT PERIOD:  05/01/2026 - 07/31/2026
+--------------------------------------------------------------------------
+
+ACCOUNT SUMMARY
+                                May 2026     Jun 2026     Jul 2026
+                                ----------   ----------   ----------
+  Beginning Balance             $ 8,412.55   $ 9,247.83   $ 8,618.46
+  Total Deposits                $ 6,840.28   $ 6,125.63   $ 7,215.00
+  Total Withdrawals/Debits      $ 6,005.00   $ 6,755.00   $ 5,892.37
+  Ending Balance                $ 9,247.83   $ 8,618.46   $10,941.09
+
+  Average Daily Balance         $ 8,730.12   $ 8,890.35   $ 9,612.44
+
+==========================================================================
+                          MAY 2026 TRANSACTIONS
+==========================================================================
+
+Date        Description                          Deposits     Withdrawals
+----------  -----------------------------------  ----------   -----------
+05/01/2026  Beginning Balance                                      8,412.55
+05/02/2026  ACH Deposit - Vertex Labs Inc        $ 2,400.00
+05/05/2026  Zelle Transfer - Client Payment      $   875.00
+05/06/2026  Check #1047 - Office Supplies                     $    142.50
+05/08/2026  Debit - Regus Coworking (rent)                    $    400.00
+05/10/2026  ACH Deposit - BioNova Research       $ 1,800.00
+05/12/2026  Debit - Amazon Business                           $     89.99
+05/15/2026  Transfer to Savings                               $    500.00
+05/15/2026  Debit - Xfinity Internet                          $     79.99
+05/18/2026  Wire Deposit - Oakmont Partners      $ 1,265.28
+05/20/2026  Debit - Shell Gas Station                         $     52.18
+05/22/2026  Debit - Staples Office Supply                     $    115.34
+05/23/2026  ACH - QuickBooks Subscription                     $     35.00
+05/25/2026  Transfer - Est. Tax Pymt (IRS)                    $  2,850.00
+05/26/2026  Debit - Kroger                                    $     87.42
+05/28/2026  Zelle Transfer - Client Payment      $   500.00
+05/29/2026  Debit - Progressive Insurance                     $    120.00
+05/30/2026  Debit - AT&T Mobile                               $     85.08
+05/31/2026  Debit - Adobe Creative Cloud                      $     54.99
+05/31/2026  Debit - Misc expenses                             $  1,392.51
+            ----------------------------------------
+            Ending Balance                                     $ 9,247.83
+
+==========================================================================
+                          JUNE 2026 TRANSACTIONS
+==========================================================================
+
+Date        Description                          Deposits     Withdrawals
+----------  -----------------------------------  ----------   -----------
+06/01/2026  Beginning Balance                                      9,247.83
+06/02/2026  ACH Deposit - Vertex Labs Inc        $ 2,400.00
+06/04/2026  Debit - Regus Coworking (rent)                    $    400.00
+06/06/2026  Check #1048 - Legal & Prof Svcs                   $    350.00
+06/09/2026  Wire Deposit - BioNova Research      $ 1,650.00
+06/10/2026  Debit - Amazon Business                           $    214.88
+06/12/2026  Zelle Transfer - Client Payment      $   625.63
+06/15/2026  Transfer to Savings                               $    500.00
+06/15/2026  Debit - Xfinity Internet                          $     79.99
+06/17/2026  Debit - Delta Air Lines (travel)                  $    389.00
+06/18/2026  Debit - Marriott Cincinnati                       $    178.52
+06/20/2026  Debit - Shell Gas Station                         $     61.23
+06/22/2026  ACH Deposit - Oakmont Partners       $ 1,450.00
+06/24/2026  Debit - Kroger                                    $     93.15
+06/25/2026  Debit - Progressive Insurance                     $    120.00
+06/26/2026  Debit - Uber (business travel)                    $     42.75
+06/28/2026  Transfer - Quarterly tax pymt (OH)                $  1,200.00
+06/29/2026  Debit - AT&T Mobile                               $     85.08
+06/30/2026  Debit - Adobe Creative Cloud                      $     54.99
+06/30/2026  Debit - Misc expenses                             $  2,985.41
+            ----------------------------------------
+            Ending Balance                                     $ 8,618.46
+
+==========================================================================
+                          JULY 2026 TRANSACTIONS
+==========================================================================
+
+Date        Description                          Deposits     Withdrawals
+----------  -----------------------------------  ----------   -----------
+07/01/2026  Beginning Balance                                      8,618.46
+07/01/2026  ACH Deposit - Vertex Labs Inc        $ 2,400.00
+07/03/2026  Debit - Regus Coworking (rent)                    $    400.00
+07/07/2026  Wire Deposit - BioNova Research      $ 1,950.00
+07/08/2026  Debit - Amazon Business                           $    167.22
+07/10/2026  Zelle Transfer - Client Payment      $   715.00
+07/12/2026  Debit - Staples Office Supply                     $     98.44
+07/14/2026  Transfer to Savings                               $    500.00
+07/15/2026  Debit - Xfinity Internet                          $     79.99
+07/16/2026  ACH Deposit - Oakmont Partners       $ 1,350.00
+07/18/2026  Debit - Shell Gas Station                         $     48.72
+07/20/2026  Debit - Kroger                                    $    101.36
+07/22/2026  Zelle Transfer - Client Payment      $   800.00
+07/24/2026  Debit - Progressive Insurance                     $    120.00
+07/25/2026  Debit - AT&T Mobile                               $     85.08
+07/26/2026  Transfer - Est. Tax Pymt (IRS)                    $  2,850.00
+07/28/2026  Debit - Adobe Creative Cloud                      $     54.99
+07/30/2026  Debit - QuickBooks Subscription                   $     35.00
+07/31/2026  Debit - Misc expenses                             $  1,351.57
+            ----------------------------------------
+            Ending Balance                                     $10,941.09
+
+==========================================================================
+DEPOSIT SUMMARY (90 DAYS)
+  Total Deposits:           $20,180.91
+  Average Monthly Deposits: $ 6,726.97  (~$4,530/mo net after expenses)
+
+  Recurring client deposits identified:
+    - Vertex Labs Inc:       $2,400/mo  (regular ACH)
+    - BioNova Research:      $1,650-$1,950/mo  (wire transfer)
+    - Oakmont Partners:      $1,265-$1,450/mo  (wire/ACH)
+    - Various Zelle clients: $500-$875/mo
+
+--------------------------------------------------------------------------
+This statement is a true and accurate record of account activity.
+Cascade Mutual Credit Union | Member Services: (513) 555-0148
+Routing: 042XXXXXX | SWIFT: CASCUS33
+==========================================================================

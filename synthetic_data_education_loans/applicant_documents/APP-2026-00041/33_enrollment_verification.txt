@@ -1,0 +1,82 @@
+==========================================================================
+  ENROLLMENT VERIFICATION
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    SUMMIT LAW SCHOOL
+                    Office of the Registrar
+                    600 Justice Way
+                    Milwaukee, WI 53202
+                    registrar@summitlaw.example.edu
+
+--------------------------------------------------------------------------
+
+                    ENROLLMENT VERIFICATION CERTIFICATE
+
+Date Issued:       August 20, 2026
+Verification ID:   SLS-EV-2026-04182
+
+--------------------------------------------------------------------------
+
+To:                Edgemont Education Lending
+                   Loan Origination Department
+
+Re:                Enrollment Verification -- Kaya Morales
+
+--------------------------------------------------------------------------
+
+This letter certifies the enrollment status of the student identified
+below at Summit Law School.
+
+STUDENT INFORMATION
+--------------------------------------------------------------------------
+  Full Name:                 Kaya Morales
+  Borrower ID:               BORR-00041
+  Date of Birth:             07/15/2003
+  Student ID:                SLS-1L-2026-0941
+
+ENROLLMENT DETAILS
+--------------------------------------------------------------------------
+  School Name:               Summit Law School
+  School ID:                 SCH-024
+  School Type:               Professional
+  Accreditation:             American Bar Association (ABA)
+  Title IV Eligible:         Yes
+
+  Degree Program:            Juris Doctor (JD)
+  Year in Program:           1 (First Year / 1L)
+  Enrollment Status:         FULL-TIME
+  Enrollment Intensity:      FULL_TIME
+  Credit Hours Enrolled:     16 credits (Fall 2026)
+
+  Enrollment Period Start:   08/15/2026
+  Enrollment Period End:     08/15/2027
+  Expected Graduation Date:  05/15/2030
+
+ACADEMIC STANDING
+--------------------------------------------------------------------------
+  Current Standing:          Good Standing
+  Satisfactory Academic
+    Progress (SAP):          Meets requirements
+  Probation/Suspension:      None
+
+--------------------------------------------------------------------------
+
+I hereby certify that the above-named student is currently enrolled and
+attending classes on a full-time basis at Summit Law School for the
+term indicated. This enrollment verification is provided in accordance
+with the student's signed authorization and FERPA release on file.
+
+_____________________________
+Dr. James Whitfield
+University Registrar
+Summit Law School
+
+Date: 08/20/2026
+
+--------------------------------------------------------------------------
+Summit Law School | Accredited by the ABA since 1968
+National Clearinghouse Reporting: Active
+School OPEID: 00XXXX
+==========================================================================

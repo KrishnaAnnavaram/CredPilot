@@ -1,0 +1,138 @@
+==========================================================================
+  SPONSOR FUNDS DOCUMENTATION LETTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    SPONSOR FINANCIAL SUPPORT LETTER
+
+                    Application ID: APP-2026-00002
+                    Borrower: Sofia Ivanov (BORR-00002)
+
+==========================================================================
+PART A: SPONSOR DECLARATION
+==========================================================================
+
+Date:              July 10, 2026
+
+To:                Edgemont Education Lending
+                   International Student Loan Division
+
+From:              Carlos Ivanov
+                   Av. Paseo de la Reforma 505, Piso 12
+                   Col. Cuauhtemoc, 06500
+                   Mexico City, Mexico
+
+Re:                Financial Support for Sofia Ivanov
+                   -- Prairie Heights University
+
+--------------------------------------------------------------------------
+
+Dear Sir or Madam,
+
+I, Carlos Ivanov, am writing to confirm my commitment to provide
+financial support to my daughter, Sofia Ivanov, during her studies at
+Prairie Heights University in the United States.
+
+SPONSOR INFORMATION
+--------------------------------------------------------------------------
+  Full Name:                 Carlos Ivanov
+  Relationship to Student:   Father
+  Nationality:               Mexican
+  Occupation:                Managing Director, Grupo Ivanov SA de CV
+  Address:                   Av. Paseo de la Reforma 505, Piso 12
+                             Col. Cuauhtemoc, 06500
+                             Mexico City, Mexico
+  Phone:                     +52 55 5555 0147
+  Email:                     c.ivanov@grupoivanov.example.com
+
+FINANCIAL COMMITMENT
+--------------------------------------------------------------------------
+  I hereby declare that I have sufficient financial resources to support
+  Sofia Ivanov's education and living expenses at Prairie Heights
+  University. I commit to providing the following annual support:
+
+  Annual Contribution:       $12,000.00 USD
+  Duration:                  For the remainder of her BS program
+                             (expected through May 2031)
+  Total Estimated Support:   $48,000.00 USD (approx. 4 years)
+  Funds Source:              Personal savings and business income
+
+  This support is in addition to the university financial aid package
+  of $24,422.73 that Sofia has received.
+
+BANK VERIFICATION
+--------------------------------------------------------------------------
+  I have authorized my bank to release the verification letter below
+  confirming available funds.
+
+  Signed:
+
+  _____________________________
+  Carlos Ivanov
+  Date: 07/10/2026
+
+==========================================================================
+PART B: BANK VERIFICATION OF FUNDS
+==========================================================================
+
+                    BANCO NACIONAL DE MEXICO (BANAMEX)
+                    International Banking Division
+                    Av. Isabel La Catolica 44
+                    Centro Historico, 06000
+                    Mexico City, Mexico
+
+--------------------------------------------------------------------------
+
+                    CERTIFICATE OF DEPOSIT / FUNDS VERIFICATION
+
+Date:              July 12, 2026
+Reference:         BNM-CERT-2026-071248
+
+To Whom It May Concern:
+
+This letter is issued at the request of our client to verify the
+availability of funds for educational sponsorship purposes.
+
+ACCOUNT HOLDER INFORMATION
+--------------------------------------------------------------------------
+  Account Holder:            Carlos Ivanov
+  Account Type:              Personal Savings (USD-denominated)
+  Account Number:            ****-****-****-8412
+  Account Status:            Active and in Good Standing
+  Customer Since:            March 2008
+
+FUNDS VERIFICATION
+--------------------------------------------------------------------------
+  Current Balance (as of 07/12/2026):    $87,500.00 USD
+  Average Balance (6 months):            $82,340.00 USD
+  Minimum Balance (6 months):            $74,200.00 USD
+
+  Additional Account:
+  Account Type:              Business Checking (Grupo Ivanov SA de CV)
+  Current Balance:           $215,000.00 USD (equivalent in MXN)
+
+BANK CERTIFICATION
+--------------------------------------------------------------------------
+  We hereby certify that the account holder named above maintains the
+  balances indicated and, based on account history, has demonstrated
+  the financial capacity to provide the stated annual support of
+  $12,000.00 USD for educational expenses.
+
+  The information in this letter is accurate as of the date indicated.
+  Banco Nacional de Mexico assumes no liability for changes in account
+  balances after this date.
+
+  _____________________________
+  Lic. Maria Elena Gutierrez
+  Vice President, International Banking
+  Banco Nacional de Mexico
+
+  Date: 07/12/2026
+  Bank Seal: [BANAMEX - INTERNATIONAL BANKING]
+
+--------------------------------------------------------------------------
+  SWIFT Code: BNMXMXMM
+  Phone: +52 55 1226 XXXX
+  This document is intended solely for the use of the named recipient.
+==========================================================================

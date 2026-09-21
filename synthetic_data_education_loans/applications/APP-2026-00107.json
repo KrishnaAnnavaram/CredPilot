@@ -1,0 +1,142 @@
+{
+  "application_id": "APP-2026-00107",
+  "product_code": "REFI",
+  "submitted_at": "2026-07-31T15:56:00",
+  "channel": "partner",
+  "requested_amount": 74067.9,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "IL",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00107",
+    "first_name": "Fatima",
+    "last_name": "Nakamura",
+    "dob": "1987-09-13",
+    "age": 39,
+    "ssn_itin_masked": "XXX-XX-0107",
+    "email": "fatima.nakamura107@example.com",
+    "phone": "(332) 398-7372",
+    "address_line1": "7233 Pine Ct",
+    "city": "Naperville",
+    "state": "IL",
+    "zip": "62682",
+    "citizenship_status": "PERM_RESIDENT",
+    "years_at_address": 2,
+    "references_provided": 1
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00107",
+      "subject_type": "borrower",
+      "pull_date": "2026-08-07",
+      "pull_type": "HARD",
+      "fico_score": 672,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 358,
+      "open_tradelines": 3,
+      "total_debt": 40943.79,
+      "revolving_utilization_pct": 0.3,
+      "inquiries_6mo": 1,
+      "delinq_30_24mo": 0,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00107",
+      "verification_method": "TAX_RETURN",
+      "employer_name": "Summit Legal Associates",
+      "employment_type": "W2",
+      "job_title": "Marketing Manager",
+      "tenure_months": 42,
+      "gross_annual_income": 61990.54,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 772.13,
+      "monthly_debt_service": 2085.55,
+      "dti_pct": 0.4037,
+      "residual_income": 3080.33,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 64171.92,
+      "current_rate_pct": 4.13,
+      "monthly_payment": 653.68,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 9420.44,
+      "current_rate_pct": 5.91,
+      "monthly_payment": 104.16,
+      "status": "30DPD",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 3,
+      "servicer_name": "Horizon Loan Management",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 75818.02,
+      "current_rate_pct": 11.27,
+      "monthly_payment": 1056.01,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 26,
+    "velocity_flag": false,
+    "synthetic_identity_score": 15,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 0,
+    "prior_balance_with_us": 0,
+    "federal_loan_balance": 25148.73,
+    "other_private_balance": 0,
+    "total_education_debt": 99216.63,
+    "projected_debt_at_graduation": 99216.63,
+    "projected_starting_salary": 57344.07,
+    "debt_to_projected_income_ratio": 1.7302
+  },
+  "decision": {
+    "risk_grade": "C1",
+    "decision": "APPROVE",
+    "approved_amount": 74067.9,
+    "offered_rate_pct": 7.99,
+    "rate_type": "VARIABLE",
+    "term_months": 120,
+    "repayment_option": "IMMEDIATE",
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [],
+    "adverse_action_required": false,
+    "decisioned_at": "2026-08-21T12:15:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

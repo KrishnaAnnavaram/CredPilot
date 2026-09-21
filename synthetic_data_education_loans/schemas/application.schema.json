@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "credpilot/education_loan_application.schema.json",
+  "title": "Education Loan Application Input Packet",
+  "description": "What the copilot is given. Contains the full application data for an education loan. Ground truth lives in golden_set/.",
+  "type": "object",
+  "required": [
+    "application_id",
+    "product_code",
+    "submitted_at",
+    "channel",
+    "requested_amount",
+    "loan_purpose",
+    "state_of_residence",
+    "has_cosigner",
+    "status",
+    "borrower",
+    "fraud_screening",
+    "decision"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "application_id": {
+      "type": "string",
+      "pattern": "^APP-2026-\\d{5}$"
+    },
+    "product_code": {
+      "enum": ["UG", "GR", "SP", "INTL", "REFI"]
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "channel": {
+      "enum": ["direct", "school_referral", "partner"]
+    },
+    "requested_amount": {
+      "type": "number",
+      "minimum": 1000
+    },
+    "loan_purpose": {
+      "type": "string"
+    },
+    "state_of_residence": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "has_cosigner": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "borrower": {
+      "$ref": "#/$defs/borrower"
+    },
+    "cosigner": {
+      "oneOf": [
+        { "$ref": "#/$defs/cosigner" },
+        { "type": "null" }
+      ]
+    },
+    "credit_bureau": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/credit_bureau_record" }
+    },
+    "income_verification": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/income_record" }
+    },
+    "school": {
+      "oneOf": [
+        { "$ref": "#/$defs/school" },
+        { "type": "null" }
+      ]
+    },
+    "school_certification": {
+      "oneOf": [
+        { "$ref": "#/$defs/school_certification" },
+        { "type": "null" }
+      ]
+    },
+    "international_details": {
+      "oneOf": [
+        { "$ref": "#/$defs/international_details" },
+        { "type": "null" }
+      ]
+    },
+    "existing_loans": {
+      "type": ["array", "null"],
+      "items": { "$ref": "#/$defs/existing_loan" }
+    },
+    "fraud_screening": {
+      "$ref": "#/$defs/fraud_screening"
+    },
+    "aggregate_exposure": {
+      "$ref": "#/$defs/aggregate_exposure"
+    },
+    "decision": {
+      "$ref": "#/$defs/decision"
+    },
+    "supplied_documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document_ref" }
+    },
+    "untrusted_applicant_text": {
+      "type": ["string", "null"]
+    }
+  },
+  "$defs": {
+    "borrower": {
+      "type": "object",
+      "required": ["borrower_id", "first_name", "last_name", "dob", "age", "ssn_itin_masked", "citizenship_status"],
+      "properties": {
+        "borrower_id": { "type": "string", "pattern": "^BORR-\\d{5}$" },
+        "first_name": { "type": "string" },
+        "last_name": { "type": "string" },
+        "dob": { "type": "string", "format": "date" },
+        "age": { "type": "integer", "minimum": 17 },
+        "ssn_itin_masked": { "type": "string", "pattern": "^XXX-XX-\\d{4}$" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "address_line1": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "zip": { "type": "string" },
+        "citizenship_status": { "enum": ["US_CITIZEN", "PERM_RESIDENT", "F1_VISA", "J1_VISA"] },
+        "years_at_address": { "type": "number" },
+        "references_provided": { "type": "integer", "minimum": 0, "maximum": 3 }
+      }
+    },
+    "cosigner": {
+      "type": "object",
+      "required": ["cosigner_id", "relationship", "first_name", "last_name", "citizenship_status"],
+      "properties": {
+        "cosigner_id": { "type": "string", "pattern": "^COSIG-\\d{5}$" },
+        "borrower_id": { "type": "string" },
+        "relationship": { "enum": ["parent", "spouse", "relative", "other"] },
+        "first_name": { "type": "string" },
+        "last_name": { "type": "string" },
+        "dob": { "type": "string", "format": "date" },
+        "citizenship_status": { "enum": ["US_CITIZEN", "PERM_RESIDENT"] },
+        "ssn_masked": { "type": "string", "pattern": "^XXX-XX-\\d{4}$" },
+        "address": { "type": "string" },
+        "cosigner_notice_acknowledged": { "type": "boolean" }
+      }
+    },
+    "credit_bureau_record": {
+      "type": "object",
+      "required": ["subject_id", "subject_type", "pull_date", "pull_type", "file_status"],
+      "properties": {
+        "subject_id": { "type": "string" },
+        "subject_type": { "enum": ["borrower", "cosigner"] },
+        "pull_date": { "type": "string", "format": "date" },
+        "pull_type": { "enum": ["SOFT", "HARD"] },
+        "fico_score": { "type": ["integer", "null"] },
+        "file_status": { "enum": ["NO_FILE", "THIN", "ESTABLISHED"] },
+        "oldest_tradeline_months": { "type": ["integer", "null"] },
+        "open_tradelines": { "type": ["integer", "null"] },
+        "total_debt": { "type": ["number", "null"] },
+        "revolving_utilization_pct": { "type": ["number", "null"] },
+        "inquiries_6mo": { "type": "integer" },
+        "delinq_30_24mo": { "type": "integer" },
+        "delinq_60_24mo": { "type": "integer" },
+        "delinq_90_24mo": { "type": "integer" },
+        "collections_count": { "type": "integer" },
+        "charge_offs_count": { "type": "integer" },
+        "bankruptcy_flag": { "type": "boolean" },
+        "bankruptcy_discharge_date": { "type": ["string", "null"] },
+        "student_loan_delinquency_flag": { "type": "boolean" }
+      }
+    },
+    "income_record": {
+      "type": "object",
+      "required": ["subject_id", "verification_method"],
+      "properties": {
+        "subject_id": { "type": "string" },
+        "verification_method": { "enum": ["PAYSTUB", "W2", "TAX_RETURN", "BANK_STATEMENT", "VOE"] },
+        "employer_name": { "type": "string" },
+        "employment_type": { "enum": ["W2", "SELF_EMPLOYED", "CONTRACT", "RETIRED", "UNEMPLOYED"] },
+        "job_title": { "type": "string" },
+        "tenure_months": { "type": "integer" },
+        "gross_annual_income": { "type": "number" },
+        "other_income": { "type": "number" },
+        "other_income_source": { "type": ["string", "null"] },
+        "monthly_housing_expense": { "type": "number" },
+        "monthly_debt_service": { "type": "number" },
+        "dti_pct": { "type": "number" },
+        "residual_income": { "type": "number" },
+        "docs_complete": { "type": "boolean" }
+      }
+    },
+    "school": {
+      "type": "object",
+      "required": ["school_id", "school_name", "school_type"],
+      "properties": {
+        "school_id": { "type": "string", "pattern": "^SCH-\\d{3}$" },
+        "school_name": { "type": "string" },
+        "school_type": { "enum": ["PUBLIC_4YR", "PRIVATE_4YR", "PROFESSIONAL", "COMMUNITY", "INTERNATIONAL_ELIGIBLE"] },
+        "title_iv_eligible": { "type": "boolean" },
+        "accreditation_status": { "type": "string" },
+        "on_approved_list": { "type": "boolean" },
+        "cohort_default_rate_pct": { "type": "number" },
+        "completion_rate_pct": { "type": "number" },
+        "median_earnings_3yr_post": { "type": "number" },
+        "school_risk_tier": { "enum": ["A", "B", "C", "D"] },
+        "country": { "type": "string" }
+      }
+    },
+    "school_certification": {
+      "type": "object",
+      "required": ["certification_status"],
+      "properties": {
+        "certification_status": { "enum": ["RECEIVED", "PENDING", "REJECTED"] },
+        "certified_at": { "type": ["string", "null"] },
+        "cost_of_attendance": { "type": "number" },
+        "other_financial_aid": { "type": "number" },
+        "federal_loans_amount": { "type": "number" },
+        "certified_max_eligible": { "type": "number" },
+        "enrollment_period_start": { "type": "string", "format": "date" },
+        "enrollment_period_end": { "type": "string", "format": "date" },
+        "enrollment_intensity": { "enum": ["FULL_TIME", "HALF_TIME", "LESS_THAN_HALF"] },
+        "degree_level": { "type": "string" },
+        "program_name": { "type": "string" },
+        "expected_graduation_date": { "type": "string", "format": "date" },
+        "year_in_program": { "type": "integer" }
+      }
+    },
+    "international_details": {
+      "type": "object",
+      "properties": {
+        "visa_type": { "enum": ["F-1", "J-1"] },
+        "i20_ds2019_number": { "type": "string" },
+        "i94_verified": { "type": "boolean" },
+        "passport_country": { "type": "string" },
+        "home_country_credit_available": { "type": "boolean" },
+        "home_country_reference_provided": { "type": "boolean" },
+        "sponsor_funds_documented": { "type": "boolean" },
+        "opt_eligible": { "type": "boolean" },
+        "stem_opt_eligible": { "type": "boolean" },
+        "post_study_work_months": { "type": "integer" }
+      }
+    },
+    "existing_loan": {
+      "type": "object",
+      "properties": {
+        "loan_seq": { "type": "integer" },
+        "servicer_name": { "type": "string" },
+        "loan_type": { "enum": ["FEDERAL_DIRECT", "FEDERAL_PLUS", "PRIVATE"] },
+        "current_balance": { "type": "number" },
+        "current_rate_pct": { "type": "number" },
+        "monthly_payment": { "type": "number" },
+        "status": { "enum": ["CURRENT", "30DPD", "60DPD", "DEFAULT"] },
+        "payoff_statement_received": { "type": "boolean" }
+      }
+    },
+    "fraud_screening": {
+      "type": "object",
+      "required": ["kyc_status"],
+      "properties": {
+        "kyc_status": { "enum": ["PASS", "FAIL", "REVIEW"] },
+        "cip_documents_verified": { "type": "boolean" },
+        "ofac_hit": { "type": "boolean" },
+        "device_risk_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "velocity_flag": { "type": "boolean" },
+        "synthetic_identity_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "enrollment_fraud_flag": { "type": "boolean" },
+        "address_mismatch_flag": { "type": "boolean" }
+      }
+    },
+    "aggregate_exposure": {
+      "type": "object",
+      "properties": {
+        "prior_loans_with_us": { "type": "integer" },
+        "prior_balance_with_us": { "type": "number" },
+        "federal_loan_balance": { "type": "number" },
+        "other_private_balance": { "type": "number" },
+        "total_education_debt": { "type": "number" },
+        "projected_debt_at_graduation": { "type": "number" },
+        "projected_starting_salary": { "type": "number" },
+        "debt_to_projected_income_ratio": { "type": "number" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "required": ["risk_grade", "decision", "decisioned_at", "decisioned_by"],
+      "properties": {
+        "risk_grade": { "type": "string" },
+        "decision": { "enum": ["APPROVE", "APPROVE_WITH_CONDITIONS", "REFER_MANUAL", "DECLINE"] },
+        "approved_amount": { "type": ["number", "null"] },
+        "offered_rate_pct": { "type": ["number", "null"] },
+        "rate_type": { "enum": ["FIXED", "VARIABLE", null] },
+        "term_months": { "type": ["integer", "null"] },
+        "repayment_option": { "enum": ["IMMEDIATE", "INTEREST_ONLY", "FLAT_25", "DEFERRED", null] },
+        "cosigner_release_eligible": { "type": ["boolean", "null"] },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "decline_reason_codes": { "type": "array", "items": { "type": "string" } },
+        "adverse_action_required": { "type": "boolean" },
+        "decisioned_at": { "type": "string", "format": "date-time" },
+        "decisioned_by": { "type": "string" }
+      }
+    },
+    "document_ref": {
+      "type": "object",
+      "properties": {
+        "document_id": { "type": "string" },
+        "document_type": { "type": "string" },
+        "document_date": { "type": "string", "format": "date" },
+        "relative_path": { "type": "string" }
+      }
+    }
+  }
+}
