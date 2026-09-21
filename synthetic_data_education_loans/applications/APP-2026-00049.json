@@ -1,0 +1,144 @@
+{
+  "application_id": "APP-2026-00049",
+  "product_code": "REFI",
+  "submitted_at": "2026-08-29T13:44:00",
+  "channel": "partner",
+  "requested_amount": 217090.05,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "MI",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00049",
+    "first_name": "Rafael",
+    "last_name": "Lambert",
+    "dob": "1981-02-10",
+    "age": 45,
+    "ssn_itin_masked": "XXX-XX-0049",
+    "email": "rafael.lambert49@example.com",
+    "phone": "(211) 210-5342",
+    "address_line1": "4577 Oak Ct",
+    "city": "Ann Arbor",
+    "state": "MI",
+    "zip": "78282",
+    "citizenship_status": "US_CITIZEN",
+    "years_at_address": 0,
+    "references_provided": 1
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00049",
+      "subject_type": "borrower",
+      "pull_date": "2026-07-16",
+      "pull_type": "HARD",
+      "fico_score": 708,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 206,
+      "open_tradelines": 4,
+      "total_debt": 63463.85,
+      "revolving_utilization_pct": 0.26,
+      "inquiries_6mo": 5,
+      "delinq_30_24mo": 1,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00049",
+      "verification_method": "TAX_RETURN",
+      "employer_name": "Ironforge Defense Systems",
+      "employment_type": "W2",
+      "job_title": "Mechanical Engineer",
+      "tenure_months": 152,
+      "gross_annual_income": 52494.12,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 1130.04,
+      "monthly_debt_service": 3894.75,
+      "dti_pct": 0.8903,
+      "residual_income": 479.76,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 24901.06,
+      "current_rate_pct": 5.26,
+      "monthly_payment": 267.29,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Clearpath Student Services",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 41038.34,
+      "current_rate_pct": 6.44,
+      "monthly_payment": 464.73,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 3,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "PRIVATE",
+      "current_balance": 35134.74,
+      "current_rate_pct": 5.73,
+      "monthly_payment": 385.32,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 18,
+    "velocity_flag": false,
+    "synthetic_identity_score": 19,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 2,
+    "prior_balance_with_us": 38409.36,
+    "federal_loan_balance": 17047.78,
+    "other_private_balance": 0,
+    "total_education_debt": 272547.19,
+    "projected_debt_at_graduation": 272547.19,
+    "projected_starting_salary": 160419.3,
+    "debt_to_projected_income_ratio": 1.699
+  },
+  "decision": {
+    "risk_grade": "D3",
+    "decision": "DECLINE",
+    "approved_amount": null,
+    "offered_rate_pct": 11.99,
+    "rate_type": "FIXED",
+    "term_months": null,
+    "repayment_option": null,
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [
+      "RC-003"
+    ],
+    "adverse_action_required": true,
+    "decisioned_at": "2026-08-25T16:14:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

@@ -1,0 +1,50 @@
+==========================================================================
+  COSIGNER BIWEEKLY PAY STUB
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+EMPLOYER:           Maple Street Capital
+EMPLOYER ADDRESS:   4100 Commerce Blvd, Suite 300, Los Angeles, CA 90017
+EMPLOYER ID (EIN):  83-4920176
+
+EMPLOYEE:           Umar Xu
+EMPLOYEE ID:        MSC-07841
+SSN (masked):       XXX-XX-5003
+JOB TITLE:          Software Engineer
+
+PAY PERIOD:         07/01/2026 - 07/14/2026
+PAY DATE:           07/18/2026
+PAY FREQUENCY:      Biweekly
+
+---------------------------------------------------------------------------
+                         CURRENT PERIOD           YEAR-TO-DATE
+---------------------------------------------------------------------------
+EARNINGS
+  Regular Salary           $6,770.09               $94,781.26
+  Other Income (Alimony)     $399.97                $5,599.58
+                          ----------              -----------
+  GROSS PAY                $7,170.06              $100,380.84
+
+DEDUCTIONS
+  Federal Income Tax       $1,290.61               $18,068.54
+  State Income Tax (CA)      $502.81                $7,039.34
+  Social Security (OASDI)    $444.54                $6,223.56
+  Medicare                   $103.97                $1,455.58
+  401(k) Contribution        $338.50                $4,739.00
+  Health Insurance            $187.50                $2,625.00
+  Dental/Vision               $42.00                  $588.00
+                          ----------              -----------
+  TOTAL DEDUCTIONS         $2,909.93               $40,739.02
+
+---------------------------------------------------------------------------
+  NET PAY                  $4,260.13               $59,641.82
+---------------------------------------------------------------------------
+
+DIRECT DEPOSIT:     ****7832  Cascade National Bank     $4,260.13
+
+Year-to-Date Summary:
+  Gross Annual Income Rate:  $176,032.33
+  Pay Periods Remaining:      12 of 26
+
+This document is provided for income verification purposes.

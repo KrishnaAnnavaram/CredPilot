@@ -1,0 +1,131 @@
+==========================================================================
+  FINANCIAL AID AWARD LETTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    CRESTMONT UNIVERSITY
+                    Office of Financial Aid
+                    One University Circle
+                    Springfield, AL 35801
+                    finaid@crestmont.example.edu
+
+--------------------------------------------------------------------------
+
+                    FINANCIAL AID AWARD LETTER
+                    Academic Year 2026-2027
+
+Date:              June 20, 2026
+
+Ms. Sofia Kaur
+7795 Elm Rd
+Springfield, AL 93043
+
+Student ID:        CU-2026-F-024893
+Borrower ID:       BORR-00024
+Award Year:        2026-2027 (Spring 2027 enrollment period)
+Enrollment:        Full-Time, BS in Engineering, Year 3
+
+--------------------------------------------------------------------------
+
+Dear Sofia,
+
+We are pleased to present your financial aid award for the upcoming
+academic year. Please review the information below carefully.
+
+==========================================================================
+COST OF ATTENDANCE
+==========================================================================
+
+  Tuition & Fees:                        $  9,250.00
+  Room & Board:                          $  4,800.00
+  Books & Supplies:                      $  1,200.00
+  Personal & Miscellaneous:              $  1,200.50
+  -------------------------------------------------
+  TOTAL COST OF ATTENDANCE:              $ 16,450.50
+
+==========================================================================
+YOUR FINANCIAL AID AWARD
+==========================================================================
+
+GIFT AID (does not need to be repaid)
+--------------------------------------------------------------------------
+  Crestmont Merit Scholarship            $  2,000.00
+  State of Alabama Grant                 $  1,500.00
+  University Need-Based Grant            $  1,076.63
+  -------------------------------------------------
+  Subtotal Gift Aid:                     $  4,576.63
+
+FEDERAL WORK-STUDY
+--------------------------------------------------------------------------
+  Federal Work-Study (estimated)         $    750.00
+
+FEDERAL STUDENT LOANS (must be repaid)
+--------------------------------------------------------------------------
+  Federal Direct Unsubsidized Loan       $  4,335.47
+  -------------------------------------------------
+  Subtotal Federal Loans:                $  4,335.47
+
+==========================================================================
+AWARD SUMMARY
+==========================================================================
+
+  Total Gift Aid (grants/scholarships):  $  4,576.63
+  Federal Work-Study:                    $    750.00
+  Federal Loans:                         $  4,335.47
+  -------------------------------------------------
+  TOTAL FINANCIAL AID AWARDED:           $  9,662.10
+
+  Cost of Attendance:                    $ 16,450.50
+  Less Total Financial Aid:              $  9,662.10
+  -------------------------------------------------
+  REMAINING UNMET NEED:                  $  6,788.40
+
+--------------------------------------------------------------------------
+  NOTE: The remaining unmet need of $6,788.40 represents the maximum
+  amount you may borrow through a private education loan. This figure
+  has been certified to Edgemont Education Lending per your application
+  APP-2026-00024.
+--------------------------------------------------------------------------
+
+  Financial Aid Breakdown per School Certification:
+    Other Financial Aid (gift + work-study):  $5,326.63
+    Federal Loans Amount:                     $4,335.47
+    Certified Max Eligible (private loan):    $6,788.40
+
+==========================================================================
+IMPORTANT INFORMATION
+==========================================================================
+
+  1. Gift aid awards are renewable annually based on satisfactory
+     academic progress and continued eligibility.
+
+  2. Federal Work-Study earnings depend on hours worked and are paid
+     bi-weekly. The amount listed is an estimate.
+
+  3. Federal Direct Unsubsidized Loan: Interest accrues from
+     disbursement. Current rate for 2026-2027 UG loans: see
+     studentaid.gov.
+
+  4. To accept or decline any portion of this award, log in to your
+     MyCrestmont portal by July 15, 2026.
+
+  5. This award is contingent on your continued full-time enrollment.
+
+--------------------------------------------------------------------------
+
+If you have questions about your financial aid package, please contact:
+
+  Office of Financial Aid
+  Crestmont University
+  Phone: (256) 555-0112
+  Email: finaid@crestmont.example.edu
+  Hours: M-F, 8:00 AM - 5:00 PM CT
+
+Sincerely,
+
+_____________________________
+Margaret Liu
+Director of Financial Aid
+Crestmont University
+==========================================================================

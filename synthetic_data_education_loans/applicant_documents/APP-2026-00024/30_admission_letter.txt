@@ -1,0 +1,88 @@
+==========================================================================
+  ADMISSION LETTER
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    CRESTMONT UNIVERSITY
+                    Office of Undergraduate Admissions
+                    One University Circle
+                    Springfield, AL 35801
+                    admissions@crestmont.example.edu
+
+--------------------------------------------------------------------------
+
+                    OFFICIAL OFFER OF ADMISSION
+
+Date:              April 1, 2026
+
+Ms. Sofia Kaur
+7795 Elm Rd
+Springfield, AL 93043
+
+--------------------------------------------------------------------------
+
+Dear Sofia,
+
+On behalf of the faculty and administration of Crestmont University, it
+is my pleasure to offer you admission to the College of Engineering for
+the Fall 2026 semester.
+
+ADMISSION DETAILS
+--------------------------------------------------------------------------
+  Student Name:           Sofia Kaur
+  Date of Birth:          06/08/2005
+  Applicant ID:           CU-2026-F-024893
+  Admit Term:             Fall 2026
+  College:                College of Engineering
+  Degree Program:         Bachelor of Science (BS) in Engineering
+  Enrollment Status:      Full-Time
+  Year in Program:        Third Year (Junior standing with transfer
+                          credits accepted)
+  Campus:                 Main Campus, Springfield
+
+PROGRAM INFORMATION
+--------------------------------------------------------------------------
+  Crestmont University is a regionally accredited public four-year
+  institution (School ID: SCH-001). The College of Engineering is
+  accredited by ABET and offers programs consistently ranked among the
+  top public engineering schools in the Southeast.
+
+  Expected Graduation:    May 2031
+  Credit Hours Required:  128 total (approximately 42 remaining)
+
+ESTIMATED COST OF ATTENDANCE (2026-2027)
+--------------------------------------------------------------------------
+  Tuition & Fees:                    $  9,250.00
+  Room & Board:                      $  4,800.00
+  Books & Supplies:                  $  1,200.00
+  Personal Expenses:                 $  1,200.50
+  ----------------------------------------
+  Estimated Total:                   $ 16,450.50
+
+NEXT STEPS
+--------------------------------------------------------------------------
+  1.  Confirm your enrollment by submitting the Enrollment Deposit of
+      $200 by May 1, 2026.
+  2.  Complete your housing application by June 1, 2026.
+  3.  Register for Fall 2026 orientation (August 10-12, 2026).
+  4.  Review your Financial Aid Award Letter (sent separately).
+  5.  Submit final transcripts upon completion of current term.
+
+We are thrilled to welcome you to the Crestmont University community.
+If you have questions, please contact the Office of Admissions at
+(256) 555-0100 or admissions@crestmont.example.edu.
+
+Congratulations and welcome to Crestmont!
+
+Sincerely,
+
+_____________________________
+Dr. Raymond Castillo
+Vice Provost for Enrollment Management
+Crestmont University
+
+--------------------------------------------------------------------------
+Crestmont University | Est. 1892 | Springfield, AL
+An Equal Opportunity Institution
+==========================================================================

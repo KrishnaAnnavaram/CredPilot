@@ -1,0 +1,164 @@
+{
+  "application_id": "APP-2026-00159",
+  "product_code": "REFI",
+  "submitted_at": "2026-08-09T16:26:00",
+  "channel": "partner",
+  "requested_amount": 81906.44,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "LA",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00159",
+    "first_name": "Mei",
+    "last_name": "Aldridge",
+    "dob": "1998-09-25",
+    "age": 28,
+    "ssn_itin_masked": "XXX-XX-0159",
+    "email": "mei.aldridge159@example.com",
+    "phone": "(786) 264-2693",
+    "address_line1": "6958 Pine Ave",
+    "city": "Springfield",
+    "state": "LA",
+    "zip": "19686",
+    "citizenship_status": "US_CITIZEN",
+    "years_at_address": 7,
+    "references_provided": 3
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00159",
+      "subject_type": "borrower",
+      "pull_date": "2026-07-24",
+      "pull_type": "HARD",
+      "fico_score": 792,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 203,
+      "open_tradelines": 6,
+      "total_debt": 108135.99,
+      "revolving_utilization_pct": 0.45,
+      "inquiries_6mo": 5,
+      "delinq_30_24mo": 1,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00159",
+      "verification_method": "W2",
+      "employer_name": "Cascade Supply Chain",
+      "employment_type": "CONTRACT",
+      "job_title": "Research Scientist",
+      "tenure_months": 171,
+      "gross_annual_income": 151415.38,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 1177.14,
+      "monthly_debt_service": 2867.43,
+      "dti_pct": 0.2273,
+      "residual_income": 9750.52,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 75947.62,
+      "current_rate_pct": 8.5,
+      "monthly_payment": 941.64,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Summit Student Lending",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 61404.24,
+      "current_rate_pct": 5.88,
+      "monthly_payment": 678.02,
+      "status": "CURRENT",
+      "payoff_statement_received": false
+    },
+    {
+      "loan_seq": 3,
+      "servicer_name": "Horizon Loan Management",
+      "loan_type": "PRIVATE",
+      "current_balance": 20865.27,
+      "current_rate_pct": 8.07,
+      "monthly_payment": 253.93,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 4,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 27660.43,
+      "current_rate_pct": 9.78,
+      "monthly_payment": 362.17,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 5,
+      "servicer_name": "Ridgeview Financial",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 37513.08,
+      "current_rate_pct": 10.05,
+      "monthly_payment": 496.78,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 13,
+    "velocity_flag": false,
+    "synthetic_identity_score": 24,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 1,
+    "prior_balance_with_us": 20762.6,
+    "federal_loan_balance": 19617.08,
+    "other_private_balance": 0,
+    "total_education_debt": 122286.12,
+    "projected_debt_at_graduation": 122286.12,
+    "projected_starting_salary": 62521.04,
+    "debt_to_projected_income_ratio": 1.9559
+  },
+  "decision": {
+    "risk_grade": "A1",
+    "decision": "REFER_MANUAL",
+    "approved_amount": 81906.44,
+    "offered_rate_pct": 4.99,
+    "rate_type": "FIXED",
+    "term_months": 60,
+    "repayment_option": null,
+    "cosigner_release_eligible": null,
+    "conditions": [
+      "Missing payoff statement(s)"
+    ],
+    "decline_reason_codes": [],
+    "adverse_action_required": false,
+    "decisioned_at": "2026-09-02T09:29:00",
+    "decisioned_by": "ANALYST-271"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

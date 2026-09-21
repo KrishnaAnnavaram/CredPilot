@@ -1,0 +1,183 @@
+==========================================================================
+  PAYOFF STATEMENT -- REFINANCE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    EDUCATION LOAN PAYOFF STATEMENT
+                    Prepared for Refinance -- APP-2026-00037
+
+                    Borrower: Wesley Walsh (BORR-00037)
+                    SSN (last 4): 0037
+                    Prepared: September 1, 2026
+
+==========================================================================
+LOAN 1 OF 4
+==========================================================================
+
+  Servicer:                  Clearpath Student Services
+  Servicer Address:          P.O. Box 41200, Indianapolis, IN 46241
+  Servicer Phone:            (800) 555-0162
+  Account Number:            CPS-XXXX-XXXX-4817
+
+  Loan Type:                 PRIVATE
+  Original Lender:           Keystone Education Finance
+  Interest Rate:             8.69% (Fixed)
+  Current Monthly Payment:   $673.24
+  Payment Status:            CURRENT
+
+  Principal Balance:         $ 52,140.88
+  Accrued Interest:          $  1,544.22
+  Late Fees Outstanding:     $      0.00
+  Other Fees:                $    172.55
+  ----------------------------------------
+  TOTAL PAYOFF AMOUNT:       $ 53,857.65
+
+  Per Diem Interest:         $     12.83
+  Payoff Good Through Date:  10/01/2026 (30 days from statement date)
+
+  Wire Instructions:
+    Bank: First National Trust, Indianapolis, IN
+    ABA Routing: 074XXXXXX
+    Account: 10284XXXXX
+    Reference: CPS-XXXX-XXXX-4817 / Walsh
+
+  Payoff Statement Received: Yes
+
+--------------------------------------------------------------------------
+
+==========================================================================
+LOAN 2 OF 4
+==========================================================================
+
+  Servicer:                  Clearpath Student Services
+  Servicer Address:          P.O. Box 41200, Indianapolis, IN 46241
+  Servicer Phone:            (800) 555-0162
+  Account Number:            CPS-XXXX-XXXX-4818
+
+  Loan Type:                 FEDERAL DIRECT (Unsubsidized)
+  Interest Rate:             7.14% (Fixed)
+  Current Monthly Payment:   $346.86
+  Payment Status:            30 DAYS PAST DUE (30DPD)
+
+  Principal Balance:         $ 28,912.40
+  Accrued Interest:          $    601.25
+  Late Fees Outstanding:     $    175.00
+  Other Fees:                $      0.00
+  ----------------------------------------
+  TOTAL PAYOFF AMOUNT:       $ 29,688.65
+
+  Per Diem Interest:         $      5.81
+  Payoff Good Through Date:  10/01/2026
+
+  Wire Instructions:
+    Bank: First National Trust, Indianapolis, IN
+    ABA Routing: 074XXXXXX
+    Account: 10284XXXXX
+    Reference: CPS-XXXX-XXXX-4818 / Walsh
+
+  Payoff Statement Received: Yes
+
+  NOTE: This account is currently 30 days past due. Payoff amount
+  includes the past-due payment and associated late fee. Borrower
+  must remain current or payoff must be received before further
+  delinquency reporting.
+
+--------------------------------------------------------------------------
+
+==========================================================================
+LOAN 3 OF 4
+==========================================================================
+
+  Servicer:                  Horizon Loan Management
+  Servicer Address:          2200 Finance Center Blvd, Charlotte, NC 28202
+  Servicer Phone:            (888) 555-0194
+  Account Number:            HLM-XXXX-XXXX-7293
+
+  Loan Type:                 FEDERAL DIRECT (Subsidized)
+  Interest Rate:             7.67% (Fixed)
+  Current Monthly Payment:   $814.10
+  Payment Status:            CURRENT
+
+  Principal Balance:         $ 66,485.20
+  Accrued Interest:          $  1,412.65
+  Late Fees Outstanding:     $      0.00
+  Other Fees:                $    176.00
+  ----------------------------------------
+  TOTAL PAYOFF AMOUNT:       $ 68,073.85
+
+  Per Diem Interest:         $     14.30
+  Payoff Good Through Date:  10/01/2026
+
+  Wire Instructions:
+    Bank: Carolina Commerce Bank, Charlotte, NC
+    ABA Routing: 053XXXXXX
+    Account: 40917XXXXX
+    Reference: HLM-XXXX-XXXX-7293 / Walsh
+
+  Payoff Statement Received: Yes
+
+--------------------------------------------------------------------------
+
+==========================================================================
+LOAN 4 OF 4
+==========================================================================
+
+  Servicer:                  Ridgeview Financial
+  Servicer Address:          800 Summit Drive, Suite 500, Denver, CO 80202
+  Servicer Phone:            (877) 555-0213
+  Account Number:            RVF-XXXX-XXXX-3061
+
+  Loan Type:                 FEDERAL DIRECT (Unsubsidized)
+  Interest Rate:             5.75% (Fixed)
+  Current Monthly Payment:   $434.80
+  Payment Status:            CURRENT
+
+  Principal Balance:         $ 38,840.96
+  Accrued Interest:          $    644.00
+  Late Fees Outstanding:     $      0.00
+  Other Fees:                $    125.00
+  ----------------------------------------
+  TOTAL PAYOFF AMOUNT:       $ 39,609.96
+
+  Per Diem Interest:         $      6.21
+  Payoff Good Through Date:  10/01/2026
+
+  Wire Instructions:
+    Bank: Mountain West Bank, Denver, CO
+    ABA Routing: 102XXXXXX
+    Account: 72045XXXXX
+    Reference: RVF-XXXX-XXXX-3061 / Walsh
+
+  Payoff Statement Received: Yes
+
+==========================================================================
+PAYOFF SUMMARY -- ALL LOANS
+==========================================================================
+
+  Loan   Servicer                  Type              Balance       Rate
+  ----   -------------------------  ---------------  -----------   ------
+    1    Clearpath Student Svcs     PRIVATE          $ 53,857.65    8.69%
+    2    Clearpath Student Svcs     FEDERAL DIRECT   $ 29,688.65    7.14%
+    3    Horizon Loan Management    FEDERAL DIRECT   $ 68,073.85    7.67%
+    4    Ridgeview Financial        FEDERAL DIRECT   $ 39,609.96    5.75%
+         -----------------------------------------------------------
+         TOTAL PAYOFF (all loans)                   $191,230.11
+
+  Combined Per Diem Interest:                       $     39.15
+  All Payoffs Good Through:                         10/01/2026
+
+  Current Combined Monthly Payment:                 $  2,269.00
+  Proposed Refinance Amount (APP-2026-00037):       $175,356.73
+  Proposed New Rate:                                  7.99% Fixed
+  Proposed New Term:                                  84 months
+
+  NOTE: Total payoff exceeds requested refinance amount. Borrower may
+  need to provide additional funds at closing or negotiate partial
+  payoff with individual servicers.
+
+--------------------------------------------------------------------------
+  Payoff statements collected and verified by:
+  Edgemont Education Lending -- Refinance Operations
+  Date compiled: 09/01/2026
+==========================================================================

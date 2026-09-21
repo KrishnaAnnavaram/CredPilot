@@ -1,0 +1,134 @@
+{
+  "application_id": "APP-2026-00197",
+  "product_code": "REFI",
+  "submitted_at": "2026-07-28T08:14:00",
+  "channel": "direct",
+  "requested_amount": 126408.19,
+  "loan_purpose": "refinance_existing_education_loans",
+  "state_of_residence": "MD",
+  "has_cosigner": false,
+  "status": "DECISIONED",
+  "borrower": {
+    "borrower_id": "BORR-00197",
+    "first_name": "Umar",
+    "last_name": "Jensen",
+    "dob": "1981-07-25",
+    "age": 45,
+    "ssn_itin_masked": "XXX-XX-0197",
+    "email": "umar.jensen197@example.com",
+    "phone": "(968) 718-2500",
+    "address_line1": "4633 Maple Rd",
+    "city": "Springfield",
+    "state": "MD",
+    "zip": "67673",
+    "citizenship_status": "PERM_RESIDENT",
+    "years_at_address": 0,
+    "references_provided": 1
+  },
+  "cosigner": null,
+  "credit_bureau": [
+    {
+      "subject_id": "BORR-00197",
+      "subject_type": "borrower",
+      "pull_date": "2026-07-11",
+      "pull_type": "HARD",
+      "fico_score": 725,
+      "file_status": "ESTABLISHED",
+      "oldest_tradeline_months": 90,
+      "open_tradelines": 14,
+      "total_debt": 111493.31,
+      "revolving_utilization_pct": 0.24,
+      "inquiries_6mo": 2,
+      "delinq_30_24mo": 1,
+      "delinq_60_24mo": 0,
+      "delinq_90_24mo": 0,
+      "collections_count": 0,
+      "charge_offs_count": 0,
+      "bankruptcy_flag": false,
+      "bankruptcy_discharge_date": null,
+      "student_loan_delinquency_flag": false
+    }
+  ],
+  "income_verification": [
+    {
+      "subject_id": "BORR-00197",
+      "verification_method": "TAX_RETURN",
+      "employer_name": "Summit Legal Associates",
+      "employment_type": "CONTRACT",
+      "job_title": "Project Manager",
+      "tenure_months": 23,
+      "gross_annual_income": 58247.3,
+      "other_income": 0,
+      "other_income_source": null,
+      "monthly_housing_expense": 1585.98,
+      "monthly_debt_service": 3293.26,
+      "dti_pct": 0.6785,
+      "residual_income": 1560.68,
+      "docs_complete": true
+    }
+  ],
+  "school": null,
+  "school_certification": null,
+  "international_details": null,
+  "existing_loans": [
+    {
+      "loan_seq": 1,
+      "servicer_name": "National Education Servicing",
+      "loan_type": "FEDERAL_PLUS",
+      "current_balance": 9118.79,
+      "current_rate_pct": 4.26,
+      "monthly_payment": 93.45,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    },
+    {
+      "loan_seq": 2,
+      "servicer_name": "Horizon Loan Management",
+      "loan_type": "FEDERAL_DIRECT",
+      "current_balance": 24045.01,
+      "current_rate_pct": 9.37,
+      "monthly_payment": 309.43,
+      "status": "CURRENT",
+      "payoff_statement_received": true
+    }
+  ],
+  "fraud_screening": {
+    "kyc_status": "PASS",
+    "cip_documents_verified": true,
+    "ofac_hit": false,
+    "device_risk_score": 76,
+    "velocity_flag": true,
+    "synthetic_identity_score": 8,
+    "enrollment_fraud_flag": false,
+    "address_mismatch_flag": false
+  },
+  "aggregate_exposure": {
+    "prior_loans_with_us": 2,
+    "prior_balance_with_us": 31418.12,
+    "federal_loan_balance": 2886.59,
+    "other_private_balance": 0,
+    "total_education_debt": 160712.9,
+    "projected_debt_at_graduation": 160712.9,
+    "projected_starting_salary": 107876.65,
+    "debt_to_projected_income_ratio": 1.4898
+  },
+  "decision": {
+    "risk_grade": "D3",
+    "decision": "DECLINE",
+    "approved_amount": null,
+    "offered_rate_pct": 11.99,
+    "rate_type": "FIXED",
+    "term_months": null,
+    "repayment_option": null,
+    "cosigner_release_eligible": null,
+    "conditions": [],
+    "decline_reason_codes": [
+      "RC-003"
+    ],
+    "adverse_action_required": true,
+    "decisioned_at": "2026-08-29T15:11:00",
+    "decisioned_by": "AUTO"
+  },
+  "supplied_documents": [],
+  "untrusted_applicant_text": null
+}

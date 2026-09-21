@@ -1,0 +1,72 @@
+==========================================================================
+  CLASS SCHEDULE
+  SYNTHETIC DOCUMENT - generated for CredPilot testing. Not a real record.
+  No real person, employer, institution or property is represented.
+==========================================================================
+
+                    SUMMIT LAW SCHOOL
+                    Office of the Registrar
+
+--------------------------------------------------------------------------
+
+                    STUDENT CLASS SCHEDULE
+                    Fall 2026 Semester
+
+Student Name:      Kaya Morales
+Student ID:        SLS-1L-2026-0941
+Borrower ID:       BORR-00041
+Program:           Juris Doctor (JD) -- First Year (1L)
+Enrollment Status: Full-Time
+Term:              Fall 2026 (08/18/2026 - 12/11/2026)
+
+==========================================================================
+
+ Course       Course Title                  Cr   Days     Time         Room
+ ----------   ---------------------------   ---  ------   -----------  -----
+ LAW 501      Civil Procedure I              4   M W      9:00-10:30   201
+ LAW 510      Contracts I                    3   T Th     9:00-10:15   305
+ LAW 520      Torts                          3   M W      11:00-12:15  201
+ LAW 530      Criminal Law                   3   T Th     11:00-12:15  118
+ LAW 540      Legal Research & Writing I     2   F        9:00-11:00   Lab A
+ LAW 505      Constitutional Law I           1   W        2:00-3:00    204
+
+==========================================================================
+SCHEDULE SUMMARY
+==========================================================================
+
+  Total Credit Hours:        16
+  Required for Full-Time:    12 minimum (JD program)
+  Status:                    FULL-TIME (exceeds minimum)
+
+  Class Days:                Monday through Friday
+  Earliest Class:            9:00 AM
+  Latest Class End:          3:00 PM
+
+  Final Exams:               December 14-18, 2026
+
+==========================================================================
+INSTRUCTOR INFORMATION
+==========================================================================
+
+  LAW 501  Civil Procedure I         Prof. Sandra Nguyen, J.D.
+  LAW 510  Contracts I               Prof. David Harrington, J.D., LL.M.
+  LAW 520  Torts                     Prof. Rachel Goldstein, J.D.
+  LAW 530  Criminal Law              Prof. Marcus Thompson, J.D.
+  LAW 540  Legal Research & Writing  Prof. Emily Watkins, J.D., M.L.S.
+  LAW 505  Constitutional Law I      Prof. Anthony Delgado, J.D., Ph.D.
+
+==========================================================================
+NOTES
+==========================================================================
+
+  - All 1L courses are mandatory and prescribed by the law school
+    curriculum. Students may not drop or swap 1L required courses.
+  - Attendance is mandatory per ABA Standard 308. Students missing more
+    than 20% of class sessions may be administratively withdrawn.
+  - This schedule was generated on 08/10/2026 and reflects the student's
+    final registered courses for Fall 2026.
+
+--------------------------------------------------------------------------
+Summit Law School | Office of the Registrar
+registrar@summitlaw.example.edu | (414) 555-0175
+==========================================================================
