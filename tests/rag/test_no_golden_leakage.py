@@ -231,3 +231,49 @@ def test_the_graph_never_reads_an_outcome_table(repo_root):
     # And it did bring the inputs it is supposed to bring.
     assert packet["property_costs"]["annual_property_tax"]
     assert packet["verified_liabilities"]
+
+
+def test_an_education_packet_reaches_runtime_without_its_decision(repo_root):
+    """The other half of the boundary.
+
+    Mortgage keeps its outcomes in structured tables, where the allowlist catches
+    them. Every education packet embeds the generator's decision in the submitted
+    JSON itself — risk grade, approved amount, decline reason codes — which no
+    table guard can see. Left in, it would ride into graph state and any prompt
+    built from application facts, and the evaluation would be scoring a system
+    that had been shown the answer.
+    """
+    from src.application_context import build_underwriting_input
+
+    source = repo_root / "synthetic_data/education/applications/APP-2026-00001.json"
+    raw = json.loads(source.read_text(encoding="utf-8"))
+    assert "decision" in raw, "fixture no longer carries the outcome this test guards"
+    assert raw["decision"]["decision"], "fixture outcome is empty"
+
+    packet = build_underwriting_input(source)
+
+    assert "decision" not in packet
+    assert packet["_withheld_outcome_fields"] == ["decision"]
+
+    payload = json.dumps(packet, default=str)
+    for marker in ("approved_amount", "decline_reason_codes", "adverse_action_required",
+                   "offered_rate_pct", "cosigner_release_eligible"):
+        assert marker not in payload, f"{marker} survived the strip"
+
+    # The vendor results underwriting genuinely consumes are still there: a KYC
+    # status and a bureau pull are reported to the lender, not computed by it.
+    assert packet["fraud_screening"]["kyc_status"]
+    assert packet["credit_bureau"]
+    assert packet["school_certification"]
+
+
+def test_every_education_packet_is_stripped_not_just_the_sampled_one(repo_root):
+    """All 200, because one unstripped packet is one leaked label."""
+    from src.application_context import build_underwriting_input
+
+    leaked = []
+    for path in sorted((repo_root / "synthetic_data/education/applications").glob("APP-*.json")):
+        packet = build_underwriting_input(path)
+        if "decision" in packet:
+            leaked.append(path.name)
+    assert not leaked, f"packets still carrying an outcome: {leaked[:5]}"

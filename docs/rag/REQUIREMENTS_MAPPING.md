@@ -23,7 +23,7 @@ Every path is repo-relative and resolves in a clean checkout.
 | ID | Requirement (verbatim, abridged) | Source | Mortgage | Education | Evidence | Test | Status |
 |----|----------------------------------|--------|----------|-----------|----------|------|--------|
 | REQ-035 | `Language / Agent Framework \| Python 3.11+ · LangGraph (MIT)` | §4 table | [src/graph.py](../../src/graph.py) | same graph, product-routed | `data/memory/credpilot_checkpoints.sqlite` | [test_langgraph_rag_integration.py](../../tests/rag/test_langgraph_rag_integration.py) | **MET** |
-| REQ-036 | `LLM Provider \| Google Gemini (API) — the only approved provider; not Claude` | §4 table | no LLM in the retrieval path | no LLM in the retrieval path | see §3 below | [test_stack_boundaries.py](../../tests/rag/test_stack_boundaries.py) | **MET** |
+| REQ-036 | `LLM Provider \| Google Gemini (API) — the only approved provider; not Claude` | §4 table | [src/llm.py](../../src/llm.py) — one module, one provider; no LLM in the retrieval path | same | `reports/eval_report.json` records the answering model | [test_stack_boundaries.py](../../tests/rag/test_stack_boundaries.py) | **MET** |
 | REQ-037 | `Interoperability \| MCP Python SDK (stdio) + langchain-mcp-adapters` | §4 table | [mcp_server/server.py](../../mcp_server/server.py) — 3 tools, 3 resources | same server, product-scoped tools | `logs/mcp_transcript.jsonl` | [test_mcp_rag_integration.py](../../tests/rag/test_mcp_rag_integration.py) | **MET** |
 | REQ-039 | `Retrieval \| Chroma or FAISS + Sentence-Transformers (local)` | §4 table | `credpilot_mortgage_policies` | `credpilot_education_policies` | `data/vectorstore/index_manifest.json` | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
 | REQ-044 (AC-01) | *"retrieves the applicable current lending policy and returns an eligibility determination that cites the policy rule it applied"* | §5.1 | effective-date-aware; boundary triple passes | effective-date-aware; single version per policy | `eval/results/retrieval_eval.json` | [test_temporal_retrieval.py](../../tests/rag/test_temporal_retrieval.py) | **MET** |
@@ -67,15 +67,51 @@ mandated by the source document, and each is justified by committed measurement.
 The runtime uses **no** Anthropic, Claude, OpenAI, Cohere, Voyage, Pinecone,
 Weaviate, Qdrant, Milvus, Azure AI Search, OpenSearch or Elasticsearch, and no
 hosted reranking service. Embeddings and reranking are local
-`sentence-transformers` models; the vector store is embedded Chroma. Gemini is
-the only model provider, and it is not in the retrieval path at all — retrieval
-is deterministic end to end.
+`sentence-transformers` models; the vector store is embedded Chroma.
+
+Gemini is the only model provider, and every call to it goes through
+[src/llm.py](../../src/llm.py). There is exactly **one** such call in a normal
+assessment — the narrative node, which explains a decision already made. Nothing
+in retrieval, ranking, filtering, arithmetic or the verdict involves a model, so
+the pipeline that produces the recommendation is deterministic end to end and the
+evaluation is reproducible (REQ-033).
 
 Enforced by [tests/rag/test_stack_boundaries.py](../../tests/rag/test_stack_boundaries.py),
 which scans every runtime module's imports and the dependency manifest.
 
 Claude Code was used as the development assistant for this work. No Claude model
 is called at runtime and no `ANTHROPIC_API_KEY` is read.
+
+---
+
+## 3a. Agent, evaluation and governance
+
+The rows above cover retrieval. These cover the graph that uses it, the
+evaluation that measures it, and the documents that govern it.
+
+| ID | Requirement (verbatim, abridged) | Mortgage | Education | Evidence | Test | Status |
+|----|----------------------------------|----------|-----------|----------|------|--------|
+| REQ-074 | tiered memory: short-term + long-term/semantic | [src/memory/](../../src/memory/) | same store, subject-scoped | `logs/memory_test.log` | [test_memory_persistence.py](../../tests/test_memory_persistence.py) | **MET** |
+| REQ-075 | *"cross-session recall test with committed output log"* | written in one session, read by a store built only from the path | same | `logs/memory_test.log` | `test_memory_survives_a_new_store_on_the_same_file` | **MET** |
+| REQ-080 | context engineering: write / select / compress / isolate | [src/context/](../../src/context/) | same | `context_record` on graph state | [test_context_engineering.py](../../tests/test_context_engineering.py) | **MET** |
+| REQ-097 | `Evaluation report \| reports/eval_report.json + harness \| DeepEval … hallucination + faithfulness/relevance; LLM-as-judge` | 75 golden cases | 20 golden cases | `reports/eval_report.json`, `reports/eval_cases.jsonl` | [eval/agent/](../../eval/agent/) | **MET** |
+| REQ-098 | `Golden signals \| reports/golden_signals.json \| latency, tokens in/out, cost estimate, accuracy, hallucination rate` | derived per product | derived per product | `reports/golden_signals.json` | [build_golden_signals.py](../../scripts/build_golden_signals.py) | **MET** |
+| REQ-099 | `Dashboard \| reports/dashboard.png + dashboard_data.csv` | one chart, both products | same | `reports/dashboard.png` | [build_dashboard.py](../../scripts/build_dashboard.py) | **MET** |
+| REQ-046 (AC-03) | *"a decline or high-value case is routed for human review rather than auto-decided"* | `UWR-HRV-001` routing table, band read from the rule | `EDU-GOV-002` outcome vocabulary | `recommendation.review_triggers` | [test_review_triggers.py](../../tests/test_review_triggers.py) | **MET** |
+| — | risk register | OWASP LLM Top 10 + NIST AI RMF, 26 rows | same | [docs/risk-register.md](../risk-register.md) | — | **MET** |
+| — | model card | [docs/model-card.md](../model-card.md) | same | — | — | **MET** |
+| — | compliance mapping | EU AI Act / NIST AI RMF / DPDP | same | [docs/compliance.md](../compliance.md) | — | **MET** |
+| — | output risk tiers | three tiers with gating | same | [docs/output-risk.md](../output-risk.md) | — | **MET** |
+| — | failure analysis | eight real failures with before/after | same | [docs/failure-analysis.md](../failure-analysis.md) | [test_documentation.py](../../tests/rag/test_documentation.py) | **MET** |
+
+### Loop and cost control
+
+Not a numbered requirement, but an agentic system without it is a liability.
+Two independent guards, because they fail differently: an in-state
+`step_budget` of 24 lets a node **halt cleanly with a reason a human can read**,
+and LangGraph's `recursion_limit` of 40 is the external backstop for a cycle
+that never reaches a node able to check anything. A normal run uses 7. Covered by
+[tests/test_loops.py](../../tests/test_loops.py).
 
 ---
 

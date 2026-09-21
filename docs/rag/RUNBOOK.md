@@ -71,6 +71,41 @@ Artifacts written:
 
 ---
 
+## Regenerating every committed artifact
+
+REQ-033 asks for the system, its traces and its evaluation to be regenerable from
+one documented command. This is it:
+
+```bash
+python scripts/regenerate_evidence.py
+```
+
+Eight steps, in order, each writing artifacts that are committed:
+
+| Step | Writes | Needs a key |
+|---|---|---|
+| indexes | `data/vectorstore/`, manifests, integrity report | no |
+| funnel sweep | `eval/results/pipeline_sweep.json` | no |
+| ablation | `eval/results/ablation.json` | no |
+| retrieval evaluation | `eval/results/retrieval_eval*.json(l)` | no |
+| trace export | `traces/phoenix_spans.jsonl` | no |
+| agent evaluation | `reports/eval_report.json`, `reports/eval_cases.jsonl` | **yes** |
+| golden signals | `reports/golden_signals.json`, `reports/dashboard_data.csv` | no |
+| dashboard | `reports/dashboard.png` | no |
+
+The agent evaluation is **skipped with a message** when no `GOOGLE_API_KEY` is
+set, rather than failing the run. Everything retrieval-side — which is most of
+the committed evidence and all of the deterministic part — regenerates on a clean
+checkout with no credential at all.
+
+Useful flags: `--only indexes` to run one step, `--skip "agent evaluation"` to
+leave the long one out deliberately.
+
+The whole run takes a little over an hour with a key, or about ten minutes
+without one.
+
+---
+
 ## Running it
 
 ### Assess an application
@@ -125,10 +160,107 @@ python eval/retrieval/run_retrieval_eval.py
 ~6 minutes. Writes `eval/results/retrieval_eval.json` and a per-case record at
 `eval/results/retrieval_eval_cases.jsonl`. Reports the authored and
 golden-application families separately — see the note in
-[FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) F-4 for why.
+[../failure-analysis.md](../failure-analysis.md) F-4 for why.
 
 Useful flags: `--no-rerank` to isolate the reranker's contribution, `--no-golden`
 for the authored set only, `--trace` to emit spans for the run.
+
+### End to end, both products, with the LLM-as-judge
+
+```bash
+python -m eval.agent.run_agent_eval
+```
+
+**Needs `GOOGLE_API_KEY`.** Runs all 95 golden cases — 75 mortgage, 20 education —
+through the whole graph, then scores the rationales with DeepEval using Gemini as
+the judge.
+
+Budget roughly **15 seconds** for an unjudged case and **50 seconds** for a judged
+one. The committed run judges 20 per product and takes a little under an hour;
+judging all 95 takes about three times that, because DeepEval makes nine or ten
+model calls per case.
+
+```bash
+python -m eval.agent.run_agent_eval --judge-limit-per-product 20   # the committed run
+```
+
+Writes `reports/eval_report.json` and a per-case record at
+`reports/eval_cases.jsonl`.
+
+**Sampling the judge does not weaken the result.** The deterministic metrics —
+outcome accuracy, citation validity and recall, and the grounding check in
+`src.narrative.verify_narrative` — run on every case, and those are the ones that
+govern where the two disagree. The judged metrics run on a balanced sample, taken
+per product so neither dominates, and `judged_cases` states the denominator.
+
+Useful flags while iterating:
+
+```bash
+python -m eval.agent.run_agent_eval --limit-per-product 5   # 10 cases, both products
+python -m eval.agent.run_agent_eval --no-judge              # deterministic only, ~3x faster
+python -m eval.agent.run_agent_eval --product education     # one product
+```
+
+`--limit-per-product` takes the first *n* of **each** product rather than the
+first *n* overall. Mortgage has 75 cases to education's 20, so a flat limit would
+leave a "both products" run that was almost entirely mortgage.
+
+`--no-judge` still runs the deterministic grounding check
+(`src.narrative.verify_narrative`), which needs no judge — only the DeepEval
+metrics are skipped.
+
+### Golden signals and the dashboard
+
+```bash
+python scripts/build_golden_signals.py
+python scripts/build_dashboard.py
+```
+
+Both **re-derive** from the committed evaluation run rather than re-measuring, so
+they are fast and cannot disagree with it. The first writes
+`reports/golden_signals.json` and `reports/dashboard_data.csv`; the second draws
+`reports/dashboard.png` from that CSV, so the picture and the numbers behind it
+come from one source.
+
+Run the evaluation first — both exit with a message if `reports/eval_report.json`
+is missing.
+
+### Re-deriving faithfulness after a change to the checker
+
+```bash
+python scripts/recheck_faithfulness.py            # updates reports/eval_report.json
+python scripts/recheck_faithfulness.py --dry-run  # reports the figure, touches nothing
+```
+
+`narrative_faithfulness_deterministic` is produced during the run, so a fix to
+:func:`src.narrative.verify_narrative` normally means re-running the evaluation.
+This script gets the same answer without one, and **needs no model credential**.
+
+It is exact rather than approximate, for a specific reason: the run records every
+figure it flagged, and a fix that widens the supported set can only clear a flag,
+never raise a new one. Each flagged figure is re-tested against a supported set
+rebuilt from retrieval, the calculators and the rule engine — none of which
+involve a model. Where a fix changes the figure *pattern* rather than the
+supported set, that reasoning does not hold and the evaluation must be re-run.
+
+The corrected figure replaces the one in `reports/eval_report.json`, and the
+original is kept beside it as
+`narrative_faithfulness_deterministic_as_measured`. `reports/faithfulness_recheck.json`
+records which cases cleared, which did not, and why the re-derivation is sound.
+
+### Reading the numbers
+
+Three things to know before quoting anything from these reports:
+
+1. **Every headline figure is macro-averaged across products.** A pooled mean
+   would be a mortgage score with a rounding error attached.
+2. **`hallucination_rate` is derived, not raw.** DeepEval 4.x reports
+   `HallucinationMetric` in the same direction as its other metrics — 1.0 means
+   grounded. The report publishes `judge_hallucination_score` (raw, 1 is good)
+   and `judge_hallucination_rate = 1 - score` (0 is good) beside it.
+3. **Grounding is measured twice.** `narrative_faithfulness_deterministic` asks
+   no model anything; the `judge_*` figures do. Where they disagree, trust the
+   deterministic one — the judge shares a model family with the system it grades.
 
 ### Model selection
 
@@ -220,13 +352,13 @@ Writes `logs/mcp_transcript.jsonl`.
 > **Anything the server prints to stdout corrupts the JSON-RPC stream.** The
 > server disables progress bars, warms the models before `mcp.run()`, and wraps
 > every handler in `@protocol_safe`. Keep that in place when adding a handler —
-> [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) F-3 is what happens otherwise.
+> [../failure-analysis.md](../failure-analysis.md) F-3 is what happens otherwise.
 
 ---
 
 ## What needs a key, and what does not
 
-| | Needs `GEMINI_API_KEY` |
+| | Needs `GOOGLE_API_KEY` |
 |---|---|
 | Building the indexes | no |
 | Retrieval, the CLI, the MCP server | no |
@@ -234,11 +366,20 @@ Writes `logs/mcp_transcript.jsonl`.
 | The retrieval evaluation and all benchmarks | no |
 | `pytest tests/` | no |
 | Narrative rationale generation | **yes** |
-| The DeepEval LLM-as-judge suite | **yes** |
+| `eval/agent/run_agent_eval.py` and its DeepEval judge | **yes** |
+| `scripts/build_golden_signals.py`, `scripts/build_dashboard.py` | no — they re-derive from the committed report |
 
 Retrieval, calculation and rule evaluation are deterministic and contain no model
 call — by design, and because `POL-DTI-001` DTI-CALC-002 forbids a model
 producing an underwriting figure.
+
+There is exactly **one** model call in a normal assessment: the narrative node,
+which explains a decision already made. Without a key it degrades to a
+deterministic summary and marks the result `available: false`; the file is still
+assessed and still gets a recommendation.
+
+Both `GOOGLE_API_KEY` and `GEMINI_API_KEY` are accepted, and the SDK is given
+whichever is set.
 
 A Gemini API key starts with `AIza` and comes from
 <https://aistudio.google.com/apikey>. An OAuth access token (starting `AQ.`) is

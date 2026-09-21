@@ -119,14 +119,17 @@ def test_the_same_ratio_decides_differently_by_version(mortgage_evidence):
     """44% passes under v1.0 and breaches under v2.0. Nothing else changes."""
     packet = {"product_family": "conventional_conforming", "loan_purpose": "purchase"}
 
+    # Scoped to the affordability rule. The fixture evidence carries the DTI
+    # rules alone, so a whole-file summary would be INDETERMINATE on the three
+    # knockouts that were never retrieved — true, and not what this test is about.
     v1 = rules.summarize(
-        rules.evaluate(
-            LendingProductDomain.MORTGAGE, _calc(0.44), packet, mortgage_evidence("1.0")
+        rules.evaluate_mortgage_affordability(
+            _calc(0.44), packet, mortgage_evidence("1.0")
         )
     )
     v2 = rules.summarize(
-        rules.evaluate(
-            LendingProductDomain.MORTGAGE, _calc(0.44), packet, mortgage_evidence("2.0")
+        rules.evaluate_mortgage_affordability(
+            _calc(0.44), packet, mortgage_evidence("2.0")
         )
     )
 
@@ -181,8 +184,8 @@ def test_the_extension_applies_with_enough_factors(mortgage_evidence):
     calculations = _calc(
         0.44, ratios={"back_end_dti": 0.44, "ltv": 0.72}, months_of_reserves=61.1
     )
-    evaluations = rules.evaluate(
-        LendingProductDomain.MORTGAGE, calculations, packet, mortgage_evidence("2.0")
+    evaluations = rules.evaluate_mortgage_affordability(
+        calculations, packet, mortgage_evidence("2.0")
     )
     assert rules.summarize(evaluations)["status"] == "ELIGIBLE"
     assert evaluations[0].threshold == pytest.approx(0.45)

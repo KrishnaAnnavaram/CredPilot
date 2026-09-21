@@ -122,7 +122,7 @@ one product against a half-point loss on the other.
 * **Macro, not micro.** Mortgage contributes 108 cases to education's 74.
 * **Index and embedding held fixed.** Only the reranker varies.
 * **Authored cases only.** The golden-application family asks one broad question
-  per file and is scored on coverage — see [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) F-4.
+  per file and is scored on coverage — see [../failure-analysis.md](../failure-analysis.md) F-4.
 * **Materiality bar of 0.01**, applied by the script rather than by hand.
 * **Re-run after the embedding changed.** This benchmark originally selected L-6
   under `bge-small-en-v1.5`. When the embedding benchmark moved the model, this

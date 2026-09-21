@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import textwrap
 import uuid
 from pathlib import Path
 
@@ -62,6 +63,8 @@ def cmd_assess(args: argparse.Namespace) -> int:
         "security_findings": result.get("security_findings"),
         "evidence_count": len(evidence),
         "citations": recommendation.get("citations", []),
+        "narrative": result.get("narrative"),
+        "review_triggers": recommendation.get("review_triggers"),
     }
 
     if args.json:
@@ -79,6 +82,53 @@ def cmd_assess(args: argparse.Namespace) -> int:
     if args.trace:
         flush_traces()
     return 0
+
+
+def _print_rationale(payload: dict) -> None:
+    """Print the written rationale, and be explicit about its provenance.
+
+    A reader has to be able to tell three states apart at a glance: prose a model
+    wrote and that passed its grounding check, prose that failed it, and the
+    deterministic summary produced when no model was reachable. Printing all
+    three identically would be the quiet failure this whole node is guarded
+    against.
+    """
+    narrative = payload.get("narrative") or {}
+    text = (narrative.get("text") or "").strip()
+    if not text:
+        return
+
+    print("Rationale")
+    if not narrative.get("available"):
+        print(f"  [no model — deterministic summary. {narrative.get('note', '')}]")
+    elif not narrative.get("is_faithful"):
+        print("  [!] this rationale asserted something its evidence does not support:")
+        for citation in narrative.get("unsupported_citations") or []:
+            print(f"      unsupported citation: {citation}")
+        for figure in narrative.get("unsupported_figures") or []:
+            print(f"      unsupported figure:   {figure}")
+        print("      it is shown as written, marked, and routed to a human.")
+    else:
+        used = len(narrative.get("citations_used") or [])
+        print(f"  [{narrative.get('model')} — {used} citation(s), all supported by the evidence]")
+
+    print()
+    for line in textwrap.wrap(text, width=88, replace_whitespace=False) if "\n" not in text \
+            else text.splitlines():
+        print(f"  {line}")
+    print()
+
+
+def _print_review_triggers(payload: dict) -> None:
+    """The mandatory routing table, when it fired."""
+    review = payload.get("review_triggers") or {}
+    triggers = review.get("triggers") or []
+    if not triggers:
+        return
+    print(f"Human review required — {review.get('rule_citation')}")
+    for trigger in triggers:
+        print(f"  - {trigger['trigger']}: {trigger['detail']}")
+    print()
 
 
 def _print_assessment(payload: dict, evidence: list[dict]) -> None:
@@ -115,6 +165,9 @@ def _print_assessment(payload: dict, evidence: list[dict]) -> None:
         for reason in payload.get("human_review_reasons") or []:
             print(f"    - {reason}")
     print()
+
+    _print_review_triggers(payload)
+    _print_rationale(payload)
 
     print(f"Policy evidence ({len(evidence)} chunks, "
           f"{len(payload.get('citations') or [])} distinct citations, "

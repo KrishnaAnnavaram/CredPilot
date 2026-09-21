@@ -42,7 +42,16 @@ STEPS: tuple[tuple[str, list[str]], ...] = (
     ("ablation", ["eval/retrieval/ablation.py"]),
     ("retrieval evaluation", ["eval/retrieval/run_retrieval_eval.py", "--quiet"]),
     ("trace export", ["scripts/export_traces.py"]),
+    ("agent evaluation", ["-m", "eval.agent.run_agent_eval", "--judge-limit-per-product", "20"]),
+    ("golden signals", ["scripts/build_golden_signals.py"]),
+    ("dashboard", ["scripts/build_dashboard.py"]),
 )
+
+#: Steps that cannot run without a Gemini credential. Skipped with a message
+#: rather than failing the run, so a clean checkout with no key still regenerates
+#: everything retrieval-side — which is most of the committed evidence and all of
+#: the deterministic part.
+STEPS_NEEDING_A_KEY = frozenset({"agent evaluation"})
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -60,9 +69,16 @@ def main(argv: list[str] | None = None) -> int:
     print()
 
     started = time.perf_counter()
+    from src import llm
+
+    have_key = bool(llm.api_key())
     for name, command in STEPS:
         if name in args.skip or (args.only and name not in args.only):
             print(f"[skip] {name}")
+            continue
+        if name in STEPS_NEEDING_A_KEY and not have_key:
+            print(f"[skip] {name}: needs GOOGLE_API_KEY; the reports it writes are "
+                  f"left as committed")
             continue
         print(f"[run ] {name}: python {' '.join(command)}", flush=True)
         step_started = time.perf_counter()

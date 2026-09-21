@@ -1,13 +1,19 @@
 # Failure analysis — real failures from real runs
 
-Eight failures found while building and evaluating this subsystem. Each was
+Thirteen failures found while building and evaluating this subsystem. Each was
 observed in a run, not imagined; each has the evidence that showed it, a root
 cause, a fix, and the measurement before and after.
 
-Four of them (F-1, F-2, F-7, F-8) would have shipped as silent correctness
-bugs — F-8 as a wrongful decline. One (F-3)
-hung the system completely. One (F-5) was an assumption this work started with
-that measurement contradicted.
+Seven of them (F-1, F-2, F-7, F-8, F-9, F-10, F-12) would have shipped as silent
+correctness bugs — F-8 and F-10 as wrongful declines, F-12 as label leakage. One
+(F-3) hung the system completely. One (F-5) was an assumption this work started
+with that measurement contradicted. One (F-11) was a bug in the instrument rather
+than the system, which is worse: it reported a previous run's answers and looked
+like it had worked.
+
+F-1 to F-8 came out of building and evaluating retrieval. F-9 to F-13 came out of
+running the whole system end to end against both golden sets for the first time,
+which is the only thing that would have found any of them.
 
 ---
 
@@ -55,7 +61,7 @@ three slots that rule needed.
 
 ### Fix
 
-[`src/rag/pipeline.py`](../../src/rag/pipeline.py) — overviews get their own small
+[`src/rag/pipeline.py`](../src/rag/pipeline.py) — overviews get their own small
 budget (`dedupe.max_overview: 2`) and no longer count against `max_per_policy`.
 They keep their rank, so "summarise POL-LIA-001" still works; they just cannot
 displace the rules underneath them.
@@ -105,7 +111,7 @@ nothing: a policy version number is not personal data.
 
 ### Fix
 
-[`src/guardrails/redaction.py`](../../src/guardrails/redaction.py):
+[`src/guardrails/redaction.py`](../src/guardrails/redaction.py):
 
 1. `US_DRIVER_LICENSE` and `US_PASSPORT` removed from `_PRESIDIO_ENTITIES`, with
    the reason recorded in the code. The deterministic patterns already cover the
@@ -162,7 +168,7 @@ it looks like slowness.
 
 ### Fix
 
-[`mcp_server/server.py`](../../mcp_server/server.py), three layers:
+[`mcp_server/server.py`](../mcp_server/server.py), three layers:
 
 1. `HF_HUB_DISABLE_PROGRESS_BARS`, `TQDM_DISABLE`, `TRANSFORMERS_VERBOSITY=error`
    set **before** any import that reads them.
@@ -221,7 +227,7 @@ Authored family, macro: `policy_recall@5` **0.9932**, `rule_recall@5` **0.9546**
 
 **What this did not fix, and is not pretending to:** education
 golden-application `policy_hit@5` is 0.6842. Some of that is
-[F-1 in DATA_QUALITY_FINDINGS.md](DATA_QUALITY_FINDINGS.md) — 36% of those
+[F-1 in DATA_QUALITY_FINDINGS.md](rag/DATA_QUALITY_FINDINGS.md) — 36% of those
 citations are defective — but not all of it. Broad whole-file questions retrieve
 genuinely less well than targeted ones. The architectural answer is the one the
 graph already implements: ask several targeted questions per application rather
@@ -237,7 +243,7 @@ than one broad one.
 
 This work began with 25 dense / 25 lexical / 20 fused / 15 reranked, on the
 intuition that more candidates give the reranker more to work with.
-[`eval/results/pipeline_sweep.json`](../../eval/results/pipeline_sweep.json)
+[`eval/results/pipeline_sweep.json`](../eval/results/pipeline_sweep.json)
 contradicted it:
 
 | dense/lex/fuse/rerank | macro rule R@5 | p95 ms |
@@ -250,7 +256,7 @@ contradicted it:
 | 60 / 60 / 60 / 50 | 0.9640 | 2033 | <!-- was -->
 
 *(Figures as measured at the time, under `bge-small-en-v1.5`. The current table
-is in [RETRIEVAL_ABLATION.md](RETRIEVAL_ABLATION.md); under `e5-base-v2` the
+is in [RETRIEVAL_ABLATION.md](rag/RETRIEVAL_ABLATION.md); under `e5-base-v2` the
 effect is larger still — 0.9826 against 0.9593 for every wider configuration.)*
 
 Recall falls monotonically as the funnel widens, and p95 latency quadruples.
@@ -382,13 +388,13 @@ golden-application coverage reported under F-4 was this bug, not retrieval.
 
 ### Fix
 
-[`src/rag/pipeline.py`](../../src/rag/pipeline.py):
+[`src/rag/pipeline.py`](../src/rag/pipeline.py):
 
 * every stage width becomes `max(configured, top_k + slack)`,
 * the overview budget becomes `max(configured, top_k // 2)`.
 
 At `top_k=6` both resolve to the measured values and nothing changes, which
-[`test_the_default_top_k_is_unaffected_by_the_width_floors`](../../tests/rag/test_rag_tool_contract.py)
+[`test_the_default_top_k_is_unaffected_by_the_width_floors`](../tests/rag/test_rag_tool_contract.py)
 pins.
 
 ### Measured
@@ -418,7 +424,7 @@ Regression tests: `test_a_large_top_k_is_not_capped_by_the_configured_funnel`,
 
 ### Observed
 
-Changing the embedding to `intfloat/e5-base-v2` ([EMBEDDING_BENCHMARK.md](EMBEDDING_BENCHMARK.md))
+Changing the embedding to `intfloat/e5-base-v2` ([EMBEDDING_BENCHMARK.md](rag/EMBEDDING_BENCHMARK.md))
 and re-running the boundary triple:
 
 ```
@@ -488,7 +494,7 @@ needs two — which is only knowable because `DTI-CONV-003` is now retrieved.
 
 Dependency following fires on all three files (1, 4 and 4 follow-up retrievals).
 
-Regression tests: [`test_dependency_following.py`](../../tests/rag/test_dependency_following.py),
+Regression tests: [`test_dependency_following.py`](../tests/rag/test_dependency_following.py),
 13 cases covering reference detection, the engine's refusal, the bound on
 following, and all three boundary files end to end.
 
@@ -501,6 +507,267 @@ invisible in every editor and in `git diff`. `cat -A` showed it as `^H`. The
 pattern now uses lookarounds and character classes with no backslashes at all,
 which sidesteps the escaping layers entirely and is more precise around
 hyphenated identifiers than `\b` is.
+
+---
+
+## F-9 — reserves were counted before the money left the account
+
+**Severity: high.** Every reserve figure in the system was overstated, on some
+files by a factor of four.
+
+### Observed
+
+The first end-to-end run over the golden set. `APP-000003` reported **40.7 months
+of reserves** against a qualifying housing expense of $3,259 — which would mean
+the borrower held $132,711 and was keeping all of it.
+
+They were not. They were bringing $101,531 of it to closing.
+
+### Root cause
+
+`mortgage_affordability` computed months of reserves as
+`verified_liquid_assets / housing_expense`. `AST-RSV-001` is explicit that this
+is the wrong numerator:
+
+> *"Reserves are the reserve-eligible assets remaining after the funds-to-close
+> draw in AST-FTC-004 ... Reserves are what is left after this draw; they are not
+> a separate pool of money."*
+
+The draw was never computed, because funds to close were never computed at all.
+Nothing referenced them, so nothing noticed.
+
+### Fix
+
+`AST-FTC-001`'s calculation was implemented — each component stored separately,
+as that rule requires — and reserves re-expressed on what remains after it.
+
+### Measured
+
+| | before | after |
+|---|---|---|
+| `APP-000003` months of reserves | 40.72 | **9.57** |
+| `APP-000057` months of reserves | 61.06 | **10.76** |
+| `APP-000006` months of reserves | 22.68 | **0.00** (cannot close) |
+
+The "before" column is the pre-draw figure the old code produced,
+`verified_liquid_assets / housing_expense_pitia`, recomputed from the committed
+packets rather than quoted from memory.
+
+Regression: [`test_funds_to_close.py`](../tests/test_funds_to_close.py), which
+asserts the pre-draw figure still reproduces the overstatement so the test cannot
+quietly stop testing anything.
+
+---
+
+## F-10 — every refinance was declined for cash the borrower never had to bring
+
+**Severity: critical.** Wrongful declines, in production volume.
+
+### Observed
+
+Cases 22 and 23 of the first full sweep, consecutively:
+
+```
+[ 22/95] x CASE-APP-000022  expected=APPROVE  got=DECLINE
+[ 23/95] x CASE-APP-000023  expected=APPROVE  got=DECLINE
+```
+
+`APP-000022` was declined for a funds-to-close shortfall of **$289,234.82**
+against verified assets of $34,081.
+
+### Root cause
+
+`AST-FTC-001` lists the payoff term with a qualifier:
+
+> *"plus any lien payoff **not financed by the new loan**"*
+
+The implementation took the payoff and dropped the qualifier. On a refinance the
+new loan is precisely what retires the existing lien — that is what a refinance
+*is* — so the whole $313,148 balance was counted as cash the borrower had to
+arrive with. Against a $381,888 new loan that covered it entirely.
+
+The purchase cases were all correct, which is why it survived the first round of
+spot checks: a purchase has no payoff, so `max(payoff - loan, 0)` and `payoff`
+agree at zero.
+
+### Fix
+
+```python
+payoff = _dec(costs.get("payoff_amount"))
+unfinanced_payoff = max(payoff - base_loan, Decimal("0")) if payoff > 0 else Decimal("0")
+```
+
+`lien_payoff_total` and `lien_payoff_financed_by_new_loan` are both recorded, so
+the netting is visible rather than implied.
+
+### Measured
+
+| | required before | required after | verdict |
+|---|---|---|---|
+| `APP-000022` rate/term refinance | 323,316.45 | **10,168.29** | DECLINE → APPROVE |
+| `APP-000023` cash-out refinance | 228,890.48 | **−43,441.36** | DECLINE → APPROVE |
+| `APP-000001` purchase | 75,687.85 | 75,687.85 | unchanged |
+| `APP-000006` genuine shortfall | 82,431.66 | 82,431.66 | DECLINE, correctly |
+
+The last row is the one that matters most: the fix had to stop declining
+refinances **without** making the sufficiency test toothless, and `APP-000006`
+still fails on a real $23,080 gap.
+
+---
+
+## F-11 — the evaluation replayed its previous run instead of re-running
+
+**Severity: critical.** Not a bug in the system; a bug in the instrument
+measuring it, which is worse.
+
+### Observed
+
+A case that had taken 13 seconds came back in **0.2 seconds**:
+
+```
+[  1/95] . CASE-APP-000001  got=APPROVE    11.4s
+[  2/95] . CASE-APP-000002  got=REFER       0.2s   <-- no retrieval happened
+[  3/95] . CASE-APP-000003  got=DECLINE    45.1s
+```
+
+0.2 seconds is not enough to embed a query, let alone run seven nodes.
+
+### Root cause
+
+`run_case` used a fixed checkpoint thread, `eval-{case_id}`. The SQLite
+checkpointer persists across processes, so the second run of a case resumed the
+thread the first run had left at `END` and returned its final state. The verdict
+reported was the one reached **before the rule engine was fixed**.
+
+An evaluation that silently reports the previous run's answers is worse than one
+that crashes, because it looks like it worked and the numbers are plausible.
+
+### Fix
+
+A per-run id in the thread: `eval-{run_id}-{case_id}`, with `run_id` recorded in
+the report. Each run is independent; a single case is still findable in the
+checkpoint store when it needs debugging.
+
+### Measured
+
+Re-running the same six cases immediately after the fix: no case completed in
+under 12 seconds, and every case re-executed all seven nodes.
+
+---
+
+## F-12 — the education packets carried the answer into runtime state
+
+**Severity: high.** Label leakage.
+
+### Observed
+
+While building the end-to-end harness, `build_underwriting_input` was found to
+return this on every education application:
+
+```json
+"decision": {"decision": "APPROVE", "risk_grade": "B3",
+             "approved_amount": 13142.85, "adverse_action_required": false, ...}
+```
+
+All 200 of them.
+
+### Root cause
+
+The outcome boundary was built for mortgage, where outcomes live in separate
+structured tables and an `OUTCOME_TABLES` denylist raises on access. Education
+embeds its decision **inside the submitted application JSON**, where no table
+guard could ever see it.
+
+Nothing read it — but it sat in graph state, crossed the checkpointer, and was one
+careless prompt assembly away from reaching a model. An accuracy figure measured
+with it present would have been meaningless.
+
+### Fix
+
+`EMBEDDED_OUTCOME_FIELDS` strips it at the packet boundary for both products, and
+records what was withheld under `_withheld_outcome_fields` rather than dropping it
+silently — so a reader can tell the difference between "the generator wrote no
+outcome" and "the outcome was withheld".
+
+Vendor results are deliberately **not** stripped: `fraud_screening` and
+`credit_bureau` hold what a third party reported, which underwriting consumes as
+input and does not compute.
+
+### Measured
+
+All 200 education packets verified stripped;
+[`test_no_golden_leakage.py`](../tests/rag/test_no_golden_leakage.py) checks every
+one of them, not a sample.
+
+---
+
+## F-13 — the rule engine evaluated one rule family out of twenty-six
+
+**Severity: high.** Not a defect so much as an unfinished floor, but it caps every
+accuracy figure the system can produce, so it is recorded here rather than left
+for a reader to infer.
+
+### Observed
+
+`APP-000003` approved with a representative credit score of **598**. The golden
+set declines it on `CRD-SCR-003`, which sets a floor of 620.
+
+The engine had no opinion, because it only evaluated debt-to-income.
+
+### Root cause
+
+`evaluate_mortgage_affordability` was the whole of eligibility. A file could clear
+its DTI ceiling and be approved with a failing credit score, no reserves and a
+six-figure cash shortfall.
+
+### Fix
+
+Three further knockout rules implemented, each reading its thresholds from the
+retrieved rule and each **version-aware** across the 2026-07-01 boundary:
+
+| Rule | What it does | v1.0 → v2.0 |
+|---|---|---|
+| `CRD-SCR-003` | minimum representative score | flat 620 → graduated: 620 at or below 90% LTV, 640 above |
+| `AST-RSV-002` | minimum reserves by occupancy | base only → base plus 2 months above 90% LTV and 2 more above 43% DTI, cumulative |
+| `AST-FTC-003` | funds-to-close sufficiency | unchanged |
+
+The engine holds no knowledge of which version exists. It reads whichever
+parameters the retrieved rule publishes, so a file dated before the boundary is
+measured against v1.0 because that is what retrieval returned — not because the
+code special-cases a date.
+
+### What is still missing, and how much it costs
+
+Published in `reports/eval_report.json` under `rule_coverage`, because an accuracy
+figure without it invites the reader to blame retrieval for misses that are simply
+rules nobody wrote:
+
+| | cases | needing an unimplemented rule family |
+|---|---|---|
+| Mortgage | 75 | **33 (44%)** |
+| Education | 20 | **17 (85%)** |
+
+The dominant error mode that remains is **under-referral** — the system approves a
+file the policy says a human must see — concentrated in a deliberate scenario
+block (`SCN-028`–`SCN-040`) covering credit events, delinquency, evidence
+conflicts and unsourced deposits.
+
+Two of those were recoverable and were fixed: "unsourced large deposit" and
+"unresolved conflict between evidence sources" had been recorded as *unevaluable*
+on the grounds that no field existed, when in fact both live in structured input
+tables the runtime was already permitted to read. Publishing a false "this could
+not be checked" is a worse error than leaving it unchecked, because it tells a
+reviewer a control was impossible when it was merely absent.
+
+A blanket rule — refuse to auto-approve while any retrieved `HARD_FAIL` rule went
+unevaluated — was considered and **rejected on measurement**: 17 to 22 such rules
+are retrieved on every file, including files that correctly approve, so the gate
+would have referred 100% of applications and destroyed the approve class
+altogether.
+
+Retrieval is not the gap. The indexes cover both corpora in full and rules in the
+unimplemented families are retrieved, ranked and cited exactly like the others.
+What is missing is code that compares them against a threshold.
 
 ---
 

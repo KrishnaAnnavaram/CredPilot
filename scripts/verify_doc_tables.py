@@ -116,7 +116,7 @@ def check_sweep_table() -> list[str]:
     }
 
     problems: list[str] = []
-    for doc in (ABLATION_DOC, REPO_ROOT / "docs" / "rag" / "FAILURE_ANALYSIS.md"):
+    for doc in (ABLATION_DOC, REPO_ROOT / "docs" / "failure-analysis.md"):
         if not doc.exists():
             continue
         for number, line in enumerate(doc.read_text(encoding="utf-8").splitlines(), 1):

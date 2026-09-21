@@ -36,7 +36,7 @@ Full instructions: **[RUNBOOK.md](RUNBOOK.md)**.
 | **[RETRIEVAL_ABLATION.md](RETRIEVAL_ABLATION.md)** | what each layer is measurably worth, including the layers that are worth nothing |
 | **[EMBEDDING_BENCHMARK.md](EMBEDDING_BENCHMARK.md)** | four local checkpoints, both products, and the choice |
 | **[RERANKER_BENCHMARK.md](RERANKER_BENCHMARK.md)** | three cross-encoders against a no-reranker baseline |
-| **[FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md)** | eight real failures with evidence, root cause, fix and before/after |
+| **[../failure-analysis.md](../failure-analysis.md)** | eight real failures with evidence, root cause, fix and before/after |
 | **[DATA_QUALITY_FINDINGS.md](DATA_QUALITY_FINDINGS.md)** | defects found in the committed datasets and how each is handled |
 | **[RUNBOOK.md](RUNBOOK.md)** | build, run, evaluate, trace, troubleshoot |
 
