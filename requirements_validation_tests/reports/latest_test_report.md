@@ -1,12 +1,12 @@
 # CredPilot Requirements Validation Report
 
-Generated: 2026-09-22T04:04:36Z  
+Generated: 2026-09-22T04:23:11Z  
 Implementation under validation: `E:\Virtusa Projects\CredPilot`  
 Requirements baseline: `source_requirements/requirements_verbatim.md`  
 Baseline SHA-256: `ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917`  
 Baseline integrity: **REQUIREMENTS_BASELINE_VERIFIED**  
 Suites executed: api, functional, governance, integration, static, workflow  
-Wall time: 126.68s
+Wall time: 172.02s
 
 ---
 
@@ -17,10 +17,10 @@ CredPilot Requirements Validation Report
 
 Total Requirements: 112
 Tests Executed: 320
-Requirements Passed: 85
-Requirements Failed: 27
+Requirements Passed: 91
+Requirements Failed: 21
 Requirement Coverage: 100.0%
-Overall Requirement Fit: 91%
+Overall Requirement Fit: 94%
 
 Final Status:
 FAIL
@@ -30,7 +30,7 @@ FAIL
 
 | Class | Total | Passed | Failed | Gates final status |
 | --- | --- | --- | --- | --- |
-| IMPLEMENTATION | 90 | 71 | 19 | yes |
+| IMPLEMENTATION | 90 | 77 | 13 | yes |
 | OPTIONAL | 4 | 2 | 2 | no - the source text marks these optional / bonus / good-to-have |
 | ENGAGEMENT | 18 | 12 | 6 | no - these describe the engagement or the evaluator, not the deliverable |
 
@@ -50,14 +50,8 @@ Automated tests executed: 311  |  Manual / non-automatable tests executed: 9
 | REQ-045 | 80 | affordability | 1 of 4 bound test(s) produced no satisfying evidence: REQ-045-T04. |
 | REQ-046 | 89 | underwriting | 1 of 7 bound test(s) produced no satisfying evidence: REQ-046-T07. |
 | REQ-049 | 71 | security | 1 of 4 bound test(s) produced no satisfying evidence: REQ-049-T03. |
-| REQ-051 | 75 | observability | 1 of 2 bound test(s) produced no satisfying evidence: REQ-051-T02. |
-| REQ-054 | 71 | governance | 1 of 5 bound test(s) produced no satisfying evidence: REQ-054-T05. |
 | REQ-060 | 25 | security | 1 of 2 bound test(s) produced no satisfying evidence: REQ-060-T02. |
 | REQ-066 | 50 | integration | 1 of 2 bound test(s) produced no satisfying evidence: REQ-066-T01. |
-| REQ-071 | 50 | auditability | 1 of 2 bound test(s) produced no satisfying evidence: REQ-071-T02. |
-| REQ-086 | 67 | risk | 1 of 3 bound test(s) produced no satisfying evidence: REQ-086-T03. |
-| REQ-088 | 50 | governance | 1 of 3 bound test(s) produced no satisfying evidence: REQ-088-T03. |
-| REQ-106 | 40 | governance | 1 of 2 bound test(s) produced no satisfying evidence: REQ-106-T02. |
 | REQ-112 | 88 | governance | 1 of 6 bound test(s) produced no satisfying evidence: REQ-112-T03. |
 
 ## Failed requirements (OPTIONAL / ENGAGEMENT - not gating)
@@ -78,17 +72,17 @@ Automated tests executed: 311  |  Manual / non-automatable tests executed: 9
 | Category | Requirements | Passed | Mean fit |
 | --- | --- | --- | --- |
 | affordability | 1 | 0 | 80 |
-| auditability | 11 | 10 | 95 |
+| auditability | 11 | 11 | 100 |
 | eligibility | 1 | 1 | 100 |
 | evaluation | 6 | 6 | 100 |
 | functional | 7 | 6 | 93 |
-| governance | 23 | 13 | 71 |
+| governance | 23 | 16 | 77 |
 | integration | 10 | 4 | 73 |
 | non_functional | 8 | 8 | 100 |
-| observability | 19 | 18 | 99 |
+| observability | 19 | 19 | 100 |
 | orchestration | 6 | 6 | 100 |
 | policy | 3 | 3 | 100 |
-| risk | 2 | 1 | 84 |
+| risk | 2 | 2 | 100 |
 | security | 11 | 6 | 78 |
 | underwriting | 3 | 2 | 96 |
 | workflow | 1 | 1 | 100 |
@@ -181,15 +175,15 @@ Business Case BC-AAIE-HACK-02 · Domain: Banking & Finance · Cross-cutting fina
 [OK] arize-phoenix declared as a dependency (dependency manifests) (ALL: 1/1 satisfied)
 [OK] requirements.txt:53: arize-phoenix==11.38.0
 [PASS] REQ-003-T06: Cost Governance (ALL: 2/2 satisfied)
-[OK] File present: reports/golden_signals.json (exact path); size=9605 bytes
-[OK] File present: reports/dashboard_data.csv (exact path); size=1576 bytes
+[OK] File present: reports/golden_signals.json (exact path); size=9604 bytes
+[OK] File present: reports/dashboard_data.csv (exact path); size=1575 bytes
 [PASS] REQ-003-T07: Security & Governance (ALL: 3/3 satisfied)
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
 [OK] File present: docs/risk-register.md (exact path); size=24231 bytes
 [OK] File present: docs/compliance.md (exact path); size=13627 bytes
 [PASS] REQ-003-T08: Agent Evaluation (ALL: 2/2 satisfied)
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 ```
 
 ### REQ-004 - PASS (100/100)
@@ -341,7 +335,7 @@ Evaluation Mode | Automated review of the submitted Git repository against the H
 **Evidence:**
 
 ```
-[PASS] REQ-010-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1844 tracked files
+[PASS] REQ-010-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1848 tracked files
 [FAIL] REQ-010-T02: Attestation for REQ-010-T02 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
 ```
 
@@ -445,13 +439,13 @@ What is evaluated: a working LangGraph multi-agent system (foundation: context e
 [OK] arize-phoenix declared as a dependency (dependency manifests) (ALL: 1/1 satisfied)
 [OK] requirements.txt:53: arize-phoenix==11.38.0
 [PASS] REQ-014-T07: cost and latency governance artifacts (ALL: 2/2 satisfied)
-[OK] File present: reports/golden_signals.json (exact path); size=9605 bytes
+[OK] File present: reports/golden_signals.json (exact path); size=9604 bytes
 [OK] cost/latency dashboard (ANY: 2/2 satisfied)
-[OK] File present: reports/dashboard.png (exact path); size=206181 bytes
-[OK] File present: reports/dashboard_data.csv (exact path); size=1576 bytes
+[OK] File present: reports/dashboard.png (exact path); size=206348 bytes
+[OK] File present: reports/dashboard_data.csv (exact path); size=1575 bytes
 [PASS] REQ-014-T08: guardrails and audit (ALL: 2/2 satisfied)
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
-[OK] File present: logs/agent_actions.jsonl (exact path); size=463537 bytes
+[OK] File present: logs/agent_actions.jsonl (exact path); size=133441 bytes
 [PASS] REQ-014-T09: governance and compliance documentation (ALL: 4/4 satisfied)
 [OK] File present: docs/risk-register.md (exact path); size=24231 bytes
 [OK] File present: docs/model-card.md (exact path); size=25500 bytes
@@ -459,7 +453,7 @@ What is evaluated: a working LangGraph multi-agent system (foundation: context e
 [OK] File present: docs/output-risk.md (exact path); size=12473 bytes
 [PASS] REQ-014-T10: agent-level evaluation and tests (ALL: 4/4 satisfied)
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 [OK] File present: tests/test_loops.py (exact path); size=8870 bytes
 [OK] File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 ```
@@ -482,7 +476,7 @@ Every claim is scored from committed evidence.
 **Evidence:**
 
 ```
-[PASS] REQ-015-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1844 tracked files
+[PASS] REQ-015-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1848 tracked files
 [PASS] REQ-015-T02: All 24 present named artifact(s) are committed: src/graph.py, logs/mcp_transcript.jsonl, tests/test_memory_persistence.py, logs/memory_test.log, src/tools/rag_tool.py, src/observability/tracing.py, traces/phoenix_spans.jsonl, logs/tool_calls.jsonl, docs/failure-analysis.md, reports/golden_signals.json, reports/dashboard.png, reports/dashboard_data.csv, logs/agent_actions.jsonl, .env.example, .gitignore, docs/risk-register.md, docs/model-card.md, docs/compliance.md, docs/output-risk.md, reports/eval_report.json, tests/test_routing.py, tests/test_loops.py, tests/test_tool_contracts.py, README.md
 ```
 
@@ -612,7 +606,7 @@ The bank wants an agentic copilot that ingests a loan application, retrieves the
 [OK] eval/agent/dataset.py:41: #: ``APPROVE_WITH_CONDITIONS`` is listed because the golden sets use it — six
 [OK] eval/agent/dataset.py:43: #: :func:`src.graph.recommendation_node`, which emits approve, refer or decline
 [OK] eval/agent/dataset.py:43: #: :func:`src.graph.recommendation_node`, which emits approve, refer or decline
-[OK] File present: logs/agent_actions.jsonl (exact path); size=463537 bytes
+[OK] File present: logs/agent_actions.jsonl (exact path); size=133441 bytes
 [PASS] REQ-020-T06: human-in-the-loop final decision across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] eval/agent/dataset.py:63: "PENDING_HUMAN_REVIEW": REFER,
 ```
@@ -666,16 +660,16 @@ You build a LangGraph multi-agent copilot, then instrument it with Arize Phoenix
 [OK] Phoenix/openinference imported (import analysis) (ANY: 1/2 satisfied)
 [OK] scripts/build_golden_signals.py:109: import phoenix
 [NOT FOUND] module 'openinference' is never imported
-[PASS] REQ-022-T03: File present: reports/golden_signals.json (exact path); size=9605 bytes
+[PASS] REQ-022-T03: File present: reports/golden_signals.json (exact path); size=9604 bytes
 [PASS] REQ-022-T04: guardrails and audit trail (ALL: 2/2 satisfied)
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
-[OK] File present: logs/agent_actions.jsonl (exact path); size=463537 bytes
+[OK] File present: logs/agent_actions.jsonl (exact path); size=133441 bytes
 [PASS] REQ-022-T05: risk and compliance documentation (ALL: 2/2 satisfied)
 [OK] File present: docs/risk-register.md (exact path); size=24231 bytes
 [OK] File present: docs/compliance.md (exact path); size=13627 bytes
 [PASS] REQ-022-T06: agent-level evaluation and tests (ALL: 4/4 satisfied)
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 [OK] File present: tests/test_loops.py (exact path); size=8870 bytes
 [OK] File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 [PASS] REQ-022-T07: All 24 present named artifact(s) are committed: src/graph.py, logs/mcp_transcript.jsonl, tests/test_memory_persistence.py, logs/memory_test.log, src/tools/rag_tool.py, src/observability/tracing.py, traces/phoenix_spans.jsonl, logs/tool_calls.jsonl, docs/failure-analysis.md, reports/golden_signals.json, reports/dashboard.png, reports/dashboard_data.csv, logs/agent_actions.jsonl, .env.example, .gitignore, docs/risk-register.md, docs/model-card.md, docs/compliance.md, docs/output-risk.md, reports/eval_report.json, tests/test_routing.py, tests/test_loops.py, tests/test_tool_contracts.py, README.md
@@ -699,13 +693,13 @@ A working, instrumented multi-agent application delivered as a Git repository th
 **Evidence:**
 
 ```
-[PASS] REQ-023-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1844 tracked files
+[PASS] REQ-023-T01: E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1848 tracked files
 [PASS] REQ-023-T02: working instrumented multi-agent application (ALL: 3/3 satisfied)
 [OK] File present: src/graph.py (exact path); size=105982 bytes
 [OK] File present: src/observability/tracing.py (exact path); size=11075 bytes
 [OK] a committed trace export proving it ran (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
 ```
 
 ### REQ-024 - PASS (100/100)
@@ -735,12 +729,12 @@ A LangGraph graph: typed state, a supervisor routing loan applications to specia
 [OK] eval/agent/run_agent_eval.py:210: ``mortgage_policy_retrieval`` with a hand-built state, but ``intake`` — so
 [OK] mcp_server/capabilities.py:82: "screen_risk_flags": "src.calculations.screen_risk — deterministic risk screen",
 [PASS] REQ-024-T04: conditional routing wired into the graph (AST call analysis) (ALL: 1/1 satisfied)
-[OK] src/graph.py contains a call to 'add_conditional_edges'
+[OK] src/graph.py contains a call to 'builder.add_conditional_edges'
 [PASS] REQ-024-T05: checkpointing (ALL: 2/2 satisfied)
 [OK] checkpointer configured across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] eval/agent/run_agent_eval.py:218: ``run_id`` scopes the checkpoint thread to this evaluation run. Without it
 [OK] graph compiled, which is where a checkpointer is attached (AST call analysis) (ALL: 1/1 satisfied)
-[OK] mcp_server/server.py contains a call to '_re.compile'
+[OK] mcp_server/server.py contains a call to 'compile'
 [PASS] REQ-024-T06: structured output at the graph boundary across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] mcp_server/server.py:73: from pydantic import BaseModel, Field  # noqa: E402
 ```
@@ -810,7 +804,7 @@ Arize Phoenix instrumentation with a committed trace export, a machine-generated
 [PASS] REQ-026-T01: committed Phoenix trace export (ALL: 2/2 satisfied)
 [OK] trace export artifact (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
 [OK] the export is committed (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' to check for commitment
 [OK] git ls-files lists 'traces/phoenix_spans.jsonl' -> artifact is committed
@@ -842,12 +836,12 @@ A Phoenix-derived golden-signals report and a cost/latency dashboard; input/outp
 **Evidence:**
 
 ```
-[PASS] REQ-027-T01: File present: reports/golden_signals.json (exact path); size=9605 bytes
+[PASS] REQ-027-T01: File present: reports/golden_signals.json (exact path); size=9604 bytes
 [PASS] REQ-027-T02: cost/latency dashboard (ALL: 2/2 satisfied)
-[OK] File present: reports/dashboard.png (exact path); size=206181 bytes
-[OK] File present: reports/dashboard_data.csv (exact path); size=1576 bytes
+[OK] File present: reports/dashboard.png (exact path); size=206348 bytes
+[OK] File present: reports/dashboard_data.csv (exact path); size=1575 bytes
 [PASS] REQ-027-T03: Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
-[PASS] REQ-027-T04: File present: logs/agent_actions.jsonl (exact path); size=463537 bytes
+[PASS] REQ-027-T04: File present: logs/agent_actions.jsonl (exact path); size=133441 bytes
 [PASS] REQ-027-T05: secrets hygiene (ALL: 2/2 satisfied)
 [OK] File present: .env.example (exact path); size=2595 bytes
 [OK] File present: .gitignore (exact path); size=1302 bytes
@@ -880,7 +874,7 @@ Agent-level evaluation (LLM-as-judge + hallucination) and agent tests (routing-l
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
 [OK] hallucination metric in the eval report at reports/eval_report.json (exact path) (ALL: 1/1 satisfied)
 [OK] key matching /hallucinat/ present as 'judge_hallucination_rate'
-[PASS] REQ-028-T02: File present: tests/test_routing.py (exact path); size=15913 bytes
+[PASS] REQ-028-T02: File present: tests/test_routing.py (exact path); size=17245 bytes
 [PASS] REQ-028-T03: File present: tests/test_loops.py (exact path); size=8870 bytes
 [PASS] REQ-028-T04: File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 [PASS] REQ-028-T05: local-run runbook (ALL: 2/2 satisfied)
@@ -1024,19 +1018,18 @@ Synthetic-Data Rule. Use only synthetic loan applications and lending policies y
 **Evidence:**
 
 ```
-[PASS] REQ-031-T01: synthetic data declared for applications and policies across implementation tree (553 files) (ALL: 1/1 satisfied)
+[PASS] REQ-031-T01: synthetic data declared for applications and policies across implementation tree (552 files) (ALL: 1/1 satisfied)
 [OK] data/policy_corpus/corpus_registry.json:2: "description": "Machine-generated inventory of the lending-policy corpora CredPilot's vector and lexical indexes are built from. The policy documents themselves are committed under synthetic_data/<product>/policy_corpus/ and are not duplicated here.",
-[FAIL] REQ-031-T02: unmasked payment-card numbers: prohibited content found (6 hit(s))
-/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched docs/rag/REQUIREMENTS_MAPPING.md:242: them were nDCG values: `"policy_ndcg@10": 0.4440973278132557` contains the
-/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched eval/retrieval/metrics.py:90: #: distinguish from a Visa number. `0.4440973278132557` contains
-/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched src/guardrails/redaction.py:219: # version of this pattern matched `4111111111111111` and stopped it being
+[FAIL] REQ-031-T02: unmasked payment-card numbers: prohibited content found (4 hit(s))
+/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched reports/phoenix_spans.csv:825: 2026-09-22T04:18:48.297928+00:00,1.001,metadata.filter,20fbcf75880db9f7,4025282085820739,2026-09-22T04:18:48.296927+00:00,UNSET,c403142482cea62fec3b246a40e33a49,,RETRIEVAL,,,,,,,,,,,,,,,EDUCATION_LOAN,,101.0,101.0,12.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched tests/rag/test_pii_logging.py:89: "account_number": "4111111111111111",
 /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched tests/rag/test_security.py:138: result = sanitize_query("Check the file for SSN 123-45-6789 and account 4111111111111111")
-/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched traces/phoenix-live.jsonl:813: {"attributes.allowed": null, "attributes.application_id": null, "attributes.as_of_date": null, "attributes.available": null, "attributes.breaches": null, "attributes.candidates": null, "attributes.catalogue_size": null, "attributes.citation_count": null, "attributes.citations": null, "attributes.cit
+/\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\b/ matched traces/phoenix_spans.jsonl:824: {"attributes": {"allowed": 101, "catalogue_size": 101, "credpilot.span_kind": "RETRIEVAL", "governing_policies": 12, "product_domain": "EDUCATION_LOAN"}, "end_time": "2026-09-22T04:18:48.297928+00:00", "latency_ms": 1.001, "name": "metadata.filter", "parent_span_id": "20fbcf75880db9f7", "span_id": "
 [FAIL] REQ-031-T03: PII masking and leak-free logs (ALL: 1/2 satisfied)
 [OK] masking implemented at scripts/export_traces.py:246: redaction_is_warm(
-[NOT FOUND] 1 sensitive value(s) written in plaintext:
-traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+[NOT FOUND] 2 sensitive value(s) written in plaintext:
+reports/phoenix_spans.csv:825 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+traces/phoenix_spans.jsonl:824 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
 ```
 
 ### REQ-032 - FAIL (50/100)
@@ -1075,11 +1068,11 @@ Open-Source & Gemini-Only Rule. Use the approved open-source stack with Google G
 [OK] documented pip install step in README.md (exact path) (ANY: 1/1 satisfied)
 [OK] README.md:26: pip install -r requirements.txt
 [FAIL] REQ-032-T04: no Docker or external DB service required (ALL: 1/2 satisfied)
-[OK] container build/orchestration files: no file matches ['Dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', '*.dockerfile', 'compose.yaml', 'compose.yml'] across 1862 files
+[OK] container build/orchestration files: no file matches ['Dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', '*.dockerfile', 'compose.yaml', 'compose.yml'] across 1860 files
 [NOT FOUND] external database service connection strings: prohibited content found (6 hit(s))
-/\bpostgres(ql)?:/// matched docs/rag/REQUIREMENTS_MAPPING.md:263: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
+/\bpostgres(ql)?:/// matched docs/rag/REQUIREMENTS_MAPPING.md:266: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
 /\bpostgres(ql)?:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
-/\bmysql:/// matched docs/rag/REQUIREMENTS_MAPPING.md:263: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
+/\bmysql:/// matched docs/rag/REQUIREMENTS_MAPPING.md:266: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
 /\bmysql:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
 /\bmongodb(\+srv)?:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
 /\bredis:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
@@ -1138,11 +1131,11 @@ Fixed open-source toolchain with Google Gemini as the only model provider. Every
 [OK] File present: requirements.txt (exact path); size=3304 bytes
 [OK] File present: pyproject.toml (exact path); size=399 bytes
 [FAIL] REQ-034-T03: no Docker or external DB service (ALL: 1/2 satisfied)
-[OK] container build/orchestration files: no file matches ['Dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', 'compose.yaml', 'compose.yml'] across 1862 files
+[OK] container build/orchestration files: no file matches ['Dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', 'compose.yaml', 'compose.yml'] across 1860 files
 [NOT FOUND] external database service connection strings: prohibited content found (6 hit(s))
-/\bpostgres(ql)?:/// matched docs/rag/REQUIREMENTS_MAPPING.md:263: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
+/\bpostgres(ql)?:/// matched docs/rag/REQUIREMENTS_MAPPING.md:266: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
 /\bpostgres(ql)?:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
-/\bmysql:/// matched docs/rag/REQUIREMENTS_MAPPING.md:263: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
+/\bmysql:/// matched docs/rag/REQUIREMENTS_MAPPING.md:266: | "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
 /\bmysql:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
 /\bmongodb(\+srv)?:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
 /\bredis:/// matched tests/rag/test_stack_boundaries.py:139: for marker in ("postgresql://", "mysql://", "mongodb://", "redis://"):
@@ -1362,7 +1355,7 @@ Evaluation | DeepEval (LLM-as-judge = Gemini) · pytest for agent tests
 [PASS] REQ-041-T02: pytest for agent tests (ALL: 2/2 satisfied)
 [OK] pytest declared (dependency manifests) (ALL: 1/1 satisfied)
 [OK] requirements.txt:72: pytest==9.0.2
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 ```
 
 ### REQ-042 - FAIL (67/100)
@@ -1465,12 +1458,12 @@ Policy evidence (61 chunks, 61 distinct citations, all resolve: True)
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
-Loading weights:  15%|█▌        | 30/199 [00:00<00:00, 282.86it/s]
-Loading weights:  30%|██▉       | 59/199 [00:00<00:00, 271.07it/s]
-Loading weights: 100%|██████████| 199/199 [00:00<00:00, 815.21it/s]
+Loading weights:  14%|█▎        | 27/199 [00:00<00:00, 235.57it/s]
+Loading weights:  26%|██▌       | 51/199 [00:00<00:00, 206.92it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 761.73it/s]
 
 Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2891.60it/s]
+Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2051.29it/s]
 Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
 [PASS] REQ-044-T02: policy rule citation in observable output (from 'python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json') (ALL: 2/2 satisfied)
 [OK] /polic(y|ies)/ matched observable output: 'policy'
@@ -1494,12 +1487,12 @@ Policy evidence (61 chunks, 61 distinct citations, all resolve: True)
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
-Loading weights:  25%|██▍       | 49/199 [00:00<00:00, 489.49it/s]
-Loading weights:  49%|████▉     | 98/199 [00:00<00:00, 435.07it/s]
-Loading weights: 100%|██████████| 199/199 [00:00<00:00, 892.17it/s]
+Loading weights:   8%|▊         | 16/199 [00:00<00:01, 148.59it/s]
+Loading weights:  53%|█████▎    | 105/199 [00:00<00:00, 560.06it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 831.16it/s]
 
 Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3956.39it/s]
+Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2182.41it/s]
 Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
 [PASS] REQ-044-T03: current lending policy retrieval (ALL: 2/2 satisfied)
 [OK] File present: src/tools/rag_tool.py (exact path); size=13791 bytes
@@ -1548,12 +1541,12 @@ Policy evidence (61 chunks, 61 distinct citations, all resolve: True)
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
-Loading weights:  18%|█▊        | 35/199 [00:00<00:00, 313.85it/s]
-Loading weights:  54%|█████▍    | 107/199 [00:00<00:00, 539.52it/s]
-Loading weights: 100%|██████████| 199/199 [00:00<00:00, 928.53it/s]
+Loading weights:  48%|████▊     | 96/199 [00:00<00:00, 914.44it/s]
+Loading weights:  94%|█████████▍| 188/199 [00:00<00:00, 786.29it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 846.94it/s]
 
 Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2209.93it/s]
+Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2278.27it/s]
 Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
 [PASS] REQ-045-T03: threshold-bearing policy breach flag across implementation tree (147 files) (ALL: 2/2 satisfied)
 [OK] eval/agent/dataset.py:316: #: reader, but no code compares them against a threshold.
@@ -1605,12 +1598,12 @@ Policy evidence (61 chunks, 61 distinct citations, all resolve: True)
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
-Loading weights:  15%|█▌        | 30/199 [00:00<00:00, 271.82it/s]
-Loading weights:  37%|███▋      | 73/199 [00:00<00:00, 360.12it/s]
-Loading weights: 100%|██████████| 199/199 [00:00<00:00, 754.93it/s]
+Loading weights:  35%|███▌      | 70/199 [00:00<00:00, 656.65it/s]
+Loading weights:  72%|███████▏  | 143/199 [00:00<00:00, 630.77it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 711.79it/s]
 
 Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2428.18it/s]
+Loading weights: 100%|██████████| 105/105 [00:00<00:00, 1987.88it/s]
 Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
 [PASS] REQ-046-T04: decline handling across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] eval/agent/dataset.py:43: #: :func:`src.graph.recommendation_node`, which emits approve, refer or decline
@@ -1703,8 +1696,9 @@ AC-06 | The copilot handles untrusted applicant-supplied input safely: attempts 
 [OK] eval/agent/run_agent_eval.py:172: # carries no applicant identifiers; tests/rag/test_pii_logging.py
 [FAIL] REQ-049-T03: PII masking and leak-free logs (ALL: 1/2 satisfied)
 [OK] masking implemented at scripts/export_traces.py:246: redaction_is_warm(
-[NOT FOUND] 1 sensitive value(s) written in plaintext:
-traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+[NOT FOUND] 2 sensitive value(s) written in plaintext:
+reports/phoenix_spans.csv:825 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+traces/phoenix_spans.jsonl:824 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
 [PASS] REQ-049-T04: output-side masking before answers are emitted across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] eval/agent/run_agent_eval.py:171: # without re-running the model. It is built from redacted context and
 ```
@@ -1728,7 +1722,7 @@ AC-07 | A machine-generated tool-invocation log (logs/tool_calls.jsonl) written 
 
 ```
 [PASS] REQ-050-T01: tool-invocation log per-call fields (ALL: 8/8 satisfied)
-[OK] logs/tool_calls.jsonl: 430 tool-call record(s)
+[OK] logs/tool_calls.jsonl: 189 tool-call record(s)
 [OK] field 'timestamp' present as ['timestamp']
 [OK] field 'agent/node' present as ['agent']
 [OK] field 'tool_name' present as ['tool_name']
@@ -1754,7 +1748,7 @@ screen_risk_flags -> mcp_server/capabilities.py
 validate_evidence -> mcp_server/capabilities.py
 ```
 
-### REQ-051 - FAIL (75/100)
+### REQ-051 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** observability  |  **Source:** Section 5.1 Functional Acceptance Criteria — table row AC-08
 
@@ -1764,10 +1758,10 @@ validate_evidence -> mcp_server/capabilities.py
 AC-08 | docs/failure-analysis.md documents ≥ 3 real failures from your own runs, each citing the Phoenix run_id + span_id (or a tool-log record) that shows it, plus root cause and fix.
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 75  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-051-T01, REQ-051-T02  
-**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-051-T02.
+**Reason:** All 2 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -1778,11 +1772,7 @@ AC-08 | docs/failure-analysis.md documents ≥ 3 real failures from your own run
 [OK] 3 failure(s) carry an evidence citation (>= 3)
 [OK] 21 root-cause statement(s)
 [OK] 29 fix statement(s)
-[FAIL] REQ-051-T02: 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[PASS] REQ-051-T02: All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-052 - PASS (100/100)
@@ -1815,7 +1805,7 @@ AC-09 | A Phoenix-derived golden-signals report (latency incl. thinking/acting/t
 [OK] artifact present: reports/golden_signals.json
 [OK] producing code: scripts/build_golden_signals.py:112: frame = client.get_spans_dataframe(project_name="credpilot")
 [PASS] REQ-052-T03: cost/latency dashboard screenshot AND its underlying data file (ALL: 2/2 satisfied)
-[OK] reports/dashboard.png: valid PNG, 206181 bytes
+[OK] reports/dashboard.png: valid PNG, 206348 bytes
 [OK] reports/dashboard_data.csv: 35 data row(s), header='group,metric,value,target,unit,source'
 ```
 
@@ -1844,7 +1834,7 @@ AC-10 | Input/output guardrails wired into the agent's I/O path, and a machine-g
 [OK] blocks or sanitizes: src/guardrails/__init__.py
 [OK] wired into the I/O path: eval/agent/dataset.py references the guardrail layer
 [PASS] REQ-053-T02: machine-generated audit trail (ALL: 7/7 satisfied)
-[OK] logs/agent_actions.jsonl: 831 audit record(s)
+[OK] logs/agent_actions.jsonl: 314 audit record(s)
 [OK] field 'actor' present
 [OK] field 'action' present
 [OK] field 'tool' present
@@ -1853,7 +1843,7 @@ AC-10 | Input/output guardrails wired into the agent's I/O path, and a machine-g
 [OK] audit middleware writes it: scripts/verify_evidence_citations.py
 ```
 
-### REQ-054 - FAIL (71/100)
+### REQ-054 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** governance  |  **Source:** Section 5.1 Functional Acceptance Criteria — table row AC-11
 
@@ -1863,10 +1853,10 @@ AC-10 | Input/output guardrails wired into the agent's I/O path, and a machine-g
 AC-11 | A governance pack: risk register, model/system card, compliance mapping (EU AI Act / NIST AI RMF / DPDP) and output-risk classification — each mitigation/claim citing a committed control.
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 71  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-054-T01, REQ-054-T02, REQ-054-T03, REQ-054-T04, REQ-054-T05  
-**Reason:** 1 of 5 bound test(s) produced no satisfying evidence: REQ-054-T05.
+**Reason:** All 5 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -1878,11 +1868,7 @@ AC-11 | A governance pack: risk register, model/system card, compliance mapping 
 [OK] NIST AI RMF obligations: docs/compliance.md:30: NIST AI RMF
 [OK] DPDP obligations: docs/compliance.md:52: DPDP
 [PASS] REQ-054-T04: File present: docs/output-risk.md (exact path); size=12473 bytes
-[FAIL] REQ-054-T05: 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[PASS] REQ-054-T05: All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-055 - PASS (100/100)
@@ -1911,7 +1897,7 @@ AC-12 | Agent evaluation: a DeepEval (or equivalent) report over a golden set (h
 [OK] evaluation harness: eval/agent/run_agent_eval.py
 [OK] the harness uses DeepEval (or an equivalent LLM-as-judge)
 [PASS] REQ-055-T02: routing-logic test at tests/test_routing.py (ALL: 3/3 satisfied)
-[OK] tests/test_routing.py defines 22 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
+[OK] tests/test_routing.py defines 23 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
 [OK] tests/test_routing.py contains assertions
 [OK] routes to the right worker: matched 'Rout'
 [PASS] REQ-055-T03: loop/cascade guard test at tests/test_loops.py (ALL: 3/3 satisfied)
@@ -1943,7 +1929,7 @@ NFR-01 | No secrets/keys committed; env-var config with a committed .env.example
 **Evidence:**
 
 ```
-[PASS] REQ-056-T01: No committed secret matched 6 credential patterns across 1734 scanned files.
+[PASS] REQ-056-T01: No committed secret matched 6 credential patterns across 1732 scanned files.
 [PASS] REQ-056-T02: secrets hygiene (ALL: 3/3 satisfied)
 [OK] .gitignore ignores .env: '.env'
 [OK] .env.example present as the committed env-var template
@@ -2060,12 +2046,13 @@ NFR-05 | All data synthetic; income, account numbers, credit identifiers masked 
 **Evidence:**
 
 ```
-[PASS] REQ-060-T01: synthetic data declaration across implementation tree (553 files) (ALL: 1/1 satisfied)
+[PASS] REQ-060-T01: synthetic data declaration across implementation tree (552 files) (ALL: 1/1 satisfied)
 [OK] data/policy_corpus/corpus_registry.json:2: "description": "Machine-generated inventory of the lending-policy corpora CredPilot's vector and lexical indexes are built from. The policy documents themselves are committed under synthetic_data/<product>/policy_corpus/ and are not duplicated here.",
 [FAIL] REQ-060-T02: PII masking and leak-free logs (ALL: 1/2 satisfied)
 [OK] masking implemented at scripts/export_traces.py:246: redaction_is_warm(
-[NOT FOUND] 1 sensitive value(s) written in plaintext:
-traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+[NOT FOUND] 2 sensitive value(s) written in plaintext:
+reports/phoenix_spans.csv:825 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+traces/phoenix_spans.jsonl:824 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
 ```
 
 ### REQ-061 - PASS (100/100)
@@ -2127,7 +2114,7 @@ The LangGraph multi-agent copilot (foundation) plus its full observability, cost
 [PASS] REQ-062-T01: the full in-scope surface (ALL: 6/6 satisfied)
 [OK] File present: src/graph.py (exact path); size=105982 bytes
 [OK] File present: src/observability/tracing.py (exact path); size=11075 bytes
-[OK] File present: reports/golden_signals.json (exact path); size=9605 bytes
+[OK] File present: reports/golden_signals.json (exact path); size=9604 bytes
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
 [OK] File present: docs/compliance.md (exact path); size=13627 bytes
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
@@ -2155,13 +2142,13 @@ Arize Phoenix tracing, golden-signals + cost/latency governance, guardrails + au
 [OK] File present: src/observability/tracing.py (exact path); size=11075 bytes
 [OK] a trace export (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
 [PASS] REQ-063-T02: golden signals and cost/latency governance (ALL: 2/2 satisfied)
-[OK] File present: reports/golden_signals.json (exact path); size=9605 bytes
-[OK] File present: reports/dashboard_data.csv (exact path); size=1576 bytes
+[OK] File present: reports/golden_signals.json (exact path); size=9604 bytes
+[OK] File present: reports/dashboard_data.csv (exact path); size=1575 bytes
 [PASS] REQ-063-T03: guardrails, audit and secrets hygiene (ALL: 3/3 satisfied)
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
-[OK] File present: logs/agent_actions.jsonl (exact path); size=536468 bytes
+[OK] File present: logs/agent_actions.jsonl (exact path); size=206370 bytes
 [OK] File present: .env.example (exact path); size=2595 bytes
 [PASS] REQ-063-T04: governance and compliance docs (ALL: 4/4 satisfied)
 [OK] File present: docs/risk-register.md (exact path); size=24231 bytes
@@ -2170,7 +2157,7 @@ Arize Phoenix tracing, golden-signals + cost/latency governance, guardrails + au
 [OK] File present: docs/output-risk.md (exact path); size=12473 bytes
 [PASS] REQ-063-T05: agent-level evaluation and tests (ALL: 4/4 satisfied)
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 [OK] File present: tests/test_loops.py (exact path); size=8870 bytes
 [OK] File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 ```
@@ -2223,7 +2210,7 @@ Containerized / cloud deployment (Docker, Rancher, k8s) — deferred; do not spe
 **Evidence:**
 
 ```
-[PASS] REQ-065-T01: Docker / Rancher / k8s deployment artifacts: no file matches ['Dockerfile', '*.dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', 'compose.yaml', 'compose.yml', '*.k8s.yaml', 'Chart.yaml', 'rancher*.yml'] across 1862 files
+[PASS] REQ-065-T01: Docker / Rancher / k8s deployment artifacts: no file matches ['Dockerfile', '*.dockerfile', 'docker-compose*.yml', 'docker-compose*.yaml', 'compose.yaml', 'compose.yml', '*.k8s.yaml', 'Chart.yaml', 'rancher*.yml'] across 1860 files
 ```
 
 ### REQ-066 - FAIL (50/100)
@@ -2271,7 +2258,7 @@ Front-end visual polish; generic unit-test volume for its own sake.
 **Evidence:**
 
 ```
-[PASS] REQ-067-T01: front-end build tooling: no file matches ['package.json', 'webpack.config.js', 'vite.config.*', 'tailwind.config.*', 'next.config.*', 'angular.json'] across 1862 files
+[PASS] REQ-067-T01: front-end build tooling: no file matches ['package.json', 'webpack.config.js', 'vite.config.*', 'tailwind.config.*', 'next.config.*', 'angular.json'] across 1860 files
 ```
 
 ### REQ-068 - PASS (100/100)
@@ -2363,18 +2350,18 @@ Each artifact must be present at (or near) the path shown and contain what is li
 [OK] traces/phoenix_spans.parquet or traces/phoenix_spans.jsonl -> traces/phoenix_spans.jsonl
 [PASS] REQ-070-T02: content of 24 present checklist artifact(s) (ALL: 24/24 satisfied)
 [OK] src/graph.py: 105982 bytes of content
-[OK] logs/mcp_transcript.jsonl: 110 valid JSON record(s)
+[OK] logs/mcp_transcript.jsonl: 136 valid JSON record(s)
 [OK] tests/test_memory_persistence.py: 14984 bytes of content
 [OK] logs/memory_test.log: 895 bytes of content
 [OK] src/tools/rag_tool.py: 13791 bytes of content
 [OK] src/observability/tracing.py: 11075 bytes of content
 [OK] traces/phoenix_spans.jsonl: 1119 valid JSON record(s)
-[OK] logs/tool_calls.jsonl: 430 valid JSON record(s)
+[OK] logs/tool_calls.jsonl: 189 valid JSON record(s)
 [OK] docs/failure-analysis.md: 56777 bytes of content
-[OK] reports/golden_signals.json: valid JSON, 9605 bytes
-[OK] reports/dashboard.png: 206181 bytes of content
-[OK] reports/dashboard_data.csv: 1576 bytes of content
-[OK] logs/agent_actions.jsonl: 831 valid JSON record(s)
+[OK] reports/golden_signals.json: valid JSON, 9604 bytes
+[OK] reports/dashboard.png: 206348 bytes of content
+[OK] reports/dashboard_data.csv: 1575 bytes of content
+[OK] logs/agent_actions.jsonl: 314 valid JSON record(s)
 [OK] .env.example: 2595 bytes of content
 [OK] .gitignore: 1302 bytes of content
 [OK] docs/risk-register.md: 24231 bytes of content
@@ -2382,13 +2369,13 @@ Each artifact must be present at (or near) the path shown and contain what is li
 [OK] docs/compliance.md: 13627 bytes of content
 [OK] docs/output-risk.md: 12473 bytes of content
 [OK] reports/eval_report.json: valid JSON, 10334 bytes
-[OK] tests/test_routing.py: 15913 bytes of content
+[OK] tests/test_routing.py: 17245 bytes of content
 [OK] tests/test_loops.py: 8870 bytes of content
 [OK] tests/test_tool_contracts.py: 8964 bytes of content
 [OK] README.md: 20794 bytes of content
 ```
 
-### REQ-071 - FAIL (50/100)
+### REQ-071 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** auditability  |  **Source:** Section 7. Required Artifacts — What to Commit — lead-in paragraph, sentence 3
 
@@ -2398,10 +2385,10 @@ Each artifact must be present at (or near) the path shown and contain what is li
 Remember the Evidence-in-Repo and Citation-Resolves rules: outputs must be produced by committed code, and every citation must resolve to a committed artifact.
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 50  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-071-T01, REQ-071-T02  
-**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-071-T02.
+**Reason:** All 2 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -2414,11 +2401,7 @@ Remember the Evidence-in-Repo and Citation-Resolves rules: outputs must be produ
 [OK] reports/dashboard_data.csv <- produced by scripts/build_dashboard.py:3: REQ-099: *"Dashboard | reports/dashboard.png + dashboard_data.csv"*.
 [OK] reports/eval_report.json <- produced by eval/agent/run_agent_eval.py:72: REPORT_PATH = REPORTS / "eval_report.json"
 [OK] logs/memory_test.log <- produced by src/memory/__init__.py:3: *"src/memory/ + tests/test_memory_persistence.py + logs/memory_test.log |
-[FAIL] REQ-071-T02: 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[PASS] REQ-071-T02: All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-072 - PASS (100/100)
@@ -2449,7 +2432,7 @@ eligibility-and-affordability agent -> src/graph.py
 policy-retrieval agent -> eval/agent/run_agent_eval.py
 risk-screening agent -> mcp_server/capabilities.py
 [PASS] REQ-072-T04: conditional edges added to the graph (AST call analysis) (ALL: 1/1 satisfied)
-[OK] src/graph.py contains a call to 'add_conditional_edges'
+[OK] src/graph.py contains a call to 'builder.add_conditional_edges'
 [PASS] REQ-072-T05: checkpointer (ALL: 2/2 satisfied)
 [OK] checkpointer referenced across implementation tree (147 files) (ALL: 1/1 satisfied)
 [OK] eval/agent/run_agent_eval.py:218: ``run_id`` scopes the checkpoint thread to this evaluation run. Without it
@@ -2490,7 +2473,7 @@ MCP server | mcp_server/ + logs/mcp_transcript.jsonl | ≥2 tools + 1 resource; 
 [OK] langchain_mcp_adapters imported (import analysis) (ALL: 1/1 satisfied)
 [OK] mcp_server/client.py:67: from langchain_mcp_adapters.resources import ...
 [PASS] REQ-073-T04: committed MCP tool-call transcript (ALL: 2/2 satisfied)
-[OK] logs/mcp_transcript.jsonl: 110 transcript record(s)
+[OK] logs/mcp_transcript.jsonl: 136 transcript record(s)
 [OK] logs/mcp_transcript.jsonl is committed
 ```
 
@@ -2583,7 +2566,7 @@ Agentic-RAG tool | src/tools/rag_tool.py + data/policy_corpus/ | retrieval-in-th
 [OK] src/tools/rag_tool.py:1: """The agentic-RAG tool.
 [OK] retrieval invoked by the tool across 'src/tools' (2 files) (ALL: 1/1 satisfied)
 [OK] src/tools/rag_tool.py:3: This is the tool the Policy Retrieval Agent calls when it needs policy evidence.
-[PASS] REQ-076-T04: the corpus declared synthetic across implementation tree (1712 files) (ALL: 1/1 satisfied)
+[PASS] REQ-076-T04: the corpus declared synthetic across implementation tree (1711 files) (ALL: 1/1 satisfied)
 [OK] data/policy_corpus/corpus_registry.json:2: "description": "Machine-generated inventory of the lending-policy corpora CredPilot's vector and lexical indexes are built from. The policy documents themselves are committed under synthetic_data/<product>/policy_corpus/ and are not duplicated here.",
 ```
 
@@ -2636,11 +2619,11 @@ Trace export | traces/phoenix_spans.parquet (or .jsonl) | ≥1 full run; spans a
 ```
 [PASS] REQ-078-T01: trace export artifact (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
 [PASS] REQ-078-T02: trace export traces/phoenix_spans.jsonl (ALL: 3/3 satisfied)
 [OK] 1119 span(s) exported from at least one full run
 [OK] spans span multiple components: ['agent.education', 'agent.eligibility', 'agent.final_response', 'agent.human_review', 'agent.mortgage', 'agent.recommendation', 'agent.risk', 'bm25.search', 'chroma.search', 'citation.validate', 'domain.resolve', 'embedding.query']
-[OK] latency evidence present via key(s) ['latency_ms', 'start_time', 'end_time']
+[OK] latency evidence present via key(s) ['end_time', 'latency_ms', 'start_time']
 ```
 
 ### REQ-079 - PASS (100/100)
@@ -2661,9 +2644,9 @@ Tool-invocation log | logs/tool_calls.jsonl | machine-generated; per call: times
 **Evidence:**
 
 ```
-[PASS] REQ-079-T01: File present: logs/tool_calls.jsonl (exact path); size=422236 bytes
+[PASS] REQ-079-T01: File present: logs/tool_calls.jsonl (exact path); size=177380 bytes
 [PASS] REQ-079-T02: tool-invocation log per-call fields (ALL: 8/8 satisfied)
-[OK] logs/tool_calls.jsonl: 430 tool-call record(s)
+[OK] logs/tool_calls.jsonl: 189 tool-call record(s)
 [OK] field 'timestamp' present as ['timestamp']
 [OK] field 'agent/node' present as ['agent']
 [OK] field 'tool_name' present as ['tool_name']
@@ -2734,7 +2717,7 @@ Golden-signals report | reports/golden_signals.json + producing script | Phoenix
 **Evidence:**
 
 ```
-[PASS] REQ-081-T01: File present: reports/golden_signals.json (exact path); size=9605 bytes
+[PASS] REQ-081-T01: File present: reports/golden_signals.json (exact path); size=9604 bytes
 [PASS] REQ-081-T02: the report's producing script (ALL: 2/2 satisfied)
 [OK] artifact present: reports/golden_signals.json
 [OK] producing code: scripts/build_golden_signals.py:1: """Produce ``reports/golden_signals.json`` — the operational view, from Phoenix.
@@ -2767,7 +2750,7 @@ Cost/latency dashboard | reports/dashboard.png + reports/dashboard_data.csv | Ph
 
 ```
 [PASS] REQ-082-T01: cost/latency dashboard screenshot AND its underlying data file (ALL: 2/2 satisfied)
-[OK] reports/dashboard.png: valid PNG, 206181 bytes
+[OK] reports/dashboard.png: valid PNG, 206348 bytes
 [OK] reports/dashboard_data.csv: 35 data row(s), header='group,metric,value,target,unit,source'
 [PASS] REQ-082-T02: the dashboard data export (ALL: 2/2 satisfied)
 [OK] artifact present: reports/dashboard_data.csv
@@ -2819,9 +2802,9 @@ Audit trail | logs/agent_actions.jsonl + audit middleware | machine-generated: a
 **Evidence:**
 
 ```
-[PASS] REQ-084-T01: File present: logs/agent_actions.jsonl (exact path); size=536468 bytes
+[PASS] REQ-084-T01: File present: logs/agent_actions.jsonl (exact path); size=206370 bytes
 [PASS] REQ-084-T02: machine-generated audit trail (ALL: 7/7 satisfied)
-[OK] logs/agent_actions.jsonl: 831 audit record(s)
+[OK] logs/agent_actions.jsonl: 314 audit record(s)
 [OK] field 'actor' present
 [OK] field 'action' present
 [OK] field 'tool' present
@@ -2854,10 +2837,10 @@ Secrets hygiene | .env.example, .gitignore | env-var config; .gitignore covers .
 [OK] .gitignore ignores .env: '.env'
 [OK] .env.example present as the committed env-var template
 [OK] no .env file is committed
-[PASS] REQ-085-T02: No committed secret matched 6 credential patterns across 1734 scanned files.
+[PASS] REQ-085-T02: No committed secret matched 6 credential patterns across 1732 scanned files.
 ```
 
-### REQ-086 - FAIL (67/100)
+### REQ-086 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** risk  |  **Source:** Section 7.5 Governance & Compliance (citation-gated) — table row "Risk register"
 
@@ -2867,10 +2850,10 @@ Secrets hygiene | .env.example, .gitignore | env-var config; .gitignore covers .
 Risk register | docs/risk-register.md | risk, category (OWASP/NIST), likelihood, impact, mitigation (cite the committed control), residual risk, owner
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 67  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-086-T01, REQ-086-T02, REQ-086-T03  
-**Reason:** 1 of 3 bound test(s) produced no satisfying evidence: REQ-086-T03.
+**Reason:** All 3 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -2884,11 +2867,7 @@ Risk register | docs/risk-register.md | risk, category (OWASP/NIST), likelihood,
 [OK] mitigation: docs/risk-register.md:10: mitigat
 [OK] residual risk: docs/risk-register.md:10: Residual
 [OK] owner: docs/risk-register.md:22: Owner
-[FAIL] REQ-086-T03: 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[PASS] REQ-086-T03: All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-087 - PASS (100/100)
@@ -2921,7 +2900,7 @@ Model / system card | docs/model-card.md | model (Gemini), data (synthetic), int
 [OK] docs/model-card.md:243: Twenty real failures found while building this, each with evidence, root cause, fix and before/after measurement, in **[`docs/failure-analysis.md`](failure-analysis.md)**. The ones that bear on trusting the output:
 ```
 
-### REQ-088 - FAIL (50/100)
+### REQ-088 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** governance  |  **Source:** Section 7.5 Governance & Compliance (citation-gated) — table row "Compliance mapping"
 
@@ -2931,10 +2910,10 @@ Model / system card | docs/model-card.md | model (Gemini), data (synthetic), int
 Compliance mapping | docs/compliance.md | applicable EU AI Act / NIST AI RMF / DPDP obligations → how addressed → evidence artifact
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 50  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-088-T01, REQ-088-T02, REQ-088-T03  
-**Reason:** 1 of 3 bound test(s) produced no satisfying evidence: REQ-088-T03.
+**Reason:** All 3 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -2944,15 +2923,11 @@ Compliance mapping | docs/compliance.md | applicable EU AI Act / NIST AI RMF / D
 [OK] EU AI Act: docs/compliance.md:11: EU AI Act
 [OK] NIST AI RMF: docs/compliance.md:30: NIST AI RMF
 [OK] DPDP: docs/compliance.md:52: DPDP
-[FAIL] REQ-088-T03: obligation -> how addressed -> evidence artifact (ALL: 1/2 satisfied)
+[PASS] REQ-088-T03: obligation -> how addressed -> evidence artifact (ALL: 2/2 satisfied)
 [OK] compliance mapping columns at docs/compliance.md (ALL: 2/2 satisfied)
 [OK] how addressed: docs/compliance.md:17: mitigation
 [OK] evidence artifact: docs/compliance.md:3: evidence
-[NOT FOUND] 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[OK] All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-089 - PASS (100/100)
@@ -3031,9 +3006,9 @@ Routing-logic test | tests/test_routing.py | asserts conditional edges route the
 **Evidence:**
 
 ```
-[PASS] REQ-091-T01: File present: tests/test_routing.py (exact path); size=15913 bytes
+[PASS] REQ-091-T01: File present: tests/test_routing.py (exact path); size=17245 bytes
 [PASS] REQ-091-T02: routing-logic assertions at tests/test_routing.py (ALL: 4/4 satisfied)
-[OK] tests/test_routing.py defines 22 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
+[OK] tests/test_routing.py defines 23 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
 [OK] tests/test_routing.py contains assertions
 [OK] the routing subject: matched 'Rout'
 [OK] a given state: matched 'state'
@@ -3184,18 +3159,18 @@ Every evidence artifact must be produced by committed code and committed in the 
 [OK] traces/phoenix_spans.jsonl parsed: 1119 JSON object(s)
 [OK] record count 1119 >= 1
 [OK] tool-invocation log as JSONL at logs/tool_calls.jsonl (exact path) (ALL: 2/2 satisfied)
-[OK] logs/tool_calls.jsonl parsed: 430 JSON object(s)
-[OK] record count 430 >= 1
+[OK] logs/tool_calls.jsonl parsed: 189 JSON object(s)
+[OK] record count 189 >= 1
 [OK] File present: docs/failure-analysis.md (exact path); size=56777 bytes
 [OK] golden-signals report as JSON in reports/golden_signals.json (exact path) (ALL: 1/1 satisfied)
 [OK] reports/golden_signals.json:1: {
 [OK] dashboard as PNG at reports/dashboard.png (exact path) (ALL: 2/2 satisfied)
-[OK] reports/dashboard.png size=206181 bytes (>= 1)
+[OK] reports/dashboard.png size=206348 bytes (>= 1)
 [OK] file signature b'\x89PNG\r\n\x1a\n' matches expected b'\x89PNG\r\n\x1a\n'
 [OK] dashboard data as CSV: reports/dashboard_data.csv (exact path) header=['group', 'metric', 'value', 'target', 'unit', 'source'] with 35 data rows
 [OK] audit trail as JSONL at logs/agent_actions.jsonl (exact path) (ALL: 2/2 satisfied)
-[OK] logs/agent_actions.jsonl parsed: 831 JSON object(s)
-[OK] record count 831 >= 1
+[OK] logs/agent_actions.jsonl parsed: 314 JSON object(s)
+[OK] record count 314 >= 1
 [OK] evaluation report as JSON in reports/eval_report.json (exact path) (ALL: 1/1 satisfied)
 [OK] reports/eval_report.json:1: {
 ```
@@ -3221,7 +3196,7 @@ This tells you the exact format and the tool / method to generate each one, so �
 [PASS] REQ-097-T01: observability as generated files (ALL: 2/2 satisfied)
 [OK] a trace export (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
 [OK] generated tool-invocation log (ALL: 2/2 satisfied)
 [OK] artifact present: logs/tool_calls.jsonl
 [OK] producing code: scripts/verify_evidence_citations.py:209: artifact="logs/tool_calls.jsonl",
@@ -3232,7 +3207,7 @@ This tells you the exact format and the tool / method to generate each one, so �
 [OK] generated dashboard data (ALL: 2/2 satisfied)
 [OK] artifact present: reports/dashboard_data.csv
 [OK] producing code: scripts/build_dashboard.py:3: REQ-099: *"Dashboard | reports/dashboard.png + dashboard_data.csv"*.
-[PASS] REQ-097-T03: slide decks substituted for generated evidence: no file matches ['*.pptx', '*.ppt', '*.key', '*.odp'] across 1862 files
+[PASS] REQ-097-T03: slide decks substituted for generated evidence: no file matches ['*.pptx', '*.ppt', '*.key', '*.odp'] across 1860 files
 ```
 
 ### REQ-098 - PASS (100/100)
@@ -3305,7 +3280,7 @@ Phoenix trace export | Parquet or JSONL of OTel spans | Turn on Phoenix tracing 
 [PASS] REQ-099-T04: trace export traces/phoenix_spans.jsonl (ALL: 3/3 satisfied)
 [OK] 1119 span(s) exported from at least one full run
 [OK] spans span multiple components: ['agent.education', 'agent.eligibility', 'agent.final_response', 'agent.human_review', 'agent.mortgage', 'agent.recommendation', 'agent.risk', 'bm25.search', 'chroma.search', 'citation.validate', 'domain.resolve', 'embedding.query']
-[OK] latency evidence present via key(s) ['latency_ms', 'start_time', 'end_time']
+[OK] latency evidence present via key(s) ['end_time', 'latency_ms', 'start_time']
 ```
 
 ### REQ-100 - PASS (100/100)
@@ -3327,10 +3302,10 @@ Tool-invocation log | JSONL — one object per tool call | A logging wrapper/dec
 
 ```
 [PASS] REQ-100-T01: one JSON object per tool call at logs/tool_calls.jsonl (exact path) (ALL: 2/2 satisfied)
-[OK] logs/tool_calls.jsonl parsed: 430 JSON object(s)
-[OK] record count 430 >= 1
+[OK] logs/tool_calls.jsonl parsed: 189 JSON object(s)
+[OK] record count 189 >= 1
 [PASS] REQ-100-T02: tool-invocation log per-call fields (ALL: 8/8 satisfied)
-[OK] logs/tool_calls.jsonl: 430 tool-call record(s)
+[OK] logs/tool_calls.jsonl: 189 tool-call record(s)
 [OK] field 'timestamp' present as ['timestamp']
 [OK] field 'agent/node' present as ['agent']
 [OK] field 'tool_name' present as ['tool_name']
@@ -3439,7 +3414,7 @@ Cost/latency dashboard | PNG + CSV | Phoenix UI (localhost:6006) shows latency /
 
 ```
 [PASS] REQ-103-T01: cost/latency dashboard screenshot AND its underlying data file (ALL: 2/2 satisfied)
-[OK] reports/dashboard.png: valid PNG, 206181 bytes
+[OK] reports/dashboard.png: valid PNG, 206348 bytes
 [OK] reports/dashboard_data.csv: 35 data row(s), header='group,metric,value,target,unit,source'
 [PASS] REQ-103-T02: the stated CSV export method (ALL: 3/3 satisfied)
 [OK] the Phoenix spans dataframe across implementation tree (147 files) (ALL: 1/1 satisfied)
@@ -3516,10 +3491,10 @@ Audit trail | JSONL | Audit middleware that appends {actor, action, tool, decisi
 
 ```
 [PASS] REQ-105-T01: audit trail as JSONL at logs/agent_actions.jsonl (exact path) (ALL: 2/2 satisfied)
-[OK] logs/agent_actions.jsonl parsed: 831 JSON object(s)
-[OK] record count 831 >= 1
+[OK] logs/agent_actions.jsonl parsed: 314 JSON object(s)
+[OK] record count 314 >= 1
 [PASS] REQ-105-T02: machine-generated audit trail (ALL: 7/7 satisfied)
-[OK] logs/agent_actions.jsonl: 831 audit record(s)
+[OK] logs/agent_actions.jsonl: 314 audit record(s)
 [OK] field 'actor' present
 [OK] field 'action' present
 [OK] field 'tool' present
@@ -3528,7 +3503,7 @@ Audit trail | JSONL | Audit middleware that appends {actor, action, tool, decisi
 [OK] audit middleware writes it: scripts/verify_evidence_citations.py
 ```
 
-### REQ-106 - FAIL (40/100)
+### REQ-106 - PASS (100/100)
 
 **Class:** IMPLEMENTATION  |  **Category:** governance  |  **Source:** Section 8. Producing the Evidence — table row "Governance pack" (continuation table)
 
@@ -3538,10 +3513,10 @@ Audit trail | JSONL | Audit middleware that appends {actor, action, tool, decisi
 Governance pack | Markdown | risk-register.md, model-card.md, compliance.md, output-risk.md — each entry cites the committed control/artifact it refers to.
 ~~~
 
-**Status:** FAIL  
-**Fit Score:** 40  
+**Status:** PASS  
+**Fit Score:** 100  
 **Tests:** REQ-106-T01, REQ-106-T02  
-**Reason:** 1 of 2 bound test(s) produced no satisfying evidence: REQ-106-T02.
+**Reason:** All 2 bound test(s) passed with committed evidence.
 
 **Evidence:**
 
@@ -3551,11 +3526,7 @@ Governance pack | Markdown | risk-register.md, model-card.md, compliance.md, out
 [OK] File present: docs/model-card.md (exact path); size=25500 bytes
 [OK] File present: docs/compliance.md (exact path); size=13627 bytes
 [OK] File present: docs/output-risk.md (exact path); size=12473 bytes
-[FAIL] REQ-106-T02: 4 unresolvable citation(s) across 105 document(s) (treated as missing per the Citation-Resolves Rule):
-docs/rag/REQUIREMENTS_MAPPING.md cites 'assets/phoenix-traces.png' -> present but uncommitted
-docs/rag/REQUIREMENTS_MAPPING.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
-README.md cites 'docs/assets/phoenix-traces.png' -> present but uncommitted
-README.md cites 'scripts/capture_phoenix_screenshot.py' -> present but uncommitted
+[PASS] REQ-106-T02: All 553 citation(s) across 105 committed document(s) resolve to committed artifacts.
 ```
 
 ### REQ-107 - PASS (100/100)
@@ -3606,11 +3577,11 @@ Agent tests | pytest files | tests/test_routing.py (routing), tests/test_loops.p
 
 ```
 [PASS] REQ-108-T01: the three pytest files (ALL: 3/3 satisfied)
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 [OK] File present: tests/test_loops.py (exact path); size=8870 bytes
 [OK] File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 [PASS] REQ-108-T02: routing test at tests/test_routing.py (ALL: 3/3 satisfied)
-[OK] tests/test_routing.py defines 22 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
+[OK] tests/test_routing.py defines 23 test function(s): ['test_each_supervisor_route_has_its_own_target', 'test_an_unrecognized_route_asks_rather_than_guesses', 'test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to', 'test_an_unresolved_product_routes_to_human_review', 'test_a_resolved_product_routes_to_its_own_retrieval_node', 'test_retrieval_with_no_evidence_routes_to_human_review', 'test_retrieval_with_evidence_routes_to_its_own_eligibility_node', 'test_a_policy_question_skips_the_assessment_nodes']
 [OK] tests/test_routing.py contains assertions
 [OK] routing subject: matched 'Rout'
 [PASS] REQ-108-T03: loops test at tests/test_loops.py (ALL: 3/3 satisfied)
@@ -3680,14 +3651,15 @@ PII-redaction middleware (Presidio) with a before/after sample; a small red-team
 [OK] src/guardrails/redaction.py:8: Deterministic regex redaction runs first and always. Microsoft Presidio, when
 [NOT FOUND] PII masking and leak-free logs (ALL: 1/2 satisfied)
 [OK] masking implemented at scripts/export_traces.py:246: redaction_is_warm(
-[NOT FOUND] 1 sensitive value(s) written in plaintext:
-traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
-[PASS] REQ-110-T02: a before/after redaction sample across implementation tree (1565 files) (ALL: 1/1 satisfied)
+[NOT FOUND] 2 sensitive value(s) written in plaintext:
+reports/phoenix_spans.csv:825 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+traces/phoenix_spans.jsonl:824 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+[PASS] REQ-110-T02: a before/after redaction sample across implementation tree (1564 files) (ALL: 1/1 satisfied)
 [OK] docs/failure-analysis.md:5: cause, a fix, and the measurement before and after.
 [PASS] REQ-110-T03: red-team attack set and results (ALL: 2/2 satisfied)
-[OK] a red-team attack set across implementation tree (606 files) (ALL: 1/1 satisfied)
+[OK] a red-team attack set across implementation tree (604 files) (ALL: 1/1 satisfied)
 [OK] docs/compliance.md:23: | **Art. 15** — Accuracy, robustness, cybersecurity | Appropriate accuracy; resilience to error and manipulation | Macro-averaged accuracy, citation validity and grounding measured over both products' golden sets by an evaluation that enters the graph at its real entry point, so Supervisor routing a
-[OK] the attack results across implementation tree (459 files) (ALL: 1/1 satisfied)
+[OK] the attack results across implementation tree (457 files) (ALL: 1/1 satisfied)
 [OK] data/vectorstore/index_integrity.json:9: "status": "PASS"
 ```
 
@@ -3738,18 +3710,19 @@ On completion you will have demonstrated the skill the industry actually screens
 [PASS] REQ-112-T01: observable lending decision (ALL: 2/2 satisfied)
 [OK] a trace export (ANY: 1/2 satisfied)
 [NOT FOUND] No file at or near 'traces/phoenix_spans.parquet' under E:\Virtusa Projects\CredPilot
-[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501494 bytes
-[OK] File present: logs/tool_calls.jsonl (exact path); size=422236 bytes
+[OK] File present: traces/phoenix_spans.jsonl (exact path); size=501454 bytes
+[OK] File present: logs/tool_calls.jsonl (exact path); size=177380 bytes
 [PASS] REQ-112-T02: cost governance (ALL: 2/2 satisfied)
-[OK] File present: reports/golden_signals.json (exact path); size=9605 bytes
-[OK] File present: reports/dashboard_data.csv (exact path); size=1576 bytes
+[OK] File present: reports/golden_signals.json (exact path); size=9604 bytes
+[OK] File present: reports/dashboard_data.csv (exact path); size=1575 bytes
 [FAIL] REQ-112-T03: security (ALL: 2/3 satisfied)
 [OK] Directory present: src/guardrails (exact path); 5 entries: __init__.py, __pycache__, redaction.py, sanitize.py, validation.py
 [OK] File present: .env.example (exact path); size=2595 bytes
 [NOT FOUND] PII masking and leak-free logs (ALL: 1/2 satisfied)
 [OK] masking implemented at scripts/export_traces.py:246: redaction_is_warm(
-[NOT FOUND] 1 sensitive value(s) written in plaintext:
-traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+[NOT FOUND] 2 sensitive value(s) written in plaintext:
+reports/phoenix_spans.csv:825 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
+traces/phoenix_spans.jsonl:824 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b/
 [PASS] REQ-112-T04: compliance (ALL: 4/4 satisfied)
 [OK] File present: docs/compliance.md (exact path); size=13627 bytes
 [OK] File present: docs/risk-register.md (exact path); size=24231 bytes
@@ -3757,7 +3730,7 @@ traces/phoenix-live.jsonl:813 matches /\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{
 [OK] File present: docs/output-risk.md (exact path); size=12473 bytes
 [PASS] REQ-112-T05: continuous evaluation (ALL: 4/4 satisfied)
 [OK] File present: reports/eval_report.json (exact path); size=10334 bytes
-[OK] File present: tests/test_routing.py (exact path); size=15913 bytes
+[OK] File present: tests/test_routing.py (exact path); size=17245 bytes
 [OK] File present: tests/test_loops.py (exact path); size=8870 bytes
 [OK] File present: tests/test_tool_contracts.py (exact path); size=8964 bytes
 [PASS] REQ-112-T06: committed, regenerable evidence (ALL: 3/3 satisfied)
