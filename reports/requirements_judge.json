@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-09-22T13:44:01Z",
+  "requirements_source": "requirements_validation_tests/source_requirements/requirements_verbatim.md",
+  "baseline_sha256": "ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8188e01214adf917",
+  "judge": {
+    "provider": "google-gemini",
+    "model": null,
+    "available": false,
+    "unavailable_reason": "gemini-pro-latest: ClientError: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage",
+    "note": "NO REQUIREMENT WAS JUDGED. Every judged figure is null. They are not zero and they were not carried over from an earlier run - they were not measured."
+  },
+  "summary": null,
+  "results": [],
+  "deterministic_reference": {
+    "requirements_passed": 103,
+    "requirements_failed": 9,
+    "overall_fit_pct": 98,
+    "failed_requirement_ids": [
+      "REQ-008",
+      "REQ-009",
+      "REQ-010",
+      "REQ-011",
+      "REQ-012",
+      "REQ-013",
+      "REQ-035",
+      "REQ-045",
+      "REQ-046"
+    ]
+  }
+}
