@@ -195,20 +195,37 @@ def test_the_langchain_tool_exposes_the_declared_schema():
 
 
 def test_tool_names_reconcile_between_code_and_mcp_server(repo_root):
-    """REQ-050: the names in the log must match the names in the code."""
+    """REQ-050: the names in the log must match the names in the code.
+
+    Checked against the server's own declaration rather than a list written
+    here, so a tool added to the server without being declared — or declared
+    without being added — fails this rather than passing silently.
+    """
+    from mcp_server.capabilities import TOOLS as DECLARED
+
     server = (repo_root / "mcp_server" / "server.py").read_text(encoding="utf-8")
     assert f'name="{rag_tool.TOOL_NAME}"' in server
-    for name in ("resolve_citation", "list_policy_rules"):
-        assert f'name="{name}"' in server
+    for name in DECLARED:
+        assert f'name="{name}"' in server, (
+            f"{name} is declared in capabilities.py but not registered on the server"
+        )
 
 
 @pytest.mark.slow
 def test_logged_tool_names_reconcile_with_the_code(repo_root):
+    """Every name in the log must be a tool the code actually declares.
+
+    The name of a tool is its name wherever it was called from. How it was
+    reached is a separate field, `transport`, because AC-07 requires the names
+    in the log to reconcile with the names in the code — and no source file
+    contains the string `mcp:retrieve_policy`.
+    """
+    from mcp_server.capabilities import TOOLS as MCP_TOOLS
     from src.observability.tool_logging import read_log
 
     records = read_log(repo_root / "logs" / "tool_calls.jsonl")
     if not records:
         pytest.skip("no tool log written yet")
     logged = {r["tool_name"] for r in records}
-    known = {rag_tool.TOOL_NAME, "resolve_citation", "list_policy_rules"}
-    assert logged <= known, f"log contains unknown tools: {logged - known}"
+    known = {rag_tool.TOOL_NAME, rag_tool.FETCH_RULES_TOOL_NAME} | set(MCP_TOOLS)
+    assert logged <= known, f"log contains unknown tools: {sorted(logged - known)}"

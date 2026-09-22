@@ -93,22 +93,37 @@ def test_the_two_products_ask_different_questions():
 
 
 def test_the_graph_declares_a_supervisor_and_at_least_three_workers(graph):
+    """The Supervisor plus a full worker chain, per product.
+
+    The workers are named per product since the two chains were separated —
+    there is no shared `policy_retrieval` node any more, which is the point:
+    no edge crosses between the products. See
+    `tests/test_routing.py::test_no_edge_crosses_between_the_two_products`.
+    """
     nodes = set(graph.get_graph().nodes)
     assert "supervisor" in nodes
-    workers = {"policy_retrieval", "eligibility", "risk", "recommendation"}
-    assert workers <= nodes
-    assert "domain_router" in nodes
+    for product in ("mortgage", "education"):
+        workers = {
+            f"{product}_agent",
+            f"{product}_policy_retrieval",
+            f"{product}_eligibility",
+            f"{product}_risk",
+            f"{product}_recommendation",
+        }
+        assert workers <= nodes, f"{product}: {sorted(workers - nodes)}"
 
 
 def test_a_mortgage_application_runs_end_to_end(graph, repo_root):
     result = run(graph, repo_root / "synthetic_data/mortgage/applications/APP-000001.json")
 
     assert result["loan_domain"] == "MORTGAGE"
-    assert result["steps"][:4] == [
+    assert result["steps"][:6] == [
+        "intake",
+        "input_guardrails",
         "supervisor",
-        "domain_router",
-        "policy_retrieval",
-        "eligibility",
+        "mortgage_agent",
+        "mortgage_policy_retrieval",
+        "mortgage_eligibility",
     ]
     evidence = state_evidence(result)
     assert evidence, "the graph reached a decision with no policy evidence"
@@ -142,10 +157,19 @@ def test_the_graph_retrieves_once_per_planned_question(graph, repo_root):
     planned = {q["topic"] for q in result["policy_questions"]}
     statuses = result["retrieval_statuses"]
     dependency = [s for s in statuses if s.startswith("dependency:")]
-    asked = {s.split(":")[0] for s in statuses if not s.startswith("dependency:")}
+    # A third pass fetches by id the rules the engine needs and the topic pass
+    # did not land (see F-17). Those are not planned questions and are
+    # separated out here for the same reason dependency follows are: this test
+    # still has to fail if a planned question is skipped.
+    required = [s for s in statuses if s.startswith("required")]
+    topic = [
+        s for s in statuses
+        if not s.startswith("dependency:") and not s.startswith("required")
+    ]
+    asked = {s.split(":")[0] for s in topic}
 
     assert asked == planned
-    assert all(s.endswith(":FOUND") for s in statuses if not s.startswith("dependency:"))
+    assert all(s.endswith(":FOUND") for s in topic)
     # Dependency follows are extra, bounded, and also succeed.
     assert all(s.endswith(":FOUND") for s in dependency)
     assert len(dependency) <= MAX_DEPENDENCY_FOLLOWS

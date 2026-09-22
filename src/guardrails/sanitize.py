@@ -34,8 +34,17 @@ _INJECTION_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     (
         "IGNORE_INSTRUCTIONS",
         re.compile(
-            r"\b(?:ignore|disregard|forget)\s+(?:all\s+|any\s+|the\s+)?"
-            r"(?:previous|prior|above|earlier|preceding)\b",
+            # "your" and "everything" were missing until a conversational
+            # probe walked straight past this pattern: "ignore your previous
+            # instructions" matched nothing, because the qualifier list held
+            # only articles. The direct-message path made that reachable in a
+            # way the packet path never had: an applicant letter does not
+            # address the system in the second person, and a chat attack does.
+            r"\b(?:ignore|disregard|forget)\s+"
+            r"(?:(?:all|any|the|your|our|every|everything)\s+){0,2}"
+            r"(?:previous|prior|above|earlier|preceding|system)\b"
+            r"|\b(?:ignore|disregard|forget)\s+(?:all\s+)?(?:your\s+|the\s+)?"
+            r"(?:instructions?|directions?)\b",
             re.I,
         ),
     ),
@@ -116,9 +125,41 @@ _INJECTION_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     (
         "CROSS_CUSTOMER_ID",
         # APP-000068: naming a different application's identifier.
+        #
+        # Widened twice over the original. It matched only `APP-` ids, and
+        # only after a verb from a short list that did not include the most
+        # natural phrasing — "what is the credit score for APP-000012?"
+        # matched nothing. Subject identifiers (`BORR-`, `COSIG-`) were not
+        # covered at all, and they are the ones an attacker would reach for:
+        # they name a *person* rather than a file.
+        #
+        # This deliberately also fires when an applicant names their own
+        # file. The system has no authenticated identity and cannot tell the
+        # two apart, so it routes to a person — which is what the original
+        # pattern already did, and the safe direction.
         re.compile(
-            r"\b(?:show|open|access|retrieve|compare|pull|look\s+up|tell\s+me)\b"
-            r"[^.?!]{0,80}?\bAPP-\d{4}(?:-\d{5}|\d{2})\b",
+            r"\b(?:show|open|access|retrieve|compare|pull|fetch|look\s+up|tell\s+me|what(?:\s+is|\s+was|\s+are)?|whose|give\s+me|send\s+me)\b"
+            r"[^.?!]{0,80}?"
+            r"\b(?:APP-\d{4}(?:-\d{5}|\d{2})|BORR-\d{3,}|COSIG-\d{3,})\b",
+            re.I,
+        ),
+    ),
+    (
+        "BULK_APPLICANT_ACCESS",
+        # Asking for a set of applicants rather than one. An underwriting
+        # copilot answers questions about *a* file; "every applicant with a
+        # DTI above 50%" is a data-extraction request wearing a question.
+        #
+        # The data noun is required, which is what keeps this off ordinary
+        # policy questions: "which documents are required for every
+        # applicant?" is about policy and names no applicant attribute.
+        re.compile(
+            r"\b(?:list|show|give\s+me|export|dump|return|find|search\s+for)\b[^.?!]{0,30}?"
+            r"\b(?:all|every|each|any|the\s+(?:full|complete|entire))\s+"
+            r"(?:[a-z]+\s+){0,2}"
+            r"(?:applicants?|borrowers?|customers?|cosigners?|files?|applications?|records?|accounts?)"
+            r"[^.?!]{0,60}?"
+            r"\b(?:dti|income|score|ssn|salary|debt|balance|address|name|email|phone|decision|outcome|data|detail|pii)\w*\b",
             re.I,
         ),
     ),
@@ -189,6 +230,7 @@ _REVIEW_TRIGGERS = frozenset(
         "PII_EXFIL",
         "CROSS_CUSTOMER",
         "CROSS_CUSTOMER_ID",
+        "BULK_APPLICANT_ACCESS",
         "OUT_OF_SCOPE_REQUEST",
         "ROLE_OVERRIDE",
         "ADMIN_MODE",

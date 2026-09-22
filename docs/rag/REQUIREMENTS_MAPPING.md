@@ -22,9 +22,13 @@ Every path is repo-relative and resolves in a clean checkout.
 
 | ID | Requirement (verbatim, abridged) | Source | Mortgage | Education | Evidence | Test | Status |
 |----|----------------------------------|--------|----------|-----------|----------|------|--------|
-| REQ-035 | `Language / Agent Framework \| Python 3.11+ · LangGraph (MIT)` | §4 table | [src/graph.py](../../src/graph.py) | same graph, product-routed | `data/memory/credpilot_checkpoints.sqlite` | [test_langgraph_rag_integration.py](../../tests/rag/test_langgraph_rag_integration.py) | **MET** |
+| REQ-035 | `Language / Agent Framework \| Python 3.11+ · LangGraph (MIT)` | §4 table | [src/graph.py](../../src/graph.py) — 18 nodes, conditional edges, `interrupt()`/resume | its own chain, sharing no node with mortgage | `data/memory/credpilot_checkpoints.sqlite` | [test_routing.py](../../tests/test_routing.py), [test_langgraph_rag_integration.py](../../tests/rag/test_langgraph_rag_integration.py) | **MET** — see deviation D4 |
 | REQ-036 | `LLM Provider \| Google Gemini (API) — the only approved provider; not Claude` | §4 table | [src/llm.py](../../src/llm.py) — one module, one provider; no LLM in the retrieval path | same | `reports/eval_report.json` records the answering model | [test_stack_boundaries.py](../../tests/rag/test_stack_boundaries.py) | **MET** |
-| REQ-037 | `Interoperability \| MCP Python SDK (stdio) + langchain-mcp-adapters` | §4 table | [mcp_server/server.py](../../mcp_server/server.py) — 3 tools, 3 resources | same server, product-scoped tools | `logs/mcp_transcript.jsonl` | [test_mcp_rag_integration.py](../../tests/rag/test_mcp_rag_integration.py) | **MET** |
+| REQ-037 | `Interoperability \| MCP Python SDK (stdio) + langchain-mcp-adapters` | §4 table | [mcp_server/server.py](../../mcp_server/server.py) — 11 tools, 10 resources, 6 prompts; host and client in [src/mcp_host/](../../src/mcp_host/) | same server, product-scoped tools | `logs/mcp_transcript.jsonl` | [test_mcp_capabilities.py](../../tests/test_mcp_capabilities.py) (35 tests, real subprocess), [test_mcp_rag_integration.py](../../tests/rag/test_mcp_rag_integration.py) | **MET** — see deviation D5 |
+| REQ-047 (AC-04) — routing | *"identifies each application's intent and handles it with the right capability"* | §5.1 | [src/supervisor.py](../../src/supervisor.py) — six routes, deterministic-first | same Supervisor, education chain | `reports/eval_report.json` → `supervisor_routing_accuracy` | [test_supervisor.py](../../tests/test_supervisor.py) (62 tests) | **MET** |
+| REQ-047 (AC-04) — clarification | *"ambiguous … requests are clarified … not mishandled"* | §5.1 | `clarification_node` + LangGraph `interrupt()`, capped at 2 rounds | same | `traces/phoenix_spans.jsonl` → the `clarify` run | `test_an_ambiguous_request_pauses_and_resumes_on_the_same_thread` | **MET** |
+| NFR-04 | *"async where it calls tools/models; graceful degradation on tool/model failure (timeouts, retries, exit conditions)"* | §5.2 | [src/resilience.py](../../src/resilience.py) + async MCP client | same | `degradations` on graph state; `reports/eval_report.json` → `runs_with_a_degraded_tool_call`; two deliberately malformed packets traced in `traces/trace_summary.json` under `kind: "malformed"` — one refused for its missing as-of date, one the dated control that proceeds | [test_resilience.py](../../tests/test_resilience.py) | **MET** |
+| — | Web application, CLI preserved | — | [src/web/](../../src/web/) — FastAPI + SSE over the same compiled graph | same | — | [test_web_api.py](../../tests/test_web_api.py) | **MET** |
 | REQ-039 | `Retrieval \| Chroma or FAISS + Sentence-Transformers (local)` | §4 table | `credpilot_mortgage_policies` | `credpilot_education_policies` | `data/vectorstore/index_manifest.json` | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
 | REQ-044 (AC-01) | *"retrieves the applicable current lending policy and returns an eligibility determination that cites the policy rule it applied"* | §5.1 | effective-date-aware; boundary triple passes | effective-date-aware; single version per policy | `eval/results/retrieval_eval.json` | [test_temporal_retrieval.py](../../tests/rag/test_temporal_retrieval.py) | **MET** |
 | REQ-045 (AC-02) | *"computes affordability … and flags any policy breach with the threshold it failed"* | §5.1 | [src/calculations.py](../../src/calculations.py) + [src/rules.py](../../src/rules.py) | same modules, product-specific formulas | `reports/assessments/` | `test_the_breach_names_the_threshold_it_failed` | **MET** |
@@ -34,9 +38,9 @@ Every path is repo-relative and resolves in a clean checkout.
 | REQ-050 (AC-07) | `logs/tool_calls.jsonl … written by committed logging middleware; tool names reconcile with the agent/MCP code` | §5.1 | [src/observability/tool_logging.py](../../src/observability/tool_logging.py) | same middleware | `logs/tool_calls.jsonl` | [test_rag_tool_contract.py](../../tests/rag/test_rag_tool_contract.py) | **MET** |
 | REQ-076 | `Agentic-RAG tool \| src/tools/rag_tool.py + data/policy_corpus/ \| retrieval-in-the-loop over a synthetic lending-policy corpus` | §7.1 table | [src/tools/rag_tool.py](../../src/tools/rag_tool.py) | same tool, product-routed | `data/policy_corpus/corpus_registry.json` | [test_rag_tool_contract.py](../../tests/rag/test_rag_tool_contract.py) | **MET** — see deviation D1 |
 | REQ-077 | `Phoenix instrumentation \| src/observability/tracing.py \| tracer wired into the run path (called, not just imported)` | §7.2 | 11 named spans across the retrieval path | same spans | `traces/phoenix_spans.jsonl` | [test_observability.py](../../tests/rag/test_observability.py) | **MET** |
-| REQ-031 | *"Applicant PII and account/card numbers must be synthetic and masked where shown; never write them to logs in plaintext."* | §3.4 | [src/guardrails/redaction.py](../../src/guardrails/redaction.py) | same | `logs/*.jsonl` scanned | [test_pii_logging.py](../../tests/rag/test_pii_logging.py) | **MET** |
+| REQ-031 | *"Applicant PII and account/card numbers must be synthetic and masked where shown; never write them to logs in plaintext."* | §3.4 | [src/guardrails/redaction.py](../../src/guardrails/redaction.py) | same | `logs/tool_calls.jsonl` and `logs/agent_actions.jsonl` scanned | [test_pii_logging.py](../../tests/rag/test_pii_logging.py) | **MET** |
 | REQ-030 | *"Citation-Resolves Rule … the citation must resolve to a committed artifact."* | §3.4 | `POL-DTI-001 v2.0 rule DTI-CONV-001` | `POL-002 EDU-UW-001` | `data/vectorstore/index_integrity.json` | [test_citations.py](../../tests/rag/test_citations.py) | **MET** — validity 1.00 |
-| REQ-029 | *"Evidence-in-Repo Rule … an evidence artifact with no producing code … is heavily discounted."* | §3.4 | every artifact written by a committed script | same | `eval/results/`, `data/vectorstore/` | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
+| REQ-029 | *"Evidence-in-Repo Rule … an evidence artifact with no producing code … is heavily discounted."* | §3.4 | every artifact written by a committed script | same | `eval/results/retrieval_eval.json`, `data/vectorstore/index_manifest.json` | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
 | REQ-033 | *"Reproducibility Rule. The system, its traces and its evaluation must be regenerable from a single documented command"* | §3.4 | `scripts/build_policy_indexes.py` | same command builds both | [RUNBOOK.md](RUNBOOK.md) | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
 | REQ-032 | *"Open-Source & Gemini-Only Rule … no Docker or external database service required"* | §3.4 | Chroma is an embedded library | same | `requirements.txt` | [test_stack_boundaries.py](../../tests/rag/test_stack_boundaries.py) | **MET** |
 | REQ-066 | *"Use only synthetic loan applications and lending policies you generate."* | §6.1 | `synthetic_data/mortgage/` | `synthetic_data/education/` | corpus registry | [test_index_build.py](../../tests/rag/test_index_build.py) | **MET** |
@@ -96,21 +100,21 @@ evaluation that measures it, and the documents that govern it.
 | REQ-080 | context engineering: write / select / compress / isolate | [src/context/](../../src/context/) | same | `context_record` on graph state | [test_context_engineering.py](../../tests/test_context_engineering.py) | **MET** |
 | REQ-097 | `Evaluation report \| reports/eval_report.json + harness \| DeepEval … hallucination + faithfulness/relevance; LLM-as-judge` | 75 golden cases | 20 golden cases | `reports/eval_report.json`, `reports/eval_cases.jsonl` | [eval/agent/](../../eval/agent/) | **MET** |
 | REQ-098 | `Golden signals \| reports/golden_signals.json \| latency, tokens in/out, cost estimate, accuracy, hallucination rate` | derived per product | derived per product | `reports/golden_signals.json` | [build_golden_signals.py](../../scripts/build_golden_signals.py) | **MET** |
-| REQ-099 | `Dashboard \| reports/dashboard.png + dashboard_data.csv` | one chart, both products | same | `reports/dashboard.png` | [build_dashboard.py](../../scripts/build_dashboard.py) | **MET** |
+| REQ-099 | Dashboard: `reports/dashboard.png` plus `reports/dashboard_data.csv`, with a Phoenix screenshot | one chart, both products | same | `reports/dashboard.png`, `reports/dashboard_data.csv`, `reports/phoenix_spans.csv`, [docs/assets/phoenix-traces.png](../assets/phoenix-traces.png) — the `credpilot` project's span table, 636 traces, P50 8.00 ms | [build_dashboard.py](../../scripts/build_dashboard.py), [capture_phoenix_screenshot.py](../../scripts/capture_phoenix_screenshot.py) | **MET** |
 | REQ-046 (AC-03) | *"a decline or high-value case is routed for human review rather than auto-decided"* | `UWR-HRV-001` routing table, band read from the rule | `EDU-GOV-002` outcome vocabulary | `recommendation.review_triggers` | [test_review_triggers.py](../../tests/test_review_triggers.py) | **MET** |
-| — | risk register | OWASP LLM Top 10 + NIST AI RMF, 26 rows | same | [docs/risk-register.md](../risk-register.md) | — | **MET** |
+| — | risk register | OWASP LLM Top 10 + NIST AI RMF, 33 rows | same | [docs/risk-register.md](../risk-register.md) | — | **MET** |
 | — | model card | [docs/model-card.md](../model-card.md) | same | — | — | **MET** |
 | — | compliance mapping | EU AI Act / NIST AI RMF / DPDP | same | [docs/compliance.md](../compliance.md) | — | **MET** |
 | — | output risk tiers | three tiers with gating | same | [docs/output-risk.md](../output-risk.md) | — | **MET** |
-| — | failure analysis | eight real failures with before/after | same | [docs/failure-analysis.md](../failure-analysis.md) | [test_documentation.py](../../tests/rag/test_documentation.py) | **MET** |
+| — | failure analysis | twenty real failures with before/after; four (F-11, F-14, F-17, F-20) cite machine evidence re-resolved by `scripts/verify_evidence_citations.py` | same | [docs/failure-analysis.md](../failure-analysis.md) | [test_documentation.py](../../tests/rag/test_documentation.py), [test_observability_signals.py](../../tests/test_observability_signals.py) | **MET** |
 
 ### Loop and cost control
 
 Not a numbered requirement, but an agentic system without it is a liability.
 Two independent guards, because they fail differently: an in-state
-`step_budget` of 24 lets a node **halt cleanly with a reason a human can read**,
-and LangGraph's `recursion_limit` of 40 is the external backstop for a cycle
-that never reaches a node able to check anything. A normal run uses 7. Covered by
+`step_budget` of 32 lets a node **halt cleanly with a reason a human can read**,
+and LangGraph's `recursion_limit` of 60 is the external backstop for a cycle
+that never reaches a node able to check anything. A third bound caps the one cycle the graph contains: clarification is allowed two rounds before the thread goes to a person. A normal assessment uses 11 and a clarified conversation 13. Covered by
 [tests/test_loops.py](../../tests/test_loops.py).
 
 ---
@@ -164,19 +168,197 @@ document. Version selection has nothing to select between. No fake version
 history was added to make the two products look symmetrical.
 See [TEMPORAL_RETRIEVAL.md](TEMPORAL_RETRIEVAL.md).
 
-### D3 — Gemini is wired but unusable with the committed credential
+### D3 — Gemini is wired, and the committed credential has no quota
 
 **Requirement.** REQ-036 mandates Google Gemini as the only model provider.
 
-**What exists.** `langchain-google-genai` is wired for the narrative node. The
-credential in `.env` is an OAuth-style token (`AQ.Ab8…`) rather than a Gemini API
-key (`AIza…`) and returns `401 UNAUTHENTICATED` from every model.
+**What exists.** `langchain-google-genai` is wired for the narrative node, the
+policy-answer path, the optional Supervisor fallback and the DeepEval judge. The
+key in `.env` is a correctly-formed Gemini API key and reaches the service; it
+returns **`402 RESOURCE_EXHAUSTED — "Your prepayment credits are depleted"`**
+from every model tried (`gemini-flash-latest`, `gemini-3.5-flash`,
+`gemini-pro-latest`, `gemini-flash-lite-latest`).
 
-**Impact on this subsystem: none.** Retrieval, calculation and rule evaluation
-are deterministic and contain no model call — by design, and because
-`POL-DTI-001` DTI-CALC-002 forbids a model producing an underwriting figure.
-Every number in `eval/results/` was produced without any LLM. The narrative
-rationale and the DeepEval LLM-as-judge suite need a working key.
+**Impact, stated precisely rather than waved at.**
+
+*Unaffected.* Retrieval, calculation, rule evaluation, routing, guardrails, MCP,
+the graph, the web UI and every deterministic metric contain no model call — by
+design, and because `POL-DTI-001` DTI-CALC-002 forbids a model producing an
+underwriting figure. Every number in `eval/results/` and every deterministic
+figure in `reports/eval_report.json` was produced without any LLM.
+
+*Degraded, visibly.* The narrative falls back to the deterministic summary and
+marks itself `available: false` with the reason attached. A policy answer falls
+back to quoting the governing rules. Neither is silent.
+
+*Not measurable at all.* The DeepEval judged metrics — faithfulness,
+hallucination, answer relevancy. They are reported as `null` with
+`judge.available: false` and the reason, never as zero and never carried over
+from an earlier run. `--judge-all` refuses to produce a report at all in this
+state rather than publishing one labelled "every case judged" that judged none.
+
+*Also not measurable.* Token counts and cost. `reports/golden_signals.json`
+records `model_calls_recorded_no_tokens: true` and says that $0.00 is an absence
+of measurement rather than an efficiency result.
+
+**What this changes about reading the evidence.** Any judged figure still
+present in a committed report is from an earlier run against an earlier
+architecture and is labelled with its own `generated_at_utc` and `run_id`. The
+deterministic figures are current.
+
+### D4 — product isolation is enforced by graph topology, not by a condition
+
+**Requirement.** REQ-047 (AC-04) and the product-isolation requirement.
+
+**What exists.** The compiled graph contains two complete product chains —
+`mortgage_agent → mortgage_policy_retrieval → mortgage_eligibility →
+mortgage_risk → mortgage_recommendation`, and the same five for education —
+generated from shared factories and sharing **no node**. The Supervisor routes
+to one of the two entry points and nothing connects them.
+
+**Why not one shared chain with a domain check.** A shared worker guarded by
+`if domain is MORTGAGE` is only as correct as that condition stays, and it has
+to stay correct in five places. Two chains cannot be got wrong: there is no
+sequence of routing decisions that reaches education retrieval from a mortgage
+node, because no such edge exists.
+[`test_no_edge_crosses_between_the_two_products`](../../tests/test_routing.py)
+asserts it against the compiled graph rather than against intent.
+
+**Cost of the deviation.** Ten nodes where five would do, and a longer node list
+in every trace. Worth it.
+
+### D7 — five validator findings that are false positives, and one that was not
+
+`requirements_validation_tests` scans committed files for prohibited content by
+regex. Five of its hits are matches on text that says the opposite of what the
+scanner concluded, or on a path the source document never specifies. They are recorded here rather than worked around, because a
+finding nobody explains gets re-investigated by the next reader.
+
+**A fourth was investigated and turned out to be a real defect**, which is the
+reason this section does not say "six". An earlier revision of this document
+dismissed 81 "unmasked payment card numbers" as the same kind of shape
+collision and noted that the ones in
+`eval/results/retrieval_eval_cases.jsonl` "predate this work". Seventy-nine of
+them were nDCG values. A `policy_ndcg@10` of `0.444097…`, printed to full
+precision, ends in sixteen digits beginning with a 4 — and a decimal point is
+a word boundary, so a payment-card detector reads those digits as a Visa
+number. Roughly every other 17-significant-digit float in `[0, 1)` does this.
+(The literal is not reproduced here; writing a card-shaped run into the
+repository to explain why not to would be self-defeating.)
+
+That was fixable at the source and is fixed — `round_for_serialization` in
+[`eval/retrieval/metrics.py`](../../eval/retrieval/metrics.py) rounds per-case
+floats on the way to disk, in both evaluation harnesses. Aggregation still sees
+full precision, so no published figure moved; every aggregate in this repo was
+already rounded to four places, so the per-case files were the inconsistent
+ones. `tests/rag/test_pii_logging.py` now fails if an over-precise float comes
+back.
+
+The lesson is worth keeping next to the table below: a scan reporting eighty
+false positives is a scan nobody reads, and a real leak would have been sitting
+in the middle of them. Dismissing a class of finding wholesale is how that
+happens.
+
+| Finding | What actually matched | Why it is a false positive |
+|---|---|---|
+| "real credit-bureau integration" (REQ-066) | the word **"Reprodu*cibil*ity"** | The bureau pattern includes `cibil` — an Indian credit bureau — and it matches inside that word. Three hits, all in comments about the Reproducibility Rule. |
+| "Claude/Anthropic provider usage" (REQ-032, REQ-036) | `tests/rag/test_stack_boundaries.py` | That is the test which **forbids** Anthropic. It has to name the thing it prohibits. |
+| "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
+| "no FastAPI streaming endpoint at `src/api/`" (REQ-109) | nothing — the directory does not exist | REQ-109's text is *"FastAPI streaming endpoint; a demonstrated local run (screenshot/log)"* and names **no path**. `src/api/` is the validator's own assumption. The endpoint is [`src/web/app.py`](../../src/web/app.py) — FastAPI with Server-Sent Events over the same compiled graph the CLI uses — and the demonstrated local run is [`docs/assets/web-ui-assessment.png`](../assets/web-ui-assessment.png). Renaming the package to match an assumption the source document does not make would be the wrong reason to rename it. |
+| "unmasked payment-card number" (REQ-031) | a Phoenix **span id** | Span ids are 16 hex characters; about one in 1,800 comes out all digits, and a 16-digit run beginning with 4 is indistinguishable by shape from a Visa number. `traces/phoenix_spans.jsonl` contained one. CredPilot's own redaction handles this positionally — a value under a `span_id` key is a span id — but a byte-level scan of the file cannot. |
+
+None of the five is fixable without either weakening a real control, renaming
+a package to match an assumption the source document does not make, or
+falsifying an artifact. The two remaining payment-card hits are span ids, in
+`traces/phoenix_spans.jsonl` and its CSV projection; CredPilot's own scan
+handles those by column and by key — see `scan_csv` and `_ID_FIELD_VALUE` in
+[`src/guardrails/redaction.py`](../../src/guardrails/redaction.py) — but an
+independent byte-level scan of the file cannot, and should not be asked to.
+
+### D8 — memory is built here, not LangMem
+
+**Requirement.** REQ-038, §4 Technology & Framework Stack, Memory row:
+`langgraph-checkpoint-sqlite (SQLite file) + LangMem`.
+
+**What exists.** `langgraph-checkpoint-sqlite` is used as named — `SqliteSaver`
+is the graph's checkpointer, and `data/memory/credpilot_checkpoints.sqlite` is
+what it writes. **LangMem is not installed**, and the tiered memory is
+implemented in [`src/memory/`](../../src/memory/).
+
+**Status: PARTIAL.** One of the two named components is present. Recorded as a
+deviation rather than reported as met.
+
+**Why.** The memory this system needs is mostly a set of *refusals*, and they
+are domain rules rather than storage behaviour:
+
+* a prior decision is not evidence for a new application, so it is refused by
+  kind rather than stored and ranked;
+* policy is retrieved with an effective date rather than remembered, because a
+  remembered threshold is a threshold that has silently expired;
+* a credit figure goes stale on a clock, and the staleness is the point.
+
+A general memory library stores and recalls well; what it cannot do is know
+that `POL-DTI-001 v1.0` stopped governing on 2026-07-01. Recall is also scoped
+to one subject and `forget()` erases a data principal completely in one
+operation, which is a DPDP obligation rather than a memory feature.
+
+Cross-session recall is demonstrated rather than asserted:
+`logs/memory_test.log` is written by `tests/test_memory_persistence.py`, which
+writes in one session and reads back in a second store built only from the
+file path.
+
+### D6 — the guardrails are built here, not Guardrails-AI or LLM Guard
+
+**Requirement.** REQ-042, §4 Technology & Framework Stack, Security row:
+`Guardrails-AI / LLM Guard · Presidio (PII) · python-dotenv`.
+
+**What exists.** Presidio and python-dotenv are used as named. **Neither
+Guardrails-AI nor LLM Guard is installed**, and the input/output guardrails are
+implemented in [`src/guardrails/`](../../src/guardrails/).
+
+**Status: PARTIAL.** Two of the three named components are present; the first is
+not. Recorded as a deviation rather than reported as met.
+
+**Why.** Both libraries are general-purpose scanners over free text. What
+CredPilot's guardrails do is mostly not that:
+
+* the injection patterns are matched against a *known corpus* and are tuned on
+  six committed adversarial packets plus the conversational surface — a generic
+  scanner has no knowledge of `POL-SEC-001` or of which phrasings this corpus
+  actually contains;
+* `_PROTECTED_IDENTIFIERS` exempts CredPilot's own citation grammar from
+  redaction, which is the fix for F-2 and which no general scanner could know to
+  do. It is precisely the thing a generic library got wrong when Presidio's
+  loose recognisers destroyed every citation in the audit trail;
+* the output guardrail enforces *human-review routing* and validates figures
+  against the calculation record, neither of which is text scanning at all.
+
+Adding a heavyweight dependency to satisfy the row, while continuing to rely on
+the code that actually does the work, would make the manifest say something the
+system does not do. The honest position is this row.
+
+**What a reviewer should check instead.** That the *substance* is there:
+`tests/rag/test_security.py`, `tests/rag/test_pii_logging.py` and
+`tests/test_supervisor.py` cover 15 injection patterns, cross-applicant and
+bulk-access refusal, PII redaction at every write boundary, and the
+committed-artifact scan.
+
+### D5 — the requested MCP capability set exceeds what the source document asks for
+
+**Requirement.** REQ-037 and §7.1 ask for *"≥ 2 tools + 1 resource; consumed via
+langchain-mcp-adapters; committed tool-call transcript."*
+
+**What exists.** Eleven tools, ten resources, six prompts, and all six MCP
+capability families — tools, resources, prompts, elicitation, sampling and
+roots — implemented and tested against a real server subprocess.
+
+**Why the extra.** Requested explicitly for this build. The two compatibility
+families are labelled as such rather than presented as load-bearing: CredPilot
+does **not** depend on MCP sampling for generation (it would put the model
+provider outside the host's control, and REQ-036 makes the provider a
+requirement), and roots are **not** an authorization mechanism. Both say so in
+`mcp_server/capabilities.py`, in the `credpilot://system/capabilities` resource,
+and in their own responses.
 
 ---
 
@@ -204,5 +386,5 @@ Models in force: embedding `intfloat/e5-base-v2`, reranker
 `cross-encoder/ms-marco-MiniLM-L-6-v2`, both selected by the benchmarks in
 `eval/results/`.
 
-Current figures are whatever the committed `eval/results/*.json` say; this table
+Current figures are whatever the committed result files under [`eval/results/`](../../eval/results/) say — chiefly `eval/results/retrieval_eval.json`; this table
 is refreshed from them by `eval/retrieval/run_retrieval_eval.py`.

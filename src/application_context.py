@@ -236,6 +236,54 @@ def mortgage_asset_transactions(application_id: str) -> list[dict[str, Any]]:
     ]
 
 
+def mortgage_credit_events(application_id: str) -> list[dict[str, Any]]:
+    """Significant credit events and their seasoning anchors, for CRD-EVT.
+
+    ``anchor_date`` is the authority and ``seasoning_months`` is what the
+    generator recorded alongside it. Both travel: the rule engine recomputes
+    from the anchor against the note date, because a seasoning figure computed
+    at some other moment is not the one the file is judged on.
+    """
+    return [
+        {
+            "credit_event_id": r.get("credit_event_id"),
+            "borrower_id": r.get("borrower_id"),
+            "event_type": r.get("event_type"),
+            "anchor_date": r.get("anchor_date"),
+            "anchor_basis": r.get("anchor_basis"),
+            "seasoning_months": r.get("seasoning_months"),
+            "status": r.get("status"),
+        }
+        for r in rows_for("credit_events", application_id)
+    ]
+
+
+def mortgage_credit_accounts(application_id: str) -> list[dict[str, Any]]:
+    """Tradelines with their payment history, for CRD-DLQ.
+
+    The late counts are what the bureau reported, not a judgement about them.
+    Whether three 30-day lates refer the file is CRD-DLQ-002's question, and it
+    is answered against the retrieved rule rather than here.
+    """
+    return [
+        {
+            "credit_account_id": r.get("credit_account_id"),
+            "borrower_id": r.get("borrower_id"),
+            "account_type": r.get("account_type"),
+            "balance": r.get("balance"),
+            "credit_limit": r.get("credit_limit"),
+            "monthly_payment": r.get("monthly_payment"),
+            "opened_date": r.get("opened_date"),
+            "account_status": r.get("account_status"),
+            "lates_30d_24m": r.get("lates_30d_24m"),
+            "lates_60d_24m": r.get("lates_60d_24m"),
+            "lates_90d_24m": r.get("lates_90d_24m"),
+            "dispute_flag": str(r.get("dispute_flag", "")).lower() == "true",
+        }
+        for r in rows_for("credit_accounts", application_id)
+    ]
+
+
 def mortgage_verifications(application_id: str) -> list[dict[str, Any]]:
     """Third-party verification results.
 
@@ -280,6 +328,8 @@ def build_underwriting_input(
     enriched["verified_liabilities"] = mortgage_liabilities(application_id)
     enriched["asset_transactions"] = mortgage_asset_transactions(application_id)
     enriched["verification_results"] = mortgage_verifications(application_id)
+    enriched["credit_events"] = mortgage_credit_events(application_id)
+    enriched["credit_accounts"] = mortgage_credit_accounts(application_id)
     credit = mortgage_credit(application_id)
     if credit:
         enriched["credit_summary"] = credit
@@ -301,6 +351,8 @@ __all__ = [
     "build_underwriting_input",
     "mortgage_asset_transactions",
     "mortgage_credit",
+    "mortgage_credit_accounts",
+    "mortgage_credit_events",
     "mortgage_liabilities",
     "mortgage_property_costs",
     "mortgage_verifications",

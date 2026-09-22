@@ -73,7 +73,7 @@ synthetic_data/education/
 ├── policy_corpus/                    12 policy documents (POL-001..012)
 ├── golden_set/                       20-case evaluation harness
 │   ├── evaluation_cases.jsonl
-│   ├── expected_outputs/GOLD-XX.md
+│   ├── expected_outputs/          one file per golden case
 │   └── rubric.md
 ├── schemas/                          JSON Schema for application structure
 ├── profiles/                         borrower + school profiles (JSONL)

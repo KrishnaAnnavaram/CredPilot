@@ -2,7 +2,7 @@
   "build": {
     "platform": "Windows",
     "python": "3.11.9",
-    "total_seconds": 64.127
+    "total_seconds": 130.15
   },
   "config": {
     "chunking": {
@@ -30,7 +30,7 @@
     "query_prefix": "query: ",
     "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
   },
-  "index_version": "20260921",
+  "index_version": "20260922",
   "products": {
     "education": {
       "chunk_count": 101,

@@ -36,7 +36,7 @@ Full instructions: **[RUNBOOK.md](RUNBOOK.md)**.
 | **[RETRIEVAL_ABLATION.md](RETRIEVAL_ABLATION.md)** | what each layer is measurably worth, including the layers that are worth nothing |
 | **[EMBEDDING_BENCHMARK.md](EMBEDDING_BENCHMARK.md)** | four local checkpoints, both products, and the choice |
 | **[RERANKER_BENCHMARK.md](RERANKER_BENCHMARK.md)** | three cross-encoders against a no-reranker baseline |
-| **[../failure-analysis.md](../failure-analysis.md)** | eight real failures with evidence, root cause, fix and before/after |
+| **[../failure-analysis.md](../failure-analysis.md)** | twenty real failures with evidence, root cause, fix and before/after; F-11, F-14, F-17 and F-20 cite a run id, a Phoenix span or a tool-log record, re-resolved by `scripts/verify_evidence_citations.py` |
 | **[DATA_QUALITY_FINDINGS.md](DATA_QUALITY_FINDINGS.md)** | defects found in the committed datasets and how each is handled |
 | **[RUNBOOK.md](RUNBOOK.md)** | build, run, evaluate, trace, troubleshoot |
 

@@ -3,13 +3,25 @@
 
     python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json
     python -m src.cli assess synthetic_data/education/applications/APP-2026-00002.json
+    python -m src.cli ask "What is the maximum back-end DTI on a jumbo loan?"
+    python -m src.cli chat
     python -m src.cli retrieve "What is the maximum back-end DTI?" --application-id APP-000056
+    python -m src.cli mcp
     python -m src.cli corpus
 
-``assess`` runs one application through the full LangGraph, writing the
-tool-invocation log, the audit trail and (with ``--trace``) a Phoenix trace
-export. ``retrieve`` exercises the agentic-RAG tool on its own. ``corpus`` prints
-what is indexed.
+``assess`` runs one application through the full graph — intake, guardrails,
+Supervisor, the product specialist, retrieval, rules, recommendation, narrative
+and the output guardrail — writing the tool-invocation log, the audit trail and
+(with ``--trace``) a Phoenix trace export.
+
+``ask`` puts one question through the same graph, and ``chat`` holds the thread
+open so clarification and follow-ups work the way they do in the web UI. Both
+take the identical path as ``assess``; what differs is only whether an
+application packet is attached.
+
+``retrieve`` exercises the agentic-RAG tool on its own. ``mcp`` connects to the
+MCP server and prints the surface it advertises. ``corpus`` prints what is
+indexed.
 """
 
 from __future__ import annotations
@@ -65,6 +77,15 @@ def cmd_assess(args: argparse.Namespace) -> int:
         "citations": recommendation.get("citations", []),
         "narrative": result.get("narrative"),
         "review_triggers": recommendation.get("review_triggers"),
+        # Added with the Supervisor architecture: how the request was routed,
+        # what the response validator concluded, and what either guardrail did.
+        "supervisor": result.get("supervisor"),
+        "required_rules_fetched": result.get("required_rules_fetched"),
+        "validation": (result.get("final_response") or {}).get("validation"),
+        "input_guardrail": result.get("input_guardrail"),
+        "output_guardrail": result.get("output_guardrail"),
+        "degradations": result.get("degradations"),
+        "answer": result.get("answer"),
     }
 
     if args.json:
@@ -178,6 +199,182 @@ def _print_assessment(payload: dict, evidence: list[dict]) -> None:
         print(f"  ... and {len(payload['citations']) - 12} more")
 
 
+def _print_turn(result: dict, *, verbose: bool = False) -> dict | None:
+    """Print one conversational turn. Returns the pending clarification, if any."""
+    from src.graph import pending_clarification
+
+    supervisor = result.get("supervisor") or {}
+    response = result.get("final_response") or {}
+    clarification = pending_clarification(result)
+
+    print()
+    print(f"  [route {supervisor.get('route', '?')}"
+          + (f" · {result['loan_domain']}" if result.get("loan_domain") else "")
+          + f" · {supervisor.get('decided_by', 'deterministic')}]")
+
+    if clarification is not None:
+        print()
+        for line in textwrap.wrap(clarification["question"], width=88):
+            print(f"  {line}")
+        print()
+        return clarification
+
+    text = result.get("answer") or response.get("text") or ""
+    print()
+    for paragraph in text.split("\n"):
+        if not paragraph.strip():
+            print()
+            continue
+        for line in textwrap.wrap(paragraph, width=88):
+            print(f"  {line}")
+    print()
+
+    citations = response.get("citations") or []
+    if citations:
+        print(f"  {len(citations)} citation(s):")
+        for citation in citations[:8]:
+            print(f"    {citation}")
+        if len(citations) > 8:
+            print(f"    ... and {len(citations) - 8} more")
+        print()
+
+    if result.get("requires_human_review"):
+        print("  HUMAN REVIEW REQUIRED")
+        for reason in (result.get("human_review_reasons") or [])[:4]:
+            print(f"    - {reason}")
+        print()
+
+    if verbose:
+        print(f"  nodes: {' -> '.join(result.get('steps') or [])}")
+        print(f"  reason: {supervisor.get('routing_reason', '')}")
+        print()
+    return None
+
+
+def cmd_ask(args: argparse.Namespace) -> int:
+    """One question through the whole graph."""
+    import uuid as _uuid
+
+    from langgraph.types import Command
+
+    from src.graph import build_graph, conversation_state
+
+    if args.trace:
+        configure_tracing()
+
+    graph, context = build_graph()
+    try:
+        thread_id = args.thread_id or f"ask-{_uuid.uuid4().hex[:8]}"
+        config = {"configurable": {"thread_id": thread_id}}
+        result = graph.invoke(
+            conversation_state(
+                args.question, session_id=thread_id, loan_domain=args.product_domain
+            ),
+            config=config,
+        )
+        clarification = _print_turn(result, verbose=args.verbose)
+
+        # A clarification in a one-shot command is answered from --answer when
+        # one was supplied, and otherwise reported. Guessing on the user's
+        # behalf is the thing the clarification exists to avoid.
+        if clarification is not None:
+            if not args.answer:
+                print("  Re-run with --answer to resume this thread:")
+                print(f'    python -m src.cli ask "{args.question}" '
+                      f'--thread-id {thread_id} --answer "mortgage"')
+                return 0
+            print(f"  > {args.answer}")
+            result = graph.invoke(Command(resume=args.answer), config=config)
+            _print_turn(result, verbose=args.verbose)
+
+        if args.json:
+            print(json.dumps(
+                {k: v for k, v in result.items() if k != "application_packet"},
+                indent=2, sort_keys=True, default=str,
+            ))
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+
+    if args.trace:
+        flush_traces()
+    return 0
+
+
+def cmd_chat(args: argparse.Namespace) -> int:
+    """An interactive thread. Clarification and follow-ups work as in the UI."""
+    import uuid as _uuid
+
+    from langgraph.types import Command
+
+    from src.graph import build_graph, conversation_state
+
+    graph, context = build_graph()
+    thread_id = args.thread_id or f"chat-{_uuid.uuid4().hex[:8]}"
+    config = {"configurable": {"thread_id": thread_id}}
+    awaiting = False
+
+    print("CredPilot — mortgage and private education lending.")
+    print(f"thread {thread_id}. Type 'exit' to leave.")
+    try:
+        while True:
+            try:
+                message = input("\n> ").strip()
+            except (EOFError, KeyboardInterrupt):
+                print()
+                break
+            if not message:
+                continue
+            if message.lower() in ("exit", "quit", ":q"):
+                break
+
+            payload = (
+                Command(resume=message)
+                if awaiting
+                else conversation_state(message, session_id=thread_id)
+            )
+            result = graph.invoke(payload, config=config)
+            awaiting = _print_turn(result, verbose=args.verbose) is not None
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+    return 0
+
+
+def cmd_mcp(args: argparse.Namespace) -> int:
+    """Connect to the MCP server and report what it advertises."""
+    from src.mcp_host import mcp_available
+
+    print("Launching mcp_server/server.py over stdio (loads two models, ~30 s)...")
+    surface = mcp_available()
+    if not surface.get("available"):
+        print(f"\n  UNAVAILABLE — {surface.get('reason')}")
+        return 1
+
+    print(f"\n  server            {surface.get('server_name')} "
+          f"{surface.get('server_version') or ''}")
+    print(f"  protocol          {surface.get('protocol_version')} "
+          f"({'recognised' if surface.get('protocol_recognised') else 'newer than tested'})")
+    print(f"  tools             {surface.get('tool_count')}")
+    for name in surface.get("tools", []):
+        print(f"      {name}")
+    print(f"  resources         {surface.get('resource_count')}")
+    for uri in surface.get("resources", []):
+        print(f"      {uri}")
+    print(f"  prompts           {surface.get('prompt_count')}")
+    for name in surface.get("prompts", []):
+        print(f"      {name}")
+    if surface.get("discovery_errors"):
+        print("  discovery errors:")
+        for error in surface["discovery_errors"]:
+            print(f"      {error}")
+
+    if args.json:
+        print()
+        print(json.dumps(surface, indent=2, sort_keys=True))
+    return 0
+
+
 def cmd_retrieve(args: argparse.Namespace) -> int:
     from src.tools.rag_tool import retrieve_policy_tool
 
@@ -246,6 +443,26 @@ def build_parser() -> argparse.ArgumentParser:
     assess.add_argument("--output", default=None, help="also write the result to this path")
     assess.add_argument("--trace", action="store_true", help="emit Phoenix spans")
     assess.set_defaults(func=cmd_assess)
+
+    ask = sub.add_parser("ask", help="put one question through the whole graph")
+    ask.add_argument("question")
+    ask.add_argument("--product-domain", default=None, help="MORTGAGE or EDUCATION_LOAN")
+    ask.add_argument("--thread-id", default=None, help="continue an existing thread")
+    ask.add_argument("--answer", default=None,
+                     help="answer a clarification and resume in the same run")
+    ask.add_argument("--verbose", action="store_true", help="show nodes and routing reason")
+    ask.add_argument("--json", action="store_true", help="also print the raw state")
+    ask.add_argument("--trace", action="store_true", help="emit Phoenix spans")
+    ask.set_defaults(func=cmd_ask)
+
+    chat = sub.add_parser("chat", help="an interactive thread with clarification")
+    chat.add_argument("--thread-id", default=None, help="resume an existing thread")
+    chat.add_argument("--verbose", action="store_true", help="show nodes and routing reason")
+    chat.set_defaults(func=cmd_chat)
+
+    mcp = sub.add_parser("mcp", help="connect to the MCP server and list its surface")
+    mcp.add_argument("--json", action="store_true")
+    mcp.set_defaults(func=cmd_mcp)
 
     retrieve = sub.add_parser("retrieve", help="run the agentic-RAG tool directly")
     retrieve.add_argument("query")

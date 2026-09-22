@@ -420,6 +420,190 @@ def draft_rationale(
     return result
 
 
+#: The instruction for answering a policy question, as distinct from explaining a
+#: decision. The difference matters: there is no application, no computed figure
+#: and no outcome, so the only ground truth is the retrieved text — and the model
+#: has correspondingly more room to go wrong. It is given less latitude, not
+#: more.
+POLICY_ANSWER_INSTRUCTION = """\
+You are CredPilot, a loan underwriting copilot, answering a question about \
+lending policy.
+
+You are given retrieved policy evidence and nothing else. Answer only from it.
+
+Rules you must follow:
+1. Every statement of policy must come from the evidence below. If the evidence \
+does not answer the question, say so plainly and name what is missing. An \
+honest "the retrieved policy does not say" is a correct answer; a plausible \
+guess is not.
+2. Cite the rule behind each statement, spelled exactly as the evidence spells \
+the citation. Do not reformat, abbreviate or invent one.
+3. Never state a number that is not written in the evidence. Do not round, \
+convert a percentage, annualise a monthly figure, or restate a limit in \
+different units.
+4. Do not decide anything about a particular application. You are explaining \
+what the policy says, not applying it. If asked whether a specific file would \
+be approved, say that depends on the file's facts and its underwriting date and \
+that a person decides it.
+5. Say nothing about the other lending product. This evidence covers one \
+product only.
+6. Be brief. Three or four short paragraphs at most.
+
+Which version of a policy governs depends on the underwriting as-of date, not on \
+which version is newest. If the question implies a date, say which version you \
+are quoting.
+"""
+
+
+def answer_policy_question(
+    question: str,
+    evidence: Sequence[Mapping[str, Any]],
+    *,
+    product_domain: str | None = None,
+    as_of_date: str | None = None,
+    model: str | None = None,
+    scratchpad: "Scratchpad | None" = None,
+) -> NarrativeResult:
+    """Answer a policy question from retrieved evidence, then check the answer.
+
+    The same shape as :func:`draft_rationale` and the same grounding check:
+    every citation and every figure in the prose has to be traceable to the
+    evidence it was given, and an answer that fails is kept, marked, and
+    reported as unfaithful rather than quietly shipped.
+
+    With no model reachable this returns the deterministic quotation instead.
+    That is a worse answer to read and a completely safe one: it cannot
+    paraphrase a rule into saying something the rule does not say.
+    """
+    import time
+
+    from src.context.assemble import build_context
+
+    items = list(evidence)
+    fallback = _quoted_policy_answer(question, items, product_domain)
+
+    if not items:
+        return NarrativeResult(
+            text=fallback, model=None, available=False,
+            note="no policy evidence was retrieved; nothing to answer from",
+        )
+
+    if not generation_enabled():
+        return NarrativeResult(
+            text=fallback, model=None, available=False,
+            citations_used=sorted({
+                str(e.get("citation", "")) for e in items if e.get("citation")
+            }),
+            note="generation disabled by CREDPILOT_NARRATIVE; quoted evidence used",
+        )
+
+    status = llm.probe()
+    if not status.available:
+        return NarrativeResult(
+            text=fallback, model=None, available=False,
+            citations_used=sorted({
+                str(e.get("citation", "")) for e in items if e.get("citation")
+            }),
+            note=f"Gemini unavailable ({status.reason}); quoted evidence used instead",
+        )
+
+    context = build_context(
+        role="narrative",
+        policy_evidence=items,
+        computed_facts={},
+        application_facts={
+            "product": product_domain,
+            "underwriting_as_of_date": as_of_date,
+        },
+        scratchpad=scratchpad,
+    )
+    selected = context.selection.selected or items
+
+    prompt = (
+        f"{POLICY_ANSWER_INSTRUCTION}\n\n"
+        f"{context.prompt_text}\n\n"
+        f"Question: {question}"
+    )
+
+    started = time.perf_counter()
+    try:
+        response = llm.chat_model(model or status.model).invoke(prompt)
+    except Exception as exc:  # noqa: BLE001 - an outage must not fail the turn
+        return NarrativeResult(
+            text=fallback, model=status.model, available=False,
+            note=f"generation failed ({type(exc).__name__}: {str(exc)[:120]})",
+        )
+    latency_ms = (time.perf_counter() - started) * 1000
+
+    text = llm.message_text(response).strip()
+    usage = llm.usage_of(response)
+    # No calculations and no rule evaluations: every number in this answer has
+    # to come from the policy text itself, which is the strictest form of the
+    # same check.
+    used, bad_citations, bad_figures = verify_narrative(text, selected, {}, ())
+
+    result = NarrativeResult(
+        text=text,
+        model=status.model,
+        available=True,
+        citations_used=used,
+        unsupported_citations=bad_citations,
+        unsupported_figures=bad_figures,
+        usage=usage,
+        cost_usd=llm.estimate_cost_usd(usage["input_tokens"], usage["output_tokens"]),
+        latency_ms=latency_ms,
+    )
+    if scratchpad is not None:
+        scratchpad.write(
+            "policy_answer",
+            f"{len(text)} chars, {len(used)} citation(s), faithful={result.is_faithful}",
+            model=status.model,
+            usage=usage,
+        )
+    return result
+
+
+def _quoted_policy_answer(
+    question: str, evidence: Sequence[Mapping[str, Any]], product_domain: str | None
+) -> str:
+    """The model-free answer: quote the governing rules rather than summarise them.
+
+    Verbose on purpose. A summary written without a model risks being a summary
+    that changes what the rule says, and the whole point of the fallback is that
+    it cannot be wrong about the policy.
+    """
+    import re as _re
+
+    product = (product_domain or "").replace("_", " ").lower() or "lending"
+    if not evidence:
+        return (
+            f"I found no {product} policy that answers that. Rather than guess, I am "
+            f"saying so — narrow the question, or ask a person."
+        )
+
+    lines = [
+        f"Here is what the {product} policy says about “{question}”. These are "
+        f"the governing rules, quoted, with their citations:",
+        "",
+    ]
+    for item in list(evidence)[:5]:
+        title = (
+            item.get("rule_title")
+            or item.get("section_title")
+            or item.get("policy_title")
+        )
+        body = _re.sub(r"\s+", " ", str(item.get("text") or "")).strip()
+        lines.append(f"**{item.get('citation')}** — {title}")
+        lines.append(f"> {body[:600]}{'…' if len(body) > 600 else ''}")
+        lines.append("")
+    lines.append(
+        "That is what the policy states. Whether it applies to a particular file "
+        "depends on that file's facts and its underwriting date, and a person "
+        "decides that."
+    )
+    return "\n".join(lines)
+
+
 def _deterministic_summary(state: Mapping[str, Any]) -> str:
     """A rationale with no model in it. Plain, complete, and always available."""
     calculations = state.get("calculations") or {}

@@ -316,16 +316,47 @@ def iter_cases(**kwargs: Any) -> Iterator[AgentCase]:
 #: reader, but no code compares them against a threshold.
 IMPLEMENTED_RULE_FAMILIES = {
     LendingProductDomain.MORTGAGE: {
+        # -- the original four, in src/rules.py ------------------------------
         "DTI-CONV": "src/rules.py — affordability ceiling, with the compensating-factor extension",
         "CRD-SCR": "src/rules.py — minimum representative score, graduated by leverage in v2.0",
         "AST-RSV": "src/rules.py — minimum reserves, measured after the funds-to-close draw",
         "AST-FTC": "src/rules.py — funds-to-close sufficiency",
-        "SEC-INJ": "src/guardrails/ + supervisor_node — injection detection and quarantine",
+        # -- added in src/rule_families/mortgage_ext.py -----------------------
+        "GEN-ELG": "src/rule_families/mortgage_ext.py — programme loan limit and "
+                   "ability-to-repay from verified information",
+        "DOC-REQ": "src/rule_families/mortgage_ext.py — the baseline document set and "
+                   "its freshness windows; an incomplete file is suspended, not declined",
+        "EMP-CNT": "src/rule_families/mortgage_ext.py — two-year history (refer, not "
+                   "fail) and employment that has not yet started",
+        "CRD-EVT": "src/rule_families/mortgage_ext.py — seasoning after bankruptcy, "
+                   "foreclosure, deed in lieu, short sale and mortgage charge-off",
+        "CRD-DLQ": "src/rule_families/mortgage_ext.py — housing and non-housing "
+                   "delinquency, weighed separately",
+        "AST-SRC": "src/rule_families/mortgage_ext.py — large deposits excluded until "
+                   "sourced",
+        "VAL-APR": "src/rule_families/mortgage_ext.py — the lower of contract and "
+                   "appraised value governs; valuation age with its update window",
+        "JMB-ELG": "src/rule_families/mortgage_ext.py — the jumbo overlay's tighter "
+                   "leverage, credit and reserve bars, and its mandatory human review",
+        # -- elsewhere --------------------------------------------------------
+        "SEC-INJ": "src/guardrails/ + input_guardrails_node — injection detection and quarantine",
         "UWR-HRV": "src/review_triggers.py — the mandatory human-review routing table",
     },
     LendingProductDomain.EDUCATION_LOAN: {
+        # -- the original three ------------------------------------------------
         "EDU-INC": "src/rules.py — debt-to-income capacity and residual income",
         "EDU-SCH": "src/rules.py — school eligibility and certification",
+        # -- added in src/rule_families/education_ext.py -----------------------
+        "EDU-UW": "src/rule_families/education_ext.py — per-product underwriting "
+                  "criteria: loan band, credit floor, cosigner trigger, residency, "
+                  "enrolment and the REFI default knockout",
+        "EDU-RG": "src/rule_families/education_ext.py — the grade band table, with "
+                  "the worse of FICO and DTI governing, and the E-band hard decline",
+        "EDU-COS": "src/rule_families/education_ext.py — cosigner citizenship, age, "
+                   "score, bankruptcy, sanctions, DTI ceiling and the Reg Z notice",
+        "EDU-INTL": "src/rule_families/education_ext.py — visa class, I-94 "
+                    "verification, the no-cosigner pathway and cosigner residency",
+        # -- elsewhere ---------------------------------------------------------
         "EDU-GOV": "src/review_triggers.py — the permitted-outcome vocabulary",
     },
 }

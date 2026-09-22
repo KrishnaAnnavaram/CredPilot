@@ -9,7 +9,12 @@ Runs, in order:
 2. ``eval/retrieval/sweep_pipeline.py``  — funnel-width table
 3. ``eval/retrieval/ablation.py``        — layer-by-layer contribution
 4. ``eval/retrieval/run_retrieval_eval.py`` — headline retrieval metrics
-5. ``scripts/export_traces.py``          — Phoenix span export
+5. ``scripts/export_traces.py``          — Phoenix span export, both products
+   and all six Supervisor routes
+6. ``eval.agent.run_agent_eval``         — the 95-case end-to-end evaluation
+7. ``scripts/build_golden_signals.py``   — Phoenix-derived operational signals,
+   the dashboard table and the raw span CSV
+8. ``scripts/build_dashboard.py``        — the chart, from that CSV
 
 Why one command: every number published in ``docs/`` has to come from the same
 code state. Measuring the funnel on Monday, changing the pipeline on Tuesday and
@@ -42,16 +47,26 @@ STEPS: tuple[tuple[str, list[str]], ...] = (
     ("ablation", ["eval/retrieval/ablation.py"]),
     ("retrieval evaluation", ["eval/retrieval/run_retrieval_eval.py", "--quiet"]),
     ("trace export", ["scripts/export_traces.py"]),
-    ("agent evaluation", ["-m", "eval.agent.run_agent_eval", "--judge-limit-per-product", "20"]),
-    ("golden signals", ["scripts/build_golden_signals.py"]),
+    ("agent evaluation", ["-m", "eval.agent.run_agent_eval", "--judge-all"]),
+    ("golden signals", ["scripts/build_golden_signals.py",
+                        "--raw-spans-csv", "reports/phoenix_spans.csv"]),
     ("dashboard", ["scripts/build_dashboard.py"]),
 )
 
-#: Steps that cannot run without a Gemini credential. Skipped with a message
-#: rather than failing the run, so a clean checkout with no key still regenerates
-#: everything retrieval-side — which is most of the committed evidence and all of
-#: the deterministic part.
-STEPS_NEEDING_A_KEY = frozenset({"agent evaluation"})
+#: The agent evaluation's judged pass needs a model that actually answers.
+#:
+#: The test used to be "is a key present", which is the wrong question and was
+#: wrong here: the committed key is correctly formed, reaches the service, and
+#: returns 402 RESOURCE_EXHAUSTED from every model. On that test the step ran,
+#: the judge failed case by case, and the run produced a report with null
+#: judged metrics under a command that promised judged ones.
+#:
+#: The gate is now whether the model answers. When it does not, the step still
+#: runs — with `--no-judge`, so every deterministic metric refreshes and the
+#: report says plainly that no case was judged and why.
+STEPS_NEEDING_A_WORKING_MODEL: dict[str, list[str]] = {
+    "agent evaluation": ["-m", "eval.agent.run_agent_eval", "--no-judge"],
+}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -71,15 +86,23 @@ def main(argv: list[str] | None = None) -> int:
     started = time.perf_counter()
     from src import llm
 
-    have_key = bool(llm.api_key())
+    status = llm.probe()
+    if status.available:
+        print(f"  model  {status.model} (reachable)")
+    else:
+        print(f"  model  unreachable — {status.reason[:140]}")
+        print("         steps that need one fall back to their deterministic mode")
+    print()
+
     for name, command in STEPS:
         if name in args.skip or (args.only and name not in args.only):
             print(f"[skip] {name}")
             continue
-        if name in STEPS_NEEDING_A_KEY and not have_key:
-            print(f"[skip] {name}: needs GOOGLE_API_KEY; the reports it writes are "
-                  f"left as committed")
-            continue
+        if name in STEPS_NEEDING_A_WORKING_MODEL and not status.available:
+            command = STEPS_NEEDING_A_WORKING_MODEL[name]
+            print(f"[note] {name}: the model does not answer, so this runs "
+                  f"deterministic-only. Every judge_* figure in the report will "
+                  f"be null, with the reason recorded.")
         print(f"[run ] {name}: python {' '.join(command)}", flush=True)
         step_started = time.perf_counter()
         result = subprocess.run(

@@ -25,9 +25,22 @@ education would barely move it.
 
 Run::
 
-    python -m eval.agent.run_agent_eval                      # all 95 cases
-    python -m eval.agent.run_agent_eval --limit-per-product 5
+    python -m eval.agent.run_agent_eval --judge-all          # the final run
+    python -m eval.agent.run_agent_eval --judge-limit-per-product 10   # cheap, local
     python -m eval.agent.run_agent_eval --no-judge           # deterministic only
+    python -m eval.agent.run_agent_eval --limit-per-product 5
+
+``--judge-all`` is the mode for the committed run and **fails** rather than
+degrading if the judge is unreachable: a report labelled "every case judged"
+that judged none is worse than no report. ``--judge-limit-per-product`` is the
+cheap mode for development, and states its denominator in the output.
+
+**The harness enters the graph at its real entry point.** Every case goes
+through intake, the input guardrail, the Supervisor, the product specialist,
+retrieval, the rules, the recommendation, the narrative, the response validator
+and the output guardrail — the path a request actually takes. Supervisor routing
+accuracy is scored because of it, and it could not have been from an internal
+entry point.
 """
 
 from __future__ import annotations
@@ -46,6 +59,7 @@ from typing import Any, Sequence
 from src.config import REPO_ROOT, get_config
 from src.console import use_utf8_stdio
 from src.domain import LendingProductDomain
+from eval.retrieval.metrics import round_for_serialization
 from eval.agent.dataset import (
     AgentCase,
     direction_of,
@@ -93,6 +107,18 @@ class CaseOutcome:
     cost_usd: float = 0.0
     error: str | None = None
     judge: dict[str, Any] = field(default_factory=dict)
+
+    # -- the top-level architecture -------------------------------------------
+    #: Which route the Supervisor chose. Scored, because the Supervisor is the
+    #: component most able to send a file to the wrong body of lending law, and
+    #: an evaluation that entered below it would never have tested that.
+    route: str | None = None
+    routed_to_correct_product: bool | None = None
+    response_validated: bool | None = None
+    validation_failures: list[str] = field(default_factory=list)
+    output_guardrail: dict[str, Any] = field(default_factory=dict)
+    degradations: list[dict[str, Any]] = field(default_factory=list)
+    required_rules_fetched: list[str] = field(default_factory=list)
 
     # -- deterministic scoring --------------------------------------------------
 
@@ -155,6 +181,13 @@ class CaseOutcome:
             "cost_usd": self.cost_usd,
             "judge": self.judge,
             "error": self.error,
+            "route": self.route,
+            "routed_to_correct_product": self.routed_to_correct_product,
+            "response_validated": self.response_validated,
+            "validation_failures": self.validation_failures,
+            "output_guardrail": self.output_guardrail,
+            "degradations": self.degradations,
+            "required_rules_fetched": self.required_rules_fetched,
         }
 
 
@@ -171,7 +204,16 @@ def _rules_in(citations: Sequence[str]) -> set[str]:
 
 
 def run_case(case: AgentCase, graph: Any, run_id: str) -> CaseOutcome:
-    """Run one application all the way through the graph.
+    """Run one application all the way through the deployed graph.
+
+    **The whole graph, from its real entry point.** Not
+    ``mortgage_policy_retrieval`` with a hand-built state, but ``intake`` — so
+    every case exercises intake, the input guardrail, the Supervisor's routing
+    decision, the product specialist, retrieval, the rule engine, the
+    recommendation, the narrative, the response validator and the output
+    guardrail. An evaluation that entered at an internal node would be measuring
+    a path no user can take, and the Supervisor's routing — the component most
+    likely to send a file to the wrong corpus — would be scored by nothing.
 
     ``run_id`` scopes the checkpoint thread to this evaluation run. Without it
     the thread id is stable across runs, and LangGraph resumes the thread the
@@ -219,6 +261,26 @@ def run_case(case: AgentCase, graph: Any, run_id: str) -> CaseOutcome:
     result.steps = list(final.get("steps") or [])
     result.steps_taken = int(final.get("steps_taken") or 0)
     result.halted = bool(final.get("halted"))
+
+    # -- what the top-level architecture added ---------------------------------
+    supervisor = final.get("supervisor") or {}
+    response = final.get("final_response") or {}
+    result.route = supervisor.get("route")
+    result.routed_to_correct_product = (
+        None
+        if not supervisor.get("route")
+        else supervisor.get("route") == (
+            "MORTGAGE" if case.product is LendingProductDomain.MORTGAGE
+            else "EDUCATION_LOAN"
+        )
+    )
+    result.response_validated = (response.get("validation") or {}).get("passed")
+    result.validation_failures = list(
+        (response.get("validation") or {}).get("failures") or []
+    )
+    result.output_guardrail = dict(final.get("output_guardrail") or {})
+    result.degradations = list(final.get("degradations") or [])
+    result.required_rules_fetched = list(final.get("required_rules_fetched") or [])
     return result
 
 
@@ -314,10 +376,35 @@ def summarize(results: Sequence[CaseOutcome]) -> dict[str, Any]:
                 if r.case.expected_requires_human_review is not None
             ]
         ),
+        # -- routing (deterministic, and only measurable end to end) ----------
+        # The Supervisor sees every case because the harness enters at `intake`.
+        # A file routed to the other product's specialist would be assessed
+        # against the wrong rulebook and every citation in the answer would
+        # still resolve, so this is the one metric that catches it.
+        "supervisor_routing_accuracy": _rate(
+            [r.routed_to_correct_product for r in ok]
+        ),
+        "response_validation_pass_rate": _rate([r.response_validated for r in ok]),
+        "runs_with_a_degraded_tool_call": sum(1 for r in ok if r.degradations),
         # -- grounding (deterministic) ---------------------------------------
         "citation_validity": _rate([r.all_citations_resolve for r in ok]),
         "citation_recall": _mean([r.citation_recall for r in ok]),
         "narrative_faithfulness_deterministic": _rate([r.narrative_faithful for r in ok]),
+        # How many of those narratives a model actually wrote.
+        #
+        # Without it the faithfulness figure is unreadable. The deterministic
+        # summary is *assembled from* the evidence rather than written about
+        # it, so it cannot cite or quote anything the evidence does not
+        # contain — it scores 1.00 by construction. A run where no model was
+        # reachable therefore publishes a perfect grounding score that measures
+        # the fallback, not the system. This is the denominator that says which
+        # of the two you are looking at.
+        "narratives_model_generated": sum(
+            1 for r in ok if (r.usage or {}).get("output_tokens")
+        ),
+        "narratives_deterministic_fallback": sum(
+            1 for r in ok if not (r.usage or {}).get("output_tokens")
+        ),
         "unsupported_claim_rate": _rate(
             [bool(r.unsupported_citations or r.unsupported_figures) for r in ok]
         ),
@@ -345,6 +432,8 @@ def summarize(results: Sequence[CaseOutcome]) -> dict[str, Any]:
 
 #: Figures that macro-average across products. Counts are summed instead.
 _MACRO_KEYS = (
+    "supervisor_routing_accuracy",
+    "response_validation_pass_rate",
     "outcome_accuracy",
     "outcome_accuracy_all_cases",
     "directional_agreement",
@@ -366,7 +455,10 @@ _SUM_KEYS = (
     "completed",
     "errors",
     "judged_cases",
+    "narratives_model_generated",
+    "narratives_deterministic_fallback",
     "halted_runs",
+    "runs_with_a_degraded_tool_call",
     "cases_with_inexpressible_expectation",
     "input_tokens_total",
     "output_tokens_total",
@@ -398,9 +490,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                         help="restrict to one product (macro averaging then has one group)")
     parser.add_argument("--no-judge", action="store_true",
                         help="deterministic metrics only; skip the LLM-as-judge pass")
+    parser.add_argument("--judge-all", action="store_true",
+                        help="judge every case — the mode for the final committed "
+                             "run. Fails rather than silently sampling if the judge "
+                             "is unreachable")
     parser.add_argument("--judge-limit-per-product", type=int, default=None,
                         help="judge only the first N cases of each product; the "
-                             "deterministic metrics still cover every case")
+                             "deterministic metrics still cover every case. The "
+                             "cheap mode, for local development")
     parser.add_argument("--output", default=str(REPORT_PATH))
     parser.add_argument("--cases-output", default=str(CASES_PATH))
     args = parser.parse_args(argv)
@@ -420,16 +517,38 @@ def main(argv: Sequence[str] | None = None) -> int:
     status = llm.probe()
     print(f"gemini: {status.as_dict()}")
 
+    if args.judge_all and args.judge_limit_per_product is not None:
+        parser.error("--judge-all and --judge-limit-per-product are contradictory")
+    if args.judge_all and args.no_judge:
+        parser.error("--judge-all and --no-judge are contradictory")
+
     judge = None
+    judge_unavailable_reason: str | None = None
     if not args.no_judge:
         if not status.available:
+            judge_unavailable_reason = status.reason
+            if args.judge_all:
+                # --judge-all is the mode for the final committed run, and a
+                # final run that quietly produced deterministic-only figures
+                # under a name promising judged ones is how a report comes to
+                # claim more than it measured. Fail instead.
+                print(
+                    f"\n!! --judge-all was requested and the judge is unreachable: "
+                    f"{status.reason}\n"
+                    f"   Refusing to publish a run labelled 'every case judged' "
+                    f"that judged none.\n"
+                    f"   Set a working GOOGLE_API_KEY, or re-run with --no-judge "
+                    f"for deterministic metrics only."
+                )
+                return 2
             print("!! the judge needs Gemini and it is unreachable; "
                   "running deterministic metrics only")
         else:
             from eval.agent.judges import GeminiJudge
 
             judge = GeminiJudge()
-            print(f"judge:  {judge.get_model_name()}")
+            print(f"judge:  {judge.get_model_name()}"
+                  + (" (every case)" if args.judge_all else ""))
 
     run_id = uuid.uuid4().hex[:8]
     print(f"run id: {run_id}  (checkpoint threads are scoped to it, so nothing is replayed)")
@@ -481,14 +600,29 @@ def main(argv: Sequence[str] | None = None) -> int:
             "provider": "google-gemini",
             "model": judge.get_model_name() if judge else None,
             "threshold": JUDGE_THRESHOLD,
+            "mode": (
+                "judge_all" if args.judge_all
+                else "no_judge" if args.no_judge
+                else "sampled" if args.judge_limit_per_product is not None
+                else "all_reachable"
+            ),
             "sampled": args.judge_limit_per_product is not None,
             "judge_limit_per_product": args.judge_limit_per_product,
+            "available": judge is not None,
+            "unavailable_reason": judge_unavailable_reason,
             "sampling_note": (
                 "The deterministic metrics cover every case. The judged metrics cover "
                 "a balanced sample, taken per product so neither dominates; "
                 "judged_cases states the denominator for each."
                 if args.judge_limit_per_product is not None
                 else "Every case was judged."
+                if judge is not None
+                else (
+                    "NO CASE WAS JUDGED. The judge was unreachable for this run "
+                    f"({judge_unavailable_reason}), so every judge_* metric below is "
+                    "null. They are not zero and they are not carried over from an "
+                    "earlier run — they were not measured."
+                )
             ),
             "caveat": (
                 "The judge and the system under test are the same model family, so a "
@@ -529,7 +663,23 @@ def main(argv: Sequence[str] | None = None) -> int:
             "judge_hallucination_rate": "1 - score, so 0.0 is the good end",
             "narrative_faithfulness_deterministic": (
                 "src.narrative.verify_narrative: no citation or figure in the prose "
-                "that is absent from its evidence; asks no model anything"
+                "that is absent from its evidence; asks no model anything. "
+                "READ IT AGAINST narratives_model_generated. The deterministic "
+                "fallback is assembled from the evidence rather than written about "
+                "it, so it scores 1.00 by construction — a run with no model "
+                "reachable publishes a perfect grounding figure that measures the "
+                "fallback and not the system."
+            ),
+            "supervisor_routing_accuracy": (
+                "did the Supervisor send each case to its own product's specialist. "
+                "Measurable only because the harness enters the graph at intake; an "
+                "evaluation starting at an internal node would not exercise routing "
+                "at all"
+            ),
+            "response_validation_pass_rate": (
+                "did the assembled response pass its own checks — citations resolve, "
+                "figures supported, prose consistent with the recommendation — "
+                "measured on the exact text that was published"
             ),
         },
         "rule_coverage": rule_coverage(),
@@ -544,7 +694,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     cases_output = Path(args.cases_output)
     with cases_output.open("w", encoding="utf-8") as fh:
         for result in results:
-            fh.write(json.dumps(result.as_dict(), sort_keys=True, default=str) + "\n")
+            # Rounded on write only; `payload` above was aggregated from full
+            # precision. A 17-significant-digit float in [0,1) is repr noise,
+            # and about half of them contain a payment-card-shaped 16-digit
+            # run, which buries any real leak in a PII scan.
+            record = round_for_serialization(result.as_dict())
+            fh.write(json.dumps(record, sort_keys=True, default=str) + "\n")
 
     macro = payload["macro"]
     print(f"\n{'=' * 72}")
@@ -556,7 +711,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"macro faithfulness (judge)           : {macro['judge_faithfulness']}")
     print(f"macro hallucination rate (judge)     : {macro['judge_hallucination_rate']}")
     print(f"macro answer relevancy (judge)       : {macro['judge_answer_relevancy']}")
+    print(f"macro supervisor routing accuracy    : {macro['supervisor_routing_accuracy']}")
+    print(f"macro response validation pass rate  : {macro['response_validation_pass_rate']}")
     print(f"errors                               : {macro['errors']}")
+    if judge is None:
+        print()
+        print("!! no case was judged this run. Every judge_* figure is null, "
+              "not zero.")
+        if judge_unavailable_reason:
+            print(f"   reason: {judge_unavailable_reason[:160]}")
     for product, coverage in payload["rule_coverage"].items():
         if not isinstance(coverage, dict):
             continue

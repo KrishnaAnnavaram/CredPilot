@@ -215,6 +215,14 @@ def evaluate_review_triggers(
             continue
         if evaluation.get("comparator") not in ("<=", "<"):
             continue
+        # The band is in percentage points, so it means nothing against a
+        # measure that is not a ratio. Days past a freshness window, dollars of
+        # unsourced deposits and a loan amount all compare with "<=" and none of
+        # them is a percentage: a freshness evaluation reporting 0 days over a
+        # 0-day allowance referred every clean file as "borderline" until this
+        # check existed.
+        if str(evaluation.get("unit", "ratio")) != "ratio":
+            continue
 
         # Measured against the tighter of the programme limit and the limit
         # actually applied. Where a discretionary extension was granted — a DTI

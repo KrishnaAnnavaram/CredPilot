@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
-from typing import Iterable, Mapping, Sequence
+from typing import Any, Iterable, Mapping, Sequence
 
 DEFAULT_K_VALUES = (1, 3, 5, 10)
 
@@ -78,6 +78,37 @@ def reciprocal_rank(retrieved: Sequence[str], relevant: Iterable[str], k: int = 
             return 1.0 / position
     return 0.0
 
+
+
+#: Decimal places for a per-case metric written to disk.
+#:
+#: Six, not the four used for published aggregates: per-case values are what
+#: you read when debugging one case, and the extra resolution is worth
+#: something there. What is not worth anything is the seventeenth significant
+#: digit of a float — it is repr noise, and it is why the committed per-case
+#: files were full of 16-digit runs that a payment-card detector cannot
+#: distinguish from a Visa number. A `policy_ndcg@10` of `0.444097…` printed
+#: to full precision ends in sixteen digits beginning with a 4, and a decimal
+#: point is a word boundary, so the detector sees a Visa number. (The literal
+#: is not written out here for the obvious reason.)
+SERIALIZED_PLACES = 6
+
+
+def round_for_serialization(value: "Any", places: int = SERIALIZED_PLACES) -> "Any":
+    """Round floats anywhere inside a JSON-shaped structure, leaving the rest.
+
+    Applied where a record is written, not where it is computed, so
+    aggregation keeps full precision and no published figure moves.
+    """
+    if isinstance(value, bool) or value is None:
+        return value
+    if isinstance(value, float):
+        return round(value, places)
+    if isinstance(value, dict):
+        return {k: round_for_serialization(v, places) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [round_for_serialization(v, places) for v in value]
+    return value
 
 def ndcg_at_k(retrieved: Sequence[str], relevant: Iterable[str], k: int = 10) -> float | None:
     """Binary-gain nDCG at ``k``."""

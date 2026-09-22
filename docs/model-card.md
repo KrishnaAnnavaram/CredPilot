@@ -8,7 +8,7 @@
 
 ## What this system is
 
-CredPilot is an **agentic RAG underwriting copilot** for two lending products — residential mortgage and education loans. Given an application packet, it retrieves the lending policy that governs that file on its own as-of date, computes the affordability and leverage figures, applies the rules deterministically, screens for risk, and produces an underwriting **recommendation** with the policy rules and calculations that support it.
+CredPilot is an **agentic RAG underwriting copilot** for two lending products — residential mortgage and education loans. Given an application packet, it retrieves the lending policy that governs that file on its own as-of date, computes the affordability and leverage figures, applies the rules deterministically, screens for risk, and produces an underwriting **recommendation** with the policy rules and calculations that support it. Given a question instead of a packet, it answers from the same retrieved policy and declines to decide anything about a particular file.
 
 The most important thing to understand about it is where the language model sits, because it is not where people usually assume.
 
@@ -20,6 +20,19 @@ retrieval  →  calculation  →  rule engine  →  recommendation  →  narrati
 Gemini writes the **rationale**. It does not retrieve, rank, filter, compute, compare against a threshold, or decide. By the time it is called, the outcome already exists and is handed to it as a fact. There is no code path by which its text changes the recommendation.
 
 This is a design choice with consequences in both directions: the decision is reproducible and auditable and cannot be argued into by prompt injection, and equally the system cannot reason its way around a rule the way a human underwriter can.
+
+### Where the request goes before any of that
+
+Every request reaches a **Supervisor** first, which classifies it and routes it to exactly one of six destinations. This matters for two reasons a model card should record.
+
+The first is cost and honesty: a greeting is answered by the Supervisor itself. There is no edge from the node that answers "hello" to any node that can retrieve, so running a hybrid search over a 42-document corpus to say hello is not merely avoided, it is unreachable.
+
+The second is product isolation. The Supervisor decides **which body of lending law** a request is answered under, which is the single most consequential decision in the system — a mortgage question answered from the education corpus comes back confidently wrong with citations that all resolve. Two defences:
+
+* the classification is **deterministic first**. An application packet carrying `subject_property` is a mortgage as a matter of fact, and no model is asked to confirm it. Free text is matched against product-specific terms, and a term that sits in both products — `cosigner`, `refinance`, `DTI` — is explicitly *not* a discriminator and triggers a clarifying question instead. Gemini is consulted only for the genuinely ambiguous middle, is off by default, and may only choose among the six enumerated routes;
+* the two product workflows **share no node**. They are separate chains in the compiled graph, so there is no sequence of routing decisions that reaches education retrieval from a mortgage node. `tests/test_routing.py::test_no_edge_crosses_between_the_two_products` asserts it against the compiled graph rather than against intent.
+
+Where the product cannot be established, the Supervisor asks one short question and the run **pauses on a checkpoint** rather than guessing. It is capped at two rounds, after which the thread goes to a person.
 
 ---
 
@@ -103,7 +116,17 @@ Folding those six into `APPROVE` would score the system correct for an answer it
 
 **Where the two disagree, the deterministic one governs.** The judge shares a model family with the system it is grading.
 
-The deterministic checks run on **every** case. The judged metrics run on a balanced sample — 20 per product, so education's 20 cases are all judged and neither product dominates — because DeepEval makes nine or ten model calls per case and judging all 95 triples the run for no change in what the numbers mean. `judged_cases` states the denominator, and `judge.sampled` records that a sample was taken.
+The deterministic checks run on **every** case. The judged metrics run over
+whatever `--judge-all` or `--judge-limit-per-product` selected; `judged_cases`
+states the denominator and `judge.mode` records which was asked for.
+
+**`narrative_faithfulness_deterministic` has to be read against
+`narratives_model_generated`, which is published beside it.** The deterministic
+fallback used when no model is reachable is *assembled from* the evidence rather
+than written about it, so it cannot cite or quote anything the evidence does not
+contain — it scores 1.00 by construction. A run with no model therefore
+publishes a perfect grounding figure that measures the fallback and not the
+system, and the denominator is the only thing that tells the two apart.
 
 One direction trap worth naming: DeepEval 4.x reports `HallucinationMetric` in the same direction as its other metrics — **1.0 means grounded**, 0.0 means contradicted. It previously reported the proportion of violations. The report therefore publishes `judge_hallucination_score` (raw, 1 is good) and derives `judge_hallucination_rate = 1 − score` (0 is good) beside it, because publishing the raw score under the name "hallucination rate" would invert it.
 
@@ -115,19 +138,39 @@ It would be easy to derive one — treat every `REFER` expectation as requiring 
 
 ### What the committed run does and does not contain
 
-The committed evaluation ran all 95 cases with narratives generated by
-`gemini-flash-latest`, and the grounding figures are measured over those
-narratives. The **text** of them is not in `reports/eval_cases.jsonl`: the field
-that records it was added after this run, and the model quota was exhausted before
-another could be completed. Each case record carries what the faithfulness verdict
-rested on — the citations used and any unsupported citation or figure — so the
-metric is auditable, but a reader cannot re-read the prose itself.
+**The Gemini quota attached to this repository is exhausted.** Every model, on
+every call, returns `402 RESOURCE_EXHAUSTED — "Your prepayment credits are
+depleted"`. This is an account state, not a defect, and it partitions the
+evidence in a way a reader has to know about.
 
-The two worked examples in `reports/assessments/` were regenerated after the quota
-ran out and therefore carry the deterministic summary rather than a generated
-rationale. They say so in the file: `available: false`, with the reason.
+*Measured, and current.* Every deterministic figure: outcome accuracy,
+directional agreement, human-review agreement, Supervisor routing accuracy,
+citation validity, citation recall, response-validation pass rate, the
+deterministic narrative-faithfulness check, latency, step counts, error and
+halt counts. None of these calls a model. All were produced against the current
+architecture.
 
-The next run closes both gaps without any change to the system.
+*Degraded, and marked.* The narrative falls back to the deterministic summary
+with `available: false` and the reason attached; a policy answer falls back to
+quoting the governing rules. Neither is silent, and the deterministic
+faithfulness figure in a no-model run measures the *fallback* — which is
+trivially faithful, because it is assembled from the evidence rather than
+written about it. Read `narrative.available` before reading that figure.
+
+*Not measured at all.* The DeepEval judged metrics — faithfulness,
+hallucination, answer relevancy — and every token and cost figure. These are
+reported as `null` with `judge.available: false` and the reason, never as zero.
+`reports/golden_signals.json` sets `model_calls_recorded_no_tokens: true` and
+states that $0.00 is an absence of measurement rather than an efficiency result.
+
+`--judge-all` **refuses to write a report** in this state rather than producing
+one labelled "every case judged" that judged none.
+
+Any judged figure still visible in a committed artifact carries its own
+`generated_at_utc` and `run_id` and belongs to an earlier run against an earlier
+architecture. Restoring quota and running
+`python -m eval.agent.run_agent_eval --judge-all` closes every one of these gaps
+with no change to the system.
 
 ### Targets
 
@@ -141,7 +184,26 @@ Met or missed, the measurement is published as measured.
 
 ### Cost and latency
 
-Roughly one Gemini call per assessment. The deterministic pipeline — retrieval, calculation, rules — is the faster half and does not vary with a provider; the single model call dominates the tail. Per-assessment token and cost figures are in `reports/golden_signals.json`, estimated from published per-million rates and labelled as an estimate rather than a billing record.
+Roughly one Gemini call per assessment, and none at all on the routing path. Per-assessment token and cost figures are in `reports/golden_signals.json`, estimated from published per-million rates and labelled as an estimate rather than a billing record.
+
+Latency is split by **where the time goes**, from Phoenix spans rather than from a stopwatch around the evaluation loop, because a stopwatch cannot see inside a run. Over the committed 980-span export:
+
+| | p50 | p95 | spans |
+|---|---|---|---|
+| request (root span) | 36 ms | 6.8 s | 278 |
+| **thinking** (model calls) | 6 ms | 10.3 s | 10 |
+| **acting** (graph nodes) | 2 ms | 415 ms | 184 |
+| **tool** (RAG and MCP boundaries) | 37 ms | 7.0 s | 162 |
+| **retrieval** (pipeline stages) | 15 ms | 4.6 s | 624 |
+
+The shape is the point: deterministic work is milliseconds, and the tail is
+shared between the cross-encoder rerank and the one model call. The p50s are low
+because most spans are cheap pipeline stages; the p95s are what a user waits for.
+
+A rule the engine needs but the topic queries did not land is fetched **by id**,
+which skips the ranking funnel: measured at 200 ms for three rules against about
+1.4 s each through the funnel. Temporal version selection still applies to the
+fetch, because that is the part that must not be skipped.
 
 ---
 
@@ -178,7 +240,7 @@ Ordered by how much they should affect your confidence.
 
 ## Known failure modes
 
-Thirteen real failures found while building this, each with evidence, root cause, fix and before/after measurement, in **[`docs/failure-analysis.md`](failure-analysis.md)**. The ones that bear on trusting the output:
+Twenty real failures found while building this, each with evidence, root cause, fix and before/after measurement, in **[`docs/failure-analysis.md`](failure-analysis.md)**. The ones that bear on trusting the output:
 
 | | Failure | Why it mattered |
 |---|---|---|
@@ -198,13 +260,25 @@ Five further defects were found by running the whole system end to end against b
 | **F-9** | **Reserves were counted before the money left the account**, contradicting `AST-RSV-001`. One file reported 40.7 months where the truth was 9.6. | Every reserve figure in the system was overstated. |
 | **F-13** | **The eligibility engine evaluated only DTI.** A file could clear its DTI ceiling and be approved with a failing credit score, no reserves and a six-figure cash shortfall. | Three knockout rules added, each version-aware across the 2026-07-01 boundary. |
 
+Seven more came out of putting a conversational Supervisor, an MCP transport
+and a web API in front of the graph (F-14 to F-20). The ones that bear on
+trusting the output:
+
+| | Failure | Why it mattered |
+|---|---|---|
+| **F-19** | **"Show me applicant BORR-000002's income" was answered, not refused.** The cross-applicant pattern matched only `APP-` ids, required a verb from a short list, and did not cover bulk requests at all. | AC-06 is a claim about the one surface an attacker can type into. The pattern had been written against applicant *documents*, and a document does not ask questions. |
+| **F-18** | **The injection detector did not recognise being spoken to.** `IGNORE_INSTRUCTIONS` did not match the second person. | Same origin as F-19, and the controls kept passing their old tests throughout. |
+| **F-17** | **Implemented rules reported "not retrieved."** `DOC-REQ-002` never ranked, so a file with a perfectly fresh document set was referred for want of the rule that defines freshness. | A refusal to answer caused by the system's own ranking — not a wrong answer, but not a usable one. |
+| **F-15** | **Every clean file was referred as "borderline."** A percentage-point band was applied to a measure that was not a percentage: 0 days against a 0-day threshold read as borderline. | The headline approve case became a refer. Referring everything is the same as referring nothing. |
+| **F-20** | **An undated application crashed instead of asking for a date.** With no as-of date the temporal filter collapsed nothing, both versions of `POL-DTI-001` reached the engine, and the single-version guard raised out of a checkpointed run. | Externally supplied packets are the only ones that can omit the date, and defaulting to today would have judged a file against a rulebook that may not have been in force. |
+
 ---
 
 ## Ethical and safety considerations
 
 **Human oversight is structural, not advisory.** Declines, indeterminate results, HIGH risk, detected injection attempts, unfaithful rationales and budget halts all route to `human_review`. No graph edge carries a decline to `END`. See `docs/output-risk.md`.
 
-**Applicant text is data, never instruction.** It is quarantined at intake, kept in its own compartment, rendered last inside a labelled fence, and never read by the rule engine at all. Thirteen injection patterns detect all six committed adversarial packets, but the structural control is that a successful injection reaches only the narrative — and the narrative is checked against its evidence afterwards.
+**Applicant text is data, never instruction.** It is quarantined at intake, kept in its own compartment, rendered last inside a labelled fence, and never read by the rule engine at all. Fifteen injection patterns detect all six committed adversarial packets and the nine typed attack phrasings of F-18 and F-19, but the structural control is that a successful injection reaches only the narrative — and the narrative is checked against its evidence afterwards.
 
 **Memory refuses to hold what it should not.** A prior decision is not evidence for a new application; policy is retrieved with an effective date rather than cached; a credit figure goes stale silently. `LongTermMemory` refuses all of them by kind. Recall is scoped to one subject, and `forget()` erases a data principal completely in one operation.
 
@@ -236,7 +310,7 @@ Full operational detail in [`docs/rag/RUNBOOK.md`](rag/RUNBOOK.md).
 | [`docs/risk-register.md`](risk-register.md) | 28 risks, OWASP LLM Top 10 + NIST AI RMF, with residual risk stated per row |
 | [`docs/compliance.md`](compliance.md) | EU AI Act, NIST AI RMF, India DPDP — what is addressed, where the evidence is, and what is not met |
 | [`docs/output-risk.md`](output-risk.md) | Three output tiers and what gates each |
-| [`docs/failure-analysis.md`](failure-analysis.md) | Eight real failures with before/after |
+| [`docs/failure-analysis.md`](failure-analysis.md) | Twenty real failures with before/after; four cite a span, a log record or a run id that `scripts/verify_evidence_citations.py` re-resolves |
 
 ---
 

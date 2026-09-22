@@ -352,6 +352,79 @@ class PolicyRetriever:
 
     # -- stages -------------------------------------------------------------------
 
+    def fetch_rules(
+        self,
+        domain: LendingProductDomain,
+        rule_ids: Sequence[str],
+        *,
+        as_of: date | None = None,
+    ) -> list[PolicyEvidence]:
+        """Fetch specific rules by id, without the ranking funnel.
+
+        Asking "which rule answers this question?" is a ranking problem.
+        Asking "give me DTI-CONV-003" is not — the rule id is indexed metadata
+        and there is exactly one chunk per rule per version. Running the full
+        funnel for it costs an embedding, a BM25 pass, fusion and a cross-encoder
+        rerank to rediscover a fact the index already holds, and measured at
+        about 1.4 seconds against roughly 40 milliseconds here.
+
+        Temporal selection still applies, and that is the part that must not be
+        skipped: ``DTI-CONV-001`` exists in both v1.0 and v2.0 with different
+        ceilings, so a lookup by id alone would be ambiguous in exactly the way
+        the whole effective-date mechanism exists to prevent. The same
+        ``_allowed_chunk_ids`` filter the ranked path uses decides which version
+        this returns.
+        """
+        wanted = {str(r).strip().upper() for r in rule_ids if str(r).strip()}
+        if not wanted:
+            return []
+
+        catalogue = self.lexical(domain)
+        product_cfg = self.config.product(domain)
+        allowed, _, _ = self._allowed_chunk_ids(
+            domain, as_of, product_cfg.temporal_filtering
+        )
+
+        with tr.span(
+            tr.SPAN_RAG_RETRIEVE,
+            product_domain=domain.value,
+            lookup="by_rule_id",
+            requested=len(wanted),
+            as_of_date=as_of.isoformat() if as_of else None,
+        ) as root_span:
+            matches: list[tuple[str, dict[str, Any]]] = []
+            for chunk_id, meta in zip(catalogue.chunk_ids, catalogue.metadatas):
+                rule_id = str(meta.get("rule_id") or "").upper()
+                if rule_id not in wanted:
+                    continue
+                if allowed is not None and chunk_id not in allowed:
+                    continue
+                matches.append((chunk_id, dict(meta)))
+
+            if not matches:
+                root_span.set(found=0)
+                return []
+
+            store = self.store(domain)
+            documents = store.get_by_ids([cid for cid, _ in matches])
+            candidates = [
+                FusedCandidate(
+                    chunk_id=chunk_id,
+                    # No fusion happened, so there is no fusion score to report.
+                    # Zero says "this did not come from ranking" rather than
+                    # implying it ranked last.
+                    fusion_score=0.0,
+                    metadata=meta,
+                    document=(documents.get(chunk_id) or {}).get("document", ""),
+                )
+                for chunk_id, meta in matches
+            ]
+            evidence = self._to_evidence(
+                [(c, None, ApplicabilityStatus.APPLICABLE) for c in candidates], domain
+            )
+            root_span.set(found=len(evidence))
+            return evidence
+
     def _allowed_chunk_ids(
         self, domain: LendingProductDomain, as_of: date | None, temporal_filtering: bool
     ) -> tuple[set[str] | None, dict[str, tuple[str | None, date | None]], int]:

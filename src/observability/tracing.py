@@ -41,6 +41,88 @@ SPAN_TEMPORAL_VALIDATE = "temporal.validate"
 SPAN_CITATION_VALIDATE = "citation.validate"
 SPAN_RAG_RESULT = "rag.result"
 
+#: Node, agent and model spans opened by the graph rather than by retrieval.
+SPAN_INTAKE = "graph.intake"
+SPAN_INPUT_GUARDRAILS = "guardrails.input"
+SPAN_SUPERVISOR = "supervisor.route"
+SPAN_CLARIFICATION = "supervisor.clarify"
+SPAN_MORTGAGE_AGENT = "agent.mortgage"
+SPAN_EDUCATION_AGENT = "agent.education"
+SPAN_ELIGIBILITY = "agent.eligibility"
+SPAN_RISK = "agent.risk"
+SPAN_RECOMMENDATION = "agent.recommendation"
+SPAN_NARRATIVE = "llm.narrative"
+SPAN_FINAL_RESPONSE = "agent.final_response"
+SPAN_OUTPUT_GUARDRAILS = "guardrails.output"
+SPAN_HUMAN_REVIEW = "agent.human_review"
+SPAN_MCP_CONNECT = "mcp.connect"
+SPAN_MCP_TOOL = "mcp.tool"
+SPAN_MCP_RESOURCE = "mcp.resource"
+SPAN_MCP_PROMPT = "mcp.prompt"
+
+#: Every span declares which of four kinds of work it represents. AC-09 asks for
+#: latency split into *thinking*, *acting* and *tool* time, and that split cannot
+#: be recovered from span names alone once new nodes are added — so it is an
+#: attribute the producer sets, and ``scripts/build_golden_signals.py`` reads it
+#: rather than pattern-matching names it does not control.
+#:
+#:   THINKING   a language-model call. Billed, variable, and the tail of every
+#:              assessment.
+#:   ACTING     a graph node doing deterministic work: routing, calculation,
+#:              rule evaluation, assembling a response.
+#:   TOOL       a call that crosses a tool boundary — the agentic-RAG tool, an
+#:              MCP tool, a resource read.
+#:   RETRIEVAL  a stage inside the retrieval pipeline. A subset of tool work,
+#:              reported separately because it is where the latency actually is.
+SPAN_KIND_THINKING = "THINKING"
+SPAN_KIND_ACTING = "ACTING"
+SPAN_KIND_TOOL = "TOOL"
+SPAN_KIND_RETRIEVAL = "RETRIEVAL"
+
+SPAN_KIND_ATTRIBUTE = "credpilot.span_kind"
+
+#: Default kind per span name, applied when a caller does not pass ``span_kind``.
+#: Retrieval-stage spans predate the attribute and are classified here rather
+#: than by editing eleven call sites that are already correct.
+_DEFAULT_SPAN_KINDS: dict[str, str] = {
+    SPAN_RAG_RETRIEVE: SPAN_KIND_TOOL,
+    SPAN_RAG_RESULT: SPAN_KIND_TOOL,
+    SPAN_DOMAIN_RESOLVE: SPAN_KIND_ACTING,
+    SPAN_METADATA_FILTER: SPAN_KIND_RETRIEVAL,
+    SPAN_BM25_SEARCH: SPAN_KIND_RETRIEVAL,
+    SPAN_EMBEDDING_QUERY: SPAN_KIND_RETRIEVAL,
+    SPAN_CHROMA_SEARCH: SPAN_KIND_RETRIEVAL,
+    SPAN_RRF_FUSION: SPAN_KIND_RETRIEVAL,
+    SPAN_RERANKER_RUN: SPAN_KIND_RETRIEVAL,
+    SPAN_TEMPORAL_VALIDATE: SPAN_KIND_RETRIEVAL,
+    SPAN_CITATION_VALIDATE: SPAN_KIND_RETRIEVAL,
+    SPAN_INTAKE: SPAN_KIND_ACTING,
+    SPAN_INPUT_GUARDRAILS: SPAN_KIND_ACTING,
+    SPAN_SUPERVISOR: SPAN_KIND_ACTING,
+    SPAN_CLARIFICATION: SPAN_KIND_ACTING,
+    SPAN_MORTGAGE_AGENT: SPAN_KIND_ACTING,
+    SPAN_EDUCATION_AGENT: SPAN_KIND_ACTING,
+    SPAN_ELIGIBILITY: SPAN_KIND_ACTING,
+    SPAN_RISK: SPAN_KIND_ACTING,
+    SPAN_RECOMMENDATION: SPAN_KIND_ACTING,
+    SPAN_NARRATIVE: SPAN_KIND_THINKING,
+    "supervisor.classify": SPAN_KIND_THINKING,
+    SPAN_FINAL_RESPONSE: SPAN_KIND_ACTING,
+    SPAN_OUTPUT_GUARDRAILS: SPAN_KIND_ACTING,
+    SPAN_HUMAN_REVIEW: SPAN_KIND_ACTING,
+    SPAN_MCP_CONNECT: SPAN_KIND_TOOL,
+    SPAN_MCP_TOOL: SPAN_KIND_TOOL,
+    SPAN_MCP_RESOURCE: SPAN_KIND_TOOL,
+    SPAN_MCP_PROMPT: SPAN_KIND_TOOL,
+}
+
+
+def span_kind_for(name: str, explicit: str | None = None) -> str:
+    """The kind attribute a span carries. Explicit wins; otherwise by name."""
+    if explicit:
+        return str(explicit)
+    return _DEFAULT_SPAN_KINDS.get(name, SPAN_KIND_ACTING)
+
 PROJECT_NAME = os.environ.get("PHOENIX_PROJECT_NAME", "credpilot")
 
 #: Attribute values longer than this are truncated before export.
@@ -143,13 +225,20 @@ def safe_attributes(attrs: Mapping[str, Any]) -> dict[str, Any]:
 
 
 @contextlib.contextmanager
-def span(name: str, **attributes: Any) -> Iterator[Any]:
-    """Open a span, degrading to a no-op when no tracer is configured."""
+def span(name: str, *, span_kind: str | None = None, **attributes: Any) -> Iterator[Any]:
+    """Open a span, degrading to a no-op when no tracer is configured.
+
+    Every span carries a ``credpilot.span_kind`` attribute — THINKING, ACTING,
+    TOOL or RETRIEVAL — so the golden-signals report can split latency the way
+    AC-09 asks for it without pattern-matching span names. ``span_kind`` is
+    inferred from the name when the caller does not pass one.
+    """
     tracer = get_tracer()
     if tracer is None:
         yield _NullSpan()
         return
     with tracer.start_as_current_span(name) as otel_span:
+        otel_span.set_attribute(SPAN_KIND_ATTRIBUTE, span_kind_for(name, span_kind))
         for key, value in safe_attributes(attributes).items():
             otel_span.set_attribute(key, value)
         yield _SpanHandle(otel_span)

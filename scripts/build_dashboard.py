@@ -40,13 +40,21 @@ from typing import Any, Sequence
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
+# Running this file directly puts scripts/ on sys.path; importing it as a module
+# does not, so it is added explicitly rather than relied on.
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from src.config import REPO_ROOT  # noqa: E402
 from src.console import use_utf8_stdio  # noqa: E402
 
 REPORTS = REPO_ROOT / "reports"
-DASHBOARD_DATA = REPORTS / "dashboard_data.csv"
-SIGNALS_PATH = REPORTS / "golden_signals.json"
+
+# Both paths are defined by the script that *writes* them, and imported here.
+# One definition of where an artifact lives, in the place that produces it —
+# which also means this script, which only reads them, does not contain the
+# literal filename and so cannot be mistaken for their producer.
+from build_golden_signals import DASHBOARD_DATA, SIGNALS_PATH  # noqa: E402
 DASHBOARD_PNG = REPORTS / "dashboard.png"
 
 #: Muted, print-safe, and distinguishable in greyscale — these get screenshotted
@@ -121,19 +129,26 @@ def _latency_panel(ax, rows: Sequence[dict[str, Any]], signals: dict[str, Any]) 
     labels = [_label(r["metric"]) for r in rows]
     values = [r["value"] for r in rows]
     positions = range(len(rows))
-    colours = [ACCENT if "narrative" in r["metric"] else MUTED for r in rows]
+    # Thinking time is the billed, variable part; it gets the accent.
+    colours = [
+        ACCENT if r["metric"].startswith(("thinking", "narrative")) else MUTED
+        for r in rows
+    ]
 
     ax.barh(list(positions), values, color=colours, height=0.62, zorder=3)
     for index, value in enumerate(values):
-        ax.text(value * 1.02, index, f"{value / 1000:.1f}s", va="center", ha="left",
+        # A p50 of 36 ms printed as "0.0s" tells a reader nothing and looks
+        # like a missing measurement. Sub-second values keep their unit.
+        label = f"{value:.0f}ms" if value < 1000 else f"{value / 1000:.1f}s"
+        ax.text(value * 1.02 + 20, index, label, va="center", ha="left",
                 fontsize=8, color=INK, zorder=4)
 
     ax.set_yticks(list(positions))
     ax.set_yticklabels(labels, fontsize=8)
     ax.invert_yaxis()
     ax.set_xlim(0, max(values) * 1.25 if values else 1)
-    ax.set_title("Latency — the model call is the tail", fontsize=10, color=INK,
-                 loc="left", pad=8)
+    ax.set_title("Latency, from Phoenix spans — thinking / acting / tool",
+                 fontsize=10, color=INK, loc="left", pad=8)
     ax.set_xlabel("milliseconds", fontsize=8, color=MUTED)
     ax.grid(axis="x", color=GRID, zorder=0)
     ax.set_axisbelow(True)
@@ -142,17 +157,33 @@ def _latency_panel(ax, rows: Sequence[dict[str, Any]], signals: dict[str, Any]) 
     ax.spines["bottom"].set_color(GRID)
     ax.tick_params(colors=MUTED, length=0)
 
-    cost = signals.get("cost", {}).get("system_per_assessment")
+    cost = signals.get("cost", {})
     tokens = signals.get("tokens", {})
-    if cost is not None:
-        ax.text(
-            0.99, -0.30,
-            f"${cost:.4f} per assessment  ·  "
-            f"{tokens.get('system_input_per_assessment', 0):.0f} in / "
-            f"{tokens.get('system_output_per_assessment', 0):.0f} out tokens  ·  "
-            f"{(tokens.get('reasoning_share_of_output') or 0) * 100:.0f}% of output is reasoning",
-            transform=ax.transAxes, ha="right", va="top", fontsize=7.5, color=MUTED,
+    per_request = cost.get("system_per_traced_request")
+
+    if tokens.get("model_calls_recorded_no_tokens"):
+        # Saying "$0.0000 per assessment" here would read as an efficiency
+        # result when it is the opposite: the calls never reached the provider.
+        footer = (
+            f"{tokens.get('model_calls', 0)} model call(s), all of which recorded "
+            f"zero tokens — the provider was unreachable, so cost is unmeasured "
+            f"rather than zero"
         )
+    elif per_request is not None:
+        footer = (
+            f"${per_request:.4f} per traced request  ·  "
+            f"{tokens.get('input_total', 0):,} in / "
+            f"{tokens.get('output_total', 0):,} out tokens over "
+            f"{tokens.get('model_calls', 0)} model call(s)  ·  "
+            f"{(tokens.get('reasoning_share_of_output') or 0) * 100:.0f}% of output "
+            f"is reasoning"
+        )
+    else:
+        footer = ""
+
+    if footer:
+        ax.text(0.99, -0.30, footer, transform=ax.transAxes, ha="right", va="top",
+                fontsize=7.5, color=MUTED)
 
 
 def _reliability_panel(ax, rows: Sequence[dict[str, Any]], signals: dict[str, Any]) -> None:
@@ -163,7 +194,7 @@ def _reliability_panel(ax, rows: Sequence[dict[str, Any]], signals: dict[str, An
     lines: list[tuple[str, str, str]] = []
     for row in rows:
         if row["metric"] == "steps_taken_mean":
-            budget = signals.get("saturation", {}).get("step_budget", 24)
+            budget = signals.get("saturation", {}).get("step_budget", 32)
             lines.append((
                 "step budget used",
                 f"{row['value']:.1f} of {budget}",
@@ -182,12 +213,20 @@ def _reliability_panel(ax, rows: Sequence[dict[str, Any]], signals: dict[str, An
                 GOOD if row["value"] == 0 else BAD,
             ))
 
+    # Two counts, because they measure different runs: the evaluation says how
+    # many golden cases completed, the trace export says how many requests were
+    # instrumented. Showing one under a label that implies the other is how the
+    # panel came to read "0 of 0".
+    errors = signals.get("errors", {})
     traffic = signals.get("traffic", {})
-    lines.insert(0, (
-        "assessments run",
-        f"{traffic.get('assessments_completed', 0)} of {traffic.get('assessments', 0)}",
-        INK,
-    ))
+    completed = errors.get("eval_completed")
+    cases = errors.get("eval_cases")
+    if completed is not None and cases:
+        lines.insert(0, ("golden cases run", f"{completed} of {cases}", INK))
+    lines.insert(
+        1 if completed is not None and cases else 0,
+        ("traces instrumented", f"{traffic.get('traces', 0)}", INK),
+    )
 
     for index, (label, value, colour) in enumerate(lines):
         y = 0.88 - index * 0.16
@@ -221,14 +260,20 @@ def build(data_path: Path, signals_path: Path, output: Path) -> Path:
     _latency_panel(axes[1][0], grouped.get("latency", []), signals)
     _reliability_panel(axes[1][1], grouped.get("reliability", []), signals)
 
-    judge = (signals.get("derived_from") or {}).get("eval_generated_at_utc") or "unknown"
+    # `derived_from` became `sources` when the operational figures moved to
+    # Phoenix, and reading the old key rendered every chart as "run unknown".
+    # The subtitle now names both provenances, because the chart carries two.
+    sources = signals.get("sources") or signals.get("derived_from") or {}
+    evaluated = sources.get("eval_generated_at_utc") or "unknown"
+    spans_from = str(sources.get("operational") or "unknown").split(":")[0]
     figure.suptitle(
         "CredPilot — agentic RAG underwriting copilot",
         fontsize=14, color=INK, x=0.06, ha="left", y=0.975, fontweight="bold",
     )
     figure.text(
         0.06, 0.935,
-        f"End-to-end evaluation over both products' golden sets  ·  run {judge}  ·  "
+        f"Quality from the golden-set evaluation of {evaluated}  ·  "
+        f"latency, tokens and cost from {spans_from.replace('_', ' ')}  ·  "
         f"synthetic data throughout",
         fontsize=9, color=MUTED, ha="left",
     )

@@ -37,6 +37,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from eval.retrieval.dataset import load_cases  # noqa: E402
+from eval.retrieval.metrics import round_for_serialization  # noqa: E402
 from eval.retrieval.runner import (  # noqa: E402
     GOLDEN_KEYS,
     HEADLINE_KEYS,
@@ -184,7 +185,10 @@ def main(argv: list[str] | None = None) -> int:
     )
     with CASES_PATH.open("w", encoding="utf-8") as fh:
         for outcome in all_outcomes:
-            fh.write(json.dumps(outcome.as_dict(), sort_keys=True) + "\n")
+            # Rounded on write only: the aggregates above were computed from
+            # full precision. See `round_for_serialization`.
+            record = round_for_serialization(outcome.as_dict())
+            fh.write(json.dumps(record, sort_keys=True) + "\n")
 
     if args.trace:
         flush_traces()
