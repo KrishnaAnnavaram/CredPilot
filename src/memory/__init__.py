@@ -12,6 +12,10 @@ Two tiers, because they answer different questions:
 * **Long-term** (:mod:`~src.memory.long_term`) — what this system knows about an
   applicant or a broker across *separate* sessions. Lives in SQLite, survives the
   process, and is searchable semantically as well as by key.
+* **Semantic / cross-session** (:mod:`~src.memory.semantic`) — the same durable
+  facts through **LangMem**, over a LangGraph SQLite store, which is what the
+  source document's Memory row asks for alongside the checkpointer. Every
+  long-term write goes through to it, and a returning session recalls from it.
 
 What memory is deliberately **not** allowed to do here:
 
@@ -29,6 +33,12 @@ from src.memory.long_term import (
     MemoryRecord,
     MemoryScope,
 )
+from src.memory.semantic import (
+    LANGMEM_DB,
+    ForbiddenMemoryContent,
+    SemanticMemory,
+    SemanticRecord,
+)
 from src.memory.short_term import (
     ShortTermMemory,
     Turn,
@@ -36,11 +46,15 @@ from src.memory.short_term import (
 from src.memory.store import MEMORY_DB, MemoryStore
 
 __all__ = [
+    "LANGMEM_DB",
     "MEMORY_DB",
+    "ForbiddenMemoryContent",
     "LongTermMemory",
     "MemoryRecord",
     "MemoryScope",
     "MemoryStore",
+    "SemanticMemory",
+    "SemanticRecord",
     "ShortTermMemory",
     "Turn",
 ]

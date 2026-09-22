@@ -291,73 +291,118 @@ handles those by column and by key — see `scan_csv` and `_ID_FIELD_VALUE` in
 [`src/guardrails/redaction.py`](../../src/guardrails/redaction.py) — but an
 independent byte-level scan of the file cannot, and should not be asked to.
 
-### D8 — memory is built here, not LangMem
+### D8 — LangMem now carries cross-session memory (resolved)
 
 **Requirement.** REQ-038, §4 Technology & Framework Stack, Memory row:
 `langgraph-checkpoint-sqlite (SQLite file) + LangMem`.
 
-**What exists.** `langgraph-checkpoint-sqlite` is used as named — `SqliteSaver`
-is the graph's checkpointer, and `data/memory/credpilot_checkpoints.sqlite` is
-what it writes. **LangMem is not installed**, and the tiered memory is
-implemented in [`src/memory/`](../../src/memory/).
+**What exists.** Both named components, as named.
+`langgraph-checkpoint-sqlite` is the graph's checkpointer and writes
+`data/memory/credpilot_checkpoints.sqlite`. **LangMem** carries what survives
+between sessions, over a `langgraph.store.sqlite.SqliteStore` file, in
+[`src/memory/semantic.py`](../../src/memory/semantic.py).
 
-**Status: PARTIAL.** One of the two named components is present. Recorded as a
-deviation rather than reported as met.
+**Status: MET.** This was previously recorded as a PARTIAL deviation, with the
+argument that a general memory library cannot know `POL-DTI-001 v1.0` stopped
+governing on 2026-07-01. That argument was right about the *refusals* and wrong
+about the conclusion: the refusals are a policy layer, and a policy layer sits
+**in front of** a store rather than replacing one.
 
-**Why.** The memory this system needs is mostly a set of *refusals*, and they
-are domain rules rather than storage behaviour:
+**How the two fit together.** LangMem stores and recalls; CredPilot decides what
+may be stored at all. Every write goes through
+`LongTermMemory.remember()`, which refuses before LangMem ever sees the text:
 
-* a prior decision is not evidence for a new application, so it is refused by
-  kind rather than stored and ranked;
-* policy is retrieved with an effective date rather than remembered, because a
-  remembered threshold is a threshold that has silently expired;
-* a credit figure goes stale on a clock, and the staleness is the point.
+* **a decision or a threshold is refused by kind** — a prior APPROVE is not
+  evidence for the next application, and a cached threshold outlives the boundary
+  that replaced it. The closed set lives in
+  [`src/memory/long_term.py`](../../src/memory/long_term.py) and is enforced on
+  both paths, so there is one rulebook rather than two that can drift;
+* **identifiers are redacted on the way in**, not on the way out. A store holding
+  an unredacted identifier has already leaked it;
+* **instruction-shaped applicant text is refused outright**. A memory is replayed
+  into a later prompt with more trust than the message it arrived in, which is
+  exactly the property an injection is looking for.
 
-A general memory library stores and recalls well; what it cannot do is know
-that `POL-DTI-001 v1.0` stopped governing on 2026-07-01. Recall is also scoped
-to one subject and `forget()` erases a data principal completely in one
-operation, which is a DPDP obligation rather than a memory feature.
+**Isolation is structural.** Each subject owns a namespace,
+`("credpilot", scope, subject_id)`, and every read is issued against that
+namespace. One applicant's recall cannot return another's file because the query
+is never broad enough to see it — not because a filter removed it afterwards
+(`POL-SEC-001` SEC-INJ-002). A post-filter would be one ranking bug away from
+breaking that.
 
-Cross-session recall is demonstrated rather than asserted:
-`logs/memory_test.log` is written by `tests/test_memory_persistence.py`, which
-writes in one session and reads back in a second store built only from the
-file path.
+**Failure is never fatal.** If the LangMem store cannot be opened, recall returns
+nothing, the write still lands in the system of record, and the file is still
+assessable on policy and the packet alone.
 
-### D6 — the guardrails are built here, not Guardrails-AI or LLM Guard
+**Evidence.** `logs/memory_test.log` is written by
+[`tests/test_memory_persistence.py`](../../tests/test_memory_persistence.py),
+which writes in one session, drops every object and connection, and reads back
+from a second store built only from the file path. Nine of its tests exercise the
+LangMem path specifically, including subject isolation with two subjects in one
+store, in-place correction of a revised fact, refusal of injected text, and a
+backend outage.
+
+### D6 — Guardrails-AI now expresses the guardrails (resolved)
 
 **Requirement.** REQ-042, §4 Technology & Framework Stack, Security row:
 `Guardrails-AI / LLM Guard · Presidio (PII) · python-dotenv`.
 
-**What exists.** Presidio and python-dotenv are used as named. **Neither
-Guardrails-AI nor LLM Guard is installed**, and the input/output guardrails are
-implemented in [`src/guardrails/`](../../src/guardrails/).
+**What exists.** All three. Presidio and python-dotenv as before, and
+**Guardrails-AI** on the live input and output paths in
+[`src/guardrails/policy_guard.py`](../../src/guardrails/policy_guard.py).
 
-**Status: PARTIAL.** Two of the three named components are present; the first is
-not. Recorded as a deviation rather than reported as met.
+**Status: MET.** Previously PARTIAL, on the argument that a general-purpose
+scanner knows nothing about `POL-SEC-001` and would destroy this project's
+citation grammar. That is still true of a scanner used *instead of* the custom
+controls. It is not an argument against using the library as the layer those
+controls are **expressed through**, which is what changed.
 
-**Why.** Both libraries are general-purpose scanners over free text. What
-CredPilot's guardrails do is mostly not that:
+**Guardrails-AI rather than LLM Guard, and not by preference.** `llm-guard` pins
+`transformers==4.51.3`; `sentence-transformers 6.0.1` requires
+`transformers>=5.0.0`. Installing it would downgrade the embedding stack that the
+entire retrieval path and the memory index run on. Guardrails-AI resolves against
+the existing pins. The source permits either.
 
-* the injection patterns are matched against a *known corpus* and are tuned on
-  six committed adversarial packets plus the conversational surface — a generic
-  scanner has no knowledge of `POL-SEC-001` or of which phrasings this corpus
-  actually contains;
-* `_PROTECTED_IDENTIFIERS` exempts CredPilot's own citation grammar from
-  redaction, which is the fix for F-2 and which no general scanner could know to
-  do. It is precisely the thing a generic library got wrong when Presidio's
-  loose recognisers destroyed every citation in the audit trail;
-* the output guardrail enforces *human-review routing* and validates figures
-  against the calculation record, neither of which is text scanning at all.
+**What the library actually does here.** Five validators, registered with
+`@register_validator` and run under `NOOP` so the verdict is data the caller
+routes on rather than an exception it has to catch:
 
-Adding a heavyweight dependency to satisfy the row, while continuing to rely on
-the code that actually does the work, would make the manifest say something the
-system does not do. The honest position is this row.
+| Validator | On | What it refuses |
+| --- | --- | --- |
+| `credpilot/no-injected-instruction` | input | instruction-shaped applicant text |
+| `credpilot/no-sensitive-value` | input, output | any value Presidio recognises |
+| `credpilot/bounded-length` | input | a query past the ceiling |
+| `credpilot/no-unresolved-citation` | output | a citation that names no committed document |
+| `credpilot/decision-consistent` | output | prose that contradicts its own decision |
 
-**What a reviewer should check instead.** That the *substance* is there:
-`tests/rag/test_security.py`, `tests/rag/test_pii_logging.py` and
-`tests/test_supervisor.py` cover 15 injection patterns, cross-applicant and
-bulk-access refusal, PII redaction at every write boundary, and the
-committed-artifact scan.
+Each one delegates to the code that already did the work — `detect_injection`,
+`find_sensitive`, `CONTRADICTION_TERMS` — so the guardrail and the audit trail
+cannot disagree about whether something was PII. **Nothing was removed.**
+`sanitize_query` still strips, quarantines and routes for review; `redact_text`
+still holds `_PROTECTED_IDENTIFIERS` so the citation grammar survives;
+`validate_response` still enforces human-review routing and figure consistency.
+Either layer saying no is enough to put a human in front of the file.
+
+**No validator calls a model.** That matters twice: a guardrail that asks a model
+for its verdict can be argued out of it by the text it is inspecting, and it stops
+working when the quota does — which, on this project, it has.
+
+**Its telemetry is off, in code.** Guardrails-AI exports anonymous spans to a
+vendor HTTPS endpoint by default, and the documented switch is `~/.guardrailsrc`
+— a file on whichever machine happens to run it. For a system whose whole claim
+is that applicant data stays local, "off on the developer's laptop" is not off.
+`_silence_telemetry()` disables tracing, claims the `HubTelemetry` singleton
+before any `Guard` exists, and configures every guard with
+`allow_metrics_collection=False`;
+[`tests/test_guardrails_library.py`](../../tests/test_guardrails_library.py)
+asserts all three stayed done.
+
+**What a reviewer should check.** That the library is *invoked*, not merely
+declared: `test_the_input_path_actually_calls_the_guard` and
+`test_the_output_path_actually_calls_the_guard` go through `sanitize_query` and
+`validate_response`, which are what `src/rag/pipeline.py` and `src/graph.py` call.
+Six benign questions are asserted **not** to trip it, because the cost of a
+guardrail is what it refuses that it should not.
 
 ### D5 — the requested MCP capability set exceeds what the source document asks for
 
@@ -388,9 +433,9 @@ From `data/vectorstore/index_integrity.json` and `eval/results/retrieval_eval.js
 | Declared rules indexed | all | 174 / 174 | 72 / 72 | — |
 | `cross_product_contamination_rate` | 0.00 | 0.0000 | 0.0000 | **0.0000** |
 | `citation_validity` | 1.00 | 1.0000 | 1.0000 | **1.0000** |
-| `policy_recall@5` (authored) | ≥ 0.95 | 1.0000 | 1.0000 | **1.0000** |
-| `rule_recall@5` (authored) | ≥ 0.90 | 0.9720 | 0.9931 | **0.9826** |
-| `rule_mrr@10` (authored) | — | 0.8905 | 0.8847 | 0.8876 |
+| `policy_recall@5` (authored) | ≥ 0.95 | 1.0000 | 0.9865 | **0.9932** |
+| `rule_recall@5` (authored) | ≥ 0.90 | 0.9720 | 0.9792 | **0.9756** |
+| `rule_mrr@10` (authored) | — | 0.8905 | 0.8813 | 0.8859 |
 | `version_accuracy` (mortgage) | 1.00 | 1.0000 | n/a | **1.0000** |
 | `wrong_version_rate` (mortgage) | 0.00 | 0.0000 | n/a | **0.0000** |
 | `no_result` | — | 0.0000 | 0.0000 | **0.0000** |

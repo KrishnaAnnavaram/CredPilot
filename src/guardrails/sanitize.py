@@ -27,7 +27,13 @@ from src.guardrails.redaction import redact_text
 #: records that an override was attempted, so the graph can route for review.
 #: A short optional qualifier between the verb and the thing being overridden:
 #: "disregard the *reserve* requirement", "waive the *credit score* requirement".
-_QUALIFIER = r"(?:\s+(?:the|this|that|my|all|any|lending|credit|score|reserve|income|asset|documentation|affordability)){0,4}"
+#:
+#: The policy acronyms belong here beside the words. Without them
+#: "disregard the DTI limit" matched nothing: the qualifier list held only
+#: articles and long-form nouns, so the one token between "the" and "limit"
+#: broke the pattern - and naming the rule by its acronym is how an applicant
+#: who has read the policy would actually phrase the demand.
+_QUALIFIER = r"(?:\s+(?:the|this|that|my|all|any|lending|credit|score|reserve|income|asset|documentation|affordability|dti|ltv|lti|dscr)){0,4}"
 _CONTROL_NOUN = r"(?:polic\w+|rules?|guidelines?|limits?|thresholds?|requirements?|ceilings?|minimums?|maximums?)"
 
 _INJECTION_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
@@ -202,6 +208,10 @@ class SanitizationResult:
     blocked: bool = False
     findings: list[str] = field(default_factory=list)
     requires_human_review: bool = False
+    #: What the Guardrails-AI input guard concluded, if it ran. Recorded beside
+    #: the custom findings rather than merged into them: two layers that agree
+    #: are evidence, and two that disagree is something a reviewer should see.
+    guardrails: dict[str, Any] = field(default_factory=dict)
 
     @property
     def clean(self) -> bool:
@@ -213,6 +223,7 @@ class SanitizationResult:
             "findings": sorted(set(self.findings)),
             "requires_human_review": self.requires_human_review,
             "original_length": self.original_length,
+            "guardrails": dict(self.guardrails),
         }
 
 
@@ -292,6 +303,14 @@ def sanitize_query(text: str) -> SanitizationResult:
     original = str(text or "")
     findings = detect_injection(original)
 
+    # Guardrails-AI runs on the original text, before anything is stripped, so
+    # its verdict describes what actually arrived rather than what survived.
+    # Imported here rather than at module scope because that module imports this
+    # one for its validators.
+    from src.guardrails.policy_guard import check_input
+
+    verdict = check_input(original)
+
     cleaned = original[:MAX_QUERY_CHARS]
     cleaned = _CONTROL_TERMS.sub(" ", cleaned)
     for _, pattern in _INJECTION_PATTERNS:
@@ -309,7 +328,14 @@ def sanitize_query(text: str) -> SanitizationResult:
         original_length=len(original),
         blocked=blocked,
         findings=findings,
-        requires_human_review=bool(set(findings) & _REVIEW_TRIGGERS),
+        # A Guardrails-AI failure routes for review on its own. It is a second
+        # opinion, and the safe way to combine two opinions about whether text is
+        # safe to act on is to review when either says no.
+        requires_human_review=(
+            bool(set(findings) & _REVIEW_TRIGGERS)
+            or (not verdict.passed and not verdict.skipped)
+        ),
+        guardrails=verdict.as_dict(),
     )
 
 

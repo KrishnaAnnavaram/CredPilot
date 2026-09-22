@@ -468,13 +468,30 @@ def recall_prior_context(subject_id: str | None) -> list[dict[str, Any]]:
     packet alone. What comes back is context — outstanding documents, a stated
     preference — never a decision or a threshold: :mod:`src.memory.long_term`
     refuses to store those in the first place.
+
+    Two stores answer this, and both are scoped to ``subject_id``: the long-term
+    store is the system of record, and LangMem is what carries a fact written in
+    one session into the next. They are merged on content rather than on id,
+    because a write goes to both and the same note therefore exists twice under
+    two different id spaces — deduplicating on id would return every memory
+    twice.
     """
     if not subject_id:
         return []
     try:
         from src.memory import LongTermMemory
 
-        return [r.as_dict() for r in LongTermMemory().recall(subject_id, limit=10)]
+        memory = LongTermMemory()
+        records = [r.as_dict() for r in memory.recall(subject_id, limit=10)]
+        seen = {str(r.get("content", "")).strip() for r in records}
+
+        for extra in memory.semantic.recall(subject_id, limit=10):
+            payload = extra.as_dict()
+            content = str(payload.get("content", "")).strip()
+            if content and content not in seen:
+                seen.add(content)
+                records.append(payload)
+        return records[:10]
     except Exception:  # noqa: BLE001 - memory must never block an assessment
         return []
 

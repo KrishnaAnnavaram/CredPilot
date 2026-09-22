@@ -81,9 +81,9 @@ Authored evaluation set, 182 cases, macro-averaged across products:
 
 | Metric | Target | Measured |
 |--------|--------|----------|
-| `policy_recall@5` | ≥ 0.95 | **1.0000** |
-| `rule_recall@5` | ≥ 0.90 | **0.9826** |
-| `rule_mrr@10` | — | 0.8876 |
+| `policy_recall@5` | ≥ 0.95 | **0.9932** |
+| `rule_recall@5` | ≥ 0.90 | **0.9756** |
+| `rule_mrr@10` | — | 0.8859 |
 | `rule_ndcg@10` | — | 0.9084 |
 | `citation_validity` | 1.00 | **1.0000** |
 | `cross_product_contamination` | 0.00 | **0.0000** |

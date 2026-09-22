@@ -47,7 +47,7 @@
       "UNSET": 1119
     }
   },
-  "generated_at_utc": "2026-09-22T05:54:05+00:00",
+  "generated_at_utc": "2026-09-22T06:59:23+00:00",
   "generated_by": "scripts/build_golden_signals.py",
   "grounding": {
     "citation_recall_macro": 0.7095,
@@ -71,199 +71,199 @@
     "acting": {
       "comment": "Graph nodes doing deterministic work: routing, calculation, rule evaluation, assembling and validating the response.",
       "count": 211,
-      "max": 528.0,
-      "mean": 18.7,
+      "max": 379.1,
+      "mean": 15.8,
       "p50": 0.0,
-      "p95": 71.4,
-      "p99": 312.5,
-      "total": 3954.1
+      "p95": 42.8,
+      "p99": 274.5,
+      "total": 3333.3
     },
     "by_span_name": {
       "agent.education": {
         "count": 5,
-        "p50": 8.0,
-        "p95": 11.8,
-        "total": 40.7
+        "p50": 5.1,
+        "p95": 7.5,
+        "total": 26.4
       },
       "agent.eligibility": {
         "count": 8,
-        "p50": 4.8,
-        "p95": 314.4,
-        "total": 490.4
+        "p50": 2.0,
+        "p95": 326.5,
+        "total": 485.3
       },
       "agent.final_response": {
         "count": 13,
-        "p50": 7.0,
-        "p95": 11.1,
-        "total": 95.2
+        "p50": 5.3,
+        "p95": 9.4,
+        "total": 77.5
       },
       "agent.human_review": {
         "count": 7,
         "p50": 19.0,
-        "p95": 75.2,
-        "total": 210.4
+        "p95": 71.7,
+        "total": 204.4
       },
       "agent.mortgage": {
         "count": 6,
-        "p50": 8.5,
-        "p95": 14.5,
-        "total": 48.9
+        "p50": 7.1,
+        "p95": 11.0,
+        "total": 44.9
       },
       "agent.recommendation": {
         "count": 8,
-        "p50": 273.3,
-        "p95": 528.0,
-        "total": 2331.9
+        "p50": 215.9,
+        "p95": 379.1,
+        "total": 1919.8
       },
       "agent.risk": {
         "count": 8,
         "p50": 0.0,
         "p95": 15.7,
-        "total": 19.8
+        "total": 29.6
       },
       "bm25.search": {
         "count": 89,
-        "p50": 1.3,
-        "p95": 7.2,
-        "total": 157.7
+        "p50": 1.0,
+        "p95": 3.0,
+        "total": 112.6
       },
       "chroma.search": {
         "count": 89,
-        "p50": 10.8,
-        "p95": 19.6,
-        "total": 1508.4
+        "p50": 9.1,
+        "p95": 13.9,
+        "total": 1127.9
       },
       "citation.validate": {
         "count": 89,
-        "p50": 4.0,
-        "p95": 6.0,
-        "total": 329.6
+        "p50": 3.0,
+        "p95": 5.3,
+        "total": 283.0
       },
       "domain.resolve": {
         "count": 89,
         "p50": 0.0,
-        "p95": 1.0,
-        "total": 9.8
+        "p95": 1.5,
+        "total": 14.0
       },
       "embedding.query": {
         "count": 89,
-        "p50": 25.0,
-        "p95": 98.8,
-        "total": 12085.5
+        "p50": 23.4,
+        "p95": 34.2,
+        "total": 9297.8
       },
       "graph.intake": {
         "count": 16,
-        "p50": 1.0,
-        "p95": 16.7,
-        "total": 78.0
+        "p50": 0.0,
+        "p95": 9.1,
+        "total": 48.6
       },
       "guardrails.input": {
         "count": 16,
         "p50": 0.0,
-        "p95": 10.0,
-        "total": 39.3
+        "p95": 14.1,
+        "total": 32.0
       },
       "guardrails.output": {
         "count": 16,
         "p50": 0.0,
         "p95": 0.0,
-        "total": 7.0
+        "total": 16.1
       },
       "llm.narrative": {
         "count": 11,
         "p50": 1.0,
-        "p95": 2.1,
-        "total": 1335.9
+        "p95": 2.0,
+        "total": 1258.6
       },
       "metadata.filter": {
         "count": 89,
-        "p50": 1.8,
-        "p95": 4.0,
-        "total": 156.7
+        "p50": 1.0,
+        "p95": 2.6,
+        "total": 112.7
       },
       "rag.result": {
         "count": 89,
         "p50": 0.0,
-        "p95": 2.5,
-        "total": 49.1
+        "p95": 2.0,
+        "total": 31.7
       },
       "rag.retrieve": {
         "count": 96,
-        "p50": 509.8,
-        "p95": 971.3,
-        "total": 60412.4
+        "p50": 447.8,
+        "p95": 513.7,
+        "total": 51223.7
       },
       "reranker.run": {
         "count": 89,
-        "p50": 466.0,
-        "p95": 1028.2,
-        "total": 45755.8
+        "p50": 403.1,
+        "p95": 468.9,
+        "total": 37255.6
       },
       "rrf.fusion": {
         "count": 89,
         "p50": 0.0,
-        "p95": 1.0,
-        "total": 13.8
+        "p95": 1.7,
+        "total": 15.8
       },
       "supervisor.clarify": {
         "count": 2,
-        "p50": 17.5,
-        "p95": 17.6,
-        "total": 35.2
+        "p50": 15.6,
+        "p95": 16.5,
+        "total": 32.1
       },
       "supervisor.route": {
         "count": 17,
-        "p50": 21.5,
-        "p95": 39.8,
-        "total": 547.7
+        "p50": 21.9,
+        "p95": 37.8,
+        "total": 402.6
       },
       "temporal.validate": {
         "count": 89,
         "p50": 0.0,
-        "p95": 2.0,
-        "total": 17.4
+        "p95": 1.0,
+        "total": 14.2
       }
     },
     "request": {
       "comment": "One root span per traced request. Children nest and overlap, so the total is the root's duration rather than the sum of its parts.",
       "count": 318,
-      "max": 12337.6,
-      "mean": 206.6,
-      "p50": 6.7,
-      "p95": 546.7,
-      "p99": 1258.3,
-      "total": 65702.4
+      "max": 12643.2,
+      "mean": 175.5,
+      "p50": 5.1,
+      "p95": 500.7,
+      "p99": 521.0,
+      "total": 55815.5
     },
     "retrieval": {
       "comment": "Stages inside the retrieval pipeline \u2014 embedding, BM25, Chroma, fusion, rerank, temporal and citation validation. Reported separately from tool time because this is where the latency is.",
       "count": 712,
-      "max": 9150.8,
-      "mean": 84.3,
-      "p50": 3.0,
-      "p95": 475.1,
-      "p99": 795.4,
-      "total": 60024.9
+      "max": 7198.9,
+      "mean": 67.7,
+      "p50": 2.0,
+      "p95": 411.5,
+      "p99": 466.9,
+      "total": 48219.6
     },
     "source": "phoenix spans",
     "thinking": {
       "comment": "Model calls. The only billed work, and the tail of every run.",
       "count": 11,
-      "max": 1326.3,
-      "mean": 121.4,
+      "max": 1249.9,
+      "mean": 114.4,
       "p50": 1.0,
-      "p95": 2.1,
-      "p99": 1326.3,
-      "total": 1335.9
+      "p95": 2.0,
+      "p99": 1249.9,
+      "total": 1258.6
     },
     "tool": {
       "comment": "Calls crossing a tool boundary: the agentic-RAG tool, MCP.",
       "count": 185,
-      "max": 12337.6,
-      "mean": 326.8,
-      "p50": 8.0,
-      "p95": 800.8,
-      "p99": 1258.3,
-      "total": 60461.5
+      "max": 12643.2,
+      "mean": 277.1,
+      "p50": 7.3,
+      "p95": 508.9,
+      "p99": 521.0,
+      "total": 51255.4
     },
     "unit": "milliseconds"
   },
@@ -275,8 +275,8 @@
     "steps_taken_mean": 11.4634
   },
   "sources": {
-    "eval_generated_at_utc": "2026-09-22T03:29:58+00:00",
-    "eval_run_id": "9fff3fc1",
+    "eval_generated_at_utc": "2026-09-22T06:59:19+00:00",
+    "eval_run_id": "c3d56055",
     "note": "Latency, its thinking/acting/tool split, tokens and cost are computed from Phoenix spans. Accuracy, hallucination rate and citation validity are imported from the evaluation report, which is where they are measured. Nothing here is derived from the other: a latency split invented from an evaluation total would be a fabrication, and an accuracy figure recomputed here would be a second opinion nobody asked for.",
     "operational": "committed_export:traces/phoenix_spans.jsonl",
     "quality": "reports/eval_report.json"

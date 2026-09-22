@@ -6,7 +6,7 @@ safe to act on. This is its counterpart on the way out, and it lived in
 That was not only untidy: an output guardrail inside the graph module is one
 nobody can call, test or audit without building a graph.
 
-Three things are checked, and they fail differently on purpose:
+Three things are checked here, and they fail differently on purpose:
 
 * **citations resolve** — an unresolved citation is a *retrieval* problem.
   Substituting different prose would hide it, so it is reported and the
@@ -19,8 +19,21 @@ Three things are checked, and they fail differently on purpose:
   it reads as authoritative and is wrong in the direction a borrower would act
   on. Also repairable by substitution.
 
-Nothing here calls a model. The check that a narrative is faithful is made
-where the narrative is made (:mod:`src.narrative`); this reads the verdict.
+A fourth comes from :mod:`src.guardrails.policy_guard`, which runs the
+Guardrails-AI output guard over the same text: **no sensitive value reaches the
+published response.** There is no counterpart to it above, so a PII leak on the
+way out arrives only through that layer.
+
+Two of the Guardrails-AI validators re-check what this module already checks,
+and that redundancy is the point of having a second layer — but only the
+findings this module did *not* make are appended to ``failures``. Reporting both
+copies would show a reviewer two problems where there is one. What the second
+layer concluded either way is kept under ``guardrails`` in the verdict, so the
+two can be compared.
+
+Nothing here calls a model, and neither does any validator in the guard. The
+check that a narrative is faithful is made where the narrative is made
+(:mod:`src.narrative`); this reads the verdict.
 """
 
 from __future__ import annotations
@@ -40,6 +53,12 @@ CONTRADICTION_TERMS: dict[str, tuple[str, ...]] = {
     "DECLINE_RECOMMENDATION": (r"\bapproved\b", r"\bwe (?:can |will )?approve\b"),
     "REFER_RECOMMENDATION": (r"\bapproved\b", r"\bdeclined\b"),
 }
+
+
+#: Guardrails-AI validators whose finding this module already makes for itself.
+#: Kept as names rather than by matching message text, which would break the
+#: first time either wording changed.
+_ALREADY_CHECKED_ABOVE = frozenset({"NoUnresolvedCitation", "DecisionConsistent"})
 
 
 def validate_response(
@@ -87,12 +106,39 @@ def validate_response(
                 )
                 break
 
+    # The Guardrails-AI output guard, over the same response and the same facts.
+    # It re-checks citation resolution and decision consistency declaratively and
+    # adds a PII scan of the published text. A failure it alone finds still fails
+    # the response: the whole point of the second layer is that it catches what
+    # the first did not.
+    from src.guardrails.policy_guard import check_output
+
+    guard_verdict = check_output(
+        text,
+        metadata={
+            "outcome": outcome,
+            "unresolved_citations": [c for c in unresolved if c],
+        },
+    )
+    # Only what the checks above did not already find. `NoUnresolvedCitation` and
+    # `DecisionConsistent` deliberately re-check what this function checks — that
+    # redundancy is the point of a second layer — but reporting both copies would
+    # show a reviewer two problems where there is one. `NoSensitiveValue` has no
+    # counterpart here, so a PII leak in the published text arrives only through
+    # Guardrails-AI and is always appended.
+    if not guard_verdict.skipped:
+        for validator, message in sorted(guard_verdict.failures_by_validator.items()):
+            if validator in _ALREADY_CHECKED_ABOVE:
+                continue
+            failures.append(f"guardrails-ai: {message}")
+
     return {
         "passed": not failures,
         "failures": failures,
         "citations_resolve": not unresolved,
         "narrative_faithful": narrative.get("is_faithful"),
         "decision_consistent": contradiction is None,
+        "guardrails": guard_verdict.as_dict(),
         # Only a narrative problem is repairable by substitution. An unresolved
         # citation is a retrieval problem and swapping the prose would hide it.
         "fallback_to_deterministic": bool(

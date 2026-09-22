@@ -124,3 +124,32 @@ def test_failures_accumulate_rather_than_short_circuiting():
     )
     assert len(verdict["failures"]) == 3, verdict["failures"]
     assert policy_allows_publication(verdict) is False
+
+    # Guardrails-AI reached the same conclusion on two of them. Its agreement is
+    # recorded, but not re-listed: a reviewer counting reasons should see three
+    # problems here, not five.
+    assert set(verdict["guardrails"]["failed_validators"]) == {
+        "NoUnresolvedCitation", "DecisionConsistent",
+    }
+    assert not [f for f in verdict["failures"] if f.startswith("guardrails-ai:")]
+
+
+def test_a_pii_leak_on_the_way_out_is_caught_only_by_the_library_layer():
+    """The one output check with no counterpart in this module.
+
+    Citation resolution and decision consistency are checked twice on purpose.
+    This is not: nothing above scans the published prose for a sensitive value,
+    so if the Guardrails-AI layer stopped running, this failure would disappear
+    silently rather than loudly.
+    """
+    verdict = _verdict(
+        recommendation={"outcome": "APPROVE_RECOMMENDATION"},
+        narrative={"is_faithful": True,
+                   "text": f"Approved. We will write to the card {'4' + '1' * 15}."},
+        evidence=[],
+    )
+    assert policy_allows_publication(verdict) is False
+    assert [f for f in verdict["failures"] if f.startswith("guardrails-ai:")], (
+        verdict["failures"]
+    )
+    assert "NoSensitiveValue" in verdict["guardrails"]["failed_validators"]

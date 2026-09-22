@@ -17,6 +17,13 @@ langgraph==1.2.11
 langgraph-checkpoint-sqlite==3.1.1
 langchain-core==1.6.2
 
+# --- memory (REQ-038) -------------------------------------------------------
+# The source names the checkpointer and LangMem together. The checkpointer above
+# carries a single thread; LangMem carries what survives between threads, over a
+# LangGraph SQLite store. Used in src/memory/semantic.py, and every long-term
+# write goes through it.
+langmem==0.0.30
+
 # --- LLM provider: Google Gemini only (REQ-036) -----------------------------
 # Not used in the retrieval, calculation or rule-evaluation path, which are
 # deterministic by design. Wired for narrative generation and LLM-as-judge.
@@ -58,6 +65,19 @@ opentelemetry-sdk==1.44.0
 opentelemetry-exporter-otlp-proto-http==1.44.0
 
 # --- security and PII (REQ-042) ---------------------------------------------
+# The source names "Guardrails-AI / LLM Guard - Presidio (PII) - python-dotenv".
+#
+# Guardrails-AI rather than LLM Guard, and the reason is a hard constraint rather
+# than a preference: llm-guard pins transformers==4.51.3, while
+# sentence-transformers 6.0.1 requires transformers>=5.0.0. Installing it would
+# downgrade the embedding stack the whole retrieval path and the memory index
+# run on. Guardrails-AI resolves against the existing pins.
+#
+# Its schema validators run locally and call no model. Its anonymous telemetry is
+# switched off in code (src/guardrails/policy_guard.py) rather than by a machine
+# local ~/.guardrailsrc, because a PII system must not ship spans to a vendor
+# endpoint on someone else's laptop either.
+guardrails-ai==0.11.0
 presidio-analyzer==2.2.361
 presidio-anonymizer==2.2.361
 python-dotenv==1.2.2

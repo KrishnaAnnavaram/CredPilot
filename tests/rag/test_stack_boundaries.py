@@ -43,6 +43,8 @@ APPROVED_RUNTIME_PACKAGES = {
     "langchain_core": "message and runnable primitives LangGraph builds on",
     "mcp": "Model Context Protocol SDK (REQ-037)",
     "langchain_mcp_adapters": "MCP tool adapters (REQ-037)",
+    # memory
+    "langmem": "cross-session long-term memory over a LangGraph store (REQ-038)",
     # retrieval, all local
     "chromadb": "embedded vector store, no service (REQ-039)",
     "sentence_transformers": "local embedding and cross-encoder checkpoints",
@@ -52,6 +54,7 @@ APPROVED_RUNTIME_PACKAGES = {
     "phoenix": "Arize Phoenix (REQ-040)",
     "opentelemetry": "the tracing API Phoenix exports through",
     # guardrails and config
+    "guardrails": "Guardrails-AI, the declarative input/output guard layer (REQ-042)",
     "presidio_analyzer": "PII recognition (REQ-042)",
     "dotenv": "environment loading (REQ-042)",
     "yaml": "the retrieval configuration file",

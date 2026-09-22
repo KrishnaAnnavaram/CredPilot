@@ -121,6 +121,17 @@ class MemoryRecord:
         return payload
 
 
+def _langmem_path_for(store_path: Path) -> Path:
+    """Where LangMem's store lives, given this store's file.
+
+    Derived rather than configured so a test pointing the long-term store at a
+    temporary directory gets a temporary LangMem store too. A fixed default here
+    would have every isolated test quietly sharing the repository's real one.
+    """
+    path = Path(store_path)
+    return path.with_name(f"{path.stem}_langmem{path.suffix or '.sqlite'}")
+
+
 def _cosine(a: Sequence[float], b: Sequence[float]) -> float:
     if not a or not b or len(a) != len(b):
         return 0.0
@@ -136,6 +147,26 @@ class LongTermMemory:
     def __init__(self, store: MemoryStore | None = None, *, path: "str | Path | None" = None):
         self.store = store or MemoryStore(path)
         self._embedder = None
+        self._semantic = None
+        self._semantic_path = _langmem_path_for(self.store.path)
+
+    # -- LangMem ------------------------------------------------------------------
+
+    @property
+    def semantic(self):
+        """The LangMem layer, opened on first use.
+
+        Lazy because opening it costs a file handle and a schema check, and the
+        callers that only write a keyed note never read semantically. It is a
+        sibling file rather than the same one: LangMem owns and migrates its own
+        schema, and two writers with different ideas about the tables is a
+        corruption waiting for a release.
+        """
+        if self._semantic is None:
+            from src.memory.semantic import SemanticMemory
+
+            self._semantic = SemanticMemory(self._semantic_path)
+        return self._semantic
 
     # -- embedding ----------------------------------------------------------------
 
@@ -180,7 +211,7 @@ class LongTermMemory:
             )
 
         embedding = self._embed(content) if embed else None
-        return self.store.upsert(
+        record_id = self.store.upsert(
             scope=scope.value,
             subject_id=subject_id,
             kind=kind,
@@ -191,9 +222,60 @@ class LongTermMemory:
             session_id=session_id,
         )
 
+        # Write through to LangMem, which is what a later session recalls from.
+        # Best-effort on purpose: this store is the system of record, and a
+        # LangMem outage must not lose the write or fail the file. The refusals
+        # above have already run, so nothing forbidden reaches it.
+        try:
+            self.semantic.write(
+                subject_id=subject_id,
+                content=content,
+                kind=kind,
+                scope=scope.value,
+                key=key,
+                metadata=metadata,
+                session_id=session_id,
+            )
+        except Exception:  # noqa: BLE001 - memory must never block an assessment
+            pass
+
+        return record_id
+
     def forget(self, subject_id: str, scope: MemoryScope = MemoryScope.APPLICANT) -> int:
-        """Erase everything held about a subject."""
-        return self.store.delete_subject(scope.value, subject_id)
+        """Erase everything held about a subject, in both stores.
+
+        Erasure that clears one store and leaves the other is not erasure. The
+        count returned is this store's, because it is the system of record, but
+        the LangMem namespace goes with it.
+        """
+        removed = self.store.delete_subject(scope.value, subject_id)
+        try:
+            self.semantic.forget(subject_id, scope=scope.value)
+        except Exception:  # noqa: BLE001
+            pass
+        return removed
+
+    def semantic_recall(
+        self,
+        subject_id: str,
+        query: str,
+        *,
+        scope: MemoryScope = MemoryScope.APPLICANT,
+        limit: int = 5,
+    ) -> list[dict[str, Any]]:
+        """Cross-session recall through LangMem, scoped to one subject.
+
+        Returns plain dictionaries rather than :class:`MemoryRecord` because
+        these come from a different store with a different id space, and giving
+        them the same type would invite a caller to treat a LangMem id as a row
+        id in this one.
+        """
+        try:
+            return [r.as_dict() for r in self.semantic.search(
+                subject_id, query, scope=scope.value, limit=limit
+            )]
+        except Exception:  # noqa: BLE001 - memory must never block an assessment
+            return []
 
     # -- reads --------------------------------------------------------------------
 
