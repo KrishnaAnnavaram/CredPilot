@@ -58,12 +58,12 @@ Duration | 20 hours
 
 **What evidence would support it**
 
-The actual elapsed engagement time against the stated 20 hours. A commit-history window, a timesheet, or a dated statement of when work started and stopped.
+The actual elapsed engagement time against the stated 20 hours. Git shows a 55.6-hour wall-clock window over 13 commits, but that is the window work happened inside, not effort - and the majority of this team's research is not represented in commits at all. Exact task-level hours are team-attested rather than mechanically derivable from Git history.
 
 **Where to look**
 
 ```
-git log --reverse --date=iso --format='%ad %s' | head -1, and the last commit's date.
+docs/team/WORKLOG.md and reports/team_worklog.xlsx - generated from git history and the self-recorded timestamps inside the committed evidence artifacts by scripts/build_team_worklog.py. Both members sign the confirmation blocks in WORKLOG.md.
 ```
 
 **Who should attest:** A member of the delivery team.
@@ -93,12 +93,12 @@ Format | Team of 2-4
 
 **What evidence would support it**
 
-The number of people on the delivery team, and whether that is within 2-4. State it plainly; if the team was one person, say so - a failed attestation that is true is worth more than a passed one that is not.
+The number of people on the delivery team, and whether that is within 2-4. The team is two: Krishna Annavaram and Mahesh Rajendra. Git records two distinct commit authors, which corroborates but does not prove team size.
 
 **Where to look**
 
 ```
-git shortlog -sne --all lists every committer.
+docs/team/TEAM_ATTESTATION.md for the statement and both signature blocks; docs/team/TEAM_AND_ROLES.md for roles and the repository-verified vs team-attested contribution split. Corroborating: git shortlog -sne --all shows two distinct contributors.
 ```
 
 **Who should attest:** A member of the delivery team.
@@ -133,7 +133,7 @@ Confirmation that the review was run this way - automated, from committed eviden
 **Where to look**
 
 ```
-The reviewer's instructions or the returned scorecard.
+The reviewer's instructions or the returned scorecard. NOTE: docs/team/AUTOMATED_REVIEW_EVIDENCE.md records the TEAM's own automated validation (validator, pytest, DeepEval, evidence regeneration). That is not the official evaluation this requirement describes and does not satisfy it.
 ```
 
 **Who should attest:** The reviewer who ran the evaluation, or the submitter if they were told how it would be run.
@@ -168,7 +168,7 @@ That the per-team Excel report was produced with those five sheets. Cite the fil
 **Where to look**
 
 ```
-The review report itself, if it has been returned.
+The review report itself, if it has been returned. NOTE: reports/CredPilot_Internal_Peer_Review.xlsx carries the same five sheets but is INTERNAL pre-submission preparation by the delivery team, reviewed by Mahesh Rajendra as an internal peer reviewer - NOT a Virtusa evaluator. It is not the per-team report this requirement describes.
 ```
 
 **Who should attest:** The reviewer who produces the report.
@@ -203,7 +203,7 @@ That the stated bands were the ones applied - a score at or above 60 recorded as
 **Where to look**
 
 ```
-The returned scorecard.
+The returned scorecard. The bands (Pass >= 60, Not Yet Passed < 60) are recorded in reports/CredPilot_Internal_Peer_Review.xlsx, but whether they were applied to an awarded grade is the evaluator's fact.
 ```
 
 **Who should attest:** The evaluator who awards the grade.

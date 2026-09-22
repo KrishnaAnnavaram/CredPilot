@@ -1,15 +1,15 @@
 CredPilot — tiered memory cross-session recall
-run_at_utc: 2026-09-22T07:43:30+00:00
+run_at_utc: 2026-09-22T15:34:09+00:00
 
-session-1  wrote 2 memories for BORR-064dba
-session-2  recalled 2 memories for BORR-064dba
+session-1  wrote 2 memories for BORR-fd7abd
+session-2  recalled 2 memories for BORR-fd7abd
            [context_note] employment: Self-employed consultant since 2019; income verified from two years of returns.
            [document_status] outstanding-docs: Letter of explanation for the 2024 gap is still outstanding.
 update     corrected 'employer' across sessions without duplicating (1 record held)
 semantic   'is this borrower self-employed?' -> 'Runs his own consultancy and files two years of tax returns.' (similarity 0.779)
            other applicants' memories were not returned
 log        logs/memory_test.log written by this test module
-langmem    session-1 wrote and session-2 recalled 1 memory for BORR-e65a4c via LangMem
+langmem    session-1 wrote and session-2 recalled 1 memory for BORR-788160 via LangMem
 langmem    subject isolation held for 2 subjects in one store
 langmem    a corrected fact replaced the stale one across sessions
 

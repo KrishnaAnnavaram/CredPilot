@@ -423,6 +423,23 @@ python scripts/verify_evidence_citations.py
 * **[docs/risk-register.md](docs/risk-register.md)** — 34 risks against OWASP LLM Top 10 and NIST AI RMF, with residual risk stated
 * **[docs/compliance.md](docs/compliance.md)** — EU AI Act, NIST AI RMF, DPDP: what is addressed, where the evidence is, and what is not met
 * **[docs/output-risk.md](docs/output-risk.md)** — output tiers and what gates each
+* **[docs/THRESHOLD_SOURCING.md](docs/THRESHOLD_SOURCING.md)** — why no DTI percentage or high-value boundary is hard-coded, and where both come from instead
+* **[docs/THIRD_PARTY_LICENSES.md](docs/THIRD_PARTY_LICENSES.md)** — every declared dependency's licence, read from installed package metadata
+* **[docs/FINAL_SUBMISSION.md](docs/FINAL_SUBMISSION.md)** — the development repository is not the submission repository; the runbook for the Virtusa GitLab push
+
+### Team
+
+Built by **Krishna Annavaram** and **Mahesh Rajendra**. Much of the project's
+research was done by Mahesh and leaves no commits behind, so contribution is
+recorded in two clearly separated kinds — repository-verified and team-attested —
+rather than inferred from `git shortlog`.
+
+* **[docs/team/TEAM_AND_ROLES.md](docs/team/TEAM_AND_ROLES.md)** — who did what, and which claims the repository can prove on its own
+* **[docs/team/TEAM_ATTESTATION.md](docs/team/TEAM_ATTESTATION.md)** — team-size attestation (REQ-009)
+* **[docs/team/WORKLOG.md](docs/team/WORKLOG.md)** — engagement duration, derived from git and evidence timestamps (REQ-008)
+* **[docs/team/PEER_REVIEW.md](docs/team/PEER_REVIEW.md)** — internal peer review by Mahesh Rajendra. **Internal, not the official Virtusa review**
+* **[docs/team/EDUCATION_DATA_REVIEW.md](docs/team/EDUCATION_DATA_REVIEW.md)** — education synthetic data: contributed by Mahesh Rajendra, reviewed by Krishna Annavaram
+* **[docs/team/AUTOMATED_REVIEW_EVIDENCE.md](docs/team/AUTOMATED_REVIEW_EVIDENCE.md)** — the commands the team runs and the files each produces
 
 ---
 

@@ -16,22 +16,24 @@
       "what_must_be_attested": "The engagement ran for the stated duration.",
       "source_location": "Section 2. Engagement Overview - table row 1",
       "source_text": "Duration | 20 hours",
-      "what_would_count_as_evidence": "The actual elapsed engagement time against the stated 20 hours. A commit-history window, a timesheet, or a dated statement of when work started and stopped.",
-      "where_to_look": "git log --reverse --date=iso --format='%ad %s' | head -1, and the last commit's date.",
+      "what_would_count_as_evidence": "The actual elapsed engagement time against the stated 20 hours. Git shows a 55.6-hour wall-clock window over 13 commits, but that is the window work happened inside, not effort - and the majority of this team's research is not represented in commits at all. Exact task-level hours are team-attested rather than mechanically derivable from Git history.",
+      "where_to_look": "docs/team/WORKLOG.md and reports/team_worklog.xlsx - generated from git history and the self-recorded timestamps inside the committed evidence artifacts by scripts/build_team_worklog.py. Both members sign the confirmation blocks in WORKLOG.md.",
       "evidence": null,
       "attested_by": null,
-      "attested_on": null
+      "attested_on": null,
+      "signed_by_whom": "Krishna Annavaram and Mahesh Rajendra, each for themselves."
     },
     "REQ-009-T01": {
       "requirement_id": "REQ-009",
       "what_must_be_attested": "The delivery team matched the stated team size.",
       "source_location": "Section 2. Engagement Overview - table row 2",
       "source_text": "Format | Team of 2-4",
-      "what_would_count_as_evidence": "The number of people on the delivery team, and whether that is within 2-4. State it plainly; if the team was one person, say so - a failed attestation that is true is worth more than a passed one that is not.",
-      "where_to_look": "git shortlog -sne --all lists every committer.",
+      "what_would_count_as_evidence": "The number of people on the delivery team, and whether that is within 2-4. The team is two: Krishna Annavaram and Mahesh Rajendra. Git records two distinct commit authors, which corroborates but does not prove team size.",
+      "where_to_look": "docs/team/TEAM_ATTESTATION.md for the statement and both signature blocks; docs/team/TEAM_AND_ROLES.md for roles and the repository-verified vs team-attested contribution split. Corroborating: git shortlog -sne --all shows two distinct contributors.",
       "evidence": null,
       "attested_by": null,
-      "attested_on": null
+      "attested_on": null,
+      "signed_by_whom": "Krishna Annavaram and Mahesh Rajendra, each for themselves."
     },
     "REQ-010-T02": {
       "requirement_id": "REQ-010",
@@ -39,10 +41,11 @@
       "source_location": "Section 2. Engagement Overview - table row 3",
       "source_text": "Evaluation Mode | Automated review of the submitted Git repository against the Hackathon Rubric (7 categories / 100 marks), scored entirely from committed evidence in the repository. No live demo judging.",
       "what_would_count_as_evidence": "Confirmation that the review was run this way - automated, from committed evidence, with no live demo judged. Only the reviewer or the submitter can say how the review was actually conducted.",
-      "where_to_look": "The reviewer's instructions or the returned scorecard.",
+      "where_to_look": "The reviewer's instructions or the returned scorecard. NOTE: docs/team/AUTOMATED_REVIEW_EVIDENCE.md records the TEAM's own automated validation (validator, pytest, DeepEval, evidence regeneration). That is not the official evaluation this requirement describes and does not satisfy it.",
       "evidence": null,
       "attested_by": null,
-      "attested_on": null
+      "attested_on": null,
+      "blocked_on": "The official Virtusa evaluator running the rubric review."
     },
     "REQ-011-T03": {
       "requirement_id": "REQ-011",
@@ -59,10 +62,11 @@
       "source_location": "Section 2. Engagement Overview - table row 5",
       "source_text": "Review Output | Per-team Excel report (Summary, Categories, Scorecard, Detailed, Improvement).",
       "what_would_count_as_evidence": "That the per-team Excel report was produced with those five sheets. Cite the file - name, date received, and that the five sections are present.",
-      "where_to_look": "The review report itself, if it has been returned.",
+      "where_to_look": "The review report itself, if it has been returned. NOTE: reports/CredPilot_Internal_Peer_Review.xlsx carries the same five sheets but is INTERNAL pre-submission preparation by the delivery team, reviewed by Mahesh Rajendra as an internal peer reviewer - NOT a Virtusa evaluator. It is not the per-team report this requirement describes.",
       "evidence": null,
       "attested_by": null,
-      "attested_on": null
+      "attested_on": null,
+      "blocked_on": "The official reviewer producing and returning their report."
     },
     "REQ-013-T01": {
       "requirement_id": "REQ-013",
@@ -70,10 +74,11 @@
       "source_location": "Section 2. Engagement Overview - table row 6",
       "source_text": "Grade Bands | Pass >= 60 - Not Yet Passed < 60",
       "what_would_count_as_evidence": "That the stated bands were the ones applied - a score at or above 60 recorded as Pass, below 60 as Not Yet Passed. Cite the returned grade.",
-      "where_to_look": "The returned scorecard.",
+      "where_to_look": "The returned scorecard. The bands (Pass >= 60, Not Yet Passed < 60) are recorded in reports/CredPilot_Internal_Peer_Review.xlsx, but whether they were applied to an awarded grade is the evaluator's fact.",
       "evidence": null,
       "attested_by": null,
-      "attested_on": null
+      "attested_on": null,
+      "blocked_on": "A grade being issued by the evaluator."
     },
     "REQ-035-T03": {
       "requirement_id": "REQ-035",
@@ -106,15 +111,26 @@
   "_how_to_sign": [
     "TO SIGN AN ENTRY, fill in all three of:",
     "  evidence      - what you are relying on, concretely. Not 'yes'.",
-    "  attested_by   - your name.",
+    "  attested_by   - your name. Both names, separated by '; ', for a joint statement.",
     "  attested_on   - the date, ISO format, e.g. 2026-09-22.",
     "",
     "An entry counts ONLY when all three are non-empty. Leaving one blank is a",
-    "FAIL, which is the correct outcome for something nobody has checked.",
+    "FAIL, which is the correct outcome for something nobody has checked. The",
+    "validator accepts a TYPED attestation - there is no signature-image or",
+    "cryptographic check - but that makes it easier to sign, not easier to fake.",
     "",
-    "Attest only to what you know. A truthful FAIL is worth more than a passed",
-    "check that says something you cannot stand behind - the whole point of the",
-    "evidence rules in this repository.",
+    "Attest only to what you know, and only for yourself. A truthful FAIL is worth",
+    "more than a passed check that says something you cannot stand behind - the",
+    "whole point of the evidence rules in this repository.",
+    "",
+    "REQ-008-T01 and REQ-009-T01 are JOINT statements by Krishna Annavaram and",
+    "Mahesh Rajendra. Both must sign their own block in docs/team/WORKLOG.md and",
+    "docs/team/TEAM_ATTESTATION.md before either entry is populated here. Ready-to-",
+    "paste JSON is at the bottom of each of those documents.",
+    "",
+    "REQ-010-T02, REQ-012-T01 and REQ-013-T01 depend on the OFFICIAL evaluation.",
+    "They cannot be signed by the delivery team at all: the team is not the",
+    "evaluator, and the internal peer review is not the official review.",
     "",
     "The entries marked unspecified_by_requirement cannot be signed at all: the",
     "source document fixes no value to verify against, so the validator records",

@@ -1,6 +1,6 @@
 # Current requirement-validation failures
 
-Generated from `reports/latest_test_report.json` (2026-09-22T07:50:27Z) by 
+Generated from `reports/latest_test_report.json` (2026-09-22T15:24:26Z) by 
 `traceability/classify_failures.py`.
 
 
