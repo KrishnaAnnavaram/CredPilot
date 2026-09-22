@@ -140,6 +140,79 @@ def tracing_requested() -> bool:
     return os.environ.get(_TRACING_ENV_FLAG, "").strip().lower() in ("1", "true", "yes", "on")
 
 
+
+def _random_id_generator_base():
+    """The SDK's own generator, imported lazily so tracing stays optional."""
+    from opentelemetry.sdk.trace.id_generator import RandomIdGenerator
+
+    return RandomIdGenerator
+
+
+class UnambiguousIdGenerator(_random_id_generator_base()):
+    """Random OTel ids, with the all-decimal ones rejected.
+
+    A span id is 16 hex characters and a trace id is 32. Roughly one in 1,800
+    span ids comes out with no a-f character in it, and a 16-digit run
+    beginning with 4 is a valid Visa shape — so a committed trace export
+    randomly acquires a string that every payment-card scanner reports as an
+    unmasked account number. Two turned up in one 1,119-span export.
+
+    NFR-05 says no committed artifact carries an account-number-shaped string.
+    An identifier that satisfies that by luck does not satisfy it. The
+    alternative — exempting the shape wherever it might appear — weakens the
+    scan that exists to catch a real leak, and has to be re-done for every new
+    artifact format. This fixes it once, where the id is made.
+
+    The cost is 1/16 of the id space for a span id (those with no a-f
+    character), which is a rounding error against 2^64, and none of the
+    properties that matter: the ids stay uniformly random over the remaining
+    space, stay 64- and 128-bit, and stay valid OpenTelemetry ids. Rejection
+    sampling, not munging — a mangled id would no longer be random.
+
+    A subclass rather than a wrapper because the SDK calls more of the
+    interface than the two generate methods: `start_span` asks
+    `is_trace_id_random()`, and a duck-typed class raised AttributeError on
+    the first span.
+    """
+
+    #: Drawn again rather than edited. In practice the first draw succeeds
+    #: ~99.94% of the time; the bound only exists so a broken RNG cannot hang.
+    MAX_DRAWS = 64
+
+    @staticmethod
+    def _is_ambiguous(value: int, width: int) -> bool:
+        """Whether the hex rendering is all decimal digits, hence card-shaped."""
+        return all(c in "0123456789" for c in format(value, f"0{width}x"))
+
+    def generate_span_id(self) -> int:
+        for _ in range(self.MAX_DRAWS):
+            value = super().generate_span_id()
+            if not self._is_ambiguous(value, 16):
+                return value
+        return value  # pragma: no cover - a broken RNG; a valid id still beats none
+
+    def generate_trace_id(self) -> int:
+        for _ in range(self.MAX_DRAWS):
+            value = super().generate_trace_id()
+            if not self._is_ambiguous(value, 32):
+                return value
+        return value  # pragma: no cover
+
+
+
+def unambiguous_id_generator() -> "UnambiguousIdGenerator":
+    """The id generator every CredPilot tracer provider should be built with.
+
+    A function rather than a module-level instance so each provider gets its
+    own, and so there is one name to call from anywhere a provider is
+    constructed. There are two such places — the OTLP exporter in
+    :func:`configure_tracing` and the in-process recorder in
+    `scripts/export_traces.py` — and the second is the one whose ids reach a
+    committed artifact.
+    """
+    return UnambiguousIdGenerator()
+
+
 def configure_tracing(
     *,
     project_name: str = PROJECT_NAME,
@@ -168,6 +241,13 @@ def configure_tracing(
                 batch=True,
                 set_global_tracer_provider=True,
             )
+            # Before the tracer is built: `get_tracer` captures the
+            # provider's id generator at construction, so swapping it
+            # afterwards would have no effect.
+            try:
+                _TRACER_PROVIDER.id_generator = unambiguous_id_generator()
+            except Exception:  # noqa: BLE001 - never break tracing over this
+                pass
             _TRACER = _TRACER_PROVIDER.get_tracer("credpilot.rag")
         except Exception:  # noqa: BLE001 - observability must never break retrieval
             try:
