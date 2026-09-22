@@ -61,6 +61,20 @@ class RuleEvaluation:
     threshold: float | None = None
     comparator: str = "<="
     detail: str = ""
+    #: What ``observed`` and ``threshold`` are measured in.
+    #:
+    #: ``UWR-HRV-001``'s borderline band is stated in *percentage points*, so the
+    #: trigger table can only apply it to a measure that is a ratio. Without this
+    #: field it applied it to every ``<=`` comparison it found, and the moment
+    #: the engine grew a rule measuring days past a freshness window — observed
+    #: 0 days, threshold 0 days — every clean file read as "within 2 percentage
+    #: points of its limit" and referred. A currency measure had the same latent
+    #: bug: ``requested_vs_certified_max`` would have fired had a request landed
+    #: within two cents of the certified maximum.
+    #:
+    #: Defaulting to ``ratio`` keeps every existing evaluator correct; anything
+    #: that is not a ratio has to say so.
+    unit: str = "ratio"
     factors: list[str] = field(default_factory=list)
     #: The programme limit before any discretionary extension was applied.
     #: ``threshold`` is what the file was judged against; this is the bar it
@@ -78,6 +92,7 @@ class RuleEvaluation:
             "observed": self.observed,
             "threshold": self.threshold,
             "comparator": self.comparator,
+            "unit": self.unit,
             "detail": self.detail,
             "compensating_factors": self.factors,
             "baseline_threshold": self.baseline_threshold,
@@ -837,7 +852,7 @@ def evaluate_education_capacity(
             RuleEvaluation(
                 rule_id="EDU-SCH-005" if cert_rule else None,
                 citation=cert_rule.get("citation", "") if cert_rule else "",
-                measure="requested_vs_certified_max",
+                measure="requested_vs_certified_max", unit="currency",
                 verdict=Verdict.PASS if requested <= certified else Verdict.FAIL,
                 observed=float(requested),
                 threshold=float(certified),
@@ -869,18 +884,28 @@ def evaluate(
     packet: Mapping[str, Any],
     evidence: Sequence[Mapping[str, Any]],
 ) -> list[RuleEvaluation]:
-    """Apply the product's retrieved rules to its computed figures."""
+    """Apply the product's retrieved rules to its computed figures.
+
+    Each family is evaluated independently: a file can clear its DTI ceiling
+    comfortably and still fail on a score floor, and a reader of the result
+    should see which. The extended families in :mod:`src.rule_families` are
+    dispatched here too, so there is one entry point and one place where the
+    order of evaluation is stated.
+    """
+    from src.rule_families import evaluate_education_families, evaluate_mortgage_families
+
     if domain is LendingProductDomain.MORTGAGE:
-        # Affordability, then the three knockouts. Each is evaluated
-        # independently: a file can clear its DTI ceiling comfortably and still
-        # fail on a score floor, and a reader of the result should see which.
         return [
             *evaluate_mortgage_affordability(calculations, packet, evidence),
             *evaluate_mortgage_credit_score(calculations, packet, evidence),
             *evaluate_mortgage_reserves(calculations, packet, evidence),
             *evaluate_mortgage_funds_to_close(calculations, evidence),
+            *evaluate_mortgage_families(calculations, packet, evidence),
         ]
-    return evaluate_education_capacity(calculations, packet, evidence)
+    return [
+        *evaluate_education_capacity(calculations, packet, evidence),
+        *evaluate_education_families(calculations, packet, evidence),
+    ]
 
 
 def summarize(evaluations: Sequence[RuleEvaluation]) -> dict[str, Any]:

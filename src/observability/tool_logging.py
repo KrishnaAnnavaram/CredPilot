@@ -88,6 +88,20 @@ def summarize_result(result: Any) -> dict[str, Any]:
     return {"type": type(result).__name__, "repr": redact_text(str(result))[:300]}
 
 
+#: How a tool was reached. Carried as its own field rather than baked into the
+#: name.
+#:
+#: The name was briefly prefixed — ``mcp:retrieve_policy`` — so a 40 ms MCP
+#: round trip could be told apart from a 1.4 s in-process retrieval in the
+#: latency data. That broke the AC-07 reconciliation: the requirement is that
+#: *"tool names reconcile with the agent/MCP code"*, and no source file contains
+#: the string ``mcp:retrieve_policy``. The name of a tool is its name wherever
+#: it is called from; how it was reached is a different fact about the call, and
+#: it belongs in a different field.
+TRANSPORT_IN_PROCESS = "in_process"
+TRANSPORT_MCP = "mcp"
+
+
 def log_tool_call(
     *,
     tool_name: str,
@@ -98,6 +112,7 @@ def log_tool_call(
     status: str,
     product_domain: str | None = None,
     error: str | None = None,
+    transport: str = TRANSPORT_IN_PROCESS,
     path: Path | None = None,
 ) -> dict[str, Any]:
     """Append one tool-invocation record and return it."""
@@ -107,6 +122,7 @@ def log_tool_call(
         "call_id": str(uuid.uuid4()),
         "agent": agent,
         "tool_name": tool_name,
+        "transport": transport,
         "product_domain": product_domain,
         "args": sanitize_args(args),
         "result": summarize_result(result),

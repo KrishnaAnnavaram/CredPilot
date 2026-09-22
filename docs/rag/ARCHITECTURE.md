@@ -9,20 +9,16 @@ is drawn and why it is drawn where it is.
 ## 1. The shape
 
 ```
-                            Supervisor
+                            Supervisor              <- six routes; no retrieval yet
                                  |
-                       Loan Domain Router          <- structured facts only
-                        /                \
-                 MORTGAGE              EDUCATION_LOAN
-                        \                /
-                         +------+-------+
-                                |
-                     Policy Retrieval Agent
-                                |
-                     retrieve_policy (RAG tool)
-                                |
-        +-----------------------+------------------------+
-        |                                                |
+              +------------------+------------------+
+              |                                     |
+       mortgage_agent                       education_agent
+              |                                     |
+   mortgage_policy_retrieval            education_policy_retrieval
+              |                                     |
+      retrieve_policy  +  fetch_policy_rules (by id, for what the engine needs)
+              |                                     |
   credpilot_mortgage_policies              credpilot_education_policies
   329 chunks · 42 documents                101 chunks · 12 documents
   174 rules · 6 versioned policies         72 rules · 1 version each
@@ -34,16 +30,54 @@ The two collections live in one local Chroma database at
 deliberately no combined collection — `PolicyVectorStore` refuses to open one
 named `credpilot_all_policies`.
 
-**Product isolation happens before retrieval, not after.** The domain router
-resolves the product from structured facts — an explicit domain, the graph
-state, the application id's shape, or the packet's structure — and that decision
-picks the collection. A mortgage query cannot return an education policy because
-it never searches the education index, not because a metadata filter was applied
-correctly. Measured: `cross_product_contamination_rate` = 0.0000.
+**Product isolation is enforced three times, at three different levels, and
+each would be sufficient on its own.** They are all there because they fail
+differently:
 
-When no structured fact settles the product, retrieval returns
-`PRODUCT_CLARIFICATION_REQUIRED` and searches nothing. Searching both corpora and
-letting the model pick is the failure mode this design exists to prevent.
+1. **Topologically, in the graph.** The two product chains share no node. There
+   is no edge from any mortgage node to any education node, so no sequence of
+   routing decisions can reach the wrong corpus. This one cannot be got wrong by
+   a later edit to a condition, because there is no condition.
+   (`test_no_edge_crosses_between_the_two_products`.)
+2. **Structurally, in the store.** Separate Chroma collections, resolved before
+   a query is issued. A mortgage query cannot return an education policy because
+   it never searches the education index — not because a metadata filter was
+   applied correctly. Measured: `cross_product_contamination_rate` = 0.0000.
+3. **At the boundary, in the agent.** A product agent that receives an
+   application resolving to the *other* product refuses it and escalates, rather
+   than assessing it against the wrong rulebook.
+
+**The product is resolved from structured facts, never from free text.** An
+explicit domain, the graph state, the application id's shape, or the packet's
+structure. The Supervisor's reading of a sentence is a routing *signal*; it is
+never the last word on which corpus is searched, and where a packet exists the
+packet decides.
+
+When nothing settles the product, the Supervisor **asks** — one short question,
+on a paused checkpoint, capped at two rounds — and retrieval returns
+`PRODUCT_CLARIFICATION_REQUIRED` and searches nothing in the meantime. Searching
+both corpora and letting the model pick is the failure mode this whole design
+exists to prevent.
+
+### Two ways into retrieval, for two different questions
+
+`retrieve_policy` answers *"what does this file raise?"* — a ranking problem over
+a corpus, and what the topic questions use.
+
+`fetch_policy_rules` answers *"give me `DTI-CONV-003`"* — not a ranking problem
+at all. The rule id is indexed metadata and there is one chunk per rule per
+version, so the funnel has nothing to contribute and costs 1.4 s to rediscover
+what the index already holds. The by-id path takes about 40 ms.
+
+The distinction matters because the two questions are asked by different parties:
+the *file* raises topics, and the *engine* needs specific rules. Retrieval that
+only served the first left implemented rules reporting "not retrieved" and files
+referred for want of a rule that was one query away — see F-17.
+
+**Temporal selection applies to both.** That is the part that must not be
+skipped: `DTI-CONV-001` exists in two versions with different ceilings, so a
+lookup by id alone would be ambiguous in exactly the way the effective-date
+mechanism exists to prevent.
 
 ---
 
@@ -243,8 +277,16 @@ in [REQUIREMENTS_MAPPING.md](REQUIREMENTS_MAPPING.md).
 | [`src/rag/pipeline.py`](../../src/rag/pipeline.py) | the retriever |
 | [`src/rag/indexer.py`](../../src/rag/indexer.py) | deterministic index build + manifest |
 | [`src/rag/integrity.py`](../../src/rag/integrity.py) | index integrity validation |
-| [`src/tools/rag_tool.py`](../../src/tools/rag_tool.py) | the agentic-RAG tool |
-| [`src/rules.py`](../../src/rules.py) | rule engine — retrieved thresholds applied |
+| [`src/tools/rag_tool.py`](../../src/tools/rag_tool.py) | the agentic-RAG tool, plus `fetch_policy_rules` for lookups by id |
+| [`src/rules.py`](../../src/rules.py) | rule engine — retrieved thresholds applied; dispatch for every family |
+| [`src/rule_families/`](../../src/rule_families/) | the extended families, split by product: eight mortgage, four education |
 | [`src/calculations.py`](../../src/calculations.py) | deterministic underwriting figures |
-| [`src/graph.py`](../../src/graph.py) | the LangGraph |
-| [`mcp_server/`](../../mcp_server/) | MCP server and adapter client |
+| [`src/review_triggers.py`](../../src/review_triggers.py) | `UWR-HRV-001`, the mandatory human-review routing table |
+| [`src/supervisor.py`](../../src/supervisor.py) | six routes, deterministic-first classification, clarification |
+| [`src/graph.py`](../../src/graph.py) | the LangGraph: intake, guardrails, two product chains, response |
+| [`src/resilience.py`](../../src/resilience.py) | deadlines, bounded retries, typed failures |
+| [`src/narrative.py`](../../src/narrative.py) | the model calls, each checked against its own evidence |
+| [`src/mcp_host/`](../../src/mcp_host/) | the MCP **client** the host owns: discovery, resilience, the six families |
+| [`mcp_server/`](../../mcp_server/) | the MCP **server**: 11 tools, 10 resources, 6 prompts over stdio |
+| [`src/web/`](../../src/web/) | FastAPI + one static page over the same compiled graph |
+| [`src/cli.py`](../../src/cli.py) | `assess`, `ask`, `chat`, `retrieve`, `mcp`, `corpus` |

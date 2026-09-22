@@ -12,11 +12,40 @@ This document sorts what CredPilot emits into three tiers, states what gates eac
 
 | Tier | What it covers | Who may see it unreviewed | Gate |
 |---|---|---|---|
-| **Low** | Retrieved policy text, citations, computed figures, retrieval diagnostics | Underwriter, directly | Citation must resolve; figures carry their formula version |
-| **Medium** | Eligibility status, risk level, approve and refer recommendations, the written rationale | Underwriter, as a recommendation to act on | Rule-engine verdict + deterministic narrative check + evidence sufficiency |
-| **High** | Decline recommendations, adverse-action reason codes, anything on a file where applicant text attempted instruction | **Nobody** — human review is mandatory before the output leaves the system | Hard routing to `human_review`; no auto-issue path exists |
+| **Low** | Retrieved policy text, citations, computed figures, retrieval diagnostics, answers to general questions about what CredPilot is | Underwriter or applicant, directly | Citation must resolve; figures carry their formula version |
+| **Medium** | Eligibility status, risk level, approve and refer recommendations, the written rationale, answers to policy questions | Underwriter, as a recommendation to act on | Rule-engine verdict + deterministic narrative check + evidence sufficiency + response validation |
+| **High** | Decline recommendations, adverse-action reason codes, anything on a file where applicant text attempted instruction, anything on a request that asked for an override or disputed a decision | **Nobody** — human review is mandatory before the output leaves the system | Hard routing to `human_review`; no auto-issue path exists |
 
 The tier is a property of the **output**, not of the applicant or the file. The same application can produce Low-tier retrieval and a High-tier recommendation in one run.
+
+### Two outputs the conversational surface added
+
+**A general answer** — "hello", "what can you do" — is Tier 1, and is the only
+output in the system produced with neither retrieval nor a model. It comes from
+a fixed capability statement in `src/supervisor.py`. It cannot cite a policy
+because it never reads one, and it cannot be wrong about lending because it says
+nothing about a file.
+
+**A policy answer** — "what is the maximum back-end DTI on a jumbo mortgage?" —
+is Tier 2, and is gated more tightly than the assessment rationale rather than
+less. There is no application, no computed figure and no decided outcome, so the
+retrieved policy text is the *only* ground truth and the model has correspondingly
+more room to go wrong. Three gates:
+
+* the answer is generated only from retrieved evidence, and the prompt forbids
+  stating a number that is not in it;
+* the same deterministic check runs afterwards — every citation and every figure
+  in the prose must trace to the evidence it was given;
+* a failed check **replaces the prose with the quoted rules**. Verbose to read,
+  and incapable of being wrong about what the policy says.
+
+A policy answer also refuses to decide anything about a particular file. That is
+not a matter of prompt discipline alone: there is no application on the state, so
+the rule engine never runs and there is no outcome for the answer to leak.
+
+**An escalation** — an override request, a dispute, a detected injection — is
+Tier 3 and produces no retrieval, no figures and no citations at all. The output
+is a statement that a person has it.
 
 ---
 
@@ -76,6 +105,8 @@ These are conclusions, and an underwriter may reasonably act on them. But none o
 2. **Missing evidence never becomes a negative result.** Absent evidence returns `INDETERMINATE`, which routes to referral (`GEN-ELG-005`). This was not free — failure F-8 had the engine reading "0 of 2 compensating factors documented" from evidence it had simply failed to retrieve, and declining a file it should have referred.
 3. **The rationale is checked against its own evidence after generation.** `src.narrative.verify_narrative` extracts every citation and every figure from the prose and confirms each appears in the evidence supplied. A rationale that fails is **kept, marked `rationale_is_faithful: false`, and escalated to Tier 3.** It is not dropped — that would hide the failure — and not shipped unmarked, which would be worse.
 4. **The model cannot reach the outcome.** It receives the decision as a fact in its prompt. There is no code path by which its text changes `recommendation["outcome"]`.
+5. **The assembled response is validated before it is published.** The Final Response Agent re-checks, on the exact prose it is about to publish rather than on some earlier draft: every cited rule resolves, every figure is one the calculators produced, and the prose does not read as an approval under a decline (or the reverse). A failure substitutes the deterministic summary, is recorded in `validation.failures`, and escalates the output to Tier 3.
+6. **The output guardrail is the last thing that runs.** It scans for PII and redacts in place, and it *adds* the human-review notice when the flag is set and the text does not already carry one — rather than trusting the writer above it to have remembered.
 
 ### Sample
 
@@ -115,15 +146,22 @@ This is the irreversible direction. A wrong decline denies credit, starts a regu
 
 | Trigger | Where it is enforced |
 |---|---|
-| Eligibility `INELIGIBLE` → decline | `recommendation_node`: sets `requires_human_review = True` unconditionally, citing `POL-DEC-001` DEC-REC-002 |
-| Eligibility `INDETERMINATE` | `eligibility_node` and `recommendation_node`: outcome becomes `REFER_RECOMMENDATION` |
-| Risk level `HIGH` | `recommendation_node` |
-| Injection attempt detected | `supervisor_node` sets the flag; `risk_node` raises level to HIGH and adds `APPLICANT_TEXT_INSTRUCTION_ATTEMPT` |
-| No policy evidence retrieved | `policy_retrieval_node` routes straight to `human_review` |
+| Eligibility `INELIGIBLE` → decline | `{product}_recommendation`: sets `requires_human_review = True` unconditionally, citing `POL-DEC-001` DEC-REC-002 |
+| Eligibility `INDETERMINATE` | `{product}_eligibility` and `{product}_recommendation`: outcome becomes `REFER_RECOMMENDATION` |
+| Risk level `HIGH` | `{product}_recommendation` |
+| Injection attempt in applicant text | `input_guardrails_node` sets the flag; `{product}_risk` raises the level to HIGH and adds `APPLICANT_TEXT_INSTRUCTION_ATTEMPT`. The file is **still assessed** — refusing to underwrite it would let a hostile attachment stop an applicant's file from being read |
+| Injection attempt in the **request itself** | `supervisor_node` routes to `HUMAN_REVIEW` before any specialist runs, so the attack reaches no corpus, no rule engine and no model |
+| An override, dispute or complaint | `supervisor_node`: a request that asks for a decision to be changed is a person's to own (`POL-UWR-001` UWR-HRV-001) |
+| The product cannot be resolved after two clarification rounds | `supervisor_node` + `MAX_CLARIFICATION_ROUNDS` |
+| An application routed to the wrong specialist | `{product}_agent` refuses rather than assessing it against the other product's policy |
+| No policy evidence retrieved | `{product}_policy_retrieval` routes straight to `human_review` |
 | Unfaithful rationale | `narrative_node` |
+| The assembled response fails validation | `final_response_node` |
 | Step budget exhausted | `_guard()` in every node — halts with a reason a human can read, rather than raising |
 
-The graph has no edge that carries a decline to `END`. The only terminal path for one runs through `human_review`.
+No graph edge carries a decline to `END`. Every terminal path for one runs
+through `human_review`, and `output_guardrails` adds the review notice to the
+published text if the writer above it did not.
 
 ### Sample
 

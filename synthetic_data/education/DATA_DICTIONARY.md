@@ -394,7 +394,7 @@ These are target proportions; actual counts may vary slightly due to the stochas
 
 ## Appendix: JSON Structure Overview
 
-Each application is stored as a single JSON file named `{application_id}.json`. The top-level structure is:
+Each application is stored as a single JSON file named for its application id, for example `synthetic_data/education/applications/APP-2026-00001.json`. The top-level structure is:
 
 ```json
 {

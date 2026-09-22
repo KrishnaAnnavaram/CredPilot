@@ -128,7 +128,7 @@ explicitly on every write.
 `index.json` manifest. A naive `glob("*.json")` picks up the manifest and tries to
 route `index` as an application id.
 
-**Handling.** Application loading globs `APP-*.json`. The manifest is a useful
+**Handling.** Application loading globs every `APP-` prefixed JSON file in the applications directory. The manifest is a useful
 artifact — it states plainly that the packets are model inputs only — so it is
 not something to remove.
 

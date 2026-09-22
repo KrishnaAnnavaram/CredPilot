@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CredPilot</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <div>
+      <h1>CredPilot</h1>
+      <p class="tagline">Loan origination &amp; underwriting copilot — mortgage and private education lending, kept separate.</p>
+    </div>
+  </div>
+  <div class="status" id="status">
+    <span class="dot" id="status-dot" aria-hidden="true"></span>
+    <span id="status-text">checking…</span>
+  </div>
+</header>
+
+<main>
+  <!-- ------------------------------------------------------------- conversation -->
+  <section class="panel conversation" aria-label="Conversation">
+    <div class="transcript" id="transcript">
+      <div class="message assistant">
+        <div class="bubble">
+          <p>I am CredPilot. I can retrieve the lending policy that governed a file
+          on the day it was underwritten, compute affordability deterministically,
+          and explain a recommendation with the rule behind it.</p>
+          <p>Ask me a policy question, or submit an application from the panel on
+          the right.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="clarify" id="clarify" hidden>
+      <p class="clarify-label">Clarification needed</p>
+      <p id="clarify-question"></p>
+    </div>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <label class="sr-only" for="input">Message</label>
+      <textarea id="input" rows="1" placeholder="Ask about mortgage or education-loan policy…"
+                maxlength="4000"></textarea>
+      <button type="submit" id="send">Send</button>
+    </form>
+    <p class="hint" id="hint">Enter to send · Shift+Enter for a new line</p>
+  </section>
+
+  <!-- ------------------------------------------------------------------ sidebar -->
+  <aside class="sidebar">
+    <section class="panel" aria-label="Run">
+      <h2>This turn</h2>
+      <dl class="meta">
+        <dt>Route</dt><dd id="m-route">—</dd>
+        <dt>Product</dt><dd id="m-domain">—</dd>
+        <dt>Status</dt><dd id="m-status">idle</dd>
+        <dt>Elapsed</dt><dd id="m-elapsed">—</dd>
+      </dl>
+      <ol class="progress" id="progress"></ol>
+    </section>
+
+    <section class="panel" id="decision-panel" aria-label="Recommendation" hidden>
+      <h2>Recommendation</h2>
+      <p class="outcome" id="d-outcome">—</p>
+      <p class="review" id="d-review" hidden></p>
+      <ul class="reasons" id="d-reasons"></ul>
+      <table class="figures" id="d-figures"></table>
+      <div id="d-breaches"></div>
+    </section>
+
+    <section class="panel" id="evidence-panel" aria-label="Policy evidence" hidden>
+      <h2>Policy evidence <span class="count" id="e-count"></span></h2>
+      <ul class="citations" id="citations"></ul>
+    </section>
+
+    <section class="panel" aria-label="Submit an application">
+      <h2>Submit an application</h2>
+      <p class="muted">Committed synthetic packets. No record is real.</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab active" data-product="mortgage">Mortgage</button>
+        <button role="tab" class="tab" data-product="education">Education</button>
+      </div>
+      <ul class="applications" id="applications"><li class="muted">loading…</li></ul>
+    </section>
+
+    <section class="panel debug" aria-label="Evidence view">
+      <button class="disclosure" id="debug-toggle" aria-expanded="false">
+        Evidence view <span class="chev" aria-hidden="true">▸</span>
+      </button>
+      <div id="debug" hidden>
+        <dl class="meta">
+          <dt>Thread</dt><dd id="x-thread" class="mono">—</dd>
+          <dt>Intent</dt><dd id="x-intent">—</dd>
+          <dt>Decided by</dt><dd id="x-decidedby">—</dd>
+          <dt>Confidence</dt><dd id="x-confidence">—</dd>
+          <dt>Steps</dt><dd id="x-steps">—</dd>
+          <dt>Rationale</dt><dd id="x-narrative">—</dd>
+          <dt>Guardrails</dt><dd id="x-guardrails">—</dd>
+        </dl>
+        <p class="label">Agents executed</p>
+        <p class="mono small" id="x-agents">—</p>
+        <p class="label">Retrieval</p>
+        <p class="mono small" id="x-retrieval">—</p>
+        <p class="label">Validation</p>
+        <p class="mono small" id="x-validation">—</p>
+        <p class="note">No chain of thought is shown. The model writes the
+        rationale after the decision exists; none of the reasoning that produced
+        the decision was the model's.</p>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

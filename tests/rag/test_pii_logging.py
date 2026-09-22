@@ -14,7 +14,7 @@ import json
 
 import pytest
 
-from src.guardrails.redaction import find_sensitive, scan_lines
+from src.guardrails.redaction import find_sensitive, scan_csv, scan_lines
 from src.observability.tool_logging import (
     log_agent_action,
     log_mcp_exchange,
@@ -27,10 +27,18 @@ SCANNED_DIRS = ("logs", "traces", "reports", "eval/results")
 
 
 def _scan(path) -> list[str]:
-    findings = []
-    for number, kind, match in scan_lines(path.read_text(encoding="utf-8").splitlines()):
-        findings.append(f"{path.name}:{number}: {kind} {match!r}")
-    return findings
+    """Every finding in one artifact, as ``name:line: KIND 'match'``.
+
+    A CSV is scanned cell by cell rather than line by line. A span id is 16 hex
+    characters and roughly one in 1,800 comes out all digits, which is
+    indistinguishable by shape from a card number; in JSON the key beside it
+    says what it is, and in a CSV the column heading does. Nothing else in the
+    row is exempt, and a cell in an identifier column that is *not*
+    identifier-shaped is still scanned.
+    """
+    text = path.read_text(encoding="utf-8")
+    scanned = scan_csv(text) if path.suffix == ".csv" else scan_lines(text.splitlines())
+    return [f"{path.name}:{number}: {kind} {match!r}" for number, kind, match in scanned]
 
 
 # --------------------------------------------------------------- what is on disk now
@@ -311,4 +319,75 @@ def test_the_redaction_scanner_would_catch_a_leak():
     # And it stays quiet on policy prose.
     assert not find_sensitive(
         "Back-end debt-to-income must not exceed 43 percent, with reserves of 6 months."
+    )
+
+
+def test_the_csv_column_exemption_is_narrow():
+    """Guard the exemption: it must cover a span id and nothing else.
+
+    A span id is 16 hex characters and roughly one in 1,800 comes out all
+    digits, so it is indistinguishable by shape from a card number. The CSV
+    scan exempts it by *column*, which is only safe if the exemption cannot be
+    stretched — a card number one column over, or in an identifier column but
+    not identifier-shaped, must still be found.
+    """
+    header = "span_id,trace_id,name,attributes.note\n"
+
+    # The false positive the exemption exists for.
+    clean = header + "5114577028491441,0474904290445999,graph.intake,fresh file\n"
+    assert scan_csv(clean) == []
+
+    # One column over, the same shape is a finding.
+    leak = header + "5114577028491441,0474904290445999,graph.intake,card 4111111111111111\n"
+    assert any(kind == "ACCOUNT" for _, kind, _ in scan_csv(leak)), scan_csv(leak)
+
+    # In an identifier column, but not an identifier: still scanned.
+    smuggled = header + '"SSN 123-45-6789",0474904290445999,graph.intake,ok\n'
+    assert any(kind == "SSN" for _, kind, _ in scan_csv(smuggled)), scan_csv(smuggled)
+
+    # A column merely *named* like an id elsewhere earns nothing.
+    unknown = "applicant_id,note\n4111111111111111,ok\n"
+    assert any(kind == "ACCOUNT" for _, kind, _ in scan_csv(unknown)), scan_csv(unknown)
+
+
+def test_no_committed_metric_carries_a_card_shaped_float(repo_root):
+    """Published floats must not be long enough to look like an account number.
+
+    Found by the requirements validator, which reported 81 "unmasked payment
+    card numbers" across the committed artifacts. Seventy-nine were nDCG
+    values: a `policy_ndcg@10` of `0.444097...` printed to full precision ends
+    in sixteen digits beginning with a 4, and a decimal point is a word
+    boundary, so the detector reads them as a Visa number. Roughly every other
+    17-significant-digit float in [0,1) does this. (Not written out here --
+    that is the point of the test.)
+
+    The seventeenth significant digit of a metric over 95 cases is float repr
+    noise, so the fix was to round on write rather than to exempt the pattern.
+    A scan that reports eighty false positives is a scan nobody reads, and a
+    real leak would sit in the middle of them.
+    """
+    import re
+
+    card = re.compile(r"(?<![0-9])[0-9]{13,19}(?![0-9])")
+    offenders = []
+    for directory in ("eval/results", "reports"):
+        root = repo_root / directory
+        if not root.exists():
+            continue
+        for path in root.rglob("*"):
+            if not (path.is_file() and path.suffix in (".json", ".jsonl", ".csv")):
+                continue
+            for number, line in enumerate(
+                path.read_text(encoding="utf-8").splitlines(), start=1
+            ):
+                for match in card.finditer(line):
+                    start = match.start()
+                    # Only the ones that are the tail of a decimal fraction.
+                    if start >= 2 and line[start - 1] == "." and line[start - 2].isdigit():
+                        offenders.append(
+                            f"{path.relative_to(repo_root)}:{number}: {match.group()}"
+                        )
+    assert not offenders, (
+        f"{len(offenders)} over-precise float(s) that a card detector cannot "
+        f"distinguish from an account number; round on write. First few: {offenders[:5]}"
     )

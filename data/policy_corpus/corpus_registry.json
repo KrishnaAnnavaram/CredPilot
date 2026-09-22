@@ -2,7 +2,7 @@
   "description": "Machine-generated inventory of the lending-policy corpora CredPilot's vector and lexical indexes are built from. The policy documents themselves are committed under synthetic_data/<product>/policy_corpus/ and are not duplicated here.",
   "generated_by": "scripts/build_policy_indexes.py",
   "index_build": {
-    "built_at_utc": "2026-09-21T09:11:03+00:00",
+    "built_at_utc": "2026-09-22T02:13:19+00:00",
     "embedding_dimension": 768,
     "embedding_model": "intfloat/e5-base-v2",
     "products": {

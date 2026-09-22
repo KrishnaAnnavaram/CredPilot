@@ -293,11 +293,18 @@ def test_rule_coverage_reports_the_ceiling_for_both_products():
     """The number that makes `outcome_accuracy` interpretable.
 
     Reported per product, because the gap is not the same size on each: the
-    mortgage engine evaluates four rule families, the education engine three, and
-    education's golden citations lean much harder on families neither implements.
-    A coverage figure that averaged the two, or covered only mortgage, would hide
-    exactly the asymmetry it exists to show.
+    mortgage engine now evaluates fourteen rule families and the education
+    engine seven, and education's golden citations lean on families the
+    mortgage set never touches. A coverage figure that averaged the two, or
+    covered only mortgage, would hide exactly the asymmetry it exists to show.
+
+    Education's figure is **zero**, and that is the answer rather than a broken
+    check: every family its golden citations name is implemented. So this no
+    longer asserts a non-zero count — that would force the measurement to
+    under-report in order to stay green. It asserts the counter is live
+    instead, by withdrawing a family and requiring it to reappear as a gap.
     """
+    from eval.agent import dataset as dataset_module
     from eval.agent.dataset import IMPLEMENTED_RULE_FAMILIES, rule_coverage
     from src.domain import LendingProductDomain as D
 
@@ -307,7 +314,8 @@ def test_rule_coverage_reports_the_ceiling_for_both_products():
     for key, product in (("MORTGAGE", D.MORTGAGE), ("EDUCATION_LOAN", D.EDUCATION_LOAN)):
         entry = coverage[key]
         affected = entry["cases_needing_an_unimplemented_family"]
-        assert 0 < affected <= entry["cases"], f"{key}: a figure of 0 means the check is broken"
+        assert entry["cases"] > 0, f"{key}: no cases loaded, so nothing was measured"
+        assert 0 <= affected <= entry["cases"], f"{key}: {affected} of {entry['cases']}"
         assert entry["share_affected"] == pytest.approx(affected / entry["cases"], abs=0.001)
 
         gaps = set(entry["unimplemented_families_by_case_count"])
@@ -316,6 +324,44 @@ def test_rule_coverage_reports_the_ceiling_for_both_products():
         )
         for family in gaps:
             assert "|" not in family and ";" not in family, f"{key}: unsplit family {family}"
+
+
+@pytest.mark.parametrize(
+    "key,product,withdrawn",
+    # Families the golden citations actually name. EDU-INC and EDU-GOV are
+    # implemented but never cited, so withdrawing either would change nothing
+    # and the guard would be vacuous.
+    [("MORTGAGE", "MORTGAGE", "DTI-CONV"), ("EDUCATION_LOAN", "EDUCATION_LOAN", "EDU-UW")],
+)
+def test_the_coverage_counter_notices_a_family_that_is_not_implemented(
+    key, product, withdrawn, monkeypatch
+):
+    """Guard the guard, now that zero is a legitimate answer for one product.
+
+    Withdraw one implemented family and the cases that cite it must be counted
+    as uncovered. A counter that reports zero because it is broken fails here;
+    one that reports zero because the work is done passes.
+    """
+    from eval.agent import dataset as dataset_module
+    from src.domain import LendingProductDomain as D
+
+    domain = getattr(D, product)
+    reduced = {
+        prod: {k: v for k, v in families.items() if k != withdrawn}
+        if prod is domain
+        else families
+        for prod, families in dataset_module.IMPLEMENTED_RULE_FAMILIES.items()
+    }
+    monkeypatch.setattr(dataset_module, "IMPLEMENTED_RULE_FAMILIES", reduced)
+
+    entry = dataset_module.rule_coverage()[key]
+    assert entry["cases_needing_an_unimplemented_family"] > 0, (
+        f"{key}: withdrawing {withdrawn} changed nothing, so the counter is not reading "
+        "the implemented set"
+    )
+    assert withdrawn in entry["unimplemented_families_by_case_count"], (
+        f"{key}: {withdrawn} was withdrawn but is not reported as a gap"
+    )
 
 
 def test_nonexistent_education_citations_are_counted_not_charged_as_gaps():

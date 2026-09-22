@@ -26,6 +26,21 @@ langchain-google-genai==4.4.0
 mcp==1.30.0
 langchain-mcp-adapters>=0.3.0,<0.4
 
+# --- web application ----------------------------------------------------------
+# The same graph over HTTP. Both arrive transitively today (FastAPI via Chroma,
+# uvicorn via Phoenix), and both are pinned here anyway: a surface the project
+# ships should not depend on another package continuing to want it.
+fastapi==0.141.1
+uvicorn==0.51.0
+# Pinned because leaving it to FastAPI's `starlette>=0.46.0` resolved to 1.3.1,
+# which Arize Phoenix 11.38.0 predates: it calls Starlette's
+# `Jinja2Templates.TemplateResponse()` with the pre-1.0 signature, so every
+# Phoenix HTML route answered 500 and its UI could not be opened at all. The
+# API still served spans, which is what made it easy to miss. Pinning here
+# rather than upgrading Phoenix nine major versions at the end of the project;
+# FastAPI 0.141.1 accepts this range and `tests/test_web_api.py` passes on it.
+starlette==0.52.1
+
 # --- retrieval: Chroma + local Sentence-Transformers (REQ-039) --------------
 chromadb==1.5.9
 sentence-transformers==6.0.1
@@ -56,3 +71,13 @@ pandas==2.3.3
 # --- evaluation and tests (REQ-041) -----------------------------------------
 pytest==9.0.2
 pytest-asyncio==1.3.0
+
+# The LLM-as-judge harness (REQ-097). It reaches for OpenAI by default;
+# eval/agent/judges.py supplies a Gemini judge instead, so no other provider is
+# ever called. It was reaching this environment transitively and is pinned here
+# because `python -m eval.agent.run_agent_eval` is a documented command and a
+# fresh clone has to be able to run it.
+deepeval==4.2.3
+
+# matplotlib draws reports/dashboard.png from reports/dashboard_data.csv.
+matplotlib==3.11.2

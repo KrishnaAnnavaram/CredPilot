@@ -9,6 +9,12 @@ certification; the answer would be confidently wrong and every citation in it
 would resolve. So these tests check the edge functions directly against
 hand-built states — no retrieval, no models, no index — and then check the
 compiled graph agrees.
+
+Since the Supervisor was introduced the graph carries two kinds of request
+through the same edges: an application packet and a conversational turn. Both
+are covered here, and so is the property the topology exists to guarantee — that
+**no edge connects a mortgage node to an education node**, so no sequence of
+routing decisions can send a file to the wrong corpus.
 """
 
 from __future__ import annotations
@@ -20,22 +26,46 @@ import pytest
 from src.domain import LendingProductDomain
 from src.graph import (
     build_graph,
+    conversation_state,
     initial_state,
+    route_after_clarification,
     route_after_domain,
     route_after_narrative,
     route_after_recommendation,
     route_after_retrieval,
     route_after_supervisor,
 )
+from src.supervisor import Route
 
 
 # ------------------------------------------------------------------ edge functions
 
 
-def test_supervisor_always_routes_to_the_domain_router():
-    """Product resolution happens before anything reads a corpus."""
-    for state in ({}, {"route": "anything"}, {"requires_human_review": True}):
-        assert route_after_supervisor(state) == "domain_router"
+@pytest.mark.parametrize(
+    "route,expected",
+    [
+        (Route.GENERAL.value, "general_response"),
+        (Route.CLARIFY.value, "clarification"),
+        (Route.MORTGAGE.value, "mortgage_agent"),
+        (Route.EDUCATION_LOAN.value, "education_agent"),
+        (Route.HUMAN_REVIEW.value, "human_review"),
+        (Route.OUT_OF_SCOPE.value, "safe_response"),
+    ],
+)
+def test_each_supervisor_route_has_its_own_target(route, expected):
+    """Six routes, six destinations, no overlap."""
+    assert route_after_supervisor({"route": route}) == expected
+
+
+def test_an_unrecognized_route_asks_rather_than_guesses():
+    """The safe default is a question, not a product."""
+    assert route_after_supervisor({}) == "clarification"
+    assert route_after_supervisor({"route": "nonsense"}) == "clarification"
+
+
+def test_a_halted_run_goes_to_a_human_whatever_it_was_routed_to():
+    assert route_after_supervisor({"route": Route.MORTGAGE.value, "halted": True}) \
+        == "human_review"
 
 
 def test_an_unresolved_product_routes_to_human_review():
@@ -43,9 +73,10 @@ def test_an_unresolved_product_routes_to_human_review():
     assert route_after_domain({"route": "human_review"}) == "human_review"
 
 
-def test_a_resolved_product_routes_to_policy_retrieval():
-    assert route_after_domain({"route": "policy_retrieval"}) == "policy_retrieval"
-    assert route_after_domain({"loan_domain": "MORTGAGE"}) == "policy_retrieval"
+def test_a_resolved_product_routes_to_its_own_retrieval_node():
+    assert route_after_domain({"loan_domain": "MORTGAGE"}) == "mortgage_policy_retrieval"
+    assert route_after_domain({"loan_domain": "EDUCATION_LOAN"}) \
+        == "education_policy_retrieval"
 
 
 def test_retrieval_with_no_evidence_routes_to_human_review():
@@ -53,8 +84,25 @@ def test_retrieval_with_no_evidence_routes_to_human_review():
     assert route_after_retrieval({"route": "human_review"}) == "human_review"
 
 
-def test_retrieval_with_evidence_routes_to_eligibility():
-    assert route_after_retrieval({"route": "eligibility"}) == "eligibility"
+def test_retrieval_with_evidence_routes_to_its_own_eligibility_node():
+    assert route_after_retrieval({"loan_domain": "MORTGAGE"}) == "mortgage_eligibility"
+    assert route_after_retrieval({"loan_domain": "EDUCATION_LOAN"}) \
+        == "education_eligibility"
+
+
+def test_a_policy_question_skips_the_assessment_nodes():
+    """There is no application to assess, so eligibility has nothing to decide."""
+    from src.graph import MODE_POLICY_QUESTION
+
+    assert route_after_retrieval(
+        {"loan_domain": "MORTGAGE", "workflow_mode": MODE_POLICY_QUESTION}
+    ) == "final_response"
+
+
+def test_a_clarified_thread_goes_back_to_the_supervisor():
+    """The answer is re-routed with the original question, not acted on alone."""
+    assert route_after_clarification({}) == "supervisor"
+    assert route_after_clarification({"halted": True}) == "human_review"
 
 
 def test_every_decided_file_gets_a_rationale_including_a_referred_one():
@@ -77,16 +125,16 @@ def test_a_file_needing_review_routes_there_after_the_rationale():
     assert route_after_narrative({"requires_human_review": True}) == "human_review"
 
 
-def test_a_clean_file_ends():
-    assert route_after_narrative({"requires_human_review": False}) == "__end__"
-    assert route_after_narrative({}) == "__end__"
+def test_a_clean_file_goes_straight_to_the_response():
+    assert route_after_narrative({"requires_human_review": False}) == "final_response"
+    assert route_after_narrative({}) == "final_response"
 
 
 @pytest.mark.parametrize(
     "state,expected",
     [
         ({"requires_human_review": True, "route": "done"}, "human_review"),
-        ({"requires_human_review": False, "route": "human_review"}, "__end__"),
+        ({"requires_human_review": False, "route": "human_review"}, "final_response"),
     ],
 )
 def test_the_review_flag_governs_the_final_edge_not_the_route_field(state, expected):
@@ -104,19 +152,60 @@ def test_the_graph_declares_the_expected_nodes_and_edges(indexes_built, tmp_path
     try:
         drawn = graph.get_graph()
         nodes = set(drawn.nodes)
-        assert {"supervisor", "domain_router", "policy_retrieval"} <= nodes
-        assert {"eligibility", "risk", "recommendation", "narrative", "human_review"} <= nodes
+        assert {"intake", "input_guardrails", "supervisor"} <= nodes
+        assert {"general_response", "clarification", "safe_response"} <= nodes
+        assert {"final_response", "output_guardrails", "human_review", "narrative"} <= nodes
+        for product in ("mortgage", "education"):
+            assert {
+                f"{product}_agent",
+                f"{product}_policy_retrieval",
+                f"{product}_eligibility",
+                f"{product}_risk",
+                f"{product}_recommendation",
+            } <= nodes, product
 
         edges = {(e.source, e.target) for e in drawn.edges}
-        assert ("supervisor", "domain_router") in edges
-        assert ("domain_router", "policy_retrieval") in edges
-        assert ("domain_router", "human_review") in edges
-        assert ("policy_retrieval", "eligibility") in edges
-        assert ("policy_retrieval", "human_review") in edges
-        assert ("eligibility", "risk") in edges
-        assert ("risk", "recommendation") in edges
-        assert ("recommendation", "narrative") in edges
+        assert ("intake", "input_guardrails") in edges
+        assert ("input_guardrails", "supervisor") in edges
+        assert ("supervisor", "mortgage_agent") in edges
+        assert ("supervisor", "education_agent") in edges
+        assert ("supervisor", "general_response") in edges
+        assert ("supervisor", "clarification") in edges
+        assert ("supervisor", "safe_response") in edges
+        assert ("clarification", "supervisor") in edges
         assert ("narrative", "human_review") in edges
+        assert ("final_response", "output_guardrails") in edges
+        for product in ("mortgage", "education"):
+            assert (f"{product}_agent", f"{product}_policy_retrieval") in edges
+            assert (f"{product}_policy_retrieval", f"{product}_eligibility") in edges
+            assert (f"{product}_eligibility", f"{product}_risk") in edges
+            assert (f"{product}_risk", f"{product}_recommendation") in edges
+            assert (f"{product}_recommendation", "narrative") in edges
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+
+
+def test_no_edge_crosses_between_the_two_products(indexes_built, tmp_path):
+    """Product isolation is a property of the topology, not of a condition.
+
+    A shared worker node guarded by ``if domain is MORTGAGE`` is only as good as
+    that condition staying correct. Two chains that share no node cannot be got
+    wrong: there is no sequence of routing decisions that reaches education
+    retrieval from a mortgage node, because no such edge exists.
+    """
+    if not indexes_built:
+        pytest.skip("indexes not built")
+    graph, context = build_graph(checkpoint_path=tmp_path / "isolation.sqlite")
+    try:
+        edges = {(e.source, e.target) for e in graph.get_graph().edges}
+        crossings = [
+            (source, target)
+            for source, target in edges
+            if ("mortgage" in source and "education" in target)
+            or ("education" in source and "mortgage" in target)
+        ]
+        assert crossings == [], f"an edge crosses products: {crossings}"
     finally:
         if context is not None:
             context.__exit__(None, None, None)
@@ -154,12 +243,14 @@ def test_an_application_routes_to_its_own_product(repo_root, application, expect
         (
             "synthetic_data/mortgage/applications/APP-000001.json",
             "MORTGAGE",
-            ["supervisor", "domain_router", "policy_retrieval", "eligibility", "risk"],
+            ["intake", "input_guardrails", "supervisor", "mortgage_agent",
+             "mortgage_policy_retrieval", "mortgage_eligibility", "mortgage_risk"],
         ),
         (
             "synthetic_data/education/applications/APP-2026-00001.json",
             "EDUCATION_LOAN",
-            ["supervisor", "domain_router", "policy_retrieval", "eligibility", "risk"],
+            ["intake", "input_guardrails", "supervisor", "education_agent",
+             "education_policy_retrieval", "education_eligibility", "education_risk"],
         ),
     ],
 )
@@ -178,6 +269,8 @@ def test_the_graph_visits_the_right_workers_in_order(
         assert result["steps"][: len(expected_worker_path)] == expected_worker_path
         # And the evidence it gathered belongs to that product only.
         assert {e["product_domain"] for e in result["policy_evidence"]} == {expected_domain}
+        # It ended through the response path, not by falling off an edge.
+        assert result["steps"][-1] == "output_guardrails"
     finally:
         if context is not None:
             context.__exit__(None, None, None)
@@ -197,7 +290,11 @@ def test_a_decline_is_routed_to_a_human(indexes_built, tmp_path, repo_root):
         )
         assert result["recommendation"]["outcome"] == "DECLINE_RECOMMENDATION"
         assert result["requires_human_review"] is True
-        assert result["steps"][-1] == "human_review"
+        # human_review sits before the response is assembled, so the reviewer
+        # gets the figures and the rationale rather than a bare referral.
+        assert "human_review" in result["steps"]
+        assert result["steps"].index("human_review") < result["steps"].index("final_response")
+        assert "human review" in result["final_response"]["text"].lower()
     finally:
         if context is not None:
             context.__exit__(None, None, None)
@@ -206,7 +303,13 @@ def test_a_decline_is_routed_to_a_human(indexes_built, tmp_path, repo_root):
 @pytest.mark.slow
 @pytest.mark.integration
 def test_an_adversarial_file_is_routed_for_review(indexes_built, tmp_path, repo_root):
-    """Applicant text that tries to steer the system escalates it instead."""
+    """Applicant text that tries to steer the system escalates it instead.
+
+    The file is still assessed. Refusing to underwrite a file because a hostile
+    letter of explanation was attached to it would let the attacker stop the
+    applicant's file from being read at all — so the attack changes where the
+    result goes, not whether there is one.
+    """
     if not indexes_built:
         pytest.skip("indexes not built")
     graph, context = build_graph(checkpoint_path=tmp_path / "routing4.sqlite")
@@ -221,6 +324,56 @@ def test_an_adversarial_file_is_routed_for_review(indexes_built, tmp_path, repo_
         # It was still assessed — the attack did not move the product or the date.
         assert result["loan_domain"] == "MORTGAGE"
         assert result["policy_evidence"]
+        assert result["recommendation"]["outcome"]
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+
+
+# ------------------------------------------------- the conversational path
+
+
+@pytest.mark.integration
+def test_a_greeting_never_reaches_retrieval(indexes_built, tmp_path):
+    """The requirement, asserted on the path actually taken.
+
+    ``general_response`` has no edge to any retrieval node, so this cannot be
+    satisfied by a greeting that retrieves quickly — the nodes it visited are
+    the evidence.
+    """
+    if not indexes_built:
+        pytest.skip("indexes not built")
+    graph, context = build_graph(checkpoint_path=tmp_path / "greet.sqlite")
+    try:
+        for greeting in ("hi", "hello", "thanks", "goodbye", "who are you"):
+            result = graph.invoke(
+                conversation_state(greeting),
+                config={"configurable": {"thread_id": f"g-{uuid.uuid4().hex[:8]}"}},
+            )
+            steps = result["steps"]
+            assert not any("retrieval" in step for step in steps), (greeting, steps)
+            assert not result.get("policy_evidence"), greeting
+            assert result["supervisor"]["route"] == Route.GENERAL.value, greeting
+            assert result["answer"]
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+
+
+@pytest.mark.integration
+def test_an_out_of_scope_request_is_refused_without_retrieval(indexes_built, tmp_path):
+    if not indexes_built:
+        pytest.skip("indexes not built")
+    graph, context = build_graph(checkpoint_path=tmp_path / "oos.sqlite")
+    try:
+        result = graph.invoke(
+            conversation_state("what is the weather in Paris tomorrow"),
+            config={"configurable": {"thread_id": f"oos-{uuid.uuid4().hex[:8]}"}},
+        )
+        assert result["supervisor"]["route"] == Route.OUT_OF_SCOPE.value
+        assert "safe_response" in result["steps"]
+        assert not result.get("policy_evidence")
+        assert not result["final_response"]["citations"]
     finally:
         if context is not None:
             context.__exit__(None, None, None)

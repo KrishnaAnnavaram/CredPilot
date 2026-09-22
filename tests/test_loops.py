@@ -211,12 +211,13 @@ def test_a_starved_budget_halts_a_real_assessment(indexes_built, tmp_path, repo_
         )
         assert result["halted"] is True
         assert result["requires_human_review"] is True
-        # The budget bounds the *work*; halting then costs two more node visits —
-        # the node that detected it, and the terminal human-review node that
-        # records why. Both are fixed, so the run is still bounded.
-        assert result["steps_taken"] <= 2 + 2
+        # The budget bounds the *work*; halting then costs a fixed tail of node
+        # visits — the node that detected it, the human-review handoff, and the
+        # two response nodes that turn "halted after N steps" into something a
+        # reviewer can read. Four, and it does not grow with the file.
+        assert result["steps_taken"] <= 2 + 4
         # It halted rather than producing a decision on partial evidence.
-        assert not result.get("recommendation")
+        assert not (result.get("recommendation") or {}).get("outcome")
         assert any("halted" in reason for reason in result["human_review_reasons"])
     finally:
         if context is not None:

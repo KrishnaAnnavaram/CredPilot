@@ -35,3 +35,13 @@ data/vectorstore/credpilot/
 
 # LangGraph checkpoints are per-run state, not evidence.
 data/memory/
+
+# DeepEval's local telemetry/cache directory. Created on import, holds no
+# evidence, and its contents vary by machine.
+.deepeval/
+.deepeval-cache.json
+
+# A --phoenix export is a live-instance run used only to populate the Phoenix
+# UI for the AC-09 screenshot. The committed export is traces/phoenix_spans.jsonl.
+traces/phoenix-live*.jsonl
+traces/phoenix-live*.json

@@ -152,9 +152,19 @@ def test_with_both_rules_the_extension_is_evaluated(mortgage_chunks):
         },
         both,
     )
-    assert rules.summarize(evaluations)["status"] == "ELIGIBLE"
-    assert evaluations[0].threshold == pytest.approx(0.45)
-    assert len(evaluations[0].factors) >= 2
+    # Asserted on the affordability evaluation itself rather than on the summary
+    # status. This bundle is deliberately two chunks — the ceiling and the rule
+    # that defines its extension — so every other family the engine evaluates
+    # reports INDETERMINATE for want of a rule that was never put in front of
+    # it, and the summary reads INDETERMINATE for reasons this test is not about.
+    # What it *is* about: with DTI-CONV-003 present, the extension is applied.
+    affordability = next(e for e in evaluations if e.measure == "back_end_dti")
+    assert affordability.verdict == rules.Verdict.PASS
+    assert affordability.threshold == pytest.approx(0.45)
+    assert len(affordability.factors) >= 2
+    assert rules.summarize(evaluations)["breaches"] == [], (
+        "a missing rule elsewhere must never become a breach here"
+    )
 
 
 # ----------------------------------------------------------------- end to end

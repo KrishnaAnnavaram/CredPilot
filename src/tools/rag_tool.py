@@ -22,14 +22,14 @@ Exposed three ways, all over the same implementation:
 from __future__ import annotations
 
 from datetime import date
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from src.config import RagConfig, get_config
 from src.domain import LendingProductDomain
 from src.observability.tool_logging import log_agent_action, tool_call
-from src.rag.models import PolicyRetrievalResult, RetrievalStatus
+from src.rag.models import PolicyEvidence, PolicyRetrievalResult, RetrievalStatus
 from src.rag.pipeline import PolicyRetriever, get_retriever, retrieve_policy
 
 TOOL_NAME = "retrieve_policy"
@@ -155,6 +155,81 @@ def retrieve_policy_tool(
     return result
 
 
+#: The tool name for a lookup by rule id, kept distinct in the tool log. The two
+#: are different operations with different costs and different failure modes,
+#: and reconciling "retrieve_policy took 40ms" against a funnel that cannot run
+#: that fast would be a puzzle nobody should have to solve.
+FETCH_RULES_TOOL_NAME = "fetch_policy_rules"
+
+
+def fetch_policy_rules(
+    rule_ids: "Sequence[str]",
+    *,
+    product_domain: "str | LendingProductDomain",
+    as_of_date: "str | date | None" = None,
+    application_id: str | None = None,
+    agent: str = "policy_retrieval_agent",
+    retriever: PolicyRetriever | None = None,
+    config: RagConfig | None = None,
+) -> list[PolicyEvidence]:
+    """Fetch named rules by id, product-scoped and version-resolved.
+
+    For the case where the *engine* knows which rule it needs rather than the
+    *file* raising a question. Ranking has nothing to contribute to
+    "give me DTI-CONV-003", and the temporal filter still decides which version
+    of it comes back.
+
+    Product isolation is unchanged: a domain is required, and a rule id that
+    exists only in the other corpus returns nothing rather than crossing over.
+    """
+    domain = LendingProductDomain.from_any(product_domain)
+    wanted = [str(r) for r in rule_ids if str(r).strip()]
+    args = {
+        "rule_ids": wanted,
+        "product_domain": domain.value,
+        "application_id": application_id,
+        "as_of_date": str(as_of_date) if as_of_date else None,
+    }
+
+    with tool_call(FETCH_RULES_TOOL_NAME, agent=agent, args=args) as call:
+        resolved_as_of = _as_date(as_of_date)
+        evidence = (retriever or get_retriever(config)).fetch_rules(
+            domain, wanted, as_of=resolved_as_of
+        )
+        call["result"] = {
+            "evidence_count": len(evidence),
+            "citations": [e.citation for e in evidence],
+        }
+
+    found = {e.rule_id for e in evidence if e.rule_id}
+    log_agent_action(
+        actor=agent,
+        action="fetch_policy_rules",
+        tool=FETCH_RULES_TOOL_NAME,
+        decision="FOUND" if evidence else "NOT_FOUND",
+        application_id=application_id,
+        product_domain=domain.value,
+        detail={
+            "requested": wanted,
+            "found": sorted(found),
+            "not_found": sorted(set(r.upper() for r in wanted) - {f.upper() for f in found}),
+            "all_citations_resolve": all(e.citation_resolves for e in evidence),
+        },
+    )
+    return evidence
+
+
+def _as_date(value: "str | date | None") -> "date | None":
+    if value is None:
+        return None
+    if isinstance(value, date):
+        return value
+    try:
+        return date.fromisoformat(str(value)[:10])
+    except ValueError:
+        return None
+
+
 def retrieve_policy_json(**kwargs: Any) -> dict[str, Any]:
     """JSON-serializable form, for the MCP surface and for LangChain tool output."""
     agent = kwargs.pop("agent", "policy_retrieval_agent")
@@ -266,6 +341,8 @@ __all__ = [
     "RetrievalStatus",
     "TOOL_DESCRIPTION",
     "TOOL_NAME",
+    "FETCH_RULES_TOOL_NAME",
+    "fetch_policy_rules",
     "build_langchain_tool",
     "policy_corpus_summary",
     "result_to_payload",

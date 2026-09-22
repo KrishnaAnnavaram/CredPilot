@@ -252,6 +252,10 @@ def test_the_mcp_transcript_is_machine_generated(repo_root):
     records = read_log(transcript)
     assert len(records) > before, "the server wrote no new transcript records"
     for record in records:
-        assert record["direction"] in ("request", "response")
+        # "client" joined request/response when the host gained its own client:
+        # an elicitation answered, a sampling request served and the roots
+        # declared are all things the *client* did, and recording them as a
+        # server "request" would misattribute them.
+        assert record["direction"] in ("request", "response", "client")
         assert "timestamp" in record and "method" in record
     assert any(r["method"].startswith("tools/call:") for r in records)

@@ -15,6 +15,8 @@ pattern layer alone already covers the identifier shapes the corpora contain.
 from __future__ import annotations
 
 import functools
+import io
+import threading
 import re
 from typing import Any, Iterable, Mapping
 
@@ -139,6 +141,45 @@ def _presidio_analyzer():
         return None
 
 
+def warm_redaction(*, background: bool = True) -> None:
+    """Build the Presidio analyzer before a request needs it.
+
+    Constructing ``AnalyzerEngine`` loads a spaCy pipeline and measured **17.1
+    seconds** on this machine. Lazily, that cost lands on whichever call first
+    redacts something with Presidio enabled — which is the audit-log write
+    inside the *intake* node, the first node of the first request. The
+    committed trace export caught it: ``graph.intake`` span
+    ``d95923312aa55be9`` ran for 31,107 ms against a p50 of 4.0 ms for the same
+    node.
+
+    It is a cold-start cost, not a leak — the second request pays 57 ms — but
+    paying it inside a user's first request rather than at start-up is the
+    wrong place, and it makes the first trace of any session unreadable as
+    performance data.
+
+    Warming in a daemon thread by default: a caller that never redacts anything
+    should not wait for it either, and a request that arrives before warming
+    finishes simply blocks as it used to. ``background=False`` makes it
+    synchronous, which is what the tests use.
+    """
+    if not background:
+        _presidio_analyzer()
+        return
+
+    def warm() -> None:
+        try:
+            _presidio_analyzer()
+        except Exception:  # noqa: BLE001 - warming must never break anything
+            pass
+
+    threading.Thread(target=warm, name="credpilot-warm-redaction", daemon=True).start()
+
+
+def redaction_is_warm() -> bool:
+    """Whether the analyzer has already been built. For tests and diagnostics."""
+    return _presidio_analyzer.cache_info().currsize > 0
+
+
 #: Presidio entities worth running as a second pass.
 #:
 #: ``US_DRIVER_LICENSE`` and ``US_PASSPORT`` are deliberately excluded. Both match
@@ -175,9 +216,11 @@ _PROTECTED_IDENTIFIERS = re.compile(
     #
     # Each alternative requires at least one a-f character. A bare 16-digit run
     # is a card number far more often than it is a span id, and an earlier
-    # version of this pattern matched `4111111111111111` and stopped it being
-    # redacted. A span id that happens to be all digits loses its protection and
-    # gets redacted; that is the right way round for this trade.
+    # version of this pattern matched the standard Visa test number and stopped
+    # it being redacted. A span id that happens to be all digits loses its
+    # protection and gets redacted; that is the right way round for this trade.
+    # (`tests/rag/test_pii_logging.py` holds the literal, where a fixture has
+    # to; a comment does not.)
     r"|\b(?=[0-9a-f]{8}-)(?=[0-9a-f-]*[a-f])[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b"
     r"|\b(?=[0-9a-f]{32}\b)(?=[0-9a-f]*[a-f])[0-9a-f]{32}\b"
     r"|\b(?=[0-9a-f]{16}\b)(?=[0-9a-f]*[a-f])[0-9a-f]{16}\b",
@@ -185,8 +228,49 @@ _PROTECTED_IDENTIFIERS = re.compile(
 )
 
 
+#: Trace and span ids protected by the **key they sit under** rather than by
+#: their shape.
+#:
+#: A span id is 16 hex characters, and roughly one in 1,800 comes out all
+#: digits. An all-digit 16-character run is indistinguishable by shape from a
+#: card number, so `_PROTECTED_IDENTIFIERS` above deliberately requires at
+#: least one a-f and lets the all-digit ones be redacted — the right trade in
+#: free text, where a bare 16-digit run really is a card number far more often
+#: than it is a span id.
+#:
+#: It is the wrong trade inside a span record, where the value sits under a key
+#: that names it. Three span ids in a 980-span export tripped the
+#: committed-artifact scan as ACCOUNT — a false positive on a machine-generated
+#: correlation key with no applicant in it, and one that would recur at random
+#: on every export.
+#:
+#: Context beats shape. Nothing is weakened by this: a card number is never the
+#: value of `span_id`.
+_ID_FIELD_VALUE = re.compile(
+    r'"(?:span_id|trace_id|parent_span_id|parent_id|call_id|event_id|context\.span_id|context\.trace_id|run_id)"'
+    r'\s*:\s*"[0-9a-fA-F-]{8,64}"',
+)
+
+#: The same protection in column form, for a CSV export.
+#:
+#: A CSV cell carries no key beside it — the column name is on line 1 — so the
+#: JSON pattern above cannot see it, and `reports/phoenix_spans.csv` tripped
+#: the same false positive on the same kind of value. A cell is exempt only if
+#: its column is named here and its content is identifier-shaped; everything
+#: else in the row is scanned exactly as before.
+ID_COLUMNS = frozenset({
+    "span_id", "trace_id", "parent_span_id", "parent_id", "call_id", "event_id",
+    "context.span_id", "context.trace_id", "run_id",
+    "attributes.span_id", "attributes.trace_id",
+})
+
+_BARE_IDENTIFIER = re.compile(r"\A[0-9a-fA-F-]{8,64}\Z")
+
+
 def _protected_spans(text: str) -> list[tuple[int, int]]:
-    return [(m.start(), m.end()) for m in _PROTECTED_IDENTIFIERS.finditer(text)]
+    spans = [(m.start(), m.end()) for m in _PROTECTED_IDENTIFIERS.finditer(text)]
+    spans += [(m.start(), m.end()) for m in _ID_FIELD_VALUE.finditer(text)]
+    return spans
 
 
 def _overlaps(start: int, end: int, spans: list[tuple[int, int]]) -> bool:
@@ -298,4 +382,35 @@ def scan_lines(lines: Iterable[str]) -> list[tuple[int, str, str]]:
     for n, line in enumerate(lines, start=1):
         for kind, match in find_sensitive(line):
             out.append((n, kind, match))
+    return out
+
+
+def scan_csv(text: str) -> list[tuple[int, str, str]]:
+    """Scan a CSV the way `scan_lines` scans free text, but column by column.
+
+    Identifier columns named in `ID_COLUMNS` are exempt when their cell is
+    identifier-shaped, for the reason `_ID_FIELD_VALUE` gives: a card number is
+    never the value of `span_id`. Every other cell is scanned. A file with no
+    header row, or one this cannot parse, falls back to the line scan rather
+    than to trusting it.
+    """
+    import csv
+
+    reader = csv.reader(io.StringIO(text))
+    try:
+        header = next(reader)
+    except StopIteration:
+        return []
+
+    exempt = {i for i, name in enumerate(header) if name.strip() in ID_COLUMNS}
+    out: list[tuple[int, str, str]] = []
+    for row in reader:
+        line_number = reader.line_num
+        for index, cell in enumerate(row):
+            if not cell:
+                continue
+            if index in exempt and _BARE_IDENTIFIER.match(cell):
+                continue
+            for kind, match in find_sensitive(cell):
+                out.append((line_number, kind, match))
     return out

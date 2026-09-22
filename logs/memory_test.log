@@ -1,11 +1,13 @@
 CredPilot — tiered memory cross-session recall
-run_at_utc: 2026-09-21T20:41:35+00:00
+run_at_utc: 2026-09-22T04:08:13+00:00
 
-session-1  wrote 2 memories for BORR-1aba9c
-session-2  recalled 2 memories for BORR-1aba9c
+session-1  wrote 2 memories for BORR-ddc166
+session-2  recalled 2 memories for BORR-ddc166
            [context_note] employment: Self-employed consultant since 2019; income verified from two years of returns.
            [document_status] outstanding-docs: Letter of explanation for the 2024 gap is still outstanding.
 update     corrected 'employer' across sessions without duplicating (1 record held)
+semantic   'is this borrower self-employed?' -> 'Runs his own consultancy and files two years of tax returns.' (similarity 0.779)
+           other applicants' memories were not returned
 log        logs/memory_test.log written by this test module
 
 RESULT: cross-session recall verified — memory written in one session

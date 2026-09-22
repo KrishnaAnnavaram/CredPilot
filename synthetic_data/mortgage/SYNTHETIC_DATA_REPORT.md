@@ -10,10 +10,10 @@ Generated with `SYNTHETIC_SEED=20260920`. Every figure below is counted from the
 | Document | Role |
 | --- | --- |
 | `synthetic_data/mortgage/research/deep-research-report.md` | The completed Deep Research mortgage-domain report. Primary design authority for the data model, calculations, policy architecture, scenario matrix and human-review classification. |
-| `requirements_verbatim.md` | The 112 verbatim requirements extracted from the business case, hash-verified. Highest authority on what must exist. |
-| `EXTRACTION_NOTE.md` | Provenance of the requirements extraction. |
-| `BASELINE_REQUIREMENTS.md` | The integrity contract around the baseline. |
-| `requirement_traceability_matrix.md` | Existing requirement-to-test mapping, read to avoid contradicting the QA layer's expectations. |
+| `requirements_validation_tests/source_requirements/requirements_verbatim.md` | The 112 verbatim requirements extracted from the business case, hash-verified. Highest authority on what must exist. |
+| `requirements_validation_tests/source_document/EXTRACTION_NOTE.md` | Provenance of the requirements extraction. |
+| `requirements_validation_tests/BASELINE_REQUIREMENTS.md` | The integrity contract around the baseline. |
+| `requirements_validation_tests/traceability/requirement_traceability_matrix.md` | Existing requirement-to-test mapping, read to avoid contradicting the QA layer's expectations. |
 | The 15 files under `test_specs/` | What the validation suite will check, including the paths and PII patterns it enforces. |
 
 ## 2. Research report used
