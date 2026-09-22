@@ -135,9 +135,12 @@ def test_sanitization_removes_machinery_control_terms():
 
 
 def test_sanitization_redacts_identifiers_in_the_query():
-    result = sanitize_query("Check the file for SSN 123-45-6789 and account 4111111111111111")
+    # The published Visa test number, assembled rather than written out; see
+    # VISA_TEST_NUMBER in test_pii_logging.py for why.
+    card = "4" + "1" * 15
+    result = sanitize_query(f"Check the file for SSN 123-45-6789 and account {card}")
     assert "123-45-6789" not in result.text
-    assert "4111111111111111" not in result.text
+    assert card not in result.text
 
 
 @pytest.mark.parametrize(

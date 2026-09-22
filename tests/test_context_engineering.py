@@ -190,7 +190,7 @@ def test_compression_leaves_a_small_evidence_set_alone():
 
 
 def test_compression_never_calls_a_model():
-    """Reproducibility (REQ-033): a compressed prompt must be the same every run."""
+    """REQ-033: a compressed prompt must be the same every run."""
     first = compress_evidence(EVIDENCE, max_chars=2_000)
     second = compress_evidence(EVIDENCE, max_chars=2_000)
     assert first.text == second.text

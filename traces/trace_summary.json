@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-22T04:19:04+00:00",
-  "redaction_warm_up_ms": 3740.758,
-  "run_id": "612951cdbdbd417b919ef90fffaeb732",
+  "generated_at_utc": "2026-09-22T05:53:16+00:00",
+  "redaction_warm_up_ms": 3008.363,
+  "run_id": "393ec90f1ad4423eacac42fce738e93e",
   "runs": [
     {
       "application_id": "APP-000055",
@@ -26,7 +26,7 @@
       "recommendation": "REFER_RECOMMENDATION",
       "requires_human_review": true,
       "route": "MORTGAGE",
-      "thread_id": "trace-APP-000055-612951cd"
+      "thread_id": "trace-APP-000055-393ec90f"
     },
     {
       "application_id": "APP-000056",
@@ -51,7 +51,7 @@
       "recommendation": "DECLINE_RECOMMENDATION",
       "requires_human_review": true,
       "route": "MORTGAGE",
-      "thread_id": "trace-APP-000056-612951cd"
+      "thread_id": "trace-APP-000056-393ec90f"
     },
     {
       "application_id": "APP-000057",
@@ -75,7 +75,7 @@
       "recommendation": "APPROVE_RECOMMENDATION",
       "requires_human_review": false,
       "route": "MORTGAGE",
-      "thread_id": "trace-APP-000057-612951cd"
+      "thread_id": "trace-APP-000057-393ec90f"
     },
     {
       "application_id": "APP-000065",
@@ -100,7 +100,7 @@
       "recommendation": "DECLINE_RECOMMENDATION",
       "requires_human_review": true,
       "route": "MORTGAGE",
-      "thread_id": "trace-APP-000065-612951cd"
+      "thread_id": "trace-APP-000065-393ec90f"
     },
     {
       "application_id": "APP-2026-00001",
@@ -124,7 +124,7 @@
       "recommendation": "APPROVE_RECOMMENDATION",
       "requires_human_review": false,
       "route": "EDUCATION_LOAN",
-      "thread_id": "trace-APP-2026-00001-612951cd"
+      "thread_id": "trace-APP-2026-00001-393ec90f"
     },
     {
       "application_id": "APP-2026-00002",
@@ -149,7 +149,7 @@
       "recommendation": "REFER_RECOMMENDATION",
       "requires_human_review": true,
       "route": "EDUCATION_LOAN",
-      "thread_id": "trace-APP-2026-00002-612951cd"
+      "thread_id": "trace-APP-2026-00002-393ec90f"
     },
     {
       "application_id": "APP-2026-00037",
@@ -173,7 +173,7 @@
       "recommendation": "APPROVE_RECOMMENDATION",
       "requires_human_review": false,
       "route": "EDUCATION_LOAN",
-      "thread_id": "trace-APP-2026-00037-612951cd"
+      "thread_id": "trace-APP-2026-00037-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -193,7 +193,7 @@
       "requires_human_review": false,
       "resumed": false,
       "route": "GENERAL",
-      "thread_id": "trace-general-greeting-612951cd"
+      "thread_id": "trace-general-greeting-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -213,7 +213,7 @@
       "requires_human_review": false,
       "resumed": false,
       "route": "GENERAL",
-      "thread_id": "trace-general-capability-612951cd"
+      "thread_id": "trace-general-capability-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -233,7 +233,7 @@
       "requires_human_review": false,
       "resumed": false,
       "route": "OUT_OF_SCOPE",
-      "thread_id": "trace-out-of-scope-612951cd"
+      "thread_id": "trace-out-of-scope-393ec90f"
     },
     {
       "clarification_asked": true,
@@ -256,7 +256,7 @@
       "requires_human_review": false,
       "resumed": true,
       "route": "EDUCATION_LOAN",
-      "thread_id": "trace-clarify-612951cd"
+      "thread_id": "trace-clarify-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -277,7 +277,7 @@
       "requires_human_review": false,
       "resumed": false,
       "route": "MORTGAGE",
-      "thread_id": "trace-mortgage-question-612951cd"
+      "thread_id": "trace-mortgage-question-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -298,7 +298,7 @@
       "requires_human_review": false,
       "resumed": false,
       "route": "EDUCATION_LOAN",
-      "thread_id": "trace-education-question-612951cd"
+      "thread_id": "trace-education-question-393ec90f"
     },
     {
       "clarification_asked": false,
@@ -318,7 +318,7 @@
       "requires_human_review": true,
       "resumed": false,
       "route": "HUMAN_REVIEW",
-      "thread_id": "trace-injection-attempt-612951cd"
+      "thread_id": "trace-injection-attempt-393ec90f"
     },
     {
       "application_id": "APP-999001",
@@ -341,7 +341,7 @@
       "recommendation": null,
       "requires_human_review": true,
       "route": "MORTGAGE",
-      "thread_id": "trace-undated-packet-612951cd"
+      "thread_id": "trace-undated-packet-393ec90f"
     },
     {
       "application_id": "APP-999002",
@@ -380,154 +380,154 @@
       "recommendation": "REFER_RECOMMENDATION",
       "requires_human_review": true,
       "route": "MORTGAGE",
-      "thread_id": "trace-dated-empty-packet-612951cd"
+      "thread_id": "trace-dated-empty-packet-393ec90f"
     }
   ],
   "span_count": 1119,
   "span_names": {
     "agent.education": {
       "count": 5,
-      "p50_ms": 10.387,
-      "p95_ms": 12.012,
-      "total_ms": 51.619
+      "p50_ms": 9.097,
+      "p95_ms": 11.788,
+      "total_ms": 40.656
     },
     "agent.eligibility": {
       "count": 8,
-      "p50_ms": 2.133,
-      "p95_ms": 523.081,
-      "total_ms": 752.179
+      "p50_ms": 4.834,
+      "p95_ms": 314.446,
+      "total_ms": 490.355
     },
     "agent.final_response": {
       "count": 13,
-      "p50_ms": 9.002,
-      "p95_ms": 11.999,
-      "total_ms": 114.276
+      "p50_ms": 7.003,
+      "p95_ms": 17.084,
+      "total_ms": 95.171
     },
     "agent.human_review": {
       "count": 7,
-      "p50_ms": 25.876,
-      "p95_ms": 201.248,
-      "total_ms": 386.746
+      "p50_ms": 18.995,
+      "p95_ms": 75.235,
+      "total_ms": 210.433
     },
     "agent.mortgage": {
       "count": 6,
-      "p50_ms": 11.009,
-      "p95_ms": 13.532,
-      "total_ms": 67.112
+      "p50_ms": 8.504,
+      "p95_ms": 14.47,
+      "total_ms": 48.891
     },
     "agent.recommendation": {
       "count": 8,
-      "p50_ms": 346.463,
-      "p95_ms": 511.504,
-      "total_ms": 2961.559
+      "p50_ms": 273.284,
+      "p95_ms": 528.025,
+      "total_ms": 2331.95
     },
     "agent.risk": {
       "count": 8,
-      "p50_ms": 0.997,
-      "p95_ms": 12.998,
-      "total_ms": 26.518
+      "p50_ms": 0.0,
+      "p95_ms": 15.738,
+      "total_ms": 19.754
     },
     "bm25.search": {
       "count": 89,
-      "p50_ms": 1.649,
-      "p95_ms": 3.002,
-      "total_ms": 154.715
+      "p50_ms": 1.519,
+      "p95_ms": 7.152,
+      "total_ms": 157.674
     },
     "chroma.search": {
       "count": 89,
-      "p50_ms": 8.896,
-      "p95_ms": 12.001,
-      "total_ms": 1460.82
+      "p50_ms": 10.887,
+      "p95_ms": 19.574,
+      "total_ms": 1508.391
     },
     "citation.validate": {
       "count": 89,
-      "p50_ms": 4.0,
-      "p95_ms": 5.658,
-      "total_ms": 348.641
+      "p50_ms": 4.008,
+      "p95_ms": 6.018,
+      "total_ms": 329.631
     },
     "domain.resolve": {
       "count": 89,
       "p50_ms": 0.0,
-      "p95_ms": 1.004,
-      "total_ms": 18.854
+      "p95_ms": 1.007,
+      "total_ms": 9.772
     },
     "embedding.query": {
       "count": 89,
-      "p50_ms": 29.528,
-      "p95_ms": 39.518,
-      "total_ms": 12692.555
+      "p50_ms": 25.494,
+      "p95_ms": 98.771,
+      "total_ms": 12085.542
     },
     "graph.intake": {
       "count": 16,
-      "p50_ms": 1.01,
-      "p95_ms": 16.459,
-      "total_ms": 79.092
+      "p50_ms": 0.995,
+      "p95_ms": 20.113,
+      "total_ms": 77.983
     },
     "guardrails.input": {
       "count": 16,
       "p50_ms": 0.0,
-      "p95_ms": 23.0,
-      "total_ms": 32.508
+      "p95_ms": 29.292,
+      "total_ms": 39.288
     },
     "guardrails.output": {
       "count": 16,
       "p50_ms": 0.0,
-      "p95_ms": 10.151,
-      "total_ms": 11.15
+      "p95_ms": 6.999,
+      "total_ms": 6.999
     },
     "llm.narrative": {
       "count": 11,
-      "p50_ms": 1.005,
-      "p95_ms": 1990.501,
-      "total_ms": 2001.777
+      "p50_ms": 0.999,
+      "p95_ms": 1326.303,
+      "total_ms": 1335.902
     },
     "metadata.filter": {
       "count": 89,
-      "p50_ms": 2.04,
-      "p95_ms": 3.063,
-      "total_ms": 390.511
+      "p50_ms": 1.996,
+      "p95_ms": 4.018,
+      "total_ms": 156.714
     },
     "rag.result": {
       "count": 89,
-      "p50_ms": 0.999,
-      "p95_ms": 1.078,
-      "total_ms": 51.725
+      "p50_ms": 0.0,
+      "p95_ms": 2.51,
+      "total_ms": 49.123
     },
     "rag.retrieve": {
       "count": 96,
-      "p50_ms": 467.14,
-      "p95_ms": 637.015,
-      "total_ms": 55590.84
+      "p50_ms": 509.811,
+      "p95_ms": 1156.952,
+      "total_ms": 60412.381
     },
     "reranker.run": {
       "count": 89,
-      "p50_ms": 427.598,
-      "p95_ms": 570.128,
-      "total_ms": 40149.163
+      "p50_ms": 466.641,
+      "p95_ms": 1028.151,
+      "total_ms": 45755.784
     },
     "rrf.fusion": {
       "count": 89,
       "p50_ms": 0.0,
       "p95_ms": 1.0,
-      "total_ms": 6.227
+      "total_ms": 13.751
     },
     "supervisor.clarify": {
       "count": 2,
-      "p50_ms": 27.998,
-      "p95_ms": 33.5,
-      "total_ms": 61.498
+      "p50_ms": 17.548,
+      "p95_ms": 17.618,
+      "total_ms": 35.166
     },
     "supervisor.route": {
       "count": 17,
-      "p50_ms": 31.905,
-      "p95_ms": 47.181,
-      "total_ms": 569.636
+      "p50_ms": 23.453,
+      "p95_ms": 149.498,
+      "total_ms": 547.715
     },
     "temporal.validate": {
       "count": 89,
       "p50_ms": 0.0,
-      "p95_ms": 1.034,
-      "total_ms": 13.444
+      "p95_ms": 2.005,
+      "total_ms": 17.4
     }
   },
   "spans_by_kind": {

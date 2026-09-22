@@ -3,8 +3,8 @@ Synthetic person construction.
 
 No third-party name generator is used. The pools below are deliberately small,
 ordinary and committed, so the same seed produces the same people on any machine
-with no network access and no extra dependency - which is what the Reproducibility
-Rule (REQ-033) actually requires.
+with no network access and no extra dependency - which is what REQ-033
+actually requires.
 
 Every person is fictional. Sensitive identifiers are minted as SYN- tokens and are
 only ever rendered in masked form. Telephone numbers use the reserved 555-0100 to

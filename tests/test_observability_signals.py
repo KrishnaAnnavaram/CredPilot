@@ -413,3 +413,67 @@ def test_the_tool_log_reconciles_with_the_tools_the_code_declares(repo_root):
     known = {TOOL_NAME, FETCH_RULES_TOOL_NAME} | set(MCP_TOOLS)
     unknown = {name for name in logged if name not in known}
     assert not unknown, f"the log names tools the code does not declare: {unknown}"
+
+
+# ----------------------------------------------- identifiers that cannot mislead
+
+
+def test_generated_ids_are_never_shaped_like_an_account_number():
+    """A span id is 16 hex characters; ~1 in 1,800 comes out all decimal.
+
+    A 16-digit run beginning with 4 is a valid Visa shape, so a committed trace
+    export randomly acquires a string every payment-card scanner reports as an
+    unmasked account number. Two turned up in one 1,119-span export. NFR-05
+    says no committed artifact carries such a string, and an identifier that
+    satisfies that by luck does not satisfy it.
+    """
+    from src.observability.tracing import UnambiguousIdGenerator
+
+    generator = UnambiguousIdGenerator()
+    draws = 20_000
+
+    span_ids = [generator.generate_span_id() for _ in range(draws)]
+    assert not [s for s in span_ids if generator._is_ambiguous(s, 16)]
+    trace_ids = [generator.generate_trace_id() for _ in range(2_000)]
+    assert not [t for t in trace_ids if generator._is_ambiguous(t, 32)]
+
+    # Still ids: right width, still unique, still spread across the space.
+    assert all(0 < s < 2 ** 64 for s in span_ids)
+    assert len(set(span_ids)) == draws, "rejection sampling must not bias toward collisions"
+
+
+def test_the_guard_would_catch_an_ambiguous_id():
+    """Guard the guard: a checker that never fires proves nothing."""
+    from src.observability.tracing import UnambiguousIdGenerator
+
+    generator = UnambiguousIdGenerator()
+    # A hex id whose rendering is all decimal digits is exactly the shape
+    # being excluded -- here, 4 followed by fifteen 1s.
+    ambiguous = int("4" + "1" * 15, 16)
+    assert generator._is_ambiguous(ambiguous, 16)
+    assert not generator._is_ambiguous(int("d95923312aa55be9", 16), 16)
+
+
+def test_no_span_id_in_the_committed_export_is_account_shaped():
+    """The artifact, not just the generator."""
+    import json
+    from pathlib import Path
+
+    repo_root = Path(__file__).resolve().parents[1]
+    path = repo_root / "traces" / "phoenix_spans.jsonl"
+    if not path.exists():
+        pytest.skip("no committed span export")
+
+    offenders = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        span = json.loads(line)
+        for field in ("span_id", "trace_id", "parent_span_id"):
+            value = str(span.get(field) or "")
+            if value and value.isdigit() and len(value) >= 13:
+                offenders.append(f"{field}={value}")
+    assert not offenders, (
+        f"{len(offenders)} identifier(s) in the committed export are "
+        f"indistinguishable from an account number: {offenders[:5]}"
+    )

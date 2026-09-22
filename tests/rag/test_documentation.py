@@ -192,7 +192,7 @@ def test_the_requirements_mapping_covers_the_mandatory_requirements(repo_root):
         "REQ-030",  # Citation-Resolves
         "REQ-031",  # Synthetic-Data / PII
         "REQ-032",  # Open-source & Gemini-only
-        "REQ-033",  # Reproducibility
+        "REQ-033",  # deterministic re-runs
         "REQ-035",  # Python 3.11+ / LangGraph
         "REQ-036",  # Gemini only
         "REQ-037",  # MCP

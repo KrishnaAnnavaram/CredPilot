@@ -227,15 +227,36 @@ asserts it against the compiled graph rather than against intent.
 **Cost of the deviation.** Ten nodes where five would do, and a longer node list
 in every trace. Worth it.
 
-### D7 — five validator findings that are false positives, and one that was not
+### D7 — two validator findings that are false positives, and what happened to the rest
 
 `requirements_validation_tests` scans committed files for prohibited content by
-regex. Five of its hits are matches on text that says the opposite of what the
-scanner concluded, or on a path the source document never specifies. They are recorded here rather than worked around, because a
+regex. Two of its remaining hits are matches on text that says the opposite of
+what the scanner concluded. They are recorded here rather than worked around, because a
 finding nobody explains gets re-investigated by the next reader.
 
-**A fourth was investigated and turned out to be a real defect**, which is the
-reason this section does not say "six". An earlier revision of this document
+**Three more were dropped from this table once the thing they described
+changed.** One was REQ-109, the FastAPI streaming endpoint the validator looks
+for at `src/api/`. The note here used to argue that renaming a package to
+match an assumption the source document does not make would be the wrong
+reason to rename it — which was a fair argument against a *rename*, and not an
+argument against the **split** that was done instead: `src/api/` is now the
+HTTP API as a mountable `APIRouter`, and `src/web/` the application that
+serves it alongside the page. The API can be mounted without a browser UI,
+which is worth having on its own.
+
+**The other two were dropped once the check they came from was
+rewritten.** They were the provider and database-service hits inside
+`tests/rag/test_stack_boundaries.py`, and the note here used to say they were
+unavoidable because a test that forbids a thing has to name it. That was true
+of a deny-list and is not true in general: the file is now an **allow-list** —
+every third-party import must be in `APPROVED_RUNTIME_PACKAGES`, every
+environment read in `APPROVED_CREDENTIALS` or `APPROVED_ENVIRONMENT`, every URL
+scheme in `APPROVED_URL_SCHEMES` — which is strictly stronger, because it also
+catches a provider nobody thought to ban. It names nothing prohibited, so the
+hits went away as a side effect rather than as the goal.
+
+**A further finding was investigated and turned out to be a real defect**,
+which is the reason this section does not say "six". An earlier revision of this document
 dismissed 81 "unmasked payment card numbers" as the same kind of shape
 collision and noted that the ones in
 `eval/results/retrieval_eval_cases.jsonl` "predate this work". Seventy-nine of
@@ -262,14 +283,9 @@ happens.
 | Finding | What actually matched | Why it is a false positive |
 |---|---|---|
 | "real credit-bureau integration" (REQ-066) | the word **"Reprodu*cibil*ity"** | The bureau pattern includes `cibil` — an Indian credit bureau — and it matches inside that word. Three hits, all in comments about the Reproducibility Rule. |
-| "Claude/Anthropic provider usage" (REQ-032, REQ-036) | `tests/rag/test_stack_boundaries.py` | That is the test which **forbids** Anthropic. It has to name the thing it prohibits. |
-| "external database service" (REQ-032, REQ-034) | the same file | Likewise: it contains `postgresql://`, `mysql://` in the list of markers it asserts are absent. |
-| "no FastAPI streaming endpoint at `src/api/`" (REQ-109) | nothing — the directory does not exist | REQ-109's text is *"FastAPI streaming endpoint; a demonstrated local run (screenshot/log)"* and names **no path**. `src/api/` is the validator's own assumption. The endpoint is [`src/web/app.py`](../../src/web/app.py) — FastAPI with Server-Sent Events over the same compiled graph the CLI uses — and the demonstrated local run is [`docs/assets/web-ui-assessment.png`](../assets/web-ui-assessment.png). Renaming the package to match an assumption the source document does not make would be the wrong reason to rename it. |
 | "unmasked payment-card number" (REQ-031) | a Phoenix **span id** | Span ids are 16 hex characters; about one in 1,800 comes out all digits, and a 16-digit run beginning with 4 is indistinguishable by shape from a Visa number. `traces/phoenix_spans.jsonl` contained one. CredPilot's own redaction handles this positionally — a value under a `span_id` key is a span id — but a byte-level scan of the file cannot. |
 
-None of the five is fixable without either weakening a real control, renaming
-a package to match an assumption the source document does not make, or
-falsifying an artifact. The two remaining payment-card hits are span ids, in
+Neither is fixable without weakening a real control or falsifying an artifact. The two remaining payment-card hits are span ids, in
 `traces/phoenix_spans.jsonl` and its CSV projection; CredPilot's own scan
 handles those by column and by key — see `scan_csv` and `_ID_FIELD_VALUE` in
 [`src/guardrails/redaction.py`](../../src/guardrails/redaction.py) — but an

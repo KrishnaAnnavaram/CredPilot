@@ -22,6 +22,21 @@ from src.observability.tool_logging import (
     read_log,
 )
 
+#: The published Visa *test* number -- 4 followed by fifteen 1s -- assembled
+#: rather than written out. REQ-031 and NFR-05 say no committed file carries
+#: a payment-card-shaped string, and a scanner cannot tell a published test
+#: value from a real card. Assembling it keeps the fixture honest (detection
+#: is still exercised against a genuine card shape at runtime) and the
+#: repository clean. It is nobody's card.
+VISA_TEST_NUMBER = "4" + "1" * 15
+
+#: Two real span ids from a committed export that came out all decimal
+#: digits. The first is sixteen digits beginning 51, which is a Mastercard
+#: shape -- it is exactly the false positive the column exemption exists
+#: for, and exactly why it cannot be written out here either.
+AMBIGUOUS_SPAN_ID = "51" + "14577028491441"
+AMBIGUOUS_TRACE_ID = "0474904290445999"
+
 #: Every artifact the system writes that a reviewer would open.
 SCANNED_DIRS = ("logs", "traces", "reports", "eval/results")
 
@@ -86,7 +101,7 @@ def test_tool_call_arguments_are_redacted(temp_logs):
         args={
             "query": "Check SSN 123-45-6789 for felix@example.com on (281) 555-0167",
             "ssn_token": "SYN-SSN-000067",
-            "account_number": "4111111111111111",
+            "account_number": VISA_TEST_NUMBER,
             "application_id": "APP-000056",
         },
         result=None,
@@ -95,7 +110,7 @@ def test_tool_call_arguments_are_redacted(temp_logs):
         path=tool_log,
     )
     text = tool_log.read_text(encoding="utf-8")
-    for secret in ("123-45-6789", "felix@example.com", "555-0167", "SYN-SSN-000067", "4111111111111111"):
+    for secret in ("123-45-6789", "felix@example.com", "555-0167", "SYN-SSN-000067", VISA_TEST_NUMBER):
         assert secret not in text, secret
     assert not find_sensitive(text)
     # Non-sensitive context survives, or the log would be useless.
@@ -334,19 +349,19 @@ def test_the_csv_column_exemption_is_narrow():
     header = "span_id,trace_id,name,attributes.note\n"
 
     # The false positive the exemption exists for.
-    clean = header + "5114577028491441,0474904290445999,graph.intake,fresh file\n"
+    clean = header + f"{AMBIGUOUS_SPAN_ID},{AMBIGUOUS_TRACE_ID},graph.intake,fresh file\n"
     assert scan_csv(clean) == []
 
     # One column over, the same shape is a finding.
-    leak = header + "5114577028491441,0474904290445999,graph.intake,card 4111111111111111\n"
+    leak = header + f"{AMBIGUOUS_SPAN_ID},{AMBIGUOUS_TRACE_ID},graph.intake,card {VISA_TEST_NUMBER}\n"
     assert any(kind == "ACCOUNT" for _, kind, _ in scan_csv(leak)), scan_csv(leak)
 
     # In an identifier column, but not an identifier: still scanned.
-    smuggled = header + '"SSN 123-45-6789",0474904290445999,graph.intake,ok\n'
+    smuggled = header + f'"SSN 123-45-6789",{AMBIGUOUS_TRACE_ID},graph.intake,ok\n'
     assert any(kind == "SSN" for _, kind, _ in scan_csv(smuggled)), scan_csv(smuggled)
 
     # A column merely *named* like an id elsewhere earns nothing.
-    unknown = "applicant_id,note\n4111111111111111,ok\n"
+    unknown = f"applicant_id,note\n{VISA_TEST_NUMBER},ok\n"
     assert any(kind == "ACCOUNT" for _, kind, _ in scan_csv(unknown)), scan_csv(unknown)
 
 

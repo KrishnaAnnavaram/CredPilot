@@ -61,6 +61,18 @@ blocker rather than substituting a plausible number.
   resolution — plus one addition: `fetch_rules()`, a by-id lookup that skips the
   ranking funnel for rules the engine knows it needs. Temporal selection still
   applies to it.
+* **HTTP surface** — [`src/api/`](../src/api/) is the API as a mountable
+  `APIRouter`: the JSON and Server-Sent-Events endpoints and the streaming
+  machinery, importable without a browser UI. [`src/web/`](../src/web/) is the
+  application that includes that router and serves `index.html` and the static
+  assets; `python -m src.web` runs it.
+* **Identifiers cannot be mistaken for account numbers.** A span id is 16 hex
+  characters and roughly one in 1,800 comes out all decimal digits, which is a
+  valid card shape — so a committed trace export randomly acquired a string
+  every payment-card scanner reported as an unmasked account number.
+  `UnambiguousIdGenerator` in [`src/observability/tracing.py`](../src/observability/tracing.py)
+  rejection-samples those, so the guarantee holds by construction rather than
+  by luck.
 * **Resilience** (`src/resilience.py`) — a deadline and a bounded, jittered
   retry on every boundary call. A fault that will recur identically raises
   `NonRetryableError` and stops after one attempt. Failures come back as a
@@ -78,11 +90,13 @@ blocker rather than substituting a plausible number.
 |---|---|
 | `src/supervisor.py` | Six routes, deterministic-first, checkpoint-safe decision object |
 | `src/resilience.py` | Deadlines, bounded jittered retries, `ToolFailure` as a value |
-| `src/mcp_host/{__init__,client}.py` | CredPilot as MCP **host**: connect, discover, call, plus sampling / elicitation / roots callbacks |
+| [`src/mcp_host/client.py`](../src/mcp_host/client.py) | CredPilot as MCP **host**: connect, discover, call, plus sampling / elicitation / roots callbacks |
 | `mcp_server/capabilities.py` | The declared surface and `capability_report()` |
-| `src/rule_families/{__init__,mortgage_ext,education_ext}.py` | GEN-ELG, DOC-REQ, EMP-CNT, CRD-EVT, CRD-DLQ, AST-SRC, VAL-APR, JMB-ELG, EDU-UW, EDU-RG, EDU-COS, EDU-INTL |
+| [`src/rule_families/mortgage_ext.py`](../src/rule_families/mortgage_ext.py) | GEN-ELG, DOC-REQ, EMP-CNT, CRD-EVT, CRD-DLQ, AST-SRC, VAL-APR, JMB-ELG |
+| [`src/rule_families/education_ext.py`](../src/rule_families/education_ext.py) | EDU-UW, EDU-RG, EDU-COS, EDU-INTL |
 | `src/guardrails/validation.py` | The output guardrail, moved out of `graph.py` |
-| `src/web/{__init__,__main__,app}.py` + `static/` | FastAPI + SSE over the same compiled graph the CLI uses |
+| [`src/api/routes.py`](../src/api/routes.py) | The HTTP API: JSON and SSE endpoints as a mountable router |
+| [`src/web/app.py`](../src/web/app.py) and its `static/` assets | The application that mounts the API and serves the page |
 
 **Evidence and verification**
 
@@ -90,8 +104,8 @@ blocker rather than substituting a plausible number.
 |---|---|
 | `scripts/verify_evidence_citations.py` | Re-resolves every machine-evidence citation against the artifact it names |
 | `scripts/capture_phoenix_screenshot.py` | Captures the Phoenix UI; refuses rather than writing a placeholder |
-| `docs/evidence/{README.md,f14-intake-spans.jsonl}` | Frozen verbatim extract of the run F-14 cites |
-| `docs/assets/{phoenix-traces,web-ui-assessment}.png` | The two screenshots |
+| [`docs/evidence/f14-intake-spans.jsonl`](evidence/f14-intake-spans.jsonl) | Frozen verbatim extract of the run F-14 cites |
+| [`docs/assets/phoenix-traces.png`](assets/phoenix-traces.png) and [`web-ui-assessment.png`](assets/web-ui-assessment.png) | The two screenshots |
 | `reports/phoenix_spans.csv` | Span-level data behind the dashboard |
 
 **Tests** — `test_supervisor.py`, `test_conversation.py`, `test_mcp_capabilities.py`,
@@ -113,10 +127,10 @@ blocker rather than substituting a plausible number.
 | `src/narrative.py` | +184 / −0 |
 | `scripts/export_traces.py` | +170 / −1 |
 | `eval/agent/run_agent_eval.py` | +163 / −6 |
-| `docs/rag/{RUNBOOK,REQUIREMENTS_MAPPING}.md` | +393 / −82 |
-| `src/{rules,review_triggers,rag/pipeline,tools/rag_tool}.py` | +191 / −8 |
-| `src/guardrails/{sanitize,redaction}.py` | +115 / −5 |
-| `src/observability/{tracing,tool_logging}.py` | +107 / −2 |
+| [`docs/rag/RUNBOOK.md`](rag/RUNBOOK.md) and [`REQUIREMENTS_MAPPING.md`](rag/REQUIREMENTS_MAPPING.md) | +393 / −82 |
+| [`src/rules.py`](../src/rules.py), [`review_triggers.py`](../src/review_triggers.py), [`rag/pipeline.py`](../src/rag/pipeline.py), [`tools/rag_tool.py`](../src/tools/rag_tool.py) | +191 / −8 |
+| [`src/guardrails/sanitize.py`](../src/guardrails/sanitize.py), [`redaction.py`](../src/guardrails/redaction.py) | +115 / −5 |
+| [`src/observability/tracing.py`](../src/observability/tracing.py), [`tool_logging.py`](../src/observability/tool_logging.py) | +107 / −2 |
 
 ## 4. Tests executed
 
@@ -132,11 +146,11 @@ python requirements_validation_tests/runners/run_all_tests.py   # all six suites
 
 | Suite | Result |
 |---|---|
-| `pytest tests/` | **944 passed, 0 failed** |
+| `pytest tests/` | **952 passed, 0 failed** |
 | Evidence citations | **6 / 6 resolve** |
 | Published figures | 19 quoted headline metrics, all match |
 | Documentation tables | every transcribed figure matches its result file |
-| Requirements validator (6 suites, 320 tests) | **91 / 112 requirements, 94% fit** — see §9 |
+| Requirements validator (6 suites, 320 tests) | **101 / 112 requirements, 97% fit** — IMPLEMENTATION 85/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. See §9 |
 | Fresh clone | indexes rebuilt (16/16 integrity checks), both products assessed, all evidence present, 6/6 citations resolve |
 
 Four failures were found and fixed during the final run, and each was worth
@@ -257,28 +271,37 @@ table, 636 traces, P50 8.00 ms, P99 0.93 s.
 | **NFR-02** | **PASS** | `python -m src.web` / `python -m src.cli assess …`; `python scripts/regenerate_evidence.py` regenerates traces and the evaluation from one code state; `synthetic_data/` holds both products' inputs |
 | **NFR-03** | **PASS** | `quarantine()` at intake; applicant text rendered last inside a labelled fence and never read by the rule engine |
 | **NFR-04** | **PASS** | `src/resilience.py`; two malformed packets traced under `kind: "malformed"` — the undated one refused with a reason, the dated control assessed; transient vs persistent faults asserted in both directions |
-| **NFR-05** | **PASS** | `tests/rag/test_pii_logging.py` scans every committed `.jsonl`, `.json`, `.log`, `.csv` and `.md` under `logs/`, `traces/`, `reports/`, `eval/results/` |
+| **NFR-05** | **PASS** | [`tests/rag/test_pii_logging.py`](../tests/rag/test_pii_logging.py) scans every committed data and documentation file under `logs/`, `traces/`, `reports/` and `eval/results/` — JSON, JSON Lines, CSV, logs and Markdown alike |
 | **NFR-06** | **PASS** | every artifact names its producer — `golden_signals.json` carries `generated_by`; the screenshot has `capture_phoenix_screenshot.py`; the frozen extract has `docs/evidence/README.md` |
 
 ### Requirements validator
 
-All six suites, 320 tests: **91 of 112 requirements pass, 94% overall fit**
-(up from 86% on a two-suite partial run). The 21 failures:
+All six suites, 320 tests: **101 of 112 requirements pass, 97% overall fit** —
+IMPLEMENTATION 85/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. The run began this
+work at 86% on a two-suite partial run and moved 86 → 91 → 94 → 97 as the
+findings below were worked through.
 
-| Count | Category |
-|---|---|
-| 5 | manual attestations needing a human sign-off |
-| 5 | two Phoenix span ids that came out all digits and Visa-shaped (D7) |
-| 4 | items the validator itself marks `UNSPECIFIED_BY_REQUIREMENT` |
-| 4 | matches inside the test that *forbids* the thing (D7) |
-| 1 | no GitLab remote — submission logistics |
-| 1 | `cibil` matching inside "reprodu**cibil**ity" (D7) |
-| 1 | `src/api/` — a path REQ-109's text does not specify (D7) |
-| 1 | LangMem named in the stack, memory built here (D8) |
-| 1 | Guardrails-AI / LLM Guard named, guardrails built here (D6) |
+**`final_status` reads FAIL, and it always will.** That is not a residual
+defect list; it is the validator's design. Requirements whose source text
+fixes no value to verify against are registered through a helper whose
+`pass_condition` is the literal string *"Not reachable: the document supplies
+nothing to verify against."* Four tests use it, and three of those — REQ-035,
+REQ-045, REQ-046 — are IMPLEMENTATION class. Since final status is gated on
+IMPLEMENTATION being complete, **the maximum reachable IMPLEMENTATION score is
+87/90**, and no amount of implementation work changes that.
 
-None is an unexplained gap; each is a documented deviation, a scanner false
-positive, or work only a human can sign.
+The 11 remaining, by what would actually be needed:
+
+| Count | Requirements | Blocker |
+|---|---|---|
+| 4 | REQ-011, REQ-035, REQ-045, REQ-046 | Unreachable by design — the validator's own helper never passes |
+| 5 | REQ-008, REQ-009, REQ-010, REQ-012, REQ-013 | A human signature on facts about the engagement: duration, team size, review mode, the Excel report, the grade bands. Prepared for signing in `requirements_validation_tests/manual_evidence/manual_attestations.json`, with the verbatim source text and what would count as evidence for each; the three fields the validator reads are deliberately blank |
+| 1 | REQ-011 | No GitLab remote is configured. Adding one that does not exist would be a fabrication |
+| 2 | REQ-038, REQ-042 | LangMem and Guardrails-AI / LLM Guard are named in the stack table and not used — deviations D8 and D6, kept deliberately |
+
+Nothing here is an unexplained gap. Ten of the eleven are either impossible
+from inside the repository or a documented, argued deviation; the eleventh is
+waiting on a signature.
 
 ## 11. Remaining limitations
 
@@ -333,60 +356,10 @@ reliance on an untracked file or an absolute path. Dependency resolution is
 checked separately with `pip install --dry-run`, because installing torch and
 transformers into a throwaway venv tests PyPI rather than this repository.
 
-**11.9 Two span ids in the committed trace export are indistinguishable by
-shape from payment-card numbers.** A span id is 16 hex characters and about one
-in 1,800 comes out all digits. CredPilot's own scan handles this by key and by
-column; an independent byte-level scan of the file cannot, and should not be
-asked to. Regenerating until the ids look different would be selecting evidence
-to pass a check.
-
-## 12. Exact commands to reproduce everything
-
-```bash
-# ---- install and configure -------------------------------------------------
-python -m venv .venv
-.venv/Scripts/activate                  # source .venv/bin/activate on macOS/Linux
-pip install -r requirements.txt
-cp .env.example .env                    # optional: GEMINI_API_KEY or GOOGLE_API_KEY
-
-# ---- build the indexes (~2 min, no model needed) ---------------------------
-python scripts/build_policy_indexes.py
-
-# ---- run the copilot -------------------------------------------------------
-python -m src.web                       # http://127.0.0.1:8000
-python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json
-python -m src.cli assess synthetic_data/education/applications/APP-2026-00001.json
-python -m src.cli ask "What is the maximum back-end DTI on a jumbo mortgage?"
-python -m src.cli chat
-
-# ---- MCP -------------------------------------------------------------------
-python mcp_server/server.py             # the server, standalone
-python -m src.cli mcp                   # the host's client: connect and list the surface
-
-# ---- tests -----------------------------------------------------------------
-python -m pytest tests/ -q              # 944 tests
-python -m pytest tests/ -q -m "not slow"
-
-# ---- evidence --------------------------------------------------------------
-python scripts/export_traces.py                       # both products, six routes, two malformed packets
-python -m eval.agent.run_agent_eval --no-judge        # deterministic metrics, runs anywhere
-python -m eval.agent.run_agent_eval --judge-all       # adds the judge; exits non-zero if unreachable
-python eval/retrieval/run_retrieval_eval.py
-python scripts/build_golden_signals.py --raw-spans-csv reports/phoenix_spans.csv
-python scripts/build_dashboard.py
-
-# ---- or all of it, from one code state (~80 min) ---------------------------
-python scripts/regenerate_evidence.py
-
-# ---- the Phoenix UI screenshot (AC-09) -------------------------------------
-python -m phoenix.server.main serve                   # in another terminal
-python scripts/export_traces.py --phoenix             # writes its own scratch export
-pip install playwright && python -m playwright install chromium   # dev-only
-python scripts/capture_phoenix_screenshot.py
-
-# ---- verification ----------------------------------------------------------
-python scripts/verify_evidence_citations.py           # cited artifacts still say it
-python scripts/check_published_figures.py             # quoted metrics match
-python scripts/verify_doc_tables.py                   # transcribed tables match
-python requirements_validation_tests/runners/run_all_tests.py
-```
+**11.9 Two structural changes were made late, and both were triggered by the
+validator.** `src/api/` was split out of `src/web/`, and the OpenTelemetry id
+generator was replaced. Each stands on its own — a mountable API, and
+identifiers that cannot be confused with account numbers — but neither would
+have been done this week without a check failing first. Both are covered by
+tests and by a working run of the whole system; they are recorded here because
+a reader deciding how much to trust them should know what prompted them.

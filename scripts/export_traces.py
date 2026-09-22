@@ -170,8 +170,17 @@ def install_recorder(project_name: str) -> SpanRecorder:
     from opentelemetry.sdk.trace import TracerProvider
     from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 
+    from src.observability.tracing import unambiguous_id_generator
+
     recorder = SpanRecorder()
-    provider = TracerProvider(resource=Resource.create({"service.name": project_name}))
+    # The ids this provider mints are the ones that end up in the committed
+    # export, so it needs the same generator the exporter path uses: a span id
+    # that comes out all decimal digits is indistinguishable from a card
+    # number, and a byte-level scan of the artifact cannot tell them apart.
+    provider = TracerProvider(
+        resource=Resource.create({"service.name": project_name}),
+        id_generator=unambiguous_id_generator(),
+    )
     provider.add_span_processor(SimpleSpanProcessor(recorder))
     trace.set_tracer_provider(provider)
 
