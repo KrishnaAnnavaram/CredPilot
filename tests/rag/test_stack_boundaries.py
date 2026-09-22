@@ -63,6 +63,7 @@ APPROVED_RUNTIME_PACKAGES = {
     "fastapi": "the streaming HTTP endpoint",
     "uvicorn": "the server that runs it",
     # reporting
+    "openpyxl": "writes the team worklog and internal peer-review workbooks",
     "pandas": "dataframe handling in the signal builders",
     "matplotlib": "the dashboard chart",
     # development-only, imported lazily inside a script
