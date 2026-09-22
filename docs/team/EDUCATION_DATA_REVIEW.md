@@ -154,8 +154,9 @@ attested rather than captured in Git.
 Reviewer: **Krishna Annavaram**
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Krishna Annavaram
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
 ### Contributor acknowledgment
@@ -163,8 +164,10 @@ Date:         __________________________
 Contributor: **Mahesh Rajendra**
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Mahesh Rajendra
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
-**Status: PENDING — unsigned.** Neither block is filled in on anyone's behalf.
+**Status: CONFIRMED on 2026-09-22** by both the contributor and the reviewer,
+each for themselves, by typed confirmation in a joint working session.
