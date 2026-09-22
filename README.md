@@ -416,6 +416,7 @@ python scripts/verify_evidence_citations.py
 * **[docs/rag/RUNBOOK.md](docs/rag/RUNBOOK.md)** — build, run, evaluate, trace
 * **[docs/rag/ARCHITECTURE.md](docs/rag/ARCHITECTURE.md)** — how and why
 * **[docs/rag/REQUIREMENTS_MAPPING.md](docs/rag/REQUIREMENTS_MAPPING.md)** — requirements → evidence → tests, with deviations stated
+* **[docs/COMPLETION_REPORT.md](docs/COMPLETION_REPORT.md)** — what was built, what was measured, AC/NFR status, and what is still missing
 * **[docs/failure-analysis.md](docs/failure-analysis.md)** — twenty real failures, with trace evidence and before/after; every citation re-checked by `scripts/verify_evidence_citations.py`
 * **[docs/rag/DATA_QUALITY_FINDINGS.md](docs/rag/DATA_QUALITY_FINDINGS.md)** — defects found in the datasets
 * **[docs/model-card.md](docs/model-card.md)** — models, data, intended use, limitations, failure modes
