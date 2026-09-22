@@ -1,6 +1,6 @@
 # Final gap analysis
 
-Generated from `reports/latest_test_report.json` (2026-09-22T15:24:26Z) by 
+Generated from `reports/latest_test_report.json` (2026-09-22T16:04:01Z) by 
 `traceability/build_gap_analysis.py`. Regenerate it after signing an attestation 
 or pushing to GitLab — the answers below change as those happen.
 
@@ -11,11 +11,11 @@ Requirements baseline SHA-256 `ed25ccf4473d3cf17daad29d0db50f18276f4ed219aba55d8
 ## Where the score stands
 
 ```
-Requirements passed : 103 / 112
-Requirements failed : 9
+Requirements passed : 105 / 112
+Requirements failed : 7
 Overall fit         : 98%
 IMPLEMENTATION      : 87/90
-ENGAGEMENT          : 12/18
+ENGAGEMENT          : 14/18
 OPTIONAL            : 4/4
 ```
 
@@ -24,69 +24,11 @@ OPTIONAL            : 4/4
 
 | Route | Requirements | Can the team close it? |
 | --- | --- | --- |
-| **TEAM ARTIFACT CAN SATISFY** | `REQ-008`, `REQ-009` | Yes — a truthful attestation the team signs |
+| **TEAM ARTIFACT CAN SATISFY** | — | Yes — a truthful attestation the team signs |
 | **NEEDS EXTERNAL EVENT** | `REQ-010`, `REQ-011`, `REQ-012`, `REQ-013` | No — depends on the evaluator or on the submission happening |
 | **SOURCE STATES NO VALUE** | `REQ-035`, `REQ-045`, `REQ-046` | No — the source document fixes no value to test against |
 
 `REQ-011` appears once here but fails two tests for two different reasons: `T02` needs the GitLab push, `T03` is a specification gap. It is routed to **NEEDS EXTERNAL EVENT** because that is the part anyone can act on.
-
-
----
-
-## REQ-008 — fit 0/100
-
-* **Class:** ENGAGEMENT
-* **Category:** governance
-* **Source location:** Section 2. Engagement Overview — table row 1
-* **Bound tests:** REQ-008-T01 (0 passing, 1 failing)
-* **Route:** **TEAM ARTIFACT CAN SATISFY**
-* **Needs an external evaluator or event:** no
-* **Untestable because the source fixes no value:** no
-
-**Source wording, verbatim**
-
-~~~text
-Duration | 20 hours
-~~~
-
-**Exact failing condition**
-
-```
-Attestation for REQ-008-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
-```
-
-**What would close it:** A truthful duration attestation from the two team members, evidenced by `docs/team/WORKLOG.md` and `reports/team_worklog.xlsx`. The repository can show the wall-clock window; only the team can attest to effort inside it.
-
-**Blocked on:** Krishna Annavaram and Mahesh Rajendra confirming the statement.
-
-
----
-
-## REQ-009 — fit 0/100
-
-* **Class:** ENGAGEMENT
-* **Category:** governance
-* **Source location:** Section 2. Engagement Overview — table row 2
-* **Bound tests:** REQ-009-T01 (0 passing, 1 failing)
-* **Route:** **TEAM ARTIFACT CAN SATISFY**
-* **Needs an external evaluator or event:** no
-* **Untestable because the source fixes no value:** no
-
-**Source wording, verbatim**
-
-~~~text
-Format | Team of 2–4
-~~~
-
-**Exact failing condition**
-
-```
-Attestation for REQ-009-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
-```
-
-**What would close it:** A truthful team-size attestation. Git shows two distinct commit authors, which is corroboration but not proof of team size; `docs/team/TEAM_ATTESTATION.md` is the statement itself.
-
-**Blocked on:** Krishna Annavaram and Mahesh Rajendra confirming the statement.
 
 
 ---
@@ -109,7 +51,7 @@ Evaluation Mode | Automated review of the submitted Git repository against the H
 
 **What already passes**
 
-* `REQ-010-T01` — E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1881 tracked files
+* `REQ-010-T01` — E:\Virtusa Projects\CredPilot is a Git repository; git ls-files reports 1883 tracked files
 
 **Exact failing condition**
 
@@ -273,9 +215,9 @@ AC-02 | The copilot computes affordability (DTI / disposable income) from the ap
 
 **What already passes**
 
-* `REQ-045-T01` — DTI / disposable-income computation across implementation tree (156 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:320: "DTI-CONV": "src/rules.py — affordability ceiling, with the compensating-factor extension",
+* `REQ-045-T01` — DTI / disposable-income computation across implementation tree (157 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:320: "DTI-CONV": "src/rules.py — affordability ceiling, with the compensating-factor extension",
 * `REQ-045-T02` — affordability figure in observable output (from 'python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json') (ALL: 1/1 satisfied) [OK] /afford|\bDTI\b|disposable/ matched observable output: 'afford' --- observa
-* `REQ-045-T03` — threshold-bearing policy breach flag across implementation tree (156 files) (ALL: 2/2 satisfied) [OK] eval/agent/dataset.py:316: #: reader, but no code compares them against a threshold. [OK] eval/agent/dataset.py:158: asked, and 
+* `REQ-045-T03` — threshold-bearing policy breach flag across implementation tree (157 files) (ALL: 2/2 satisfied) [OK] eval/agent/dataset.py:316: #: reader, but no code compares them against a threshold. [OK] eval/agent/dataset.py:158: asked, and 
 
 **Exact failing condition**
 
@@ -309,11 +251,11 @@ AC-03 | The copilot produces a decision recommendation (approve / refer / declin
 **What already passes**
 
 * `REQ-046-T01` — Decision vocabulary present in observable output: ['decline'] (from 'python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json')
-* `REQ-046-T02` — the approve / refer / decline outcomes across implementation tree (156 files) (ALL: 3/3 satisfied) [OK] eval/agent/dataset.py:41: #: ``APPROVE_WITH_CONDITIONS`` is listed because the golden sets use it — six [OK] eval/agent/datase
+* `REQ-046-T02` — the approve / refer / decline outcomes across implementation tree (157 files) (ALL: 3/3 satisfied) [OK] eval/agent/dataset.py:41: #: ``APPROVE_WITH_CONDITIONS`` is listed because the golden sets use it — six [OK] eval/agent/datase
 * `REQ-046-T03` — written rationale in observable output (from 'python -m src.cli assess synthetic_data/mortgage/applications/APP-000056.json') (ALL: 1/1 satisfied) [OK] /rationale|reason|justification|because|explanation/ matched observable output
-* `REQ-046-T04` — decline handling across implementation tree (156 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:43: #: :func:`src.graph.recommendation_node`, which emits approve, refer or decline
-* `REQ-046-T05` — high-value case routing across implementation tree (156 files) (ALL: 1/1 satisfied) [OK] scripts/build_peer_review_workbook.py:128: "High-value routing keys off the policy corpus. The source states no "
-* `REQ-046-T06` — human-review route across implementation tree (156 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:63: "PENDING_HUMAN_REVIEW": REFER,
+* `REQ-046-T04` — decline handling across implementation tree (157 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:43: #: :func:`src.graph.recommendation_node`, which emits approve, refer or decline
+* `REQ-046-T05` — high-value case routing across implementation tree (157 files) (ALL: 1/1 satisfied) [OK] scripts/build_peer_review_workbook.py:128: "High-value routing keys off the policy corpus. The source states no "
+* `REQ-046-T06` — human-review route across implementation tree (157 files) (ALL: 1/1 satisfied) [OK] eval/agent/dataset.py:63: "PENDING_HUMAN_REVIEW": REFER,
 
 **Exact failing condition**
 

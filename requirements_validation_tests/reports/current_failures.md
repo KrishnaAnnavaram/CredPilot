@@ -1,6 +1,6 @@
 # Current requirement-validation failures
 
-Generated from `reports/latest_test_report.json` (2026-09-22T15:24:26Z) by 
+Generated from `reports/latest_test_report.json` (2026-09-22T16:04:01Z) by 
 `traceability/classify_failures.py`.
 
 
@@ -14,12 +14,12 @@ classified.
 
 ```
 Total requirements      : 112
-Requirements passed     : 103
-Requirements failed     : 9
+Requirements passed     : 105
+Requirements failed     : 7
 passed + failed == total: 112 == 112
 
-Failing tests           : 10
-Failing requirements    : 9
+Failing tests           : 8
+Failing requirements    : 7
 ```
 
 
@@ -35,19 +35,17 @@ requirement totals are derived from it rather than asserted alongside it.
 
 | Class | Failing tests | Distinct requirements | Fixable in code? |
 | --- | --- | --- | --- |
-| MANUAL_ATTESTATION_REQUIRED | 5 | 5 | no |
+| MANUAL_ATTESTATION_REQUIRED | 3 | 3 | no |
 | EXTERNAL_SUBMISSION_DEPENDENCY | 1 | 1 | no |
 | UNSPECIFIED_BY_REQUIREMENT | 4 | 4 | no |
 
-Distinct failing requirement IDs: **9** — `REQ-008`, `REQ-009`, `REQ-010`, `REQ-011`, `REQ-012`, `REQ-013`, `REQ-035`, `REQ-045`, `REQ-046`
+Distinct failing requirement IDs: **7** — `REQ-010`, `REQ-011`, `REQ-012`, `REQ-013`, `REQ-035`, `REQ-045`, `REQ-046`
 
 
 ## Every failing test
 
 | Test ID | Requirement | Class | Current Failure | Fixable in Code? | Correct Action |
 | --- | --- | --- | --- | --- | --- |
-| `REQ-008-T01` | `REQ-008` | MANUAL_ATTESTATION_REQUIRED | Attestation for REQ-008-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL | no | Leave the attestation blank until a team member signs it. |
-| `REQ-009-T01` | `REQ-009` | MANUAL_ATTESTATION_REQUIRED | Attestation for REQ-009-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL | no | Leave the attestation blank until a team member signs it. |
 | `REQ-010-T02` | `REQ-010` | MANUAL_ATTESTATION_REQUIRED | Attestation for REQ-010-T02 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL | no | Leave blank. Only the reviewer who ran the rubric can attest to it. |
 | `REQ-011-T02` | `REQ-011` | EXTERNAL_SUBMISSION_DEPENDENCY | No configured remote names GitLab, but the submission instruction names a Virtusa GitLab project. Remotes found: origin git@github.com:KrishnaAnnavar… | no | Record as an external dependency. Add the real remote at submission time using docs/FINAL_SUBMISSION.md; do not invent a URL. |
 | `REQ-011-T03` | `REQ-011` | UNSPECIFIED_BY_REQUIREMENT | UNSPECIFIED_BY_REQUIREMENT: the source document states no value or artifact from which 'the submission cut-off date and time, and the identity of the… | no | Report as a specification gap. A human supplies both values at submission. |
@@ -61,59 +59,7 @@ Distinct failing requirement IDs: **9** — `REQ-008`, `REQ-009`, `REQ-010`, `RE
 ## Detail, per failing test
 
 
-### MANUAL_ATTESTATION_REQUIRED — 5 test(s)
-
-#### `REQ-008-T01` → `REQ-008`
-
-* **Requirement class:** ENGAGEMENT
-* **Category:** governance
-* **Source location:** Section 2. Engagement Overview — table row 1
-* **Validator function:** `check` (`GOVERNANCE_TEST`)
-* **Pass condition:** A complete, dated, attributed attestation of 'the 20-hour engagement duration' is recorded.
-
-**Source requirement**
-
-~~~text
-Duration | 20 hours
-~~~
-
-**Current failure**
-
-```
-Attestation for REQ-008-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
-```
-
-**Why this class:** The source fixes the engagement duration at 20 hours. How long the team actually worked is an event fact; no file in the repository records it, and commit timestamps measure elapsed wall-clock, not effort.
-
-**Fixable in code:** no
-
-**Correct action:** Leave the attestation blank until a team member signs it.
-
-#### `REQ-009-T01` → `REQ-009`
-
-* **Requirement class:** ENGAGEMENT
-* **Category:** governance
-* **Source location:** Section 2. Engagement Overview — table row 2
-* **Validator function:** `check` (`GOVERNANCE_TEST`)
-* **Pass condition:** A complete, dated, attributed attestation of 'a team of 2-4 people' is recorded.
-
-**Source requirement**
-
-~~~text
-Format | Team of 2–4
-~~~
-
-**Current failure**
-
-```
-Attestation for REQ-009-T01 is incomplete (evidence='', attested_by='', attested_on='') -> FAIL
-```
-
-**Why this class:** The source fixes the team size at 2-4. Repository authorship shows who committed, not who was on the team, and a single-committer history is consistent with several team sizes.
-
-**Fixable in code:** no
-
-**Correct action:** Leave the attestation blank until a team member signs it.
+### MANUAL_ATTESTATION_REQUIRED — 3 test(s)
 
 #### `REQ-010-T02` → `REQ-010`
 
@@ -336,7 +282,7 @@ UNSPECIFIED_BY_REQUIREMENT: the source document states no value or artifact from
 
 ## The ceiling this implies
 
-Of 9 failing requirements, 0 fail for reasons this repository can fix. The rest depend on a human, an external system, or a value the source document never states.
+Of 7 failing requirements, 0 fail for reasons this repository can fix. The rest depend on a human, an external system, or a value the source document never states.
 
 
 No validator was edited to change any of these outcomes. Where a check cannot pass, it still reports FAIL and this document says why.

@@ -83,28 +83,32 @@ Recorded here so the table is not mistaken for the whole picture:
 
 > Krishna Annavaram and Mahesh Rajendra attest that combined project development, testing, evaluation, review and documentation activity for CredPilot met or exceeded the stated 20-hour engagement duration.
 
-Each member confirms for themselves only. Nobody signs on anyone else's behalf.
+Each member confirmed for themselves. Both confirmed in a joint working session
+on 2026-09-22. The confirmation is **typed** — see [SIGNATURES.md](SIGNATURES.md)
+for the content hashes that make a later edit detectable.
 
 ### Krishna Annavaram
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Krishna Annavaram
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
 ### Mahesh Rajendra
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Mahesh Rajendra
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
-**Status: PENDING — unsigned.**
+**Status: CONFIRMED by both members on 2026-09-22.**
 
 
-### After both blocks are signed
+### Recorded in the validator
 
-Replace the `REQ-008-T01` entry in `requirements_validation_tests/manual_evidence/manual_attestations.json` with:
+Both blocks above are signed. The `REQ-008-T01` entry in `requirements_validation_tests/manual_evidence/manual_attestations.json` with:
 
 ```json
 "REQ-008-T01": {
@@ -120,7 +124,7 @@ Replace the `REQ-008-T01` entry in `requirements_validation_tests/manual_evidenc
 }
 ```
 
-Set `attested_on` to the date the **second** signature was added, then re-run the validator and the gap-analysis generator. `REQ-008` moves to PASS at that point and not before.
+`attested_on` is the date both confirmations were given. `REQ-008` passes on that basis. Content hashes are in [SIGNATURES.md](SIGNATURES.md); `python scripts/verify_signatures.py` re-checks them.
 
 
 ## Evidence precedence

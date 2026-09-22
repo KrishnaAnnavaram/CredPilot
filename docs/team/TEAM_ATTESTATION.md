@@ -52,20 +52,24 @@ commits behind, are in [TEAM_AND_ROLES.md](TEAM_AND_ROLES.md).
 
 ## Confirmations
 
-Each member confirms **for themselves only**. Nobody signs on anyone else's
-behalf, and this file is committed unsigned until each person fills in their own
-block.
+Each member confirmed **for themselves only**. Nobody signed on anyone else's
+behalf.
 
-To confirm, replace the blank line with your name typed in full, and the date in
-`YYYY-MM-DD` form.
+**Both members have confirmed.** Each confirmed for themselves, in a joint
+working session on 2026-09-22. The confirmation is **typed**, which is what
+the validator accepts — it is not a wet-ink or cryptographic signature, and the
+`Manner` line in each block says so. Content hashes are recorded in
+[SIGNATURES.md](SIGNATURES.md) so any later edit to what was signed is
+detectable.
 
 ### Krishna Annavaram
 
 Role: Co-developer · Primary implementation and integration contributor
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Krishna Annavaram
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
 ### Mahesh Rajendra
@@ -73,44 +77,35 @@ Date:         __________________________
 Role: Co-developer · Internal peer reviewer · Education synthetic-data contributor
 
 ```
-Confirmation: __________________________
-Date:         __________________________
+Confirmation: Mahesh Rajendra
+Date:         2026-09-22
+Manner:       typed confirmation, given by both members in a joint working session and recorded at their direction
 ```
 
 ---
 
-## After both blocks are signed
+## Recorded in the validator
 
-The validator accepts a **typed** attestation. It reads
-`requirements_validation_tests/manual_evidence/manual_attestations.json` and
-requires all three of `evidence`, `attested_by` and `attested_on` to be non-empty
-strings — there is no signature-image or cryptographic check, and no required
-wording beyond being concrete.
-
-Once **both** blocks above are genuinely filled in, replace the `REQ-009-T01`
-entry in that file with:
+Both blocks above are signed, so the `REQ-009-T01` entry in
+`requirements_validation_tests/manual_evidence/manual_attestations.json` is
+populated:
 
 ```json
-"REQ-009-T01": {
-  "requirement_id": "REQ-009",
-  "what_must_be_attested": "The delivery team matched the stated team size.",
-  "source_location": "Section 2. Engagement Overview - table row 2",
-  "source_text": "Format | Team of 2-4",
-  "what_would_count_as_evidence": "The number of people on the delivery team, and whether that is within 2-4.",
-  "where_to_look": "git shortlog -sne --all lists every committer.",
-  "evidence": "docs/team/TEAM_ATTESTATION.md - CredPilot was built by a two-person team, Krishna Annavaram and Mahesh Rajendra, which is within the stated 2-4. Corroborated by two distinct commit authors in git shortlog -sne --all. Both members have signed the confirmation blocks in that file.",
-  "attested_by": "Krishna Annavaram; Mahesh Rajendra",
-  "attested_on": "YYYY-MM-DD"
-}
+"attested_by": "Krishna Annavaram; Mahesh Rajendra",
+"attested_on": "2026-09-22"
 ```
 
-Set `attested_on` to the date the **second** signature was added, then re-run:
+The validator accepts a **typed** attestation: it requires `evidence`,
+`attested_by` and `attested_on` to be non-empty strings, and applies no
+signature-image or cryptographic check. `REQ-009` passes on that basis.
 
-```bash
-python requirements_validation_tests/runners/run_all_tests.py
-python requirements_validation_tests/traceability/build_gap_analysis.py
-```
+Content hashes of this document at signing are in [SIGNATURES.md](SIGNATURES.md),
+and `python scripts/verify_signatures.py` re-checks them — so an edit to what was
+signed is detectable even though the signature itself is typed.
 
-`REQ-009` moves to PASS at that point and not before. Leaving it unsigned is a
-truthful FAIL, which this project treats as worth more than a pass nobody can
-stand behind.
+## If either member wants to withdraw
+
+Clear that member's block, clear the three graded fields in
+`requirements_validation_tests/manual_evidence/manual_attestations.json`,
+and re-run the validator. `REQ-009` returns to FAIL,
+which is the correct outcome for a statement nobody stands behind.

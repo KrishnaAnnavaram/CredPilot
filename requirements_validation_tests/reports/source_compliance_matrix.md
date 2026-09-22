@@ -1,6 +1,6 @@
 # Source-compliance matrix — AC-01..AC-12, NFR-01..NFR-06
 
-Generated from `reports/latest_test_report.json` (2026-09-22T15:24:26Z) 
+Generated from `reports/latest_test_report.json` (2026-09-22T16:04:01Z) 
 by `traceability/build_source_matrix.py`. Status is read from the validation 
 report, not typed in beside it.
 

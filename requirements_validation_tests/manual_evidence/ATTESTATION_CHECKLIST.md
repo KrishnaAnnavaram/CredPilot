@@ -8,8 +8,8 @@ Re-run it after signing anything.
 
 ```
 Statements needing a human signature : 5
-  signed                             : 0
-  still unsigned                     : 5
+  signed                             : 2
+  still unsigned                     : 3
 Statements that cannot be signed     : 4
 ```
 
@@ -30,8 +30,8 @@ signing it.
 
 | Requirement | Test | Statement | Who signs | Status |
 | --- | --- | --- | --- | --- |
-| `REQ-008` | `REQ-008-T01` | The engagement ran for the stated duration. | A member of the delivery team. | **UNSIGNED** |
-| `REQ-009` | `REQ-009-T01` | The delivery team matched the stated team size. | A member of the delivery team. | **UNSIGNED** |
+| `REQ-008` | `REQ-008-T01` | The engagement ran for the stated duration. | A member of the delivery team. | **SIGNED** |
+| `REQ-009` | `REQ-009-T01` | The delivery team matched the stated team size. | A member of the delivery team. | **SIGNED** |
 | `REQ-010` | `REQ-010-T02` | The review was performed automatically against the Hackathon Rubric with no live demo judging. | The reviewer who ran the evaluation, or the submitter if they were told how it would be run. | **UNSIGNED** |
 | `REQ-012` | `REQ-012-T01` | The per-team Excel review report with its five stated sections was produced. | The reviewer who produces the report. | **UNSIGNED** |
 | `REQ-013` | `REQ-013-T01` | The stated grade bands were applied. | The evaluator who awards the grade. | **UNSIGNED** |
@@ -42,7 +42,7 @@ signing it.
 
 ### `REQ-008` — `REQ-008-T01`
 
-**Status: UNSIGNED**
+**Status: SIGNED**
 
 * **Source location:** Section 2. Engagement Overview - table row 1
 
@@ -70,14 +70,16 @@ docs/team/WORKLOG.md and reports/team_worklog.xlsx - generated from git history 
 
 **When it can truthfully be attested:** Any time after the work has stopped. The elapsed window is knowable now; the effort inside it is only knowable by the people who did it.
 
-**Still missing:** `evidence`, `attested_by`, `attested_on`
+**Attested**
 
-To sign, fill all three fields in `manual_attestations.json` and re-run this script. An entry with one field left blank does not count.
+* by: Krishna Annavaram; Mahesh Rajendra
+* on: 2026-09-22
+* evidence: docs/team/WORKLOG.md and reports/team_worklog.xlsx, signed by both members. Combined project development, testing, evaluation, review, research and documentation activity met or exceeded the stated 20 hours. Repository evidence bounds but does not measure this: git shows a 55.6-hour wall-clock window over 13 commits (2026-09-20 06:08 UTC to 2026-09-22 13:44 UTC), of which only 3.72 hours is observable as commit-to-commit span across 2 of 8 sessions. Exact task-level hours are team-attested rather than mechanically derivable from Git history, and the majority of this team's research - done by Mahesh Rajendra - produces no commits at all. Typed confirmation by both members in a joint working session on 2026-09-22, recorded at their direction. Not a wet-ink or cryptographic signature - see docs/team/SIGNATURES.md, which records the SHA-256 of each signed document so a later edit is detectable (python scripts/verify_signatures.py).
 
 
 ### `REQ-009` — `REQ-009-T01`
 
-**Status: UNSIGNED**
+**Status: SIGNED**
 
 * **Source location:** Section 2. Engagement Overview - table row 2
 
@@ -105,9 +107,11 @@ docs/team/TEAM_ATTESTATION.md for the statement and both signature blocks; docs/
 
 **When it can truthfully be attested:** Now. The team size is already known — it simply is not written anywhere a validator can read, and the git history shows committers rather than members.
 
-**Still missing:** `evidence`, `attested_by`, `attested_on`
+**Attested**
 
-To sign, fill all three fields in `manual_attestations.json` and re-run this script. An entry with one field left blank does not count.
+* by: Krishna Annavaram; Mahesh Rajendra
+* on: 2026-09-22
+* evidence: docs/team/TEAM_ATTESTATION.md, signed by both members. CredPilot was developed by a two-person team - Krishna Annavaram and Mahesh Rajendra - which is within the stated 2-4. Corroborated in the repository by two distinct commit authors (git shortlog -sne --all): Krishna Annavaram (12 commits plus 2 merge commits) and Mahesh Rajendra (commit f28a1fd, the education synthetic dataset, 260 files / 39,470 insertions, merged via PR #2). Roles and the repository-verified vs team-attested split are in docs/team/TEAM_AND_ROLES.md. Typed confirmation by both members in a joint working session on 2026-09-22, recorded at their direction. Not a wet-ink or cryptographic signature - see docs/team/SIGNATURES.md, which records the SHA-256 of each signed document so a later edit is detectable (python scripts/verify_signatures.py).
 
 
 ### `REQ-010` — `REQ-010-T02`

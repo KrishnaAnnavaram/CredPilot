@@ -345,12 +345,19 @@ def build(payload: dict) -> None:
          "in docs/FINAL_SUBMISSION.md, then verify the commit exists on the remote",
          "Makes the submission auditable rather than asserted.",
          DEVELOPER, "NOT STARTED", "The push actually happening"),
-        ("Both members sign docs/team/TEAM_ATTESTATION.md, then populate REQ-009-T01",
-         "REQ-009. Team size is an event fact no artifact can establish.",
-         f"{DEVELOPER}; {REVIEWER}", "PENDING SIGNATURE", "Both members confirming"),
-        ("Both members sign docs/team/WORKLOG.md, then populate REQ-008-T01",
-         "REQ-008. Exact task-level hours are not mechanically derivable from Git.",
-         f"{DEVELOPER}; {REVIEWER}", "PENDING SIGNATURE", "Both members confirming"),
+        ("Team-size attestation signed by both members (REQ-009)",
+         "Signed 2026-09-22. docs/team/TEAM_ATTESTATION.md; recorded in "
+         "manual_attestations.json. REQ-009 now PASSES.",
+         f"{DEVELOPER}; {REVIEWER}", "COMPLETE", "-"),
+        ("Engagement-duration attestation signed by both members (REQ-008)",
+         "Signed 2026-09-22. docs/team/WORKLOG.md and reports/team_worklog.xlsx; "
+         "recorded in manual_attestations.json. REQ-008 now PASSES.",
+         f"{DEVELOPER}; {REVIEWER}", "COMPLETE", "-"),
+        ("Re-run python scripts/verify_signatures.py before the final push",
+         "Confirms no signed document changed since it was signed. Typed "
+         "confirmations are not cryptographic, so the content hash is what makes "
+         "a later edit detectable.",
+         DEVELOPER, "NOT STARTED", "Final code freeze"),
         (f"{REVIEWER} completes docs/team/PEER_REVIEW.md and the reviewer notes in "
          "this workbook, then sets review status to REVIEWED",
          "Internal review evidence. Not a substitute for the official review.",

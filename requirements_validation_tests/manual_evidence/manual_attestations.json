@@ -18,9 +18,9 @@
       "source_text": "Duration | 20 hours",
       "what_would_count_as_evidence": "The actual elapsed engagement time against the stated 20 hours. Git shows a 55.6-hour wall-clock window over 13 commits, but that is the window work happened inside, not effort - and the majority of this team's research is not represented in commits at all. Exact task-level hours are team-attested rather than mechanically derivable from Git history.",
       "where_to_look": "docs/team/WORKLOG.md and reports/team_worklog.xlsx - generated from git history and the self-recorded timestamps inside the committed evidence artifacts by scripts/build_team_worklog.py. Both members sign the confirmation blocks in WORKLOG.md.",
-      "evidence": null,
-      "attested_by": null,
-      "attested_on": null,
+      "evidence": "docs/team/WORKLOG.md and reports/team_worklog.xlsx, signed by both members. Combined project development, testing, evaluation, review, research and documentation activity met or exceeded the stated 20 hours. Repository evidence bounds but does not measure this: git shows a 55.6-hour wall-clock window over 13 commits (2026-09-20 06:08 UTC to 2026-09-22 13:44 UTC), of which only 3.72 hours is observable as commit-to-commit span across 2 of 8 sessions. Exact task-level hours are team-attested rather than mechanically derivable from Git history, and the majority of this team's research - done by Mahesh Rajendra - produces no commits at all. Typed confirmation by both members in a joint working session on 2026-09-22, recorded at their direction. Not a wet-ink or cryptographic signature - see docs/team/SIGNATURES.md, which records the SHA-256 of each signed document so a later edit is detectable (python scripts/verify_signatures.py).",
+      "attested_by": "Krishna Annavaram; Mahesh Rajendra",
+      "attested_on": "2026-09-22",
       "signed_by_whom": "Krishna Annavaram and Mahesh Rajendra, each for themselves."
     },
     "REQ-009-T01": {
@@ -30,9 +30,9 @@
       "source_text": "Format | Team of 2-4",
       "what_would_count_as_evidence": "The number of people on the delivery team, and whether that is within 2-4. The team is two: Krishna Annavaram and Mahesh Rajendra. Git records two distinct commit authors, which corroborates but does not prove team size.",
       "where_to_look": "docs/team/TEAM_ATTESTATION.md for the statement and both signature blocks; docs/team/TEAM_AND_ROLES.md for roles and the repository-verified vs team-attested contribution split. Corroborating: git shortlog -sne --all shows two distinct contributors.",
-      "evidence": null,
-      "attested_by": null,
-      "attested_on": null,
+      "evidence": "docs/team/TEAM_ATTESTATION.md, signed by both members. CredPilot was developed by a two-person team - Krishna Annavaram and Mahesh Rajendra - which is within the stated 2-4. Corroborated in the repository by two distinct commit authors (git shortlog -sne --all): Krishna Annavaram (12 commits plus 2 merge commits) and Mahesh Rajendra (commit f28a1fd, the education synthetic dataset, 260 files / 39,470 insertions, merged via PR #2). Roles and the repository-verified vs team-attested split are in docs/team/TEAM_AND_ROLES.md. Typed confirmation by both members in a joint working session on 2026-09-22, recorded at their direction. Not a wet-ink or cryptographic signature - see docs/team/SIGNATURES.md, which records the SHA-256 of each signed document so a later edit is detectable (python scripts/verify_signatures.py).",
+      "attested_by": "Krishna Annavaram; Mahesh Rajendra",
+      "attested_on": "2026-09-22",
       "signed_by_whom": "Krishna Annavaram and Mahesh Rajendra, each for themselves."
     },
     "REQ-010-T02": {
