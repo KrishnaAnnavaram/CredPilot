@@ -250,8 +250,8 @@ See [`synthetic_data/README.md`](synthetic_data/README.md).
 | Declared rules indexed | all | 174/174 · 72/72 |
 | `cross_product_contamination_rate` | 0.00 | **0.0000** |
 | `citation_validity` | 1.00 | **1.0000** |
-| `policy_recall@5` (macro, authored) | ≥ 0.95 | **1.0000** |
-| `rule_recall@5` (macro, authored) | ≥ 0.90 | **0.9826** |
+| `policy_recall@5` (macro, authored) | ≥ 0.95 | **0.9932** |
+| `rule_recall@5` (macro, authored) | ≥ 0.90 | **0.9756** |
 | Temporal-version accuracy | 1.00 | **1.0000** |
 | Prompt-injection policy override | 0.00 | **0.0000** |
 
@@ -428,9 +428,27 @@ python scripts/verify_evidence_citations.py
 
 ## Stack
 
-Python 3.11+ · LangGraph · FastAPI · Google Gemini (the only model provider) ·
+Python 3.11+ · LangGraph + `langgraph-checkpoint-sqlite` · LangMem ·
+FastAPI · Google Gemini (the only model provider) ·
 MCP Python SDK + `langchain-mcp-adapters` · Chroma + local Sentence-Transformers ·
-Arize Phoenix + OpenTelemetry/OpenInference · Presidio · pytest.
+Arize Phoenix + OpenTelemetry/OpenInference · Guardrails-AI + Presidio ·
+DeepEval · pytest.
+
+Memory is two libraries, not one: the SQLite checkpointer carries a single
+thread, and LangMem carries what survives between threads — subject-scoped, so
+one applicant's recall cannot reach another's file
+([`src/memory/semantic.py`](src/memory/semantic.py)).
+
+Guardrails sit in front of and behind the model
+([`src/guardrails/policy_guard.py`](src/guardrails/policy_guard.py)):
+Guardrails-AI expresses the input and output checks as named validators,
+Presidio finds the PII, and the project's own injection and citation controls
+still run underneath both. None of the validators calls a model, so a guardrail
+cannot be argued out of its verdict by the text it is inspecting. Guardrails-AI's
+anonymous vendor telemetry is switched off in committed code rather than by a
+machine-local `~/.guardrailsrc`, and
+[`tests/test_guardrails_library.py`](tests/test_guardrails_library.py) asserts it
+stayed off.
 
 Everything installs with pip. Claude Code was used as the development assistant;
 no Claude model is called at runtime and no `ANTHROPIC_API_KEY` is read —

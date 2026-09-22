@@ -8,12 +8,21 @@ Three modules, one per job:
 * :mod:`~src.guardrails.validation` — the **output** guardrail. Decides whether
   a response may be published: citations resolve, prose is faithful to its
   evidence, prose does not contradict the decision.
+* :mod:`~src.guardrails.policy_guard` — **Guardrails-AI**, the declarative layer
+  the input and output checks above are expressed through. It delegates to them
+  rather than replacing them, so the guardrail and the audit trail cannot
+  disagree about whether something was PII.
 
 The output guardrail lived inside ``src/graph.py`` until it was moved here. An
 output guardrail that can only be reached by building a graph is one nobody can
 test or audit on its own.
 """
 
+from src.guardrails.policy_guard import (
+    GuardVerdict,
+    check_input,
+    check_output,
+)
 from src.guardrails.redaction import (
     FORBIDDEN_DECISION_FIELDS,
     ID_COLUMNS,
@@ -39,10 +48,13 @@ from src.guardrails.validation import (
 
 __all__ = [
     "CONTRADICTION_TERMS",
+    "GuardVerdict",
     "FORBIDDEN_DECISION_FIELDS",
     "ID_COLUMNS",
     "SENSITIVE_FIELD_NAMES",
     "SanitizationResult",
+    "check_input",
+    "check_output",
     "detect_injection",
     "find_sensitive",
     "policy_allows_publication",

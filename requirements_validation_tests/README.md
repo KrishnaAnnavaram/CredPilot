@@ -41,10 +41,10 @@ PASS / FAIL / SCORE                 → reports/
 cd requirements_validation_tests
 
 # Full validation run + report. --target defaults to the parent directory.
-python runners/run_all_tests.py --target "E:/Virtusa Projects/CredPilot"
+python runners/run_all_tests.py --target /path/to/CredPilot
 
 # Same checks under pytest, one test per requirement test case.
-python -m pytest -q --target "E:/Virtusa Projects/CredPilot"
+python -m pytest -q --target /path/to/CredPilot
 
 # A slice, while iterating on one area.
 python runners/run_all_tests.py --suite governance

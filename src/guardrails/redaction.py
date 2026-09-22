@@ -29,10 +29,23 @@ _PATTERNS: tuple[tuple[str, re.Pattern[str], str], ...] = (
         re.compile(r"(?<![\w-])(?:\d{3}|[X*x]{3})[- ](?:\d{2}|[X*x]{2})[- ]\d{4}(?![\w-])"),
         "[REDACTED_SSN]",
     ),
-    # Bank / credit account numbers of 12-19 digits, optionally grouped
+    # Bank / credit account numbers of 12-19 digits, optionally grouped.
+    #
+    # The trailing guard rejects a following word character, and a following
+    # period *only when a digit comes after it* - so "123456789012.50" is still
+    # read as a decimal amount and left alone, while a card number at the end of
+    # a sentence is redacted.
+    #
+    # It used to be `(?![\w.])`, which rejected any trailing period at all. That
+    # meant a card number at the end of a sentence went unredacted while the
+    # same text without the full stop was caught: the label patterns below only
+    # fire when the digits follow the label directly, so "card number is
+    # <digits>." and "card ending <digits>." matched nothing at all. A
+    # sentence-final account number is the common case in prose, not the rare
+    # one. `tests/rag/test_pii_logging.py` covers both spellings.
     (
         "ACCOUNT",
-        re.compile(r"(?<![\w.])(?:\d[ -]?){12,19}(?![\w.])"),
+        re.compile(r"(?<![\w.])(?:\d[ -]?){12,19}(?![\w])(?!\.\d)"),
         "[REDACTED_ACCOUNT]",
     ),
     # A labelled account value. The label must be followed by an actual

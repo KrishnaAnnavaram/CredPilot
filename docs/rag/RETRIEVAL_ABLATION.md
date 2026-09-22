@@ -18,12 +18,12 @@ performance stand in for the system's.
 
 | | Configuration | rule R@5 | rule R@10 | policy R@5 | rule MRR@10 | rule nDCG@10 | p50 ms | p95 ms |
 |---|---|---|---|---|---|---|---|---|
-| **A** | BM25 only | 0.8685 | 0.8685 | 0.9587 | 0.7434 | 0.8138 | **26** | **33** |
-| **B** | Dense only | 0.9198 | 0.9279 | 0.9785 | 0.8473 | 0.9235 | 27 | 32 |
-| **C** | Dense + BM25, no fusion | 0.9198 | 0.9279 | 0.9785 | 0.8473 | 0.9235 | 27 | 34 |
-| **D** | Dense + BM25 + RRF | 0.9570 | 0.9570 | 0.9932 | 0.8445 | 0.9245 | 31 | 37 |
-| **E** | D + cross-encoder rerank | **0.9860** | **0.9860** | 0.9966 | **0.8961** | **0.9809** | 487 | 507 |
-| **F** | Full pipeline *(ships)* | 0.9826 | 0.9826 | **1.0000** | 0.8876 | 0.9084 | 495 | 508 |
+| **A** | BM25 only | 0.8685 | 0.8685 | 0.9587 | 0.7434 | 0.8138 | **32** | 38 |
+| **B** | Dense only | 0.9128 | 0.9209 | 0.9717 | 0.8404 | 0.9166 | 33 | **38** |
+| **C** | Dense + BM25, no fusion | 0.9128 | 0.9209 | 0.9717 | 0.8404 | 0.9166 | 35 | 41 |
+| **D** | Dense + BM25 + RRF | 0.9501 | 0.9501 | 0.9865 | 0.8411 | 0.9202 | 39 | 44 |
+| **E** | D + cross-encoder rerank | **0.9791** | **0.9791** | 0.9899 | **0.8947** | **0.9782** | 504 | 524 |
+| **F** | Full pipeline *(ships)* | 0.9756 | 0.9756 | **0.9932** | 0.8859 | 0.9054 | 506 | 532 |
 
 Citation validity is 1.0000 and cross-product contamination 0.0000 in **every**
 configuration — those two properties come from the corpus registry and the
@@ -34,11 +34,11 @@ that way.
 
 | Step | Δ rule R@5 | Δ rule MRR@10 | Δ p95 ms | Verdict |
 |------|-----------|---------------|----------|---------|
-| A → B  dense instead of lexical | **+0.0513** | +0.1039 | −1 | Dense is the stronger single signal |
-| B → C  add BM25 without fusion | **+0.0000** | +0.0000 | +2 | **No value.** Running both and keeping one order is pointless |
-| C → D  fuse the two rankings | **+0.0372** | −0.0028 | +3 | The cheapest real gain in the pipeline |
-| D → E  cross-encoder rerank | **+0.0290** | +0.0516 | +470 | Largest single gain, and 93% of the latency |
-| E → F  filters, expansion, dedupe | **−0.0034** | −0.0085 | +0 | Bought deliberately — see below |
+| A → B  dense instead of lexical | **+0.0443** | +0.0970 | −1 | Dense is the stronger single signal |
+| B → C  add BM25 without fusion | **+0.0000** | +0.0000 | +3 | **No value.** Running both and keeping one order is pointless |
+| C → D  fuse the two rankings | **+0.0373** | +0.0007 | +3 | The cheapest real gain in the pipeline |
+| D → E  cross-encoder rerank | **+0.0290** | +0.0536 | +480 | Largest single gain, and 93% of the latency |
+| E → F  filters, expansion, dedupe | **−0.0035** | −0.0088 | +8 | Bought deliberately — see below |
 
 ---
 
@@ -46,7 +46,7 @@ that way.
 
 ### BM25 alone is not enough, and neither is dense alone
 
-BM25 recovers 87% of rules; dense recovers 92%. Their failures are different in
+BM25 recovers 87% of rules; dense recovers 91%. Their failures are different in
 kind. BM25 misses a question that never uses the rule's vocabulary — *"the
 borrower says primary residence but everything points to a rental"* never says
 "occupancy". Dense misses a question that is *only* an identifier — *"what does
@@ -58,42 +58,43 @@ without fusion are one retriever plus wasted compute.
 
 ### RRF is the best value in the pipeline
 
-**C → D** adds +0.0372 rule recall and +0.0147 policy recall for **+3 ms**. Per
+**C → D** adds +0.0373 rule recall and +0.0148 policy recall for **+3 ms**. Per
 millisecond it is worth roughly two hundred times what the cross-encoder is.
 
 Fusing ranks lets a chunk both layers found beat a chunk only one layer ranked
-first — exactly the signal concatenation throws away. It also costs 0.0028 of
-MRR: fusion promotes agreed-upon candidates into the top five, which occasionally
-displaces a single very-confident dense hit from position one. Recall is the
-metric that matters here, so that is a good trade.
+first — exactly the signal concatenation throws away. MRR moves +0.0007, which is
+noise rather than a gain: fusion promotes agreed-upon candidates into the top
+five, and that occasionally displaces a single very-confident dense hit from
+position one, so the two effects very nearly cancel. Recall is the metric that
+matters here, and recall is where the gain is.
 
 The per-product split shows fusion doing most of its work on mortgage:
 
 | | A BM25 | B dense | D fused | E reranked | F full |
 |---|---|---|---|---|---|
 | Mortgage rule R@5 | 0.8551 | 0.9159 | 0.9766 | 0.9860 | 0.9720 |
-| Education rule R@5 | 0.8819 | 0.9236 | 0.9375 | 0.9861 | **0.9931** |
+| Education rule R@5 | 0.8819 | 0.9097 | 0.9236 | 0.9722 | **0.9792** |
 
 Mortgage gains +0.0607 from fusion; education gains +0.0139. The mortgage corpus
 is 3.3× larger with far more near-duplicate rules across versions, so agreement
 between two independent rankings is a much stronger signal there.
 
-### The cross-encoder is the biggest gain and 93% of the latency
+### The cross-encoder is the biggest gain and 90% of the latency
 
-**D → E** is +0.0290 rule recall, +0.0516 MRR and +0.0564 nDCG — for +470 ms,
-taking p95 from 37 ms to 507 ms. Fourteen times the latency for three points of
+**D → E** is +0.0290 rule recall, +0.0536 MRR and +0.0580 nDCG — for +480 ms,
+taking p95 from 44 ms to 524 ms. Twelve times the latency for three points of
 recall.
 
 That trade is worth making here, and worth saying why: a wrong rule in an
 underwriting decision is not a slightly worse search result, it is a decision
-made against a threshold that does not apply. A 507 ms p95 is invisible in a
+made against a threshold that does not apply. A 524 ms p95 is invisible in a
 workflow where a human reads the evidence afterwards. In a latency-sensitive
-setting the honest configuration is **D** at 37 ms and three points less recall —
+setting the honest configuration is **D** at 44 ms and three points less recall —
 and `--no-rerank` measures it on demand.
 
-### The full pipeline costs 0.0034 recall and buys correctness
+### The full pipeline costs 0.0035 recall and buys correctness
 
-**F** is *below* **E** on rule recall (0.9826 vs 0.9860), MRR and nDCG. It ships
+**F** is *below* **E** on rule recall (0.9756 vs 0.9791), MRR and nDCG. It ships
 anyway, because **E is not temporally correct**.
 
 Configuration E has no effective-date filter. Asked what affordability ceiling
@@ -101,7 +102,8 @@ applies on 2026-06-25 it returns `POL-DTI-001` **v2.0** — the 43% ceiling that
 not exist yet — alongside v1.0's 45%. It scores well because the rule id is right.
 The decision it supports is wrong.
 
-F is the only configuration that takes macro policy Recall@5 to **1.0000**, and
+F is the only configuration that takes macro policy Recall@5 to its highest
+value, **0.9932**, and
 the only one in which the boundary triple `APP-000055` / `APP-000056` /
 `APP-000057` decides correctly: the same 44% ratio passing, breaching and
 passing-with-factors depending on the date and what the file documents. That is
@@ -110,7 +112,7 @@ not something this table measures well, which is why
 measures it separately — every versioned policy, both sides of the boundary, zero
 mixed-version results.
 
-The large nDCG drop E → F (−0.0725) is deduplication, not a ranking regression.
+The large nDCG drop E → F (−0.0728) is deduplication, not a ranking regression.
 F returns at most one chunk per rule and at most three per policy, so several
 correct chunks of one rule collapse into one. Fewer relevant items in the list
 lowers nDCG while making the evidence more useful to read.
@@ -125,15 +127,16 @@ Separately measured by
 
 | dense | lexical | fusion | rerank | rule R@5 | policy R@5 | p95 ms |
 |-------|---------|--------|--------|----------|------------|--------|
-| **15** | **15** | **12** | **10** | **0.9826** | **1.0000** | **523** |
-| 25 | 25 | 20 | 15 | 0.9593 | 0.9932 | 842 |
-| 30 | 30 | 30 | 20 | 0.9593 | 0.9932 | 1188 |
-| 40 | 40 | 40 | 25 | 0.9593 | 0.9932 | 1461 |
-| 50 | 50 | 50 | 35 | 0.9593 | 1.0000 | 1679 |
-| 60 | 60 | 60 | 50 | 0.9593 | 1.0000 | 1990 |
+| **15** | **15** | **12** | **10** | **0.9756** | **0.9932** | **655** |
+| 25 | 25 | 20 | 15 | 0.9593 | 0.9865 | 1020 |
+| 30 | 30 | 30 | 20 | 0.9593 | 0.9865 | 1186 |
+| 40 | 40 | 40 | 25 | 0.9593 | 0.9865 | 1468 |
+| 50 | 50 | 50 | 35 | 0.9593 | 0.9932 | 1700 |
+| 60 | 60 | 60 | 50 | 0.9593 | 0.9932 | 2029 |
 
-The narrowest funnel is the best on **both** axes: +0.0233 rule recall over every
-wider configuration, at a quarter of the latency of the widest.
+The narrowest funnel is beaten on **neither** axis: +0.0163 rule recall over every
+wider configuration, policy recall matched but never exceeded, at 0.32× the
+latency of the widest.
 
 Every extra candidate is another chance for the cross-encoder to promote a
 plausible-but-wrong rule above the correct one, and its error rate grows with the

@@ -1,7 +1,7 @@
 {
   "averaging": "macro across products: mortgage contributes 75 cases to education's 20, so a pooled mean would be a mortgage score",
   "deepeval_version": "4.2.3",
-  "generated_at_utc": "2026-09-22T03:29:58+00:00",
+  "generated_at_utc": "2026-09-22T06:59:19+00:00",
   "harness": "deepeval",
   "judge": {
     "available": false,
@@ -33,7 +33,7 @@
     "judge_hallucination_rate": null,
     "judge_hallucination_score": null,
     "judged_cases": 0,
-    "latency_ms_mean": 9926.1136,
+    "latency_ms_mean": 6191.8823,
     "narrative_faithfulness_deterministic": 1.0,
     "narratives_deterministic_fallback": 95,
     "narratives_model_generated": 0,
@@ -75,9 +75,9 @@
       "judge_hallucination_rate": null,
       "judge_hallucination_score": null,
       "judged_cases": 0,
-      "latency_ms_mean": 8156.4928,
-      "latency_ms_p50": 8343.8,
-      "latency_ms_p95": 8589.4,
+      "latency_ms_mean": 5605.0649,
+      "latency_ms_p50": 5458.4,
+      "latency_ms_p95": 5974.4,
       "narrative_faithfulness_deterministic": 1.0,
       "narratives_deterministic_fallback": 20,
       "narratives_model_generated": 0,
@@ -108,9 +108,9 @@
       "judge_hallucination_rate": null,
       "judge_hallucination_score": null,
       "judged_cases": 0,
-      "latency_ms_mean": 11695.7343,
-      "latency_ms_p50": 10142.7,
-      "latency_ms_p95": 15876.9,
+      "latency_ms_mean": 6778.6996,
+      "latency_ms_p50": 6455.6,
+      "latency_ms_p95": 7568.2,
       "narrative_faithfulness_deterministic": 1.0,
       "narratives_deterministic_fallback": 75,
       "narratives_model_generated": 0,
@@ -182,7 +182,7 @@
     },
     "note": "Rules in the unimplemented families are still retrieved, cited and shown to the reader \u2014 the retrieval subsystem covers both corpora in full. What is missing is code evaluating them against a threshold, so a case whose golden outcome turns on one cannot be scored correct except by coincidence. This is the ceiling on outcome_accuracy and the first thing to extend."
   },
-  "run_id": "9fff3fc1",
+  "run_id": "c3d56055",
   "system_under_test": {
     "embedding_model": "intfloat/e5-base-v2",
     "final_top_k": 6,
@@ -191,5 +191,5 @@
     "llm_role": "narrative rationale only; no retrieval, arithmetic, threshold or verdict is produced by a model",
     "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2"
   },
-  "wall_clock_seconds": 1042.1
+  "wall_clock_seconds": 621.0
 }

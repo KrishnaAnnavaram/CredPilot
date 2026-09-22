@@ -150,7 +150,7 @@ python requirements_validation_tests/runners/run_all_tests.py   # all six suites
 | Evidence citations | **6 / 6 resolve** |
 | Published figures | 19 quoted headline metrics, all match |
 | Documentation tables | every transcribed figure matches its result file |
-| Requirements validator (6 suites, 320 tests) | **101 / 112 requirements, 97% fit** — IMPLEMENTATION 85/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. See §9 |
+| Requirements validator (6 suites, 320 tests) | **103 / 112 requirements, 98% fit** — IMPLEMENTATION 87/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. See §9 |
 | Fresh clone | indexes rebuilt (16/16 integrity checks), both products assessed, all evidence present, 6/6 citations resolve |
 
 Four failures were found and fixed during the final run, and each was worth
@@ -274,12 +274,33 @@ table, 636 traces, P50 8.00 ms, P99 0.93 s.
 | **NFR-05** | **PASS** | [`tests/rag/test_pii_logging.py`](../tests/rag/test_pii_logging.py) scans every committed data and documentation file under `logs/`, `traces/`, `reports/` and `eval/results/` — JSON, JSON Lines, CSV, logs and Markdown alike |
 | **NFR-06** | **PASS** | every artifact names its producer — `golden_signals.json` carries `generated_by`; the screenshot has `capture_phoenix_screenshot.py`; the frozen extract has `docs/evidence/README.md` |
 
+### Three different scores, and what each one is
+
+These get confused, so they are separated here before any number is quoted.
+
+| # | Score | What it measures | Where it comes from |
+|---|---|---|---|
+| **A** | **Raw validator score** | passed / 112 requirements | `requirements_validation_tests/reports/latest_test_report.json` |
+| **B** | **Implementation-controllable score** | passed / requirements this repository can actually affect | derived in `requirements_validation_tests/reports/current_failures.md` |
+| **C** | **Source-compliance status** | AC-01..AC-12, NFR-01..NFR-06 | `requirements_validation_tests/reports/source_compliance_matrix.md` |
+
+**None of these is the Hackathon Rubric.** The engagement is graded on a
+7-category / 100-mark rubric that is **not in this repository and has not been
+run here**. No figure in this document is a mark against it, and a percentage
+from column A must not be read as one — "97% fit" is 97% of an internal
+requirements checklist, not 97/100 on the official scoring.
+
 ### Requirements validator
 
-All six suites, 320 tests: **101 of 112 requirements pass, 97% overall fit** —
-IMPLEMENTATION 85/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. The run began this
-work at 86% on a two-suite partial run and moved 86 → 91 → 94 → 97 as the
-findings below were worked through.
+All six suites, 320 tests: **103 of 112 requirements pass, 98% overall fit** —
+IMPLEMENTATION 87/90, ENGAGEMENT 12/18, OPTIONAL **4/4**. The run began this
+work at 86% on a two-suite partial run and moved 86 → 91 → 94 → 97 → 98 as the findings below were worked through. The last step
+closed the only two failures that implementation work could close: LangMem
+(REQ-038) and Guardrails-AI (REQ-042).
+
+**Nothing that remains is fixable in code.** All 9 outstanding requirements need a
+human signature, an externally assigned GitLab project, or a value the source
+document never states.
 
 **`final_status` reads FAIL, and it always will.** That is not a residual
 defect list; it is the validator's design. Requirements whose source text
@@ -290,18 +311,45 @@ REQ-045, REQ-046 — are IMPLEMENTATION class. Since final status is gated on
 IMPLEMENTATION being complete, **the maximum reachable IMPLEMENTATION score is
 87/90**, and no amount of implementation work changes that.
 
-The 11 remaining, by what would actually be needed:
+**That ceiling is now reached: IMPLEMENTATION stands at 87/90.** Every
+implementation-class requirement that can pass, passes. The three that cannot are
+the three the source document left without a testable value, so `final_status`
+will read FAIL on a complete implementation — which is what it was always going
+to do, and why the raw validator percentage is not the number to read on its own.
 
-| Count | Requirements | Blocker |
-|---|---|---|
-| 4 | REQ-011, REQ-035, REQ-045, REQ-046 | Unreachable by design — the validator's own helper never passes |
-| 5 | REQ-008, REQ-009, REQ-010, REQ-012, REQ-013 | A human signature on facts about the engagement: duration, team size, review mode, the Excel report, the grade bands. Prepared for signing in `requirements_validation_tests/manual_evidence/manual_attestations.json`, with the verbatim source text and what would count as evidence for each; the three fields the validator reads are deliberately blank |
-| 1 | REQ-011 | No GitLab remote is configured. Adding one that does not exist would be a fabrication |
-| 2 | REQ-038, REQ-042 | LangMem and Guardrails-AI / LLM Guard are named in the stack table and not used — deviations D8 and D6, kept deliberately |
+### The count, reconciled
 
-Nothing here is an unexplained gap. Ten of the eleven are either impossible
-from inside the repository or a documented, argued deviation; the eleventh is
-waiting on a signature.
+An earlier version of this table listed four buckets adding to 12 while the
+report said 11 remained. Both numbers were right and the presentation was wrong:
+**REQ-011 fails two different checks** — its remote check is an external
+dependency (`REQ-011-T02`) and its cut-off check is unspecified by the source
+(`REQ-011-T03`) — so it appeared in two buckets and was counted twice.
+
+Classification is therefore keyed by *test*, not by requirement, and the
+requirement totals are derived from it. `requirements_validation_tests/traceability/classify_failures.py`
+asserts both `passed + failed == total` and that every failing test has a
+classification, and exits non-zero if either breaks.
+
+**10 failing tests across 9 distinct requirements:**
+
+| Class | Tests | Requirements | Fixable in code? |
+|---|---|---|---|
+| `REAL_IMPLEMENTATION_GAP` | **0** | — | — |
+| `MANUAL_ATTESTATION_REQUIRED` | 5 | REQ-008, REQ-009, REQ-010, REQ-012, REQ-013 | no |
+| `EXTERNAL_SUBMISSION_DEPENDENCY` | 1 | REQ-011 (`T02`) | no |
+| `UNSPECIFIED_BY_REQUIREMENT` | 4 | REQ-011 (`T03`), REQ-035, REQ-045, REQ-046 | no |
+
+The two implementation gaps that used to sit here were real and have been closed:
+**LangMem** now carries cross-session memory (`src/memory/semantic.py`) and
+**Guardrails-AI** now expresses the input and output guards
+(`src/guardrails/policy_guard.py`). See D8 and D6 in
+`docs/rag/REQUIREMENTS_MAPPING.md`.
+
+Nothing in the remaining nine is an implementation defect: five need a human
+signature, one needs a GitLab project this repository was never given, and four
+ask for values the source document never states. Full detail in
+`requirements_validation_tests/reports/current_failures.md` and
+`requirements_validation_tests/reports/unverifiable_requirements.md`.
 
 ## 11. Remaining limitations
 
@@ -344,10 +392,30 @@ write error mid-assessment.
 `recommendation_node` cannot emit (R-24). Reported as
 `outcome_accuracy_all_cases` beside `outcome_accuracy` rather than folded in.
 
-**11.7 LangMem (D8) and Guardrails-AI / LLM Guard (D6) are named in the stack
-table and not used.** The memory and guardrail layers are built here, for
-reasons recorded in `docs/rag/REQUIREMENTS_MAPPING.md`. Both are PARTIAL, not
-met.
+**11.7 LangMem and Guardrails-AI are now both integrated (D8, D6 — resolved).**
+Both were previously recorded as PARTIAL deviations, on the argument that a
+general-purpose library knows nothing about `POL-SEC-001` or about when
+`POL-DTI-001 v1.0` stopped governing. That argument was right about the
+*refusals* and wrong about the conclusion: a policy layer sits in front of a
+store, rather than replacing one.
+
+LangMem now carries cross-session memory over a LangGraph SQLite store, with
+CredPilot's refusals — forbidden kinds, redaction on write, injected text
+rejected — running before any write reaches it, and subject isolation enforced by
+namespace rather than by a filter. Guardrails-AI now expresses five named
+validators on the live input and output paths, each delegating to the controls
+that already did the work, with its vendor telemetry disabled in committed code.
+
+Nothing was removed to make room for either. The residual cost is honest and
+worth stating: Guardrails-AI pulls `openai` and `litellm` in transitively. Neither
+is imported by any runtime module — `tests/rag/test_stack_boundaries.py` enforces
+that by allow-list — and neither appears in `requirements.txt`, but the packages
+are present in the environment, which they were not before.
+
+`llm-guard` was the alternative the source also permits, and was rejected for a
+hard reason rather than a preference: it pins `transformers==4.51.3` while
+`sentence-transformers 6.0.1` requires `>=5.0.0`, so installing it would downgrade
+the embedding stack the whole retrieval path runs on.
 
 **11.8 The fresh-clone check does not prove a clean-machine `pip install`.** It
 proves the committed tree is complete and self-contained — a clone with nothing

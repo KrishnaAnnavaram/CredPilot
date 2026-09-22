@@ -280,7 +280,7 @@ trusting the output:
 
 **Applicant text is data, never instruction.** It is quarantined at intake, kept in its own compartment, rendered last inside a labelled fence, and never read by the rule engine at all. Fifteen injection patterns detect all six committed adversarial packets and the nine typed attack phrasings of F-18 and F-19, but the structural control is that a successful injection reaches only the narrative — and the narrative is checked against its evidence afterwards.
 
-**Memory refuses to hold what it should not.** A prior decision is not evidence for a new application; policy is retrieved with an effective date rather than cached; a credit figure goes stale silently. `LongTermMemory` refuses all of them by kind. Recall is scoped to one subject, and `forget()` erases a data principal completely in one operation.
+**Memory refuses to hold what it should not.** A prior decision is not evidence for a new application; policy is retrieved with an effective date rather than cached; a credit figure goes stale silently. `LongTermMemory` refuses all of them by kind, and the same closed set governs the LangMem path that carries memory between sessions — one rulebook rather than two that can drift. Instruction-shaped applicant text is refused outright, because a memory is replayed into a later prompt with more trust than the message it arrived in. Recall is scoped to one subject by namespace rather than by a filter, and `forget()` erases a data principal from both stores in one operation.
 
 **Missing evidence never becomes a negative result.** `GEN-ELG-005`, learned the hard way via F-8.
 

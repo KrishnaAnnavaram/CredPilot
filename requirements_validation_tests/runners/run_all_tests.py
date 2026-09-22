@@ -30,7 +30,7 @@ Grading, as specified by the validation brief
 Usage
 -----
     python runners/run_all_tests.py
-    python runners/run_all_tests.py --target "E:/Virtusa Projects/CredPilot"
+    python runners/run_all_tests.py --target /path/to/CredPilot
     python runners/run_all_tests.py --suite static --suite governance
     python runners/run_all_tests.py --fail-fast-on-baseline
 """
