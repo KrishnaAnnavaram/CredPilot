@@ -172,7 +172,7 @@ rounds, after which a person takes it.
 | | Where | What |
 |---|---|---|
 | **Supervisor** | [`src/supervisor.py`](src/supervisor.py) | six routes, deterministic-first classification, clarification |
-| **LangGraph** | [`src/graph.py`](src/graph.py) | typed state, 18 nodes, two isolated product chains, SQLite checkpointer, interrupt/resume |
+| **LangGraph** | [`src/graph.py`](src/graph.py) | typed state, 20 nodes, two isolated product chains, SQLite checkpointer, interrupt/resume |
 | **Web app** | [`src/web/`](src/web/) | FastAPI + one static page, SSE progress, evidence view |
 | **CLI** | [`src/cli.py`](src/cli.py) | `assess`, `ask`, `chat`, `retrieve`, `mcp`, `corpus` |
 | **MCP host + client** | [`src/mcp_host/`](src/mcp_host/) | discovery, timeouts, bounded retries, elicitation, sampling, roots |

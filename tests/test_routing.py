@@ -377,3 +377,36 @@ def test_an_out_of_scope_request_is_refused_without_retrieval(indexes_built, tmp
     finally:
         if context is not None:
             context.__exit__(None, None, None)
+
+
+def test_the_documented_node_count_matches_the_compiled_graph(tmp_path):
+    """A figure in the README is a claim like any other.
+
+    Both the README and the requirements mapping quoted 18 nodes while the
+    graph compiled 20 — the two product chains had grown a node each and
+    nobody re-counted. Asserting it here means the next person to add a node
+    is told to update the prose rather than discovering the drift later.
+    """
+    import re
+    from pathlib import Path
+
+    repo_root = Path(__file__).resolve().parents[1]
+    graph, context = build_graph(checkpoint_path=tmp_path / "nodecount.sqlite")
+    try:
+        nodes = {n for n in graph.get_graph().nodes if not n.startswith("__")}
+    finally:
+        if context is not None:
+            context.__exit__(None, None, None)
+
+    quoted = []
+    for relative in ("README.md", "docs/rag/REQUIREMENTS_MAPPING.md"):
+        text = (repo_root / relative).read_text(encoding="utf-8")
+        for match in re.finditer(r"(\d+) nodes", text):
+            quoted.append((relative, int(match.group(1))))
+
+    assert quoted, "neither document states a node count any more"
+    for relative, count in quoted:
+        assert count == len(nodes), (
+            f"{relative} says {count} nodes; the compiled graph has {len(nodes)}: "
+            f"{sorted(nodes)}"
+        )

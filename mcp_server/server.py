@@ -1158,6 +1158,7 @@ def _thresholds(domain: LendingProductDomain) -> dict[str, Any]:
         "request, without guessing at the answer."
     ),
 )
+@traced("prompts/get:supervisor_clarification")
 def supervisor_clarification(user_message: str, ambiguity: str) -> list[prompt_base.Message]:
     """Prompt for drafting one clarification question."""
     return [
@@ -1182,6 +1183,7 @@ def supervisor_clarification(user_message: str, ambiguity: str) -> list[prompt_b
         "the evidence supplied."
     ),
 )
+@traced("prompts/get:mortgage_policy_analysis")
 def mortgage_policy_analysis(
     question: str, evidence_json: str, as_of_date: str = ""
 ) -> list[prompt_base.Message]:
@@ -1196,6 +1198,7 @@ def mortgage_policy_analysis(
         "only the evidence supplied."
     ),
 )
+@traced("prompts/get:education_policy_analysis")
 def education_policy_analysis(
     question: str, evidence_json: str, as_of_date: str = ""
 ) -> list[prompt_base.Message]:
@@ -1235,6 +1238,7 @@ def _analysis_prompt(product: str, question: str, evidence_json: str, as_of_date
         "deterministically. The outcome and every figure are inputs, not outputs."
     ),
 )
+@traced("prompts/get:underwriting_rationale")
 def underwriting_rationale(
     product_domain: str, outcome: str, figures_json: str, evidence_json: str
 ) -> list[prompt_base.Message]:
@@ -1266,6 +1270,7 @@ def underwriting_rationale(
         "and what they need to look at first."
     ),
 )
+@traced("prompts/get:human_review_summary")
 def human_review_summary(
     product_domain: str, outcome: str, reasons_json: str, figures_json: str
 ) -> list[prompt_base.Message]:
@@ -1295,6 +1300,7 @@ def human_review_summary(
         "explanation into a new threshold."
     ),
 )
+@traced("prompts/get:evidence_explanation")
 def evidence_explanation(
     citation: str, rule_text: str, applied_to: str = ""
 ) -> list[prompt_base.Message]:
