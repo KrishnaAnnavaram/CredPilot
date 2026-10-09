@@ -84,6 +84,7 @@ This README is the **one location that explains all of CredPilot**. It gives the
    - 4.1 [Full flow](#41-full-flow)
    - 4.2 [The life cycle of one application](#42-the-life-cycle-of-one-application)
    - 4.3 [One ratio, three outcomes](#43-one-ratio-three-outcomes)
+   - 4.4 [Who does which step](#44-who-does-which-step)
 5. 🕸️ [The LangGraph](#5-the-langgraph)
 6. 🔀 [The domain router](#6-the-domain-router)
 7. 🔎 [The retrieval pipeline](#7-the-retrieval-pipeline)
@@ -127,7 +128,7 @@ CredPilot gives each of these questions its own component. A deterministic pipel
 | Graph | **8** LangGraph nodes, conditional edges, a typed state and a SQLite checkpointer |
 | Corpus | Mortgage: 42 policy documents, 174 distinct rules (6 policies at two versions). Education: 12 policy documents, 72 rules |
 | Retrieval | BM25 + dense (`intfloat/e5-base-v2`) + reciprocal rank fusion + cross-encoder rerank, with temporal and product filters |
-| Model | Google Gemini (`gemini-flash-latest` by default). **One** call for each assessment, for the rationale only |
+| Model | Google Gemini (`gemini-flash-latest` by default). **One** call for each assessment, for the rationale only, plus one short test call for each process (`llm.probe`) |
 | Without a key | Index build, retrieval, the CLI, the MCP server, the retrieval evaluation and the tests run with no API key |
 | Safety | Every decline and every high-risk application goes to a human. Untrusted applicant text is quarantined. PII is redacted before it is written |
 | Tests | **458** test functions in 29 files (`pytest`) |
@@ -175,6 +176,63 @@ retrieval  →  calculation  →  rule engine  →  recommendation  →  rationa
 | Evaluation | [`eval/retrieval/`](eval/retrieval/), [`eval/agent/`](eval/agent/) | Retrieval metrics and benchmarks. End-to-end accuracy with DeepEval as LLM-as-judge |
 | Scripts | [`scripts/`](scripts/) | Index build, evidence regeneration, golden signals, dashboard, trace export, checks |
 | Tests | [`tests/`](tests/) | Parsers, isolation, temporal, security, contracts, rules, loops, memory, integration |
+
+The component map shows which module calls which module. An arrow points from the caller to the module that it uses.
+
+```mermaid
+flowchart TB
+    subgraph ENTRY["Entry points"]
+        CLI["src/cli.py<br/>assess, retrieve, corpus"]
+        MCP["mcp_server/server.py<br/>3 tools, 3 resources"]
+        EVAL["eval/<br/>retrieval and agent harnesses"]
+    end
+    G["src/graph.py<br/>build_graph, 8 nodes"]
+    CTXIN["src/application_context.py<br/>build_underwriting_input"]
+    DOM["src/domain.py<br/>resolve_product_domain"]
+    TOOL["src/tools/rag_tool.py<br/>retrieve_policy_tool"]
+    subgraph RAG["src/rag/"]
+        PIPE["pipeline.py<br/>PolicyRetriever"]
+        STORE["vectorstore.py, lexical.py<br/>Chroma, BM25"]
+        APPL["applicability.py, citations.py"]
+        IDX["indexer.py, integrity.py, parsers/"]
+    end
+    subgraph DECIDE["Deterministic decision"]
+        CALC["calculations.py<br/>figures, screen_risk"]
+        RULES["rules.py<br/>evaluate, summarize"]
+        TRIG["review_triggers.py<br/>evaluate_review_triggers"]
+    end
+    NARR["src/narrative.py<br/>draft_rationale"]
+    LLM["src/llm.py<br/>the only Gemini caller"]
+    CTX["src/context/<br/>build_context"]
+    MEM["src/memory/<br/>LongTermMemory"]
+    GRD["src/guardrails/<br/>sanitize, redaction"]
+    OBS["src/observability/<br/>tracing, tool_logging"]
+
+    CLI --> G
+    CLI --> TOOL
+    EVAL --> G
+    EVAL --> PIPE
+    MCP --> TOOL
+    G --> CTXIN
+    G --> DOM
+    G --> TOOL
+    TOOL --> PIPE
+    PIPE --> DOM
+    PIPE --> STORE
+    PIPE --> APPL
+    PIPE --> GRD
+    G --> CALC
+    G --> RULES
+    G --> TRIG
+    G --> NARR
+    NARR --> CTX
+    NARR --> LLM
+    G --> MEM
+    G --> GRD
+    TOOL --> OBS
+    PIPE --> OBS
+    IDX --> STORE
+```
 
 ### 2.2 System context
 
@@ -258,6 +316,22 @@ CredPilot/
 ### 3.1 The model never makes a figure, a threshold or a decision
 `src/calculations.py` calculates the figures. The retriever supplies the thresholds. `src/rules.py` applies one to the other. Gemini receives the outcome as a fact and writes the rationale. No code path lets the rationale text change the recommendation. `POL-DTI-001` rule `DTI-CALC-002` forbids a model to produce an underwriting figure.
 
+```mermaid
+flowchart LR
+    PK[/"Application packet"/] --> CALC["calculations.py<br/>compute_affordability"]
+    POL[("Policy corpus<br/>Chroma + BM25")] --> RET["PolicyRetriever<br/>retrieved rules"]
+    CALC -- "figures" --> RULES["rules.py<br/>evaluate, summarize"]
+    RET -- "thresholds from the<br/>parameter table" --> RULES
+    RULES --> REC["recommendation_node<br/>outcome"]
+    REC -- "outcome as a fact" --> GEM["Gemini<br/>writes the rationale"]
+    GEM --> VER{"verify_narrative<br/>citations and figures supported?"}
+    VER -- "yes" --> OUT[/"Recommendation + rationale"/]
+    VER -- "no" --> HUMAN{{"HUMAN<br/>human_review"}}
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
+
 ### 3.2 Product isolation happens before retrieval
 The domain router resolves the product from structured facts. That decision selects the Chroma collection. A mortgage query cannot return an education policy, because it never searches the education collection. If no structured fact resolves the product, retrieval returns `PRODUCT_CLARIFICATION_REQUIRED` and searches nothing. No combined collection exists, and `PolicyVectorStore` refuses to open one named `credpilot_all_policies`.
 
@@ -289,23 +363,64 @@ A step budget of 24 node runs is in the state, so a node can stop cleanly with a
 ### 4.1 Full flow
 
 ```mermaid
-flowchart TB
-    START(["START"]) --> SUP["supervisor<br/>quarantine untrusted text, recall memory"]
-    SUP --> DR["domain_router<br/>resolve MORTGAGE or EDUCATION_LOAN"]
+flowchart TD
+    IN[/"Application packet JSON<br/>+ as-of date"/] --> INIT["initial_state<br/>build_underwriting_input"]
+    TAB[("structured/ input tables<br/>outcome tables refused")] --> INIT
+    INIT --> START(["START"])
+    START --> SUP["supervisor<br/>quarantine untrusted text, recall memory"]
+    MEM[("data/memory/<br/>long-term memory")] --> SUP
+    SUP --> DR{"domain_router<br/>resolve MORTGAGE or EDUCATION_LOAN"}
     DR -- "resolved" --> PR["policy_retrieval<br/>plan questions, retrieve, follow rule references"]
-    DR -- "not resolved" --> HR["human_review"]
+    DR -- "not resolved" --> HR
+    IDX[("Chroma collections<br/>+ BM25 indexes")] --> PR
     PR -- "evidence found" --> EL["eligibility<br/>calculate figures, apply rules"]
     PR -- "no evidence" --> HR
     EL --> RK["risk<br/>deterministic risk flags"]
-    RK --> RC["recommendation<br/>outcome, review triggers, citations"]
+    RK --> RC{"recommendation<br/>outcome, review triggers, citations"}
     RC -- "not halted" --> NA["narrative<br/>Gemini rationale, then verify"]
     RC -- "halted on budget" --> HR
-    NA -- "review required" --> HR
-    NA -- "no review" --> END(["END"])
-    HR --> END
+    NA -- "review required" --> HR{{"HUMAN<br/>human_review"}}
+    NA -- "no review" --> OUT[/"APPROVE_RECOMMENDATION<br/>+ citations + rationale"/]
+    HR --> REF[/"Recommendation, if any,<br/>+ human_review_reasons"/]
+    OUT --> END(["END"])
+    REF --> END
+    SUP -.-> CK[("SQLite checkpointer<br/>credpilot_checkpoints.sqlite")]
+    NA -.-> LOGS[("logs/*.jsonl")]
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HR human
 ```
 
 ### 4.2 The life cycle of one application
+
+The `route` field of the state and the `outcome` field of the recommendation give the state of one application.
+
+```mermaid
+stateDiagram-v2
+    state "Packet loaded" as Loaded
+    state "Text quarantined" as Quarantined
+    state "Product resolved" as Resolved
+    state "Evidence retrieved" as Evidence
+    state "Eligibility status set" as Eligibility
+    state "Risk level set" as Risk
+    state "Outcome selected" as Outcome
+    state "Rationale written" as Rationale
+    state "human_review" as Human
+    [*] --> Loaded: initial_state, input tables added
+    Loaded --> Quarantined: supervisor
+    Quarantined --> Resolved: domain_router
+    Quarantined --> Human: ProductResolutionError
+    Resolved --> Evidence: policy_retrieval, dependencies followed
+    Resolved --> Human: no evidence retrieved
+    Evidence --> Eligibility: ELIGIBLE, INELIGIBLE or INDETERMINATE
+    Eligibility --> Risk: LOW, MEDIUM or HIGH
+    Risk --> Outcome: APPROVE, REFER or DECLINE
+    Outcome --> Human: halted, budget of 24 steps spent
+    Outcome --> Rationale: narrative
+    Rationale --> Human: requires_human_review or unfaithful rationale
+    Rationale --> [*]: APPROVE_RECOMMENDATION, route done
+    Human --> [*]: route done, a human decides
+```
 
 1. `initial_state` loads the packet and adds the input tables. It sets the as-of date from the packet if you do not give one.
 2. The supervisor quarantines the untrusted applicant text and records each injection finding.
@@ -323,6 +438,26 @@ flowchart TB
 ### 4.3 One ratio, three outcomes
 
 `APP-000055`, `APP-000056` and `APP-000057` have the same borrower profile. Each one calculates to **44.00 %** back-end debt-to-income (DTI).
+
+```mermaid
+flowchart TD
+    DTI[/"back_end_dti = 0.4400<br/>from calculations.py"/] --> ASOF{"As-of date before<br/>2026-07-01?"}
+    ASOF -- "yes, APP-000055" --> V1["POL-DTI-001 v1.0<br/>max_back_end_dti 45 %"]
+    ASOF -- "no, APP-000056 and APP-000057" --> V2["POL-DTI-001 v2.0<br/>max_back_end_dti 43 %"]
+    V2 --> EXT{"Extension published:<br/>max_back_end_dti_with_factors<br/>and min_compensating_factors?"}
+    EXT -- "yes" --> F3{"DTI-CONV-003 retrieved?"}
+    F3 -- "no" --> IND[/"INDETERMINATE<br/>REFER"/]
+    F3 -- "yes" --> CNT{"Documented factors<br/>at or above the minimum?"}
+    CNT -- "no, APP-000056" --> C43["Ceiling stays 43 %"]
+    CNT -- "yes, 3 factors, APP-000057" --> C45["Ceiling extended to 45 %"]
+    V1 --> PASS1[/"PASS, ELIGIBLE<br/>APPROVE"/]
+    C45 --> PASS2[/"PASS, ELIGIBLE<br/>APPROVE"/]
+    C43 --> FAIL[/"FAIL, INELIGIBLE<br/>DECLINE"/]
+    FAIL --> HUMAN{{"HUMAN<br/>DEC-REC-002: a human decides"}}
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
 
 | Application | As-of date | Governing version | Ceiling applied | Eligibility | Recommendation |
 |---|---|---|---|---|---|
@@ -351,11 +486,77 @@ The version that retrieval returned and the documents of each file decide the th
 No value in this example is hard-coded. The 43 % ceiling, the 45 % extension, the two-factor minimum and the limit of each factor come from the retrieved policy text.
 If you remove the retrieved rule, the engine reports `INDETERMINATE`. It does not use a number from the code.
 
+### 4.4 Who does which step
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor OP as Operator
+    participant CLI as src.cli assess
+    participant G as LangGraph
+    participant MEM as LongTermMemory
+    participant RT as retrieve_policy_tool
+    participant PR as PolicyRetriever
+    participant ENG as calculations, rules, review_triggers
+    participant LLM as Gemini, src/llm.py
+    participant LOG as logs/*.jsonl
+
+    OP->>CLI: python -m src.cli assess APP-000056.json
+    CLI->>G: build_graph with the SQLite checkpointer
+    CLI->>G: invoke(initial_state, thread_id)
+    G->>G: supervisor, quarantine untrusted text
+    G->>MEM: recall(subject_id)
+    G->>G: domain_router, resolve_product_domain
+    loop each planned question, then each referenced rule
+        G->>RT: retrieve_policy_tool(query, domain, as_of_date)
+        RT->>PR: retrieve(request)
+        PR-->>RT: PolicyRetrievalResult with evidence and status
+        RT->>LOG: tool_calls.jsonl, agent_actions.jsonl
+    end
+    G->>ENG: compute_affordability, rules.evaluate, summarize
+    G->>ENG: screen_risk
+    G->>ENG: evaluate_review_triggers, select the outcome
+    G->>G: narrative, build_context
+    G->>LLM: one invoke, only with a key and CREDPILOT_NARRATIVE on
+    LLM-->>G: rationale text
+    G->>G: verify_narrative
+    alt human review required
+        G->>MEM: record_interaction
+        G->>LOG: route_for_human_review
+    else no review
+        G->>MEM: record_interaction
+    end
+    G-->>CLI: final state
+    CLI-->>OP: figures, breaches, outcome, review reasons, rationale
+```
+
 ---
 
 ## 5. The LangGraph
 
 **Purpose.** Run one application through typed nodes with conditional edges, and keep each run inside a budget.
+
+This diagram shows the `policy_retrieval` node, which is the node that calls the retrieval tool. Each node starts with the budget guard `_guard`.
+
+```mermaid
+flowchart TD
+    ST[/"State: loan_domain, packet, as_of_date"/] --> GU{"_guard: steps_taken<br/>at step_budget 24?"}
+    GU -- "yes" --> HALT[/"halted, route human_review"/]
+    GU -- "no" --> PLAN["plan_policy_questions<br/>7 base questions"]
+    PLAN --> FLAGS{"Flags in the packet?<br/>self_employed, jumbo,<br/>international, untrusted_text"}
+    FLAGS -- "yes" --> ADD["Add the conditional questions"]
+    FLAGS -- "no" --> LOOP
+    ADD --> LOOP["retrieve_policy_tool<br/>once for each question"]
+    LOOP --> DEDUP["Keep each chunk_id once"]
+    DEDUP --> REFS["referenced_rules<br/>rule IDs in the text, not held"]
+    REFS --> DEP["Follow up to 6 rules<br/>What does rule X say?, top_k 3"]
+    DEP --> ANY{"Evidence found?"}
+    ANY -- "no" --> HR[/"route human_review"/]
+    ANY -- "yes" --> SEC{"A status is<br/>HUMAN_REVIEW_REQUIRED?"}
+    SEC -- "yes" --> FLAG["requires_human_review,<br/>add the reason"]
+    SEC -- "no" --> EL[/"policy_evidence,<br/>route eligibility"/]
+    FLAG --> EL
+```
 
 | Node | Agent role | What it does | Model? |
 |---|---|---|---|
@@ -389,6 +590,25 @@ If you remove the retrieved rule, the engine reports `INDETERMINATE`. It does no
 ## 6. The domain router
 
 **Purpose.** Resolve the product before any retrieval, from structured facts only.
+
+```mermaid
+flowchart TD
+    IN[/"explicit domain, application_id,<br/>packet"/] --> EX{"Explicit domain given?"}
+    EX -- "yes" --> FA["LendingProductDomain.from_any"]
+    EX -- "no" --> ID{"application_id shape?"}
+    ID -- "APP- + 6 digits" --> M[/"MORTGAGE"/]
+    ID -- "APP- + 4 digits - 5 digits" --> E[/"EDUCATION_LOAN"/]
+    ID -- "no match" --> SH{"Packet keys: 2 or more,<br/>and more than the other product?"}
+    SH -- "subject_property, borrowers,<br/>product_family, loan_purpose" --> M
+    SH -- "school, school_certification,<br/>product_code, borrower" --> E
+    SH -- "no" --> ERR["ProductResolutionError<br/>PRODUCT_CLARIFICATION_REQUIRED"]
+    FA --> M
+    FA --> E
+    ERR --> HUMAN{{"HUMAN<br/>human_review"}}
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
 
 **Procedure**
 
@@ -429,6 +649,26 @@ If you remove the retrieved rule, the engine reports `INDETERMINATE`. It does no
 The retrieval unit is one whole rule with all its parts: source category, severity, outcome, "applies when", body, parameter table, acceptable evidence, exceptions and cross-references.
 A fixed character window can separate a rule from its threshold row. A rule without its threshold is not evidence.
 
+```mermaid
+flowchart TD
+    DIR[/"policy_corpus/*.md"/] --> PD["parse_document<br/>read_text_tolerant, front matter"]
+    PD --> ID["_policy_identity<br/>policy_id, title, version"]
+    ID --> SPL["_split_sections<br/>## N. Title sections"]
+    SPL --> KIND{"Product parser?"}
+    KIND -- "mortgage" --> MR["### RULE-ID — Title<br/>one rule for each heading"]
+    KIND -- "education" --> ER["**EDU-XX-NNN -- Title.**<br/>bold inline marker"]
+    MR --> SEC["RULE, SECTION and<br/>OVERVIEW sections"]
+    ER --> SEC
+    SEC --> MIN{"Text shorter<br/>than min_chars 40?"}
+    MIN -- "yes" --> SKIP["No chunk"]
+    MIN -- "no" --> BIG{"Longer than<br/>max_chars 4,200?"}
+    BIG -- "yes" --> SS["_secondary_split at paragraphs,<br/>heading in each part"]
+    BIG -- "no" --> ONE["One chunk"]
+    SS --> CID["_chunk_id<br/>PREFIX__POLICY__vX__UNIT__NNN"]
+    ONE --> CID
+    CID --> OUT[/"PolicyChunk list"/]
+```
+
 | Item | Mortgage | Education |
 |---|---|---|
 | Rule marker | `### DTI-CONV-001 — Title` (own heading) | `**EDU-UW-001 -- Title.**` (bold, inline) |
@@ -454,10 +694,35 @@ MORTGAGE__POL-DTI-001__v2.0__OVERVIEW__000      (document overview)
 
 ### 7.2 Pipeline stages
 
+`retrieve_policy` in `src/rag/pipeline.py` resolves the product, then `PolicyRetriever.retrieve` runs the stages.
+
+```mermaid
+flowchart TD
+    Q[/"query, product_domain or application_id,<br/>as_of_date, context"/] --> DR{"resolve_product_domain"}
+    DR -- "fails" --> PCR[/"PRODUCT_CLARIFICATION_REQUIRED"/]
+    DR -- "MORTGAGE or EDUCATION_LOAN" --> SAN{"sanitize_query:<br/>2 or more substantive words left?"}
+    SAN -- "no" --> MC[/"MISSING_CONTEXT"/]
+    SAN -- "yes" --> AF{"_allowed_chunk_ids:<br/>a chunk in force?"}
+    AF -- "no" --> NAP[/"NO_APPLICABLE_POLICY"/]
+    AF -- "yes" --> BM["BM25 search, expanded query<br/>top 15"]
+    AF -- "yes" --> DN["e5 query vector, Chroma search<br/>top 15"]
+    BM --> FU["fuse: RRF k 60<br/>top 12"]
+    DN --> FU
+    FU --> RR["CrossEncoderReranker<br/>top 10"]
+    RR --> TV["_validate_temporal<br/>drop superseded and expired"]
+    TV --> SC["_apply_scope_affinity<br/>+ 0.25 × affinity"]
+    SC --> DD["_dedupe<br/>per rule, per policy, overviews"]
+    DD --> CV["_to_evidence:<br/>CitationResolver.resolve"]
+    CV --> TOP["Keep resolving citations,<br/>first 6"]
+    TOP --> ST{"Injection review<br/>trigger in the query?"}
+    ST -- "yes" --> HRR[/"HUMAN_REVIEW_REQUIRED<br/>+ evidence"/]
+    ST -- "no" --> F[/"FOUND, or NO_APPLICABLE_POLICY<br/>when no evidence is left"/]
+```
+
 | # | Stage | Kind | Span name |
 |---|---|---|---|
-| 1 | Sanitize the query: remove imperatives, keep the topic | Guard | `rag.retrieve` |
-| 2 | Resolve the product domain: select the collection | **Hard** filter | `domain.resolve` |
+| 1 | Resolve the product domain: select the collection | **Hard** filter | `domain.resolve` |
+| 2 | Sanitize the query: remove imperatives, keep the topic | Guard | `rag.retrieve` |
 | 3 | Applicability: effective-date window and governing version | **Hard** filter | `metadata.filter` |
 | 4 | BM25 search, top 15 (with deterministic synonym expansion) | Rank | `bm25.search` |
 | 5 | Dense search, top 15 | Rank | `embedding.query`, `chroma.search` |
@@ -475,11 +740,26 @@ MORTGAGE__POL-DTI-001__v2.0__OVERVIEW__000      (document overview)
 - Product scope (`product_scope`, `purpose_scope`, `occupancy_scope`) is a soft boost. The scope metadata is incomplete. A hard filter on it drops overlays that govern every programme.
 - No LLM query rewrite and no MMR are used. A committed synonym table and the deduplication by (policy, version, rule) do that work.
 
-**Retrieval statuses:** `FOUND`, `NO_APPLICABLE_POLICY`, `AMBIGUOUS_POLICY`, `MISSING_CONTEXT`, `PRODUCT_CLARIFICATION_REQUIRED`, `HUMAN_REVIEW_REQUIRED`.
+**Retrieval statuses:** `FOUND`, `NO_APPLICABLE_POLICY`, `AMBIGUOUS_POLICY`, `MISSING_CONTEXT`, `PRODUCT_CLARIFICATION_REQUIRED`, `HUMAN_REVIEW_REQUIRED`. The enum defines `AMBIGUOUS_POLICY`, but no code path returns it at this time.
 
 ### 7.3 Temporal selection
 
 `POL-DTI-001` permits 45 % at v1.0 and 43 % at v2.0. Retrieval of the newest document changes the decision for files before 2026-07-01.
+
+```mermaid
+flowchart TD
+    C[/"Chunk metadata, as_of_date"/] --> TF{"temporal_filtering on<br/>and an as-of date?"}
+    TF -- "no" --> UND["UNDETERMINED, kept"]
+    TF -- "yes" --> EF{"as_of before<br/>effective_date?"}
+    EF -- "yes" --> NYE["NOT_YET_EFFECTIVE, removed"]
+    EF -- "no" --> EXP{"as_of after<br/>expiration_date?"}
+    EXP -- "yes" --> EXD["EXPIRED, removed"]
+    EXP -- "no" --> NOEFF{"No effective date?"}
+    NOEFF -- "yes" --> UND
+    NOEFF -- "no" --> GOV{"Version = governing version<br/>from select_effective_versions?"}
+    GOV -- "no" --> SUP["SUPERSEDED, removed"]
+    GOV -- "yes" --> APP[/"APPLICABLE, kept"/]
+```
 
 1. Keep a document if `effective_date <= as_of_date` and (`expiration_date` is null or `as_of_date <= expiration_date`). Both bounds are inclusive.
 2. For each policy ID, keep the newest eligible version. Mark the older versions `SUPERSEDED` and remove them.
@@ -489,6 +769,22 @@ MORTGAGE__POL-DTI-001__v2.0__OVERVIEW__000      (document overview)
 The education corpus publishes one version for each document, with an effective date and no expiry. The effective-date filter applies, but version selection has nothing to select. Details are in [`docs/rag/TEMPORAL_RETRIEVAL.md`](docs/rag/TEMPORAL_RETRIEVAL.md).
 
 ### 7.4 Citations
+
+`CitationResolver.resolve` in `src/rag/citations.py` checks each citation against the committed corpus, not against the index.
+
+```mermaid
+flowchart LR
+    CI[/"Citation string"/] --> P{"parse_citation:<br/>education or mortgage grammar?"}
+    P -- "no" --> BAD[/"Does not resolve"/]
+    P -- "yes" --> MAP["_corpus_map: policy_id and version<br/>from the front matter of each file"]
+    MAP --> F{"Source file found?"}
+    F -- "no" --> BAD
+    F -- "yes" --> R{"Rule ID in the citation?"}
+    R -- "no" --> OK[/"Resolves"/]
+    R -- "yes" --> T{"Rule ID in the<br/>file text?"}
+    T -- "no" --> BAD
+    T -- "yes" --> OK
+```
 
 | Product | Citation format |
 |---|---|
@@ -508,7 +804,7 @@ All values are in [`config/rag.yaml`](config/rag.yaml). A benchmark selected eac
 | Reranker | `cross-encoder/ms-marco-MiniLM-L-6-v2` |
 | `dense_top_k` / `lexical_top_k` / `fusion_top_k` / `rerank_top_k` / `final_top_k` | 15 / 15 / 12 / 10 / 6 |
 | `rrf_k` | 60 |
-| `min_reranker_score` | −8.0 (never empties a result set alone) |
+| `min_reranker_score` | −8.0 in `config/rag.yaml`. The pipeline reads it into the settings but does not apply it at this time |
 | Deduplication | `max_per_rule` 1, `max_per_policy` 3, `max_overview` 2 |
 | Chunking | `max_chars` 4,200, `split_overlap_chars` 200, `min_chars` 40 |
 
@@ -525,6 +821,34 @@ application packet  ->  src/calculations.py   ->  DTI = 44.00%
 policy corpus       ->  the RAG retriever     ->  threshold = 43%
 both                ->  src/rules.py          ->  breach
 the breach          ->  Gemini                ->  the written explanation
+```
+
+The rule engine, step by step (`eligibility_node`):
+
+```mermaid
+flowchart TD
+    PK[/"Packet with input tables"/] --> CA["compute_affordability<br/>Decimal, half-up rounding"]
+    CA --> FIG["Figures + formula_version"]
+    EV[/"policy_evidence"/] --> DIS{"Product?"}
+    FIG --> DIS
+    DIS -- "MORTGAGE" --> ASV{"assert_single_version:<br/>one version of each policy?"}
+    ASV -- "no" --> MVE[/"MixedVersionEvidenceError"/]
+    ASV -- "yes" --> MF["DTI-CONV, CRD-SCR,<br/>AST-RSV, AST-FTC"]
+    DIS -- "EDUCATION_LOAN" --> EF["EDU-INC-003, EDU-INC-004,<br/>EDU-SCH-005"]
+    MF --> FR{"find_rule:<br/>rule in the evidence?"}
+    EF --> FR
+    FR -- "no" --> IND["INDETERMINATE"]
+    FR -- "yes" --> PAR["parameters_of<br/>the cited chunk"]
+    PAR --> TH{"Threshold and figure<br/>present?"}
+    TH -- "no" --> IND
+    TH -- "yes" --> CMP["Compare: PASS or FAIL"]
+    CMP --> SUM["summarize"]
+    IND --> SUM
+    SUM --> ST{"Any FAIL?"}
+    ST -- "yes" --> INE[/"INELIGIBLE"/]
+    ST -- "no" --> ANYI{"Any INDETERMINATE?"}
+    ANYI -- "yes" --> INDS[/"INDETERMINATE"/]
+    ANYI -- "no" --> ELG[/"ELIGIBLE"/]
 ```
 
 | Product | Main figures | Formula version |
@@ -551,12 +875,27 @@ Ratios have 4 decimal places and money has cents, rounded half-up, as `DTI-CALC-
 **Procedure**
 
 1. Read the parameter table rows (`| `name` | value |`) of the retrieved rule.
-2. If the evidence holds two versions of one policy, raise `MixedVersionEvidenceError`.
+2. For mortgage, if the evidence holds two versions of one policy, raise `MixedVersionEvidenceError`. The education evaluator does not do this check.
 3. Compare the figure with the threshold and record the verdict and the citation.
 4. If the threshold or the figure is absent, record `INDETERMINATE`.
 5. Summarize: any `FAIL` gives `INELIGIBLE`. Otherwise any `INDETERMINATE` gives `INDETERMINATE`. Otherwise the status is `ELIGIBLE`.
 
 **The risk screen** (`screen_risk`, `risk-screen-1.0`)
+
+```mermaid
+flowchart TD
+    PK[/"Packet"/] --> D{"Product?"}
+    D -- "MORTGAGE" --> MF["OCCUPANCY_INCONSISTENCY, JUMBO_MANDATORY_REVIEW,<br/>SELF_EMPLOYED_MANDATORY_REVIEW, NO_DOCUMENTS_SUPPLIED"]
+    D -- "EDUCATION_LOAN" --> EF["fraud_screening flags: OFAC_HIT, KYC_NOT_PASSED,<br/>ENROLLMENT_FRAUD_FLAG and others,<br/>SCHOOL_CERTIFICATION_OUTSTANDING"]
+    MF --> B{"A blocking flag?"}
+    EF --> B
+    B -- "yes" --> H[/"HIGH"/]
+    B -- "no" --> R{"A review flag,<br/>or 2 or more flags?"}
+    R -- "yes" --> M[/"MEDIUM"/]
+    R -- "no" --> L[/"LOW"/]
+    SF[/"security_findings<br/>from the supervisor"/] --> RN["risk_node adds<br/>APPLICANT_TEXT_INSTRUCTION_ATTEMPT"]
+    RN --> H
+```
 
 | Level | Condition |
 |---|---|
@@ -572,6 +911,32 @@ Ratios have 4 decimal places and money has cents, rounded half-up, as `DTI-CALC-
 
 `UWR-HRV-001` is a routing table, not a scoring input. A file that matches one trigger goes to a human, even when every threshold passes. The module reads the borderline band (`borderline_band_pct_points`) from the retrieved rule.
 
+```mermaid
+flowchart TD
+    IN[/"Figures, packet, evidence,<br/>eligibility, risk, security_findings"/] --> RULE["Find UWR-HRV-001 or EDU-GOV-002<br/>read borderline_band_pct_points"]
+    RULE --> T1{"Eligibility INELIGIBLE?"}
+    T1 -- "yes" --> A1["decline"]
+    RULE --> T2{"Band for this product?"}
+    T2 -- "no, education" --> U["Report as unevaluable"]
+    T2 -- "yes" --> T2B{"Figure within the band<br/>below its ceiling?"}
+    T2B -- "yes" --> A2["borderline_affordability"]
+    RULE --> T3["Packet checks: jumbo, self-employed,<br/>occupancy intent, large deposit not SOURCED,<br/>verification CONFLICT or FAILED"]
+    T3 --> A3["high_value_exposure, self_employment,<br/>occupancy_contradiction, unsourced_large_deposit,<br/>unresolved_evidence_conflict"]
+    RULE --> T4["Risk and fraud checks:<br/>risk flags, KYC, OFAC, fraud indicators"]
+    T4 --> A4["fraud_or_document_integrity,<br/>identity_not_clean"]
+    RULE --> T5{"security_findings?"}
+    T5 -- "yes" --> A5["security_event"]
+    RULE --> T6{"Eligibility INDETERMINATE?"}
+    T6 -- "yes" --> A6["unresolved_evidence"]
+    A1 --> OUT[/"ReviewAssessment:<br/>required if any trigger"/]
+    A2 --> OUT
+    A3 --> OUT
+    A4 --> OUT
+    A5 --> OUT
+    A6 --> OUT
+    U --> OUT
+```
+
 | Trigger | Evaluated |
 |---|---|
 | `decline`, `borderline_affordability`, `high_value_exposure`, `self_employment`, `fraud_or_document_integrity`, `identity_not_clean`, `security_event`, `occupancy_contradiction`, `unsourced_large_deposit`, `unresolved_evidence_conflict` | Yes |
@@ -580,6 +945,27 @@ Ratios have 4 decimal places and money has cents, rounded half-up, as `DTI-CALC-
 For education, `EDU-GOV-002` states its referral criterion with no number. The module reports the borderline trigger as not evaluable for education. It does not use the mortgage band.
 
 **Procedure of the outcome**
+
+```mermaid
+flowchart TD
+    IN[/"Eligibility, risk level,<br/>ReviewAssessment, earlier reasons"/] --> C1{"Eligibility INDETERMINATE?"}
+    C1 -- "yes" --> REF1[/"REFER_RECOMMENDATION"/]
+    C1 -- "no" --> C2{"Eligibility INELIGIBLE?"}
+    C2 -- "yes" --> DEC[/"DECLINE_RECOMMENDATION<br/>DEC-REC-002"/]
+    C2 -- "no" --> C3{"Risk level HIGH?"}
+    C3 -- "yes" --> REF2[/"REFER_RECOMMENDATION"/]
+    C3 -- "no" --> C4{"A trigger or<br/>an earlier reason?"}
+    C4 -- "yes" --> REF3[/"REFER_RECOMMENDATION"/]
+    C4 -- "no" --> APP[/"APPROVE_RECOMMENDATION"/]
+    REF1 --> HUMAN{{"HUMAN<br/>human_review after the rationale"}}
+    DEC --> HUMAN
+    REF2 --> HUMAN
+    REF3 --> HUMAN
+    APP --> NAR["narrative"]
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
 
 | Condition (in this sequence) | Outcome | Human review |
 |---|---|---|
@@ -605,6 +991,24 @@ The recommendation records the citations, the evidence count, `all_citations_res
 
 **Purpose.** Write text that a human reviewer can read, from a decision that already exists.
 
+```mermaid
+flowchart TD
+    ST[/"State: outcome, figures,<br/>evidence, review reasons"/] --> BC["build_context role narrative<br/>Section 11"]
+    BC --> EN{"CREDPILOT_NARRATIVE on?"}
+    EN -- "no" --> DS[/"_deterministic_summary<br/>available false"/]
+    EN -- "yes" --> PR{"llm.probe: a key and<br/>a model that answers?"}
+    PR -- "no" --> DS
+    PR -- "yes" --> CALL["chat_model.invoke<br/>temperature 0, one call"]
+    CALL -- "exception" --> DS
+    CALL -- "text" --> VN{"verify_narrative: each citation<br/>and figure supported?"}
+    VN -- "yes" --> OK[/"Rationale, is_faithful true"/]
+    VN -- "no" --> BAD[/"Rationale kept,<br/>is_faithful false"/]
+    BAD --> HUMAN{{"HUMAN<br/>human_review"}}
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
+
 | Input | Output |
 |---|---|
 | The outcome, the figures with their formula version, the cited evidence (through `build_context`) | The rationale text, `is_faithful`, the model name, the citations used, the unsupported citations and figures, token usage and latency |
@@ -621,6 +1025,7 @@ The recommendation records the citations, the evidence count, `all_citations_res
 
 - Every file gets a rationale, also the files that a human will decide.
 - `src/llm.py` tries `CREDPILOT_GEMINI_MODEL` first, then `gemini-flash-latest`, `gemini-3.5-flash` and `gemini-pro-latest`. It records the model that answered.
+- To find that model, `llm.probe` sends one short test prompt (`Reply with exactly: OK`) the first time that a process needs Gemini. The result is cached for the process.
 - No Claude model is called at runtime and no `ANTHROPIC_API_KEY` is read. `tests/rag/test_stack_boundaries.py` checks this. Claude Code was the development assistant.
 
 ---
@@ -629,16 +1034,50 @@ The recommendation records the citations, the evidence count, `all_citations_res
 
 **Context engineering** ([`src/context/`](src/context/)). `build_context` applies four operations in this sequence: isolate, select, compress, write.
 
+```mermaid
+flowchart TD
+    IN[/"Evidence, computed facts,<br/>application facts, untrusted text"/] --> ISO["isolate<br/>4 compartments"]
+    ISO --> ROLE{"Role narrative<br/>and eligibility given?"}
+    ROLE -- "yes" --> SD["select_for_decision<br/>what the decision turned on"]
+    ROLE -- "no" --> SR["select_for_role<br/>by policy family"]
+    SD --> EMPTY{"Nothing selected?"}
+    SR --> EMPTY
+    EMPTY -- "yes" --> ALL["Use all the evidence"]
+    EMPTY -- "no" --> CMP
+    ALL --> CMP["compress_evidence<br/>12,000-character budget"]
+    CMP --> REN["render: evidence, facts,<br/>untrusted text last and fenced"]
+    REN --> NOTE{"Compression dropped items?"}
+    NOTE -- "yes" --> ADDN["Add an omitted-chunks note"]
+    NOTE -- "no" --> WR
+    ADDN --> WR["Scratchpad.write<br/>redacted context record"]
+    WR --> OUT[/"AssembledContext.prompt_text"/]
+```
+
 | Operation | Module | What it does |
 |---|---|---|
 | Isolate | `isolate.py` | Keeps untrusted text, policy evidence and figures in separate compartments |
 | Select | `select.py` | Selects the evidence that one role needs, by relevance and by role |
-| Compress | `compress.py` | Fits a budget (12,000 characters by default). Policy evidence is truncated at paragraph boundaries and keeps its parameter tables. Only conversation history and notes can be summarized by Gemini |
+| Compress | `compress.py` | `compress_evidence` fits the evidence into a budget (12,000 characters by default). It truncates each chunk at paragraph boundaries and keeps its parameter tables. `build_context` records this result, but the prompt holds the full text of each selected chunk. If chunks are over the budget, the prompt gets only a note. Only conversation history and notes can be summarized by Gemini |
 | Write | `write.py` | Records the run in a scratchpad that can be read back |
 
 Isolation comes first. If compression comes first, a summarizer can read applicant text as instruction.
 
 **Tiered memory** ([`src/memory/`](src/memory/))
+
+```mermaid
+flowchart LR
+    PK[/"Packet"/] --> SUBJ["subject_of<br/>first borrower_id"]
+    SUBJ --> REC["supervisor: recall_prior_context<br/>up to 10 records"]
+    DB[("credpilot_memory.sqlite")] --> REC
+    REC --> ST[/"recalled_memory in the state"/]
+    END1["narrative with no review,<br/>or human_review"] --> RI["record_interaction"]
+    RI --> KIND{"Kind allowed?<br/>not a decision or policy"}
+    KIND -- "no" --> FE["ForbiddenMemoryError"]
+    KIND -- "yes" --> RED["MemoryStore.upsert<br/>redact_text with Presidio"]
+    RED --> DB
+    REC -. "error" .-> SKIP["Empty list,<br/>the assessment continues"]
+    RI -. "error" .-> SKIP
+```
 
 | Tier | Storage | Scope | Contents |
 |---|---|---|---|
@@ -659,7 +1098,32 @@ Isolation comes first. If compression comes first, a summarizer can read applica
 
 **Injection guardrail** ([`src/guardrails/sanitize.py`](src/guardrails/sanitize.py)). Instruction patterns (for example "ignore previous", "waive the requirement") do not block retrieval. The guardrail removes the imperative, keeps the policy question and records the finding. The graph then routes the file to a human. The mortgage corpus has six adversarial applications, `APP-000065` to `APP-000070`, governed by `POL-SEC-001` `SEC-INJ-001`.
 
-**PII redaction** ([`src/guardrails/redaction.py`](src/guardrails/redaction.py)). Deterministic regex redaction runs first, always. Microsoft Presidio runs second, if it is installed. Every log line, span attribute and evaluation artifact passes through `redact_text`. Each placeholder tells the kind of value that was removed.
+```mermaid
+flowchart TD
+    subgraph SUPV["supervisor: quarantine"]
+        UT[/"untrusted_applicant_text"/] --> DI1["detect_injection"]
+        DI1 --> QE["Envelope: trust_class customer_evidence,<br/>redacted content, handling note"]
+        QE --> RV1{"A review-trigger finding?"}
+        RV1 -- "yes" --> HR1["requires_human_review,<br/>SEC-INJ-001 reason"]
+    end
+    subgraph RET["retrieval: sanitize_query"]
+        Q[/"Query text"/] --> DI2["detect_injection"]
+        DI2 --> CUT["Remove control terms and<br/>injection patterns, redact_text"]
+        CUT --> SUB{"2 or more<br/>substantive words?"}
+        SUB -- "no" --> BLK[/"blocked: MISSING_CONTEXT"/]
+        SUB -- "yes" --> CLEAN[/"Clean search string"/]
+        DI2 --> RV2{"A review-trigger finding?"}
+        RV2 -- "yes" --> HR2[/"HUMAN_REVIEW_REQUIRED"/]
+    end
+    QE -- "any finding, security_findings" --> RISK["risk level HIGH,<br/>security_event trigger"]
+    RISK --> HUMAN{{"HUMAN<br/>human_review"}}
+    HR1 --> HUMAN
+
+    classDef human fill:#fff3cd,stroke:#b8901f,color:#3d2f00,font-weight:bold
+    class HUMAN human
+```
+
+**PII redaction** ([`src/guardrails/redaction.py`](src/guardrails/redaction.py)). Deterministic regex redaction runs first, always. Microsoft Presidio runs second, if it is installed, on the logged arguments, details and payloads and on the memory records. Span attributes, tool results and errors use the regex layer only. Every log line and span attribute passes through `redact_text`. The evaluation artifacts do not pass through it. `tests/rag/test_pii_logging.py` scans `logs/`, `traces/`, `reports/` and `eval/results/` instead. Each placeholder tells the kind of value that was removed.
 
 **Logs** ([`src/observability/tool_logging.py`](src/observability/tool_logging.py))
 
@@ -671,11 +1135,47 @@ Isolation comes first. If compression comes first, a summarizer can read applica
 
 **Tracing** ([`src/observability/tracing.py`](src/observability/tracing.py)). Each retrieval stage opens a named span (see [7.2](#72-pipeline-stages)). Tracing is off by default. Spans carry IDs, counts, latencies and rule IDs, not applicant text. If Phoenix or the exporter is not available, the span helpers do nothing and retrieval continues.
 
+```mermaid
+flowchart LR
+    TOOL["retrieve_policy_tool<br/>tool_call context"] --> TC[("logs/tool_calls.jsonl")]
+    NODES["Graph nodes<br/>log_agent_action"] --> AA[("logs/agent_actions.jsonl")]
+    TOOL --> AA
+    MCPS["MCP handlers<br/>log_mcp_exchange"] --> MT[("logs/mcp_transcript.jsonl")]
+    PIPE["PolicyRetriever stages<br/>tr.span"] --> ON{"configure_tracing called<br/>or CREDPILOT_TRACING=1?"}
+    ON -- "no" --> NOP["No-op spans"]
+    ON -- "yes" --> RED["redact_text on<br/>each attribute"]
+    RED --> PHX[("Phoenix<br/>PHOENIX_COLLECTOR_ENDPOINT")]
+    EXP["scripts/export_traces.py"] --> TR[("traces/phoenix_spans.jsonl,<br/>trace_summary.json")]
+```
+
 ---
 
 ## 13. The MCP server
 
 **Purpose.** Give the retrieval subsystem to any MCP client over stdio.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant CL as MCP client, client.py
+    participant SV as mcp_server/server.py
+    participant RT as retrieve_policy_tool
+    participant PR as PolicyRetriever
+    participant LOG as logs/mcp_transcript.jsonl
+
+    CL->>SV: start the subprocess, stdio
+    SV->>SV: warm_up, load the models and indexes, stdout to stderr
+    SV->>SV: mcp.run(transport=stdio)
+    CL->>SV: open_session, load_surface, tools and resources
+    CL->>SV: tools/call retrieve_policy(query, application_id, as_of_date)
+    SV->>LOG: log_mcp_exchange request
+    SV->>RT: retrieve_policy_tool(agent=mcp_client)
+    RT->>PR: retrieve(request)
+    PR-->>RT: PolicyRetrievalResult
+    RT-->>SV: result
+    SV->>LOG: log_mcp_exchange response, status and citations
+    SV-->>CL: result_to_payload JSON
+```
 
 | Kind | Name | What it does |
 |---|---|---|
@@ -697,6 +1197,23 @@ Isolation comes first. If compression comes first, a summarizer can read applica
 
 All data is synthetic. Committed code makes it from fixed seeds. No record is real, and no policy is the policy of a real lender.
 
+The mortgage generator (`synthetic_data/mortgage/generator/generate_synthetic_data.py`) runs these 8 steps:
+
+```mermaid
+flowchart TD
+    SEED[/"SYNTHETIC_SEED, default 20260920,<br/>or --seed"/] --> S1["1. Policy corpus<br/>write_policy_corpus, policies.csv, policy_rules.csv"]
+    S1 --> S2["2. build_all<br/>applications, assert each scenario"]
+    S2 --> S3["3. to_rows, write_tables<br/>32 structured CSV tables"]
+    S3 --> S4["4. Borrower and application profiles"]
+    S4 --> S5["5. Application packets<br/>applications/APP-NNNNNN.json, index.json"]
+    S5 --> S6["6. Scenario catalog and golden set"]
+    S6 --> S7["7. JSON schemas"]
+    S7 --> S8["8. Generated documentation<br/>DATA_DICTIONARY.md and reports"]
+    S3 --> OUTT[("structured/<br/>input and outcome tables")]
+    S5 --> OUTA[("applications/<br/>model inputs only")]
+    S6 --> OUTG[("golden_set/<br/>read by the evaluation only")]
+```
+
 | Item | Mortgage | Education |
 |---|---|---|
 | Applications | 75 | 200 |
@@ -715,6 +1232,41 @@ Each product has its own data dictionary and README under `synthetic_data/<produ
 ## 15. The evaluation harness
 
 **Purpose.** Measure retrieval and the full graph, per product, and publish the limits beside the figures.
+
+The retrieval evaluation (`run_retrieval_eval.py`) needs no key:
+
+```mermaid
+flowchart TD
+    CS[/"queries.jsonl authored cases<br/>+ golden cases"/] --> LC["load_cases for each product"]
+    LC --> RC["runner.run_case<br/>PolicyRetriever.retrieve"]
+    RC --> SC["score_case: policy and rule recall,<br/>MRR, nDCG, version accuracy"]
+    RC --> CV["CitationResolver<br/>citation_validity"]
+    RC --> CT["Foreign chunk prefix<br/>cross_product_contamination"]
+    SC --> AGG["MetricAccumulator,<br/>p50 and p95 latency"]
+    CV --> AGG
+    CT --> AGG
+    AGG --> MAC["macro_average<br/>unweighted across products"]
+    MAC --> TGT{"Targets met?"}
+    TGT --> OUT[("eval/results/retrieval_eval.json,<br/>retrieval_eval_cases.jsonl")]
+```
+
+The end-to-end evaluation (`run_agent_eval.py`) needs a key for the judge:
+
+```mermaid
+flowchart TD
+    GC[/"Golden cases, 75 + 20"/] --> PRB{"llm.probe:<br/>Gemini reachable?"}
+    PRB -- "no" --> NJ["Deterministic metrics only"]
+    PRB -- "yes" --> J["GeminiJudge"]
+    GC --> RUN["run_case: graph.invoke<br/>thread eval-run_id-case_id"]
+    RUN --> DET["Outcome, citations, faithfulness,<br/>cost, latency, steps"]
+    J --> SAMP{"Inside --judge-limit-per-product?"}
+    SAMP -- "yes" --> DE["DeepEval: faithfulness,<br/>hallucination, answer relevancy"]
+    DET --> SUM["summarize for each product"]
+    DE --> SUM
+    NJ --> SUM
+    SUM --> MAC["macro_average"]
+    MAC --> OUT[("reports/eval_report.json,<br/>reports/eval_cases.jsonl")]
+```
 
 | Harness | Entry point | Measures | Needs a key |
 |---|---|---|---|
@@ -791,6 +1343,24 @@ Build the indexes first. The build takes about 30 seconds on a CPU.
 
 ```bash
 python scripts/build_policy_indexes.py
+```
+
+```mermaid
+flowchart TD
+    CFG[/"config/rag.yaml"/] --> EMB["PolicyEmbedder<br/>intfloat/e5-base-v2"]
+    EMB --> LOOP["build_product_index<br/>for each product"]
+    LOOP --> PARSE["parser.parse_corpus"]
+    PARSE --> DUP{"Duplicate chunk IDs?"}
+    DUP -- "yes" --> ERR[/"ValueError"/]
+    DUP -- "no" --> ENC["encode_passages"]
+    ENC --> CH["PolicyVectorStore.reset,<br/>add_chunks"]
+    CH --> BM["BM25Index.build, save"]
+    BM --> MAN[("index_manifest.json,<br/>corpus_registry.json")]
+    MAN --> INT["validate_indexes<br/>16 checks"]
+    INT --> PASS{"All checks pass?"}
+    PASS -- "yes" --> OK[/"exit 0"/]
+    PASS -- "no" --> FAIL[/"FAILED CHECKS, exit 1"/]
+    INT --> REP[("index_integrity.json")]
 ```
 
 Expected output:
@@ -916,6 +1486,16 @@ Make all committed evidence again with one command:
 python scripts/regenerate_evidence.py                          # 8 steps
 python scripts/regenerate_evidence.py --only indexes           # one step
 python scripts/regenerate_evidence.py --skip "agent evaluation"
+```
+
+```mermaid
+flowchart LR
+    S1["indexes"] --> S2["funnel sweep"] --> S3["ablation"] --> S4["retrieval evaluation"] --> S5["trace export"] --> K{"Key set?"}
+    K -- "yes" --> S6["agent evaluation<br/>--judge-limit-per-product 20"]
+    K -- "no" --> SKIP["Skip with a message"]
+    S6 --> S7["golden signals"]
+    SKIP --> S7
+    S7 --> S8["dashboard"]
 ```
 
 The steps are: indexes, funnel sweep, ablation, retrieval evaluation, trace export, agent evaluation, golden signals, dashboard. If no key is set, the script skips the agent evaluation with a message. With a key, the full run takes a little more than one hour. Without a key, it takes about ten minutes.
